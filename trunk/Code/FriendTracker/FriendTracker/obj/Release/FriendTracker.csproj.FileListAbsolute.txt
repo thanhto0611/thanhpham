@@ -1,0 +1,12 @@
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Release\FriendTracker.exe.config
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Release\FriendTracker.exe
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Release\FriendTracker.pdb
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Release\Facebook.dll
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Release\Facebook.xml
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Release\FriendTracker.AddFriendForm.resources
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Release\FriendTracker.mainForm.resources
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Release\FriendTracker.Properties.Resources.resources
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Release\FriendTracker.csproj.GenerateResource.Cache
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Release\FriendTracker.exe
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Release\FriendTracker.pdb
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Release\FriendTracker.csprojResolveAssemblyReference.cache

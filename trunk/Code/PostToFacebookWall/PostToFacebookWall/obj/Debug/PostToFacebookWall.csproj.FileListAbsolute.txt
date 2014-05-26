@@ -1,0 +1,8 @@
+D:\Simplexhub\2013\FacebookApp\PostToFacebookWall\PostToFacebookWall\bin\PostToFacebookWall.dll
+D:\Simplexhub\2013\FacebookApp\PostToFacebookWall\PostToFacebookWall\bin\PostToFacebookWall.pdb
+D:\Simplexhub\2013\FacebookApp\PostToFacebookWall\PostToFacebookWall\bin\EntityFramework.dll
+D:\Simplexhub\2013\FacebookApp\PostToFacebookWall\PostToFacebookWall\bin\ImpactWorks.FBGraph.dll
+D:\Simplexhub\2013\FacebookApp\PostToFacebookWall\PostToFacebookWall\bin\EntityFramework.xml
+D:\Simplexhub\2013\FacebookApp\PostToFacebookWall\PostToFacebookWall\obj\Debug\ResolveAssemblyReference.cache
+D:\Simplexhub\2013\FacebookApp\PostToFacebookWall\PostToFacebookWall\obj\Debug\PostToFacebookWall.dll
+D:\Simplexhub\2013\FacebookApp\PostToFacebookWall\PostToFacebookWall\obj\Debug\PostToFacebookWall.pdb

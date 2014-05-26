@@ -1,0 +1,10 @@
+F:\Source_RC1\DTO\bin\Debug\DTO.dll
+F:\Source_RC1\DTO\bin\Debug\DTO.pdb
+F:\Source_RC1\DTO\obj\Debug\ResolveAssemblyReference.cache
+F:\Source_RC1\DTO\obj\Debug\DTO.dll
+F:\Source_RC1\DTO\obj\Debug\DTO.pdb
+D:\Source code chinh thuc\DTO\bin\Debug\DTO.dll
+D:\Source code chinh thuc\DTO\bin\Debug\DTO.pdb
+D:\Source code chinh thuc\DTO\obj\Debug\ResolveAssemblyReference.cache
+D:\Source code chinh thuc\DTO\obj\Debug\DTO.dll
+D:\Source code chinh thuc\DTO\obj\Debug\DTO.pdb

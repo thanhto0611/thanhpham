@@ -1,0 +1,23 @@
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Debug\FriendTracker.exe.config
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Debug\FriendTracker.exe
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Debug\FriendTracker.pdb
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Debug\FriendTracker.MainForm.resources
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Debug\FriendTracker.Properties.Resources.resources
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Debug\FriendTracker.csproj.GenerateResource.Cache
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Debug\FriendTracker.exe
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Debug\FriendTracker.pdb
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Debug\Facebook.dll
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\bin\Debug\Facebook.xml
+C:\Users\Johnny\Documents\_Visual Studio Projects\FriendTracker\FriendTracker\obj\Debug\FriendTracker.AddFriendForm.resources
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\bin\Debug\FriendTracker.exe.config
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\obj\Debug\FriendTracker.exe
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\obj\Debug\FriendTracker.pdb
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\bin\Debug\FriendTracker.exe
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\bin\Debug\FriendTracker.pdb
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\bin\Debug\Facebook.dll
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\bin\Debug\Facebook.xml
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\obj\Debug\FriendTracker.csprojResolveAssemblyReference.cache
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\obj\Debug\FriendTracker.AddFriendForm.resources
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\obj\Debug\FriendTracker.MainForm.resources
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\obj\Debug\FriendTracker.Properties.Resources.resources
+D:\Work\ELLA\Tools\QLSP\Code\FriendTracker\FriendTracker\obj\Debug\FriendTracker.csproj.GenerateResource.Cache

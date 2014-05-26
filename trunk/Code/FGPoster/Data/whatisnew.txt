@@ -1,0 +1,9 @@
+Facebook Poster & Scheduler 2.4, 2.5, 2.6, 2.7 New Fetures
+1. Checking status for a post to group. You can know if you post is pending.
+2. Post searching and commenting. Now you can find public post by a keyword. Auto post comments to these posts.
+3. Random message while posting. Using random messages, you can avoid spam detecting by facebook.
+4. Checking for total group members. This is relative number, its not same on REAL-Browser. But it will help you do not waste time with some groups there no members.
+5. Specify token (account) while posting a comment.
+6. Adding random Photo when posting a message
+
+FEEL FREE CONTACT ME VIA tungnt90@gmail.com IF YOU NEED THE HELP OR WANT TO SUGGEST FOR A FEATURE ON THE SOFTWARE.

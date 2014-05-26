@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FriendTracker.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SMTPUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SMTPPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SMTPPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="CloseAfterUpdate" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LogOutAfterUpdate" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SendEmail" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SMTPServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[Your SMTP Server]</Value>
+    </Setting>
+    <Setting Name="ApplicationID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[Your Facebook AppID]</Value>
+    </Setting>
+    <Setting Name="ApplicationSecret" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[Your Facebook AppSecret]</Value>
+    </Setting>
+    <Setting Name="FromEmailAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[Your FROM email address]</Value>
+    </Setting>
+    <Setting Name="ToEmailAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[Your TO email address]</Value>
+    </Setting>
+    <Setting Name="SMTPUseSecurity" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

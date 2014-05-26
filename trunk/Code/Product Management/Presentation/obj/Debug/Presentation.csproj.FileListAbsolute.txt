@@ -1,0 +1,467 @@
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.exe
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.pdb
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\bin\Debug\Presentation.exe
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\bin\Debug\Presentation.pdb
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\bin\Debug\BUS.dll
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\bin\Debug\DTO.dll
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\bin\Debug\DAO.dll
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\bin\Debug\BUS.pdb
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\bin\Debug\DAO.pdb
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\bin\Debug\DTO.pdb
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\ResolveAssemblyReference.cache
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmCapNhatSach.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmDangNhap.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmQuanTriVien.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.Main.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+D:\Study\Library Management\Presentation\bin\Debug\Presentation.exe
+D:\Study\Library Management\Presentation\bin\Debug\Presentation.pdb
+D:\Study\Library Management\Presentation\bin\Debug\BUS.dll
+D:\Study\Library Management\Presentation\bin\Debug\DTO.dll
+D:\Study\Library Management\Presentation\bin\Debug\DAO.dll
+D:\Study\Library Management\Presentation\bin\Debug\BUS.pdb
+D:\Study\Library Management\Presentation\bin\Debug\DAO.pdb
+D:\Study\Library Management\Presentation\bin\Debug\DTO.pdb
+D:\Study\Library Management\Presentation\obj\Debug\ResolveAssemblyReference.cache
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmCapNhatSach.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmDangNhap.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmQuanLySanPham.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmQuanTriVien.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.Main.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.exe
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.pdb
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyDanhMuc.resources
+D:\Study\Library Management\Presentation\obj\Debug\Presentation.frmThemDanhMuc.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.exe
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\Library Management\Presentation\bin\Debug\Presentation.exe
+D:\Work\ELLA\Tools\Library Management\Presentation\bin\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\Library Management\Presentation\bin\Debug\BUS.dll
+D:\Work\ELLA\Tools\Library Management\Presentation\bin\Debug\DTO.dll
+D:\Work\ELLA\Tools\Library Management\Presentation\bin\Debug\DAO.dll
+D:\Work\ELLA\Tools\Library Management\Presentation\bin\Debug\BUS.pdb
+D:\Work\ELLA\Tools\Library Management\Presentation\bin\Debug\DAO.pdb
+D:\Work\ELLA\Tools\Library Management\Presentation\bin\Debug\DTO.pdb
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmCapNhatSach.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmDangNhap.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyDanhMuc.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLySanPham.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanTriVien.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemDanhMuc.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.Main.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.exe
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.pdb
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\ResolveAssemblyReference.cache
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmCapNhatSach.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmDangNhap.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyDanhMuc.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLySanPham.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanTriVien.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemDanhMuc.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.Main.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+E:\Private\Work\Tools\Library Management\Presentation\bin\Debug\Presentation.exe
+E:\Private\Work\Tools\Library Management\Presentation\bin\Debug\Presentation.pdb
+E:\Private\Work\Tools\Library Management\Presentation\bin\Debug\BUS.dll
+E:\Private\Work\Tools\Library Management\Presentation\bin\Debug\DTO.dll
+E:\Private\Work\Tools\Library Management\Presentation\bin\Debug\DAO.dll
+E:\Private\Work\Tools\Library Management\Presentation\bin\Debug\BUS.pdb
+E:\Private\Work\Tools\Library Management\Presentation\bin\Debug\DAO.pdb
+E:\Private\Work\Tools\Library Management\Presentation\bin\Debug\DTO.pdb
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemSanPham.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmThemSanPham.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyDonHang.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyKhachHang.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyDonHang.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmQuanLyKhachHang.resources
+E:\Private\Work\Tools\Library Management\Presentation\obj\Debug\Presentation.frmChiTietDonHang.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmChiTietDonHang.resources
+D:\Work\ELLA\Tools\Library Management\Presentation\obj\Debug\Presentation.frmShowPicture.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.exe
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.pdb
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\ResolveAssemblyReference.cache
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmCapNhatSach.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmChiTietDonHang.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmDangNhap.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyDanhMuc.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyKhachHang.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLySanPham.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanTriVien.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmShowPicture.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemDanhMuc.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemSanPham.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.Main.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+E:\Private\Work\Tools\Library Management - Copy\Presentation\bin\Debug\Presentation.exe
+E:\Private\Work\Tools\Library Management - Copy\Presentation\bin\Debug\Presentation.pdb
+E:\Private\Work\Tools\Library Management - Copy\Presentation\bin\Debug\BUS.dll
+E:\Private\Work\Tools\Library Management - Copy\Presentation\bin\Debug\DTO.dll
+E:\Private\Work\Tools\Library Management - Copy\Presentation\bin\Debug\DAO.dll
+E:\Private\Work\Tools\Library Management - Copy\Presentation\bin\Debug\BUS.pdb
+E:\Private\Work\Tools\Library Management - Copy\Presentation\bin\Debug\DAO.pdb
+E:\Private\Work\Tools\Library Management - Copy\Presentation\bin\Debug\DTO.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.exe
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\bin\Debug\Presentation.exe
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\bin\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\bin\Debug\BUS.dll
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\bin\Debug\DTO.dll
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\bin\Debug\DAO.dll
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\bin\Debug\BUS.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\bin\Debug\DAO.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\bin\Debug\DTO.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmCapNhatSach.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmChiTietDonHang.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmDangNhap.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyDanhMuc.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyDonHang.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyKhachHang.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLySanPham.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanTriVien.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmShowPicture.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemDanhMuc.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemSanPham.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.Main.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyDonHang.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew2.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew2.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.Main2.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.Main2.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmXuatKhoHang.resources
+E:\Private\Work\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmImportProducts.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmImportProducts.resources
+D:\Work\ELLA\Tools\Library Management - Copy\Presentation\obj\Debug\Presentation.frmXuatKhoHang.resources
+E:\Private\Work\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.exe
+E:\Private\Work\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.exe
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\Presentation.exe
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\BUS.dll
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\DTO.dll
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\DAO.dll
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\DAO.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\BUS.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\DTO.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmImportProducts.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmXuatKhoHang.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmCapNhatSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmChiTietDonHang.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew2.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmDangNhap.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyDanhMuc.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyDonHang.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyKhachHang.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLySanPham.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmQuanTriVien.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmShowPicture.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemDanhMuc.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemSanPham.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.Main.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.Main2.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\EPPlus.dll
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\EPPlus.xml
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Interop.VBIDE.dll
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\obj\Debug\Presentation.csproj.ResolveComReference.cache
+D:\Work\ELLA\Tools\QLSP\Code\Library Management - Copy\Presentation\bin\Debug\Interop.VBIDE.dll
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Interop.VBIDE.dll
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.csproj.ResolveComReference.cache
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.exe
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\Presentation.exe
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\BUS.dll
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\DTO.dll
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\EPPlus.dll
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\DAO.dll
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\EPPlus.xml
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\DAO.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\BUS.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\DTO.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\bin\Debug\Interop.VBIDE.dll
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmImportProducts.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmXuatKhoHang.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmCapNhatSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmChiTietDonHang.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew2.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmDangNhap.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyDanhMuc.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyDonHang.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyKhachHang.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLySanPham.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanTriVien.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmShowPicture.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemDanhMuc.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemSanPham.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.Main.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.Main2.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+E:\Private\Work\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Interop.VBIDE.dll
+E:\Private\Work\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.csproj.ResolveComReference.cache
+E:\Private\Work\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.exe
+E:\Private\Work\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Product Management\Presentation\obj\Debug\Presentation.frmFacebook.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Interop.VBIDE.dll
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.csproj.ResolveComReference.cache
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.exe
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.pdb
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\ResolveAssemblyReference.cache
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmFacebook.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmImportProducts.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmXuatKhoHang.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmCapNhatSach.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmChiTietDonHang.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmChiTietDonHangNew2.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmDangNhap.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyDanhMuc.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyDonHang.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyKhachHang.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLySanPham.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmQuanTriVien.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmShowPicture.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemDanhMuc.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemSanPham.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.Main.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.Main2.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\Presentation.exe
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\Presentation.pdb
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\BUS.dll
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\DTO.dll
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\EPPlus.dll
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\DAO.dll
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\office.dll
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\EPPlus.xml
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\DAO.pdb
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\BUS.pdb
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\DTO.pdb
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\Interop.Microsoft.Office.Core.dll
+D:\Google Drive\Code\Product Management\Presentation\bin\Debug\Interop.VBIDE.dll
+D:\Google Drive\Code\Product Management\Presentation\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\MySVN\Code\Product Management\Presentation\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\MySVN\Code\Product Management\Presentation\obj\Debug\Interop.VBIDE.dll
+D:\MySVN\Code\Product Management\Presentation\obj\Debug\Presentation.csproj.ResolveComReference.cache
+D:\MySVN\Code\Product Management\Presentation\obj\Debug\Presentation.exe
+D:\MySVN\Code\Product Management\Presentation\obj\Debug\Presentation.pdb

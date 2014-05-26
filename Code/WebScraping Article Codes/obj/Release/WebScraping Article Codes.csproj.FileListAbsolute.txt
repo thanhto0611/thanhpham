@@ -1,0 +1,18 @@
+C:\Users\DotNet\Desktop\WebScraping Article Codes\bin\Release\WebScraping Article Codes.exe
+C:\Users\DotNet\Desktop\WebScraping Article Codes\bin\Release\WebScraping Article Codes.pdb
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\ResolveAssemblyReference.cache
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._1WebBrowser_Download_Event.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._2_Web_Browser_Single_Event.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._3_Navigate_to_OLX_s_1st_Add_s_Page.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._4_Navigate_to_All_the_Adds.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._5_Yahoo_Signin_Form.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._6_Adding_Custom_Headers.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._7_Saving_All_Images.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._8_Setting_Proxy_for_IE.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes.Form1.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes.Properties.Resources.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping Article Codes.csproj.GenerateResource.Cache
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping Article Codes.exe
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping Article Codes.pdb
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._9_Facebook_Login_using_HTTPWebRequest.resources
+C:\Users\DotNet\Desktop\WebScraping Article Codes\obj\Release\WebScraping_Article_Codes._10_Facebook_Pic_Upload_HttpWebRequest.resources

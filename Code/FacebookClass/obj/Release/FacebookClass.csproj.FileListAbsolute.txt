@@ -1,0 +1,16 @@
+C:\Users\mani\Desktop\WindowsFormsApplication1\bin\Release\FacebookClass.exe
+C:\Users\mani\Desktop\WindowsFormsApplication1\bin\Release\FacebookClass.pdb
+C:\Users\mani\Desktop\WindowsFormsApplication1\obj\Release\ResolveAssemblyReference.cache
+C:\Users\mani\Desktop\WindowsFormsApplication1\obj\Release\FacebookClass.Form1.resources
+C:\Users\mani\Desktop\WindowsFormsApplication1\obj\Release\FacebookClass.Properties.Resources.resources
+C:\Users\mani\Desktop\WindowsFormsApplication1\obj\Release\FacebookClass.csproj.GenerateResource.Cache
+C:\Users\mani\Desktop\WindowsFormsApplication1\obj\Release\FacebookClass.exe
+C:\Users\mani\Desktop\WindowsFormsApplication1\obj\Release\FacebookClass.pdb
+C:\Users\mani\Desktop\FacebookClass\obj\Release\FacebookClass.pdb
+C:\Users\mani\Desktop\FacebookClass\bin\Release\FacebookClass.exe
+C:\Users\mani\Desktop\FacebookClass\bin\Release\FacebookClass.pdb
+C:\Users\mani\Desktop\FacebookClass\obj\Release\ResolveAssemblyReference.cache
+C:\Users\mani\Desktop\FacebookClass\obj\Release\FacebookClass.Form1.resources
+C:\Users\mani\Desktop\FacebookClass\obj\Release\FacebookClass.Properties.Resources.resources
+C:\Users\mani\Desktop\FacebookClass\obj\Release\FacebookClass.csproj.GenerateResource.Cache
+C:\Users\mani\Desktop\FacebookClass\obj\Release\FacebookClass.exe

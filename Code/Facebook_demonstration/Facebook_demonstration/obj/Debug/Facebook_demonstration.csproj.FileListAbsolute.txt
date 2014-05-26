@@ -1,0 +1,21 @@
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\bin\Debug\Facebook_demonstration.exe
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\bin\Debug\Facebook_demonstration.pdb
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\bin\Debug\facebook.dll
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\bin\Debug\Facebook.Winforms.dll
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.Form1.resources
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.Properties.Resources.resources
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.csproj.GenerateResource.Cache
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.exe
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.pdb
+C:\Users\Mohamed Amr\Facebook_demonstration\Facebook_demonstration\bin\Debug\Interop.SHDocVw.dll
+E:\Private\Work\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.exe
+E:\Private\Work\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.exe
+D:\Work\ELLA\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\bin\Debug\Facebook_demonstration.exe
+D:\Work\ELLA\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\bin\Debug\Facebook_demonstration.pdb
+D:\Work\ELLA\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\ELLA\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.Form1.resources
+D:\Work\ELLA\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.Properties.Resources.resources
+D:\Work\ELLA\Tools\QLSP\Code\Facebook_demonstration\Facebook_demonstration\obj\Debug\Facebook_demonstration.csproj.GenerateResource.Cache

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnNhap = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.btnNhap = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -42,17 +42,28 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1061, 100);
+            this.groupBox1.Size = new System.Drawing.Size(1061, 77);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // btnNhap
+            // 
+            this.btnNhap.Enabled = false;
+            this.btnNhap.Location = new System.Drawing.Point(12, 12);
+            this.btnNhap.Name = "btnNhap";
+            this.btnNhap.Size = new System.Drawing.Size(134, 53);
+            this.btnNhap.TabIndex = 0;
+            this.btnNhap.Text = "Nhập Đơn Hàng";
+            this.btnNhap.UseVisualStyleBackColor = true;
+            this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.webBrowser1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 100);
+            this.groupBox2.Location = new System.Drawing.Point(0, 77);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1061, 475);
+            this.groupBox2.Size = new System.Drawing.Size(1061, 498);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
@@ -62,20 +73,10 @@
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1055, 456);
+            this.webBrowser1.Size = new System.Drawing.Size(1055, 479);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.Url = new System.Uri("http://thoitrangella.com/admin", System.UriKind.Absolute);
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
-            // 
-            // btnNhap
-            // 
-            this.btnNhap.Location = new System.Drawing.Point(268, 12);
-            this.btnNhap.Name = "btnNhap";
-            this.btnNhap.Size = new System.Drawing.Size(75, 63);
-            this.btnNhap.TabIndex = 0;
-            this.btnNhap.Text = "Nhập Đơn Hàng";
-            this.btnNhap.UseVisualStyleBackColor = true;
-            this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);
             // 
             // frmNhapDonHangTuWeb
             // 

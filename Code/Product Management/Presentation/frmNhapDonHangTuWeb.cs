@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BUS;
+using DTO;
 
 namespace Presentation
 {
@@ -42,30 +43,47 @@ namespace Presentation
 
                 _isLogin = true;
             }
+            btnNhap.Enabled = true;
         }
 
         private void btnNhap_Click(object sender, EventArgs e)
         {
-            SanPhamBUS spBus = new SanPhamBUS();
-            frmQuanLyDonHang.dtWeb = spBus.GetNull();
-            HtmlElementCollection tables = webBrowser1.Document.GetElementsByTagName("table");
-
-            HtmlElementCollection tbodys = tables[2].GetElementsByTagName("tbody");
-            foreach (HtmlElement tbody in tbodys)
+            try
             {
-                HtmlElementCollection tds = tbody.GetElementsByTagName("tr")[0].GetElementsByTagName("td");
-                DataRow dr = frmQuanLyDonHang.dtWeb.NewRow();
+                SanPhamBUS spBus = new SanPhamBUS();
+                frmQuanLyDonHang.dt = spBus.GetNull();
+                HtmlElementCollection tables = webBrowser1.Document.GetElementsByTagName("table");
 
-                if (tds[0].GetElementsByTagName("span").Count > 0)
+                HtmlElementCollection tbodys = tables[2].GetElementsByTagName("tbody");
+                foreach (HtmlElement tbody in tbodys)
                 {
-                    dr[0] = tds[0].GetElementsByTagName("span")[0].InnerText;
-                    dr[4] = tds[4].GetElementsByTagName("strong")[0].InnerText;
+                    HtmlElementCollection tds = tbody.GetElementsByTagName("tr")[0].GetElementsByTagName("td");
+                    DataRow dr = frmQuanLyDonHang.dt.NewRow();
+
+                    if (tds[0].GetElementsByTagName("span").Count > 0 && tds[0].GetElementsByTagName("span")[0].InnerText != "")
+                    {
+                        SanPhamDTO spDto = SanPhamBUS.LaySanPham(tds[0].GetElementsByTagName("span")[0].InnerText);
+                        dr[0] = tds[0].GetElementsByTagName("span")[0].InnerText;
+                        dr[1] = spDto.HinhAnh;
+                        dr[2] = spDto.MauSac;
+                        dr[4] = tds[4].GetElementsByTagName("strong")[0].InnerText;
+                        dr[5] = spDto.TrangThai;
+                        dr[7] = spDto.GiaSi;
+                        dr[8] = spDto.GiaLe;
+
+                        frmQuanLyDonHang.dt.Rows.Add(dr);
+                    }
                 }
 
-                dtDonHangWeb.Rows.Add(dr);
+                frmQuanLyDonHang._readFromWebDone = true;
+                this.Close();
             }
-
-            this.Close();
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            
         }
     }
 }

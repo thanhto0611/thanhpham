@@ -356,15 +356,15 @@ namespace DAO
         //    return command;
         //}
 
-        //public SanPhamDTO Search_MaSach(int maSach)
+        //public SanPhamDTO Search_MaSanPham(string maSp)
         //{
         //    SanPhamDTO sanPhamDTO = null;
         //    DataTable dataTable = new DataTable();
         //    OleDbConnection connection = DataProvider.CreateConnection();
-        //    string cmdText = "select * from SANPHAM where MaSach = ?";
+        //    string cmdText = "select * from SANPHAM where MaSanPham = ?";
         //    OleDbCommand command = new OleDbCommand(cmdText, connection);
         //    command.Parameters.Add("@MaSach", OleDbType.Integer);
-        //    command.Parameters["@MaSach"].Value = maSach;
+        //    command.Parameters["@MaSach"].Value = maSp;
         //    OleDbDataReader reader = command.ExecuteReader();
 
         //    if (reader.Read())
@@ -468,6 +468,8 @@ namespace DAO
                 spDto.MauSac = (string)reader["MauSac"];
                 spDto.GiaSi = (int)reader["GiaSi"];
                 spDto.GiaLe = (int)reader["GiaLe"];
+                spDto.HinhAnh = (string)reader["HinhAnh"];
+                spDto.TrangThai = (int)reader["TrangThai"];
             }
 
             reader.Close();

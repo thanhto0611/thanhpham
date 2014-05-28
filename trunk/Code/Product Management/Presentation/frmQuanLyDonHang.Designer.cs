@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyDonHang));
             this.tabDonHang = new System.Windows.Forms.TabControl();
             this.tabThemDonHang = new System.Windows.Forms.TabPage();
@@ -55,6 +56,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnNhapDonHang = new System.Windows.Forms.Button();
             this.lbMaDonHang = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnTaoDonHang = new System.Windows.Forms.Button();
@@ -95,7 +97,7 @@
             this.txtMaDonHang_TimKiem = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnNhapDonHang = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabDonHang.SuspendLayout();
             this.tabThemDonHang.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -427,6 +429,20 @@
             this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             // 
+            // btnNhapDonHang
+            // 
+            this.btnNhapDonHang.Enabled = false;
+            this.btnNhapDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapDonHang.ForeColor = System.Drawing.Color.Red;
+            this.btnNhapDonHang.Location = new System.Drawing.Point(372, 21);
+            this.btnNhapDonHang.Name = "btnNhapDonHang";
+            this.btnNhapDonHang.Size = new System.Drawing.Size(145, 67);
+            this.btnNhapDonHang.TabIndex = 24;
+            this.btnNhapDonHang.Text = "Nhập Đơn Hàng Từ Web";
+            this.btnNhapDonHang.UseVisualStyleBackColor = true;
+            this.btnNhapDonHang.Visible = false;
+            this.btnNhapDonHang.Click += new System.EventHandler(this.btnNhapDonHang_Click);
+            // 
             // lbMaDonHang
             // 
             this.lbMaDonHang.AutoSize = true;
@@ -452,7 +468,7 @@
             this.btnTaoDonHang.Enabled = false;
             this.btnTaoDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoDonHang.ForeColor = System.Drawing.Color.Red;
-            this.btnTaoDonHang.Location = new System.Drawing.Point(206, 21);
+            this.btnTaoDonHang.Location = new System.Drawing.Point(227, 21);
             this.btnTaoDonHang.Name = "btnTaoDonHang";
             this.btnTaoDonHang.Size = new System.Drawing.Size(139, 67);
             this.btnTaoDonHang.TabIndex = 10;
@@ -863,19 +879,9 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Ngày Đặt Hàng";
             // 
-            // btnNhapDonHang
+            // timer1
             // 
-            this.btnNhapDonHang.Enabled = false;
-            this.btnNhapDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapDonHang.ForeColor = System.Drawing.Color.Red;
-            this.btnNhapDonHang.Location = new System.Drawing.Point(351, 21);
-            this.btnNhapDonHang.Name = "btnNhapDonHang";
-            this.btnNhapDonHang.Size = new System.Drawing.Size(166, 67);
-            this.btnNhapDonHang.TabIndex = 24;
-            this.btnNhapDonHang.Text = "Nhập Đơn Hàng Từ Web";
-            this.btnNhapDonHang.UseVisualStyleBackColor = true;
-            this.btnNhapDonHang.Visible = false;
-            this.btnNhapDonHang.Click += new System.EventHandler(this.btnNhapDonHang_Click);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmQuanLyDonHang
             // 
@@ -982,5 +988,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnNhapDonHang;
+        private System.Windows.Forms.Timer timer1;
     }
 }

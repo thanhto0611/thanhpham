@@ -30,8 +30,10 @@ namespace Presentation
         private int _maDH = 0;
         private int _curTrangThai;
         private bool _changed = false;
+        private bool _changedByWeb = false;
+        public static bool _readFromWebDone = false;
 
-        DataTable dt = new DataTable();
+        public static DataTable dt = new DataTable();
         DataTable dtTimKiem = new DataTable();
         public static DataTable dtWeb = new DataTable();
 
@@ -210,6 +212,7 @@ namespace Presentation
         {
             try
             {
+                btnNhapDonHang.Enabled = false;
                 btnTransport.Enabled = false;
                 SanPhamBUS spBus = new SanPhamBUS();
                 dt = spBus.GetNull();
@@ -363,8 +366,11 @@ namespace Presentation
         {
             try
             {
-                formatData();
-                _changed = true;
+                if (_changedByWeb == false)
+                {
+                    formatData();
+                    _changed = true;
+                }
             }
             catch (System.Exception ex)
             {
@@ -619,6 +625,138 @@ namespace Presentation
             }
         }
 
+        private void formatDataWeb()
+        {
+            try
+            {
+                //dtgvDanhSachSanPham.Refresh();
+                this.dtgvDanhSachSanPham.Columns["HinhAnh"].Visible = false;
+                this.dtgvDanhSachSanPham.Columns["TrangThai"].Visible = false;
+                this.dtgvDanhSachSanPham.Columns["NgayNhap"].Visible = false;
+                this.dtgvDanhSachSanPham.Columns["NgayCapNhat"].Visible = false;
+                this.dtgvDanhSachSanPham.Columns["NguoiNhap"].Visible = false;
+                this.dtgvDanhSachSanPham.Columns["NguoiCapNhat"].Visible = false;
+                this.dtgvDanhSachSanPham.Columns["GiaGoc"].Visible = false;
+                this.dtgvDanhSachSanPham.Columns["TrongLuong"].Visible = false;
+                this.dtgvDanhSachSanPham.Columns["SoLuong"].Visible = false;
+
+                this.dtgvDanhSachSanPham.Columns["GiaSi"].DefaultCellStyle.Format = "#,0";
+                this.dtgvDanhSachSanPham.Columns["GiaLe"].DefaultCellStyle.Format = "#,0";
+                this.dtgvDanhSachSanPham.Columns["GiaGoc"].DefaultCellStyle.Format = "#,0";
+                this.dtgvDanhSachSanPham.Columns["GiaBan"].DefaultCellStyle.Format = "#,0";
+
+                //this.dtgvDanhSachSanPham.Columns["NgayNhap"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
+                //this.dtgvDanhSachSanPham.Columns["NgayCapNhat"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
+
+                this.dtgvDanhSachSanPham.Columns["NgayCapNhat"].ReadOnly = true;
+                this.dtgvDanhSachSanPham.Columns["NgayNhap"].ReadOnly = true;
+                this.dtgvDanhSachSanPham.Columns["MaSanPham"].ReadOnly = true;
+                this.dtgvDanhSachSanPham.Columns["GiaLe"].ReadOnly = true;
+                this.dtgvDanhSachSanPham.Columns["GiaSi"].ReadOnly = true;
+                this.dtgvDanhSachSanPham.Columns["GiaBan"].ReadOnly = true;
+
+                this.dtgvDanhSachSanPham.Columns["GiaBan"].HeaderText = "TongTien";
+
+                int tongTien = 0;
+                int soLuong = 0;
+
+                foreach (DataGridViewRow row in this.dtgvDanhSachSanPham.Rows)
+                {
+                    row.Height = _rowHeight;
+
+                    if (row.Cells["img"].Value == null)
+                    {
+                        string checkImgPath = Directory.GetCurrentDirectory();
+                        string imgPath = Directory.GetCurrentDirectory();
+
+                        checkImgPath = checkImgPath + @"\Hinh\" + row.Cells["HinhAnh"].Value.ToString();
+                        if (File.Exists(checkImgPath) == true)
+                        {
+                            imgPath = checkImgPath;
+                        }
+                        else
+                        {
+                            imgPath = imgPath + @"\Hinh\NoImage.jpg";
+                        }
+
+
+                        Image image = Helper.ResizeImage(@imgPath, _imageSize, _imageSize, false);
+                        row.Cells["img"].Value = image;
+                    }
+
+                    if (row.Cells["TrangThai"].Value.ToString() == "0" || Int32.Parse(row.Cells["SoLuong"].Value.ToString()) <= 0)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Yellow;
+                        //row.Cells["MauSac"].ReadOnly = true;
+                    }
+
+                    //int sl;
+                    //SanPhamDTO spDto = SanPhamBUS.LaySanPham(row.Cells["MaSanPham"].Value.ToString());
+                    //ChiTietDonHangBUS ctdhBus = new ChiTietDonHangBUS();
+                    //ChiTietDonHangDTO ctdhDto = ctdhBus.KiemTraTonTai(dhDto.MaDonHang, row.Cells["MaSanPham"].Value.ToString());
+
+                    //if ((dhDto.TrangThai == 2 || dhDto.TrangThai == 5) && ctdhDto.MaChiTietDonHang != 0)
+                    //{
+                    //    sl = Int32.Parse(row.Cells["SoLuong"].Value.ToString()) + spDto.SoLuong;
+                    //}
+                    //else
+                    //{
+                    //    sl = spDto.SoLuong;
+                    //}
+
+                    if (((DataGridViewComboBoxCell)row.Cells["CmbSoLuong"]).Items.Count == 0)
+                    {
+                        for (int i = 0; i <= 30; i++)
+                        {
+                            ((DataGridViewComboBoxCell)row.Cells["CmbSoLuong"]).Items.Add(i);
+                        }
+                        if (((DataGridViewComboBoxCell)row.Cells["CmbSoLuong"]).Items.Count == 0)
+                        {
+                            ((DataGridViewComboBoxCell)row.Cells["CmbSoLuong"]).Items.Add(0);
+                            ((DataGridViewComboBoxCell)row.Cells["CmbSoLuong"]).ReadOnly = true;
+                        }
+                        row.Cells["CmbSoLuong"].Value = ((DataGridViewComboBoxCell)row.Cells["CmbSoLuong"]).Items[Int32.Parse(row.Cells["SoLuong"].Value.ToString())];
+                    }
+
+                    //if (_gMaSP == row.Cells["MaSanPham"].Value.ToString())
+                    //{
+                    //    row.Cells["CmbSoLuong"].Value = ((DataGridViewComboBoxCell)row.Cells["CmbSoLuong"]).Items[_gSL];
+                    //}
+
+                    if (rdGiaLe.Checked == true)
+                    {
+                        fromFormat = true;
+                        row.Cells["GiaBan"].Value = Int32.Parse(row.Cells["CmbSoLuong"].Value.ToString()) * Int32.Parse(row.Cells["GiaLe"].Value.ToString());
+                    }
+                    else
+                    {
+                        fromFormat = true;
+                        row.Cells["GiaBan"].Value = Int32.Parse(row.Cells["CmbSoLuong"].Value.ToString()) * Int32.Parse(row.Cells["GiaSi"].Value.ToString());
+                    }
+
+
+
+                    soLuong += Int32.Parse(row.Cells["CmbSoLuong"].Value.ToString());
+                    tongTien += Int32.Parse(row.Cells["GiaBan"].Value.ToString());
+                }
+
+                if (txtPhiVanChuyen_Them.Text != "")
+                {
+                    tongTien += Int32.Parse(txtPhiVanChuyen_Them.Text.ToString());
+                }
+
+                lbSoLuong.Text = soLuong.ToString();
+                lbTongTien.Text = tongTien.ToString("n0");
+                fromFormat = false;
+                _gMaSP = "";
+                _gSL = 0;
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void formatDataTimKiem()
         {
             try
@@ -692,9 +830,13 @@ namespace Presentation
             {
                 try
                 {
-                    dtgvDanhSachSanPham.CurrentCell.Value = ((ComboBox)sender).SelectedItem;
-                    formatData();
-                    _changed = true;
+                    if (_changedByWeb == false)
+                    {
+                        dtgvDanhSachSanPham.CurrentCell.Value = ((ComboBox)sender).SelectedItem;
+                        formatData();
+                        _changed = true;
+                    }
+                    
                 }
                 catch (System.Exception ex)
                 {
@@ -1618,9 +1760,24 @@ namespace Presentation
         {
             try
             {
+                dt.Clear();
                 btnTransport.Enabled = false;
-                SanPhamBUS spBus = new SanPhamBUS();
-                dt = spBus.GetNull();
+                btnTaoDonHang.Enabled = false;
+                frmNhapDonHangTuWeb frm = new frmNhapDonHangTuWeb();
+                timer1.Start();
+                frm.Show();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void createDataAfterReadFromWeb()
+        {
+            try
+            {
+                _changedByWeb = true;
                 dtgvDanhSachSanPham.DataSource = dt;
                 dtgvDanhSachSanPham.Visible = true;
 
@@ -1636,12 +1793,6 @@ namespace Presentation
                 soLuongCol.ValueType = typeof(int);
                 dtgvDanhSachSanPham.Columns.Insert(dtgvDanhSachSanPham.Columns["SoLuong"].Index + 1, soLuongCol);
 
-                //DataGridViewTextBoxColumn txtSoLuongCol = new DataGridViewTextBoxColumn();
-                //txtSoLuongCol.Name = "TxtSoLuong";
-                //txtSoLuongCol.HeaderText = "SoLuong";
-                //txtSoLuongCol.ValueType = typeof(int);
-                //dtgvDanhSachSanPham.Columns.Insert(dtgvDanhSachSanPham.Columns["CmbSoLuong"].Index + 1, txtSoLuongCol);
-
                 DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
                 btnColumn.HeaderText = "";
                 btnColumn.Text = "Xóa";
@@ -1651,10 +1802,24 @@ namespace Presentation
                 groupBox4.Visible = true;
                 groupBox5.Visible = true;
                 groupBox8.Visible = true;
+
+                btnTaoDonHang.Enabled = false;
+                formatDataWeb();
+                _changedByWeb = false;
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (_readFromWebDone)
+            {
+                timer1.Stop();
+                createDataAfterReadFromWeb();
+                btnNhapDonHang.Enabled = false;
             }
         }
     }

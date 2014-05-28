@@ -33,6 +33,7 @@ namespace Presentation
 
         DataTable dt = new DataTable();
         DataTable dtTimKiem = new DataTable();
+        public static DataTable dtWeb = new DataTable();
 
         DonHangDTO dhDto = new DonHangDTO();
 
@@ -199,6 +200,8 @@ namespace Presentation
 
             btnTaoDonHang.Visible = true;
             btnTaoDonHang.Enabled = true;
+            btnNhapDonHang.Visible = true;
+            btnNhapDonHang.Enabled = true;
             lbSoLuong.Text = "0";
             lbTongTien.Text = "0";
         }
@@ -1070,11 +1073,6 @@ namespace Presentation
             dtgvDanhSachSanPham.Columns.Clear();
         }
 
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            ClearForm();
-        }
-
         private int KiemTraConHang(string masp, int sl)
         {
             SanPhamBUS spBus = new SanPhamBUS();
@@ -1613,6 +1611,50 @@ namespace Presentation
                 {
                     e.Cancel = true;
                 }
+            }
+        }
+
+        private void btnNhapDonHang_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnTransport.Enabled = false;
+                SanPhamBUS spBus = new SanPhamBUS();
+                dt = spBus.GetNull();
+                dtgvDanhSachSanPham.DataSource = dt;
+                dtgvDanhSachSanPham.Visible = true;
+
+                DataGridViewImageColumn imageCol = new DataGridViewImageColumn();
+                imageCol.Name = "img";
+                imageCol.HeaderText = "Hinh Anh";
+                imageCol.Width = _colWidth;
+                dtgvDanhSachSanPham.Columns.Insert(1, imageCol);
+
+                DataGridViewComboBoxColumn soLuongCol = new DataGridViewComboBoxColumn();
+                soLuongCol.Name = "CmbSoLuong";
+                soLuongCol.HeaderText = "SoLuong";
+                soLuongCol.ValueType = typeof(int);
+                dtgvDanhSachSanPham.Columns.Insert(dtgvDanhSachSanPham.Columns["SoLuong"].Index + 1, soLuongCol);
+
+                //DataGridViewTextBoxColumn txtSoLuongCol = new DataGridViewTextBoxColumn();
+                //txtSoLuongCol.Name = "TxtSoLuong";
+                //txtSoLuongCol.HeaderText = "SoLuong";
+                //txtSoLuongCol.ValueType = typeof(int);
+                //dtgvDanhSachSanPham.Columns.Insert(dtgvDanhSachSanPham.Columns["CmbSoLuong"].Index + 1, txtSoLuongCol);
+
+                DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+                btnColumn.HeaderText = "";
+                btnColumn.Text = "Xóa";
+                btnColumn.UseColumnTextForButtonValue = true;
+                dtgvDanhSachSanPham.Columns.Add(btnColumn);
+
+                groupBox4.Visible = true;
+                groupBox5.Visible = true;
+                groupBox8.Visible = true;
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

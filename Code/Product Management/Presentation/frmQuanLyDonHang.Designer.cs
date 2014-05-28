@@ -57,7 +57,6 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.lbMaDonHang = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnTaoDonHang = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtTKNganHang_Them = new System.Windows.Forms.TextBox();
@@ -96,6 +95,7 @@
             this.txtMaDonHang_TimKiem = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnNhapDonHang = new System.Windows.Forms.Button();
             this.tabDonHang.SuspendLayout();
             this.tabThemDonHang.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -416,9 +416,9 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.btnNhapDonHang);
             this.groupBox7.Controls.Add(this.lbMaDonHang);
             this.groupBox7.Controls.Add(this.label3);
-            this.groupBox7.Controls.Add(this.btnLamMoi);
             this.groupBox7.Controls.Add(this.btnTaoDonHang);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox7.Location = new System.Drawing.Point(3, 331);
@@ -447,25 +447,12 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Mã Đơn Hàng:";
             // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.ForeColor = System.Drawing.Color.Red;
-            this.btnLamMoi.Location = new System.Drawing.Point(408, 62);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(109, 24);
-            this.btnLamMoi.TabIndex = 21;
-            this.btnLamMoi.Text = "Làm Mới Đơn Hàng";
-            this.btnLamMoi.UseVisualStyleBackColor = true;
-            this.btnLamMoi.Visible = false;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
-            // 
             // btnTaoDonHang
             // 
             this.btnTaoDonHang.Enabled = false;
             this.btnTaoDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoDonHang.ForeColor = System.Drawing.Color.Red;
-            this.btnTaoDonHang.Location = new System.Drawing.Point(315, 19);
+            this.btnTaoDonHang.Location = new System.Drawing.Point(206, 21);
             this.btnTaoDonHang.Name = "btnTaoDonHang";
             this.btnTaoDonHang.Size = new System.Drawing.Size(139, 67);
             this.btnTaoDonHang.TabIndex = 10;
@@ -876,6 +863,20 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Ngày Đặt Hàng";
             // 
+            // btnNhapDonHang
+            // 
+            this.btnNhapDonHang.Enabled = false;
+            this.btnNhapDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapDonHang.ForeColor = System.Drawing.Color.Red;
+            this.btnNhapDonHang.Location = new System.Drawing.Point(351, 21);
+            this.btnNhapDonHang.Name = "btnNhapDonHang";
+            this.btnNhapDonHang.Size = new System.Drawing.Size(166, 67);
+            this.btnNhapDonHang.TabIndex = 24;
+            this.btnNhapDonHang.Text = "Nhập Đơn Hàng Từ Web";
+            this.btnNhapDonHang.UseVisualStyleBackColor = true;
+            this.btnNhapDonHang.Visible = false;
+            this.btnNhapDonHang.Click += new System.EventHandler(this.btnNhapDonHang_Click);
+            // 
             // frmQuanLyDonHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -965,7 +966,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cbmTrangThai_Them;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.CheckBox cbxThongTinKH_TimKiem;
         private System.Windows.Forms.TextBox txtThongTinKH_TimKiem;
         private System.Windows.Forms.Label label20;
@@ -981,5 +981,6 @@
         private System.Windows.Forms.Label lbMaDonHang;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnNhapDonHang;
     }
 }

@@ -70,3 +70,12 @@ D:\MySVN\Code\Product Management\BUS\bin\Debug\DAO.pdb
 D:\MySVN\Code\Product Management\BUS\obj\Debug\ResolveAssemblyReference.cache
 D:\MySVN\Code\Product Management\BUS\obj\Debug\BUS.dll
 D:\MySVN\Code\Product Management\BUS\obj\Debug\BUS.pdb
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\BUS.dll
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\BUS.pdb
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\DAO.dll
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\DTO.dll
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\DTO.pdb
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\DAO.pdb
+D:\MySVN\trunk\Code\Product Management\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\MySVN\trunk\Code\Product Management\BUS\obj\Debug\BUS.dll
+D:\MySVN\trunk\Code\Product Management\BUS\obj\Debug\BUS.pdb

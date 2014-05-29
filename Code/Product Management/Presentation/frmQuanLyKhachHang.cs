@@ -77,6 +77,15 @@ namespace Presentation
             dtgvTimKiemKhachHang.Columns["NguoiThem"].ReadOnly = true;
             dtgvTimKiemKhachHang.Columns["NgayCapNhat"].ReadOnly = true;
             dtgvTimKiemKhachHang.Columns["NguoiCapNhat"].ReadOnly = true;
+            dtgvTimKiemKhachHang.Columns["DiemTichLuy"].DefaultCellStyle.Format = "#,0";
+
+            foreach (DataGridViewRow row in dtgvTimKiemKhachHang.Rows)
+            {
+                if (row.Index % 2 == 1)
+                {
+                    row.DefaultCellStyle.BackColor = Color.PowderBlue;
+                }
+            }
 
             DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
             btnColumn.HeaderText = "Edit";
@@ -116,6 +125,7 @@ namespace Presentation
                         khDto.TKNganHang = dtgvTimKiemKhachHang.Rows[e.RowIndex].Cells["TKNganHang"].Value.ToString();
                         khDto.NguoiCapNhat = frmDangNhap.gUserName;
                         khDto.NgayCapNhat = System.DateTime.Now;
+                        khDto.DiemTichLuy = Int32.Parse(dtgvTimKiemKhachHang.Rows[e.RowIndex].Cells["DiemTichLuy"].Value.ToString().Replace(@",", ""));
 
                         khBus.Update(khDto);
 

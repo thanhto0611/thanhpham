@@ -23,3 +23,8 @@ D:\MySVN\Code\Product Management\DTO\bin\Debug\DTO.pdb
 D:\MySVN\Code\Product Management\DTO\obj\Debug\ResolveAssemblyReference.cache
 D:\MySVN\Code\Product Management\DTO\obj\Debug\DTO.dll
 D:\MySVN\Code\Product Management\DTO\obj\Debug\DTO.pdb
+D:\MySVN\trunk\Code\Product Management\DTO\bin\Debug\DTO.dll
+D:\MySVN\trunk\Code\Product Management\DTO\bin\Debug\DTO.pdb
+D:\MySVN\trunk\Code\Product Management\DTO\obj\Debug\ResolveAssemblyReference.cache
+D:\MySVN\trunk\Code\Product Management\DTO\obj\Debug\DTO.dll
+D:\MySVN\trunk\Code\Product Management\DTO\obj\Debug\DTO.pdb

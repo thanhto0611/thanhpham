@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ChiTietDonHangBUS.cs" />
     <Compile Include="ChiTietMuonBUS.cs" />
+    <Compile Include="ConfigBUS.cs" />
     <Compile Include="DanhMucBUS.cs" />
     <Compile Include="DocGiaBUS.cs" />
     <Compile Include="DonHangBUS.cs" />

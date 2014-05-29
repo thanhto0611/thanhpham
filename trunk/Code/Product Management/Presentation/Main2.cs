@@ -16,6 +16,7 @@ namespace Presentation
         public static frmXuatKhoHang frmXKH = null;
         public static frmImportProducts frmIP = null;
         public static frmQuanLyKhachHang frmQLKH = null;
+        public static frmConfig frmCfg = null;
 
         public Main2()
         {
@@ -129,6 +130,22 @@ namespace Presentation
             else
             {
                 frmQLKH.BringToFront();
+            }
+        }
+
+        private void applicationConfigToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmCfg == null)
+            {
+                frmCfg = new frmConfig();
+                frmCfg.MdiParent = this;
+                frmCfg.Dock = DockStyle.Fill;
+                frmCfg.WindowState = FormWindowState.Maximized;
+                frmCfg.Show();
+            }
+            else
+            {
+                frmCfg.BringToFront();
             }
         }
 

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ChiTietDonHangDAO.cs" />
     <Compile Include="ChiTietMuonDAO.cs" />
+    <Compile Include="ConfigDAO.cs" />
     <Compile Include="DanhMucDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DocGiaDAO.cs" />

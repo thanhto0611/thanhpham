@@ -283,6 +283,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvTimKiemKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvTimKiemKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvTimKiemKhachHang.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgvTimKiemKhachHang.Location = new System.Drawing.Point(3, 16);
             this.dtgvTimKiemKhachHang.Name = "dtgvTimKiemKhachHang";
             this.dtgvTimKiemKhachHang.Size = new System.Drawing.Size(781, 355);

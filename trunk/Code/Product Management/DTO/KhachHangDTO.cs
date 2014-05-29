@@ -18,6 +18,7 @@ namespace DTO
         private string _NguoiThem;
         private DateTime _NgayCapNhat;
         private string _NguoiCapNhat;
+        private long _DiemTichLuy;
         #endregion
 
         #region Properties
@@ -152,6 +153,17 @@ namespace DTO
                 _NguoiCapNhat = value;
             }
         }
+        public long DiemTichLuy
+        {
+            get
+            {
+                return _DiemTichLuy;
+            }
+            set
+            {
+                _DiemTichLuy = value;
+            }
+        }
         #endregion
 
         #region constructor
@@ -168,6 +180,7 @@ namespace DTO
             _NguoiThem = "";
             _NgayCapNhat = System.DateTime.Now;
             _NguoiCapNhat = "";
+            _DiemTichLuy = 0;
         }
         #endregion
     }

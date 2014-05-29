@@ -120,7 +120,7 @@ namespace DAO
             DataTable dataTable = new DataTable();
 
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "select * from KHACHHANG where HoTen like '%" + data + "%' " + "or DiaChi like '%" + data + "%' " + "or DienThoai like '%" + data + "%' " + "or Email like '%" + data + "%' " + "or Facebook like '%" + data + "%' " + "or TKNganHang like '%" + data + "%' ";
+            string cmdText = "select * from KHACHHANG where HoTen like '%" + data + "%' " + "or DiaChi like '%" + data + "%' " + "or DienThoai like '%" + data + "%' " + "or Email like '%" + data + "%' " + "or Facebook like '%" + data + "%' " + "or TKNganHang like '%" + data + "%' order by HoTen";
             OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
 
             adapter.Fill(dataTable);
@@ -148,9 +148,10 @@ namespace DAO
         public void UpdateKhachHang(KhachHangDTO khachhangDTO)
         {
             OleDbConnection cn = DataProvider.CreateConnection();
-            string strSql = "Update KHACHHANG set HoTen = ?, DiaChi = ?, DienThoai = ?, Email = ?, Facebook = ?, TKNganHang = ?, NgayCapNhat = ?, NguoiCapNhat = ? where MaKhachHang=" + khachhangDTO.MaKhachHang;
+            string strSql = "Update KHACHHANG set HoTen = ?, DiemTichLuy = ?, DiaChi = ?, DienThoai = ?, Email = ?, Facebook = ?, TKNganHang = ?, NgayCapNhat = ?, NguoiCapNhat = ? where MaKhachHang=" + khachhangDTO.MaKhachHang;
             OleDbCommand cmd = new OleDbCommand(strSql, cn);
             cmd.Parameters.Add("@HoTen", OleDbType.VarWChar);
+            cmd.Parameters.Add("@DiemTichLuy", OleDbType.Integer);
             cmd.Parameters.Add("@DiaChi", OleDbType.VarWChar);
             cmd.Parameters.Add("@DienThoai", OleDbType.VarWChar);
             cmd.Parameters.Add("@Email", OleDbType.VarWChar);
@@ -160,6 +161,7 @@ namespace DAO
             cmd.Parameters.Add("@NguoiCapNhat", OleDbType.WChar);
 
             cmd.Parameters["@HoTen"].Value = khachhangDTO.HoTen;
+            cmd.Parameters["@DiemTichLuy"].Value = khachhangDTO.DiemTichLuy;
             cmd.Parameters["@DiaChi"].Value = khachhangDTO.DiaChi;
             cmd.Parameters["@DienThoai"].Value = khachhangDTO.DienThoai;
             cmd.Parameters["@Email"].Value = khachhangDTO.Email;

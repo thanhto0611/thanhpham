@@ -67,6 +67,14 @@ namespace DAO
                 KhachHangDTO.Email = (string)reader["Email"];
                 KhachHangDTO.Facebook = (string)reader["Facebook"];
                 KhachHangDTO.TKNganHang = (string)reader["TKNganHang"];
+                if (reader["DiemTichLuy"].ToString() == "")
+                {
+                    KhachHangDTO.DiemTichLuy = 0;
+                } 
+                else
+                {
+                    KhachHangDTO.DiemTichLuy = (int)reader["DiemTichLuy"];
+                }
             }
 
             reader.Close();

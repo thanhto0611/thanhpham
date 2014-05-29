@@ -199,6 +199,7 @@ namespace Presentation
             txtFacebook_Them.Text = khDto.Facebook;
             txtTKNganHang_Them.Text = khDto.TKNganHang;
             txtMaKH_Them.Text = listKhachHang.SelectedValue.ToString();
+            lbTongDiemTichLuy.Text = khDto.DiemTichLuy.ToString("n0");
 
             btnTaoDonHang.Visible = true;
             btnTaoDonHang.Enabled = true;
@@ -1821,6 +1822,12 @@ namespace Presentation
                 createDataAfterReadFromWeb();
                 btnNhapDonHang.Enabled = false;
             }
+        }
+
+        private void chbxSuDungDTL_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDiemTichLuyUsed.Enabled = chbxSuDungDTL.Checked;
+            btnDungDiemTichLuy.Enabled = chbxSuDungDTL.Checked;
         }
     }
 }

@@ -33,11 +33,12 @@
             this.TimKiemCapNhatSanPham = new System.Windows.Forms.ToolStripMenuItem();
             this.ThemSanPham = new System.Windows.Forms.ToolStripMenuItem();
             this.QuanLyDonHang = new System.Windows.Forms.ToolStripMenuItem();
+            this.QuanLyKhachHang = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.XuatKhoHang = new System.Windows.Forms.ToolStripMenuItem();
-            this.Window = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportProductFromImages = new System.Windows.Forms.ToolStripMenuItem();
-            this.QuanLyKhachHang = new System.Windows.Forms.ToolStripMenuItem();
+            this.Window = new System.Windows.Forms.ToolStripMenuItem();
+            this.applicationConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,11 +88,19 @@
             this.QuanLyDonHang.Text = "Quản Lý Đơn Hàng";
             this.QuanLyDonHang.Click += new System.EventHandler(this.QuanLyDonHang_Click);
             // 
+            // QuanLyKhachHang
+            // 
+            this.QuanLyKhachHang.Name = "QuanLyKhachHang";
+            this.QuanLyKhachHang.Size = new System.Drawing.Size(131, 20);
+            this.QuanLyKhachHang.Text = "Quản Lý Khách Hàng";
+            this.QuanLyKhachHang.Click += new System.EventHandler(this.QuanLyKhachHang_Click);
+            // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.XuatKhoHang,
-            this.ImportProductFromImages});
+            this.ImportProductFromImages,
+            this.applicationConfigToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -103,12 +112,6 @@
             this.XuatKhoHang.Text = "Xuất Kho Hàng";
             this.XuatKhoHang.Click += new System.EventHandler(this.XuatKhoHang_Click);
             // 
-            // Window
-            // 
-            this.Window.Name = "Window";
-            this.Window.Size = new System.Drawing.Size(108, 20);
-            this.Window.Text = "Cửa Sổ Đang Mở";
-            // 
             // ImportProductFromImages
             // 
             this.ImportProductFromImages.Name = "ImportProductFromImages";
@@ -116,12 +119,18 @@
             this.ImportProductFromImages.Text = "Import Product From Images";
             this.ImportProductFromImages.Click += new System.EventHandler(this.ImportProductFromImages_Click);
             // 
-            // QuanLyKhachHang
+            // Window
             // 
-            this.QuanLyKhachHang.Name = "QuanLyKhachHang";
-            this.QuanLyKhachHang.Size = new System.Drawing.Size(131, 20);
-            this.QuanLyKhachHang.Text = "Quản Lý Khách Hàng";
-            this.QuanLyKhachHang.Click += new System.EventHandler(this.QuanLyKhachHang_Click);
+            this.Window.Name = "Window";
+            this.Window.Size = new System.Drawing.Size(108, 20);
+            this.Window.Text = "Cửa Sổ Đang Mở";
+            // 
+            // applicationConfigToolStripMenuItem
+            // 
+            this.applicationConfigToolStripMenuItem.Name = "applicationConfigToolStripMenuItem";
+            this.applicationConfigToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.applicationConfigToolStripMenuItem.Text = "Application Config";
+            this.applicationConfigToolStripMenuItem.Click += new System.EventHandler(this.applicationConfigToolStripMenuItem_Click);
             // 
             // Main2
             // 
@@ -154,5 +163,6 @@
         private System.Windows.Forms.ToolStripMenuItem XuatKhoHang;
         private System.Windows.Forms.ToolStripMenuItem ImportProductFromImages;
         private System.Windows.Forms.ToolStripMenuItem QuanLyKhachHang;
+        private System.Windows.Forms.ToolStripMenuItem applicationConfigToolStripMenuItem;
     }
 }

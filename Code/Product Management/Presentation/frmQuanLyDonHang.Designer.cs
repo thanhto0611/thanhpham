@@ -50,6 +50,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.btnDungDiemTichLuy = new System.Windows.Forms.Button();
+            this.txtDiemTichLuyUsed = new System.Windows.Forms.TextBox();
+            this.chbxSuDungDTL = new System.Windows.Forms.CheckBox();
+            this.lbTongDiemTichLuy = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lbSoLuong = new System.Windows.Forms.Label();
             this.lbTongTien = new System.Windows.Forms.Label();
@@ -98,11 +103,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.lbTongDiemTichLuy = new System.Windows.Forms.Label();
-            this.chbxSuDungDTL = new System.Windows.Forms.CheckBox();
-            this.txtDiemTichLuyUsed = new System.Windows.Forms.TextBox();
-            this.btnDungDiemTichLuy = new System.Windows.Forms.Button();
             this.tabDonHang.SuspendLayout();
             this.tabThemDonHang.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -366,13 +366,68 @@
             this.groupBox8.Controls.Add(this.label15);
             this.groupBox8.Controls.Add(this.label17);
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox8.Location = new System.Drawing.Point(3, 441);
+            this.groupBox8.Location = new System.Drawing.Point(3, 422);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(526, 266);
+            this.groupBox8.Size = new System.Drawing.Size(526, 285);
             this.groupBox8.TabIndex = 23;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Số lượng và Tổng tiền:";
             this.groupBox8.Visible = false;
+            // 
+            // btnDungDiemTichLuy
+            // 
+            this.btnDungDiemTichLuy.Enabled = false;
+            this.btnDungDiemTichLuy.Location = new System.Drawing.Point(321, 68);
+            this.btnDungDiemTichLuy.Name = "btnDungDiemTichLuy";
+            this.btnDungDiemTichLuy.Size = new System.Drawing.Size(134, 31);
+            this.btnDungDiemTichLuy.TabIndex = 16;
+            this.btnDungDiemTichLuy.Text = "Dùng Điểm Tích Lũy";
+            this.btnDungDiemTichLuy.UseVisualStyleBackColor = true;
+            this.btnDungDiemTichLuy.Click += new System.EventHandler(this.btnDungDiemTichLuy_Click);
+            // 
+            // txtDiemTichLuyUsed
+            // 
+            this.txtDiemTichLuyUsed.Enabled = false;
+            this.txtDiemTichLuyUsed.Location = new System.Drawing.Point(401, 42);
+            this.txtDiemTichLuyUsed.Name = "txtDiemTichLuyUsed";
+            this.txtDiemTichLuyUsed.Size = new System.Drawing.Size(111, 20);
+            this.txtDiemTichLuyUsed.TabIndex = 15;
+            this.txtDiemTichLuyUsed.Text = "0";
+            this.txtDiemTichLuyUsed.TextChanged += new System.EventHandler(this.txtDiemTichLuyUsed_TextChanged);
+            // 
+            // chbxSuDungDTL
+            // 
+            this.chbxSuDungDTL.AutoSize = true;
+            this.chbxSuDungDTL.Enabled = false;
+            this.chbxSuDungDTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxSuDungDTL.Location = new System.Drawing.Point(253, 41);
+            this.chbxSuDungDTL.Name = "chbxSuDungDTL";
+            this.chbxSuDungDTL.Size = new System.Drawing.Size(147, 21);
+            this.chbxSuDungDTL.TabIndex = 14;
+            this.chbxSuDungDTL.Text = "Dùng điểm tích lũy:";
+            this.chbxSuDungDTL.UseVisualStyleBackColor = true;
+            this.chbxSuDungDTL.CheckedChanged += new System.EventHandler(this.chbxSuDungDTL_CheckedChanged);
+            // 
+            // lbTongDiemTichLuy
+            // 
+            this.lbTongDiemTichLuy.AutoSize = true;
+            this.lbTongDiemTichLuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTongDiemTichLuy.ForeColor = System.Drawing.Color.Blue;
+            this.lbTongDiemTichLuy.Location = new System.Drawing.Point(402, 12);
+            this.lbTongDiemTichLuy.Name = "lbTongDiemTichLuy";
+            this.lbTongDiemTichLuy.Size = new System.Drawing.Size(19, 20);
+            this.lbTongDiemTichLuy.TabIndex = 13;
+            this.lbTongDiemTichLuy.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(269, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(127, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Tổng điểm tích lũy:";
             // 
             // label14
             // 
@@ -435,7 +490,7 @@
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox7.Location = new System.Drawing.Point(3, 331);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(526, 110);
+            this.groupBox7.Size = new System.Drawing.Size(526, 91);
             this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             // 
@@ -444,7 +499,7 @@
             this.btnNhapDonHang.Enabled = false;
             this.btnNhapDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhapDonHang.ForeColor = System.Drawing.Color.Red;
-            this.btnNhapDonHang.Location = new System.Drawing.Point(372, 21);
+            this.btnNhapDonHang.Location = new System.Drawing.Point(372, 17);
             this.btnNhapDonHang.Name = "btnNhapDonHang";
             this.btnNhapDonHang.Size = new System.Drawing.Size(145, 67);
             this.btnNhapDonHang.TabIndex = 24;
@@ -478,7 +533,7 @@
             this.btnTaoDonHang.Enabled = false;
             this.btnTaoDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoDonHang.ForeColor = System.Drawing.Color.Red;
-            this.btnTaoDonHang.Location = new System.Drawing.Point(227, 21);
+            this.btnTaoDonHang.Location = new System.Drawing.Point(227, 17);
             this.btnTaoDonHang.Name = "btnTaoDonHang";
             this.btnTaoDonHang.Size = new System.Drawing.Size(139, 67);
             this.btnTaoDonHang.TabIndex = 10;
@@ -892,58 +947,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(269, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 17);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Tổng điểm tích lũy:";
-            // 
-            // lbTongDiemTichLuy
-            // 
-            this.lbTongDiemTichLuy.AutoSize = true;
-            this.lbTongDiemTichLuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongDiemTichLuy.ForeColor = System.Drawing.Color.Blue;
-            this.lbTongDiemTichLuy.Location = new System.Drawing.Point(402, 12);
-            this.lbTongDiemTichLuy.Name = "lbTongDiemTichLuy";
-            this.lbTongDiemTichLuy.Size = new System.Drawing.Size(19, 20);
-            this.lbTongDiemTichLuy.TabIndex = 13;
-            this.lbTongDiemTichLuy.Text = "0";
-            // 
-            // chbxSuDungDTL
-            // 
-            this.chbxSuDungDTL.AutoSize = true;
-            this.chbxSuDungDTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxSuDungDTL.Location = new System.Drawing.Point(253, 41);
-            this.chbxSuDungDTL.Name = "chbxSuDungDTL";
-            this.chbxSuDungDTL.Size = new System.Drawing.Size(147, 21);
-            this.chbxSuDungDTL.TabIndex = 14;
-            this.chbxSuDungDTL.Text = "Dùng điểm tích lũy:";
-            this.chbxSuDungDTL.UseVisualStyleBackColor = true;
-            this.chbxSuDungDTL.CheckedChanged += new System.EventHandler(this.chbxSuDungDTL_CheckedChanged);
-            // 
-            // txtDiemTichLuyUsed
-            // 
-            this.txtDiemTichLuyUsed.Enabled = false;
-            this.txtDiemTichLuyUsed.Location = new System.Drawing.Point(401, 42);
-            this.txtDiemTichLuyUsed.Name = "txtDiemTichLuyUsed";
-            this.txtDiemTichLuyUsed.Size = new System.Drawing.Size(111, 20);
-            this.txtDiemTichLuyUsed.TabIndex = 15;
-            this.txtDiemTichLuyUsed.Text = "0";
-            // 
-            // btnDungDiemTichLuy
-            // 
-            this.btnDungDiemTichLuy.Enabled = false;
-            this.btnDungDiemTichLuy.Location = new System.Drawing.Point(321, 68);
-            this.btnDungDiemTichLuy.Name = "btnDungDiemTichLuy";
-            this.btnDungDiemTichLuy.Size = new System.Drawing.Size(134, 31);
-            this.btnDungDiemTichLuy.TabIndex = 16;
-            this.btnDungDiemTichLuy.Text = "Dùng Điểm Tích Lũy";
-            this.btnDungDiemTichLuy.UseVisualStyleBackColor = true;
             // 
             // frmQuanLyDonHang
             // 

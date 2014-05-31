@@ -993,6 +993,7 @@ namespace Presentation
                 cbmTrangThai_Them.SelectedValue = dhDto.TrangThai;
                 lbMaDonHang.Text = _maDH.ToString();
                 _changed = false;
+                chbxSuDungDTL.Enabled = true;
             }
             catch (System.Exception ex)
             {
@@ -1389,6 +1390,19 @@ namespace Presentation
             dtgvTimKiemDonHang.Columns.Add(btnChiTietColumn);
 
             formatDataTimKiem();
+
+            // Create the ToolTip and associate with the Form container.
+            ToolTip toolTip1 = new ToolTip();
+
+            // Set up the delays for the ToolTip.
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            // Force the ToolTip text to be displayed whether or not the form is active.
+            toolTip1.ShowAlways = true;
+
+            // Set up the ToolTip text for the Button and Checkbox.
+            toolTip1.SetToolTip(this.chbxSuDungDTL, "Điểm tích lũy chỉ sử dụng được sau khi đơn hàng được lưu");
         }
 
         private void txtMaDonHang_TimKiem_TextChanged(object sender, EventArgs e)
@@ -1828,6 +1842,34 @@ namespace Presentation
         {
             txtDiemTichLuyUsed.Enabled = chbxSuDungDTL.Checked;
             btnDungDiemTichLuy.Enabled = chbxSuDungDTL.Checked;
+        }
+
+        private void btnDungDiemTichLuy_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc muốn dùng điểm tích lũy cho đơn hàng này không?",
+                    "Question",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1);
+                if (result == DialogResult.Yes)
+                {
+                    dhDto.TongTien = dhDto.TongTien - Int32.Parse(txtDiemTichLuyUsed.Text.ToString());
+                    DonHangBUS dhBus = new DonHangBUS();
+                    dhBus.Update(dhDto);
+                    MessageBox.Show("Điểm tích lũy đã được sử dụng thành công");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtDiemTichLuyUsed_TextChanged(object sender, EventArgs e)
+        {
+            _changed = true;
         }
     }
 }

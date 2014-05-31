@@ -527,3 +527,6 @@ D:\MySVN\trunk\Code\Product Management\Presentation\obj\Debug\Presentation.pdb
 D:\MySVN\trunk\Code\Product Management\Presentation\bin\Debug\Presentation.pdb
 D:\MySVN\trunk\Code\Product Management\Presentation\bin\Debug\Interop.Microsoft.Office.Core.dll
 D:\MySVN\trunk\Code\Product Management\Presentation\bin\Debug\Interop.VBIDE.dll
+D:\MySVN\trunk\Code\Product Management\Presentation\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\MySVN\trunk\Code\Product Management\Presentation\bin\Debug\office.dll
+D:\MySVN\trunk\Code\Product Management\Presentation\bin\Debug\Microsoft.Vbe.Interop.dll

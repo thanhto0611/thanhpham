@@ -1858,6 +1858,8 @@ namespace Presentation
                     dhDto.TongTien = dhDto.TongTien - Int32.Parse(txtDiemTichLuyUsed.Text.ToString());
                     DonHangBUS dhBus = new DonHangBUS();
                     dhBus.Update(dhDto);
+                    lbTongTien.Text = dhDto.TongTien.ToString("n0");
+
                     MessageBox.Show("Điểm tích lũy đã được sử dụng thành công");
                 }
             }

@@ -18,6 +18,8 @@ namespace DTO
         private long _TongTien;
         private int _SoLuongSanPham;
         private int _HinhThucMua;
+        private long _DiemTichLuySuDung;
+        private long _DiemTichLuyCongThem;
 #endregion
 
 #region Properties
@@ -150,6 +152,28 @@ namespace DTO
                 _HinhThucMua = value;
             }
         }
+        public long DiemTichLuySuDung
+        {
+            get
+            {
+                return _DiemTichLuySuDung;
+            }
+            set
+            {
+                _DiemTichLuySuDung = value;
+            }
+        }
+        public long DiemTichLuyCongThem
+        {
+            get
+            {
+                return _DiemTichLuyCongThem;
+            }
+            set
+            {
+                _DiemTichLuyCongThem = value;
+            }
+        }
 #endregion
 
 #region contructor
@@ -166,6 +190,8 @@ namespace DTO
             _TongTien = 0;
             _SoLuongSanPham = 0;
             _HinhThucMua = -1;
+            _DiemTichLuySuDung = 0;
+            _DiemTichLuyCongThem = 0;
         }
 #endregion
 

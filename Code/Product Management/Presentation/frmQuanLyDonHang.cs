@@ -29,7 +29,7 @@ namespace Presentation
         public static int gMaDH;
         private int _maDH = 0;
         private int _curTrangThai;
-        private bool _changed = false;
+        private bool _changed = false; // define if have any change in this form, ask to save before close
         private bool _changedByWeb = false;
         public static bool _readFromWebDone = false;
 
@@ -38,6 +38,7 @@ namespace Presentation
         public static DataTable dtWeb = new DataTable();
 
         DonHangDTO dhDto = new DonHangDTO();
+        KhachHangDTO khDto = new KhachHangDTO();
 
         public frmQuanLyDonHang()
         {
@@ -186,7 +187,6 @@ namespace Presentation
             }
 
             KhachHangBUS khBus = new KhachHangBUS();
-            KhachHangDTO khDto = new KhachHangDTO();
             khDto.MaKhachHang = Int32.Parse(listKhachHang.SelectedValue.ToString());
 
             khBus.GetKhachHang(khDto);
@@ -615,7 +615,7 @@ namespace Presentation
                 }
                 
                 lbSoLuong.Text = soLuong.ToString();
-                lbTongTien.Text = tongTien.ToString("n0");
+                lbTongTien.Text = (tongTien - dhDto.DiemTichLuySuDung).ToString("n0");
                 fromFormat = false;
                 _gMaSP = "";
                 _gSL = 0;
@@ -1848,6 +1848,21 @@ namespace Presentation
         {
             try
             {
+                if (Int32.Parse(txtDiemTichLuyUsed.Text.ToString()) > khDto.DiemTichLuy)
+                {
+                    MessageBox.Show("Điểm tích lũy sử dụng lớn hơn điểm tích lũy đang có");
+                    return;
+                }
+                if (Int32.Parse(txtDiemTichLuyUsed.Text.ToString()) > dhDto.TongTien)
+                {
+                    MessageBox.Show("Điểm tích lũy sử dụng lớn hơn giá trị đơn hàng");
+                    return;
+                }
+                if (_changed == true)
+                {
+                    MessageBox.Show("Đơn hàng chưa được lưu. Vui lòng lưu lại đơn hàng trước khi sử dụng điểm tích lũy");
+                    return;
+                }
                 DialogResult result = MessageBox.Show("Bạn có chắc muốn dùng điểm tích lũy cho đơn hàng này không?",
                     "Question",
                     MessageBoxButtons.YesNo,
@@ -1856,11 +1871,23 @@ namespace Presentation
                 if (result == DialogResult.Yes)
                 {
                     dhDto.TongTien = dhDto.TongTien - Int32.Parse(txtDiemTichLuyUsed.Text.ToString());
+                    dhDto.DiemTichLuySuDung += Int32.Parse(txtDiemTichLuyUsed.Text.ToString());
                     DonHangBUS dhBus = new DonHangBUS();
                     dhBus.Update(dhDto);
                     lbTongTien.Text = dhDto.TongTien.ToString("n0");
 
+                    khDto.DiemTichLuy = khDto.DiemTichLuy - Int32.Parse(txtDiemTichLuyUsed.Text.ToString());
+                    KhachHangBUS khBus = new KhachHangBUS();
+                    khBus.Update(khDto);
+
+                    lbTongDiemTichLuy.Text = khDto.DiemTichLuy.ToString("n0");
+                    txtDiemTichLuyUsed.Text = "0";
+                    lbDiemTichLuyUsed.Text = dhDto.DiemTichLuySuDung.ToString("n0");
+
                     MessageBox.Show("Điểm tích lũy đã được sử dụng thành công");
+
+                    btnHuyDiemTichLuy.Enabled = true;
+                    
                 }
             }
             catch (System.Exception ex)
@@ -1871,7 +1898,47 @@ namespace Presentation
 
         private void txtDiemTichLuyUsed_TextChanged(object sender, EventArgs e)
         {
-            _changed = true;
+            //_changed = true;
+        }
+
+        private void btnHuyDiemTichLuy_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_changed == true)
+                {
+                    MessageBox.Show("Đơn hàng chưa được lưu. Vui lòng lưu lại đơn hàng trước khi hủy sử dụng điểm tích lũy");
+                    return;
+                }
+                DialogResult result = MessageBox.Show("Bạn có chắc muốn hủy điểm tích lũy của đơn hàng này không?",
+                    "Question",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1);
+                if (result == DialogResult.Yes)
+                {
+                    dhDto.TongTien += dhDto.DiemTichLuySuDung;
+                    khDto.DiemTichLuy += dhDto.DiemTichLuySuDung;
+                    dhDto.DiemTichLuySuDung = 0;
+
+                    DonHangBUS dhBus = new DonHangBUS();
+                    dhBus.Update(dhDto);
+
+                    KhachHangBUS khBus = new KhachHangBUS();
+                    khBus.Update(khDto);
+
+                    lbDiemTichLuyUsed.Text = "0";
+                    lbTongDiemTichLuy.Text = khDto.DiemTichLuy.ToString("n0");
+                    lbTongTien.Text = dhDto.TongTien.ToString("n0");
+
+                    MessageBox.Show("Hủy sử dụng điểm tích lũy thành công");
+
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

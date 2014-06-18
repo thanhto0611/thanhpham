@@ -164,9 +164,11 @@ namespace DAO
         public static void Update(DonHangDTO dhDTO)
         {
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Update DONHANG Set TrangThai = ?, NguoiCapNhat = ?, NgayCapNhat = ?, PhiVanChuyen = ?, TongTien = ?, SoLuongSanPham = ?, HinhThucMua = ? Where MaDonHang = ?";
+            string cmdText = "Update DONHANG Set DiemTichLuyCongThem = ?, DiemTichLuySuDung = ?, TrangThai = ?, NguoiCapNhat = ?, NgayCapNhat = ?, PhiVanChuyen = ?, TongTien = ?, SoLuongSanPham = ?, HinhThucMua = ? Where MaDonHang = ?";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
+            command.Parameters.Add("@DiemTichLuyCongThem", OleDbType.Integer);
+            command.Parameters.Add("@DiemTichLuySuDung", OleDbType.Integer);
             command.Parameters.Add("@TrangThai", OleDbType.Integer);
             command.Parameters.Add("@NguoiCapNhat", OleDbType.WChar);
             command.Parameters.Add("@NgayCapNhat", OleDbType.Date);
@@ -176,6 +178,8 @@ namespace DAO
             command.Parameters.Add("@HinhThucMua", OleDbType.Integer);
             command.Parameters.Add("@MaDonHang", OleDbType.Integer);
 
+            command.Parameters["@DiemTichLuyCongThem"].Value = dhDTO.DiemTichLuyCongThem;
+            command.Parameters["@DiemTichLuySuDung"].Value = dhDTO.DiemTichLuySuDung;
             command.Parameters["@TrangThai"].Value = dhDTO.TrangThai;
             command.Parameters["@NguoiCapNhat"].Value = dhDTO.NguoiCapNhat;
             command.Parameters["@NgayCapNhat"].Value = dhDTO.NgayCapNhat;

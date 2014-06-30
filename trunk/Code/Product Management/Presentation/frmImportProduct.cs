@@ -374,6 +374,21 @@ namespace Presentation
                             description = description + " />";
                             drs[0]["description"] = description;
                         }
+                        if (imageFiles[i].Name.Substring(0, 1).ToUpper() == "X")
+                        {
+                            description = drs[0]["description"].ToString();
+                            description = description + "\n";
+                            description = description + "</br>";
+                            description = description + "\n";
+                            description = description + "<img src=\"";
+                            description = description + "http://www.thoitrangella.com/media/catalog/product/x/" + transName.Substring(1, 1).ToLower() + "/" + transName.ToLower() + "\"";
+                            description = description + " width=\"";
+                            description = description + "400\"";
+                            description = description + " height=\"";
+                            description = description + "auto\"";
+                            description = description + " />";
+                            drs[0]["description"] = description;
+                        }
 
                         media_gallery = drs[0]["media_gallery"].ToString();
                         media_gallery = media_gallery + @";/" + imageFiles[i].Name;
@@ -668,6 +683,34 @@ namespace Presentation
                             description = description + " />";
 
                             short_description = short_description + "NHẪN " + splitName[0].ToUpper();
+                        }
+
+                        if (imageFiles[i].Name.Substring(0, 1).ToUpper() == "X")
+                        {
+                            attribute_set = "Hình Xăm";
+                            category_ids = "113,115,126";
+
+                            description = description + "<h1><font color=\"";
+                            description = description + "blue\"";
+                            description = description + ">HÌNH XĂM</font></h1>";
+                            description = description + "\n";
+                            description = description + "<h1><font size=\"";
+                            description = description + "7\"";
+                            description = description + " color=\"";
+                            description = description + "red\"";
+                            description = description + ">" + splitName[0].ToUpper() + "</font></h1>";
+                            description = description + "\n";
+                            description = description + "</br>";
+                            description = description + "\n";
+                            description = description + "<img src=\"";
+                            description = description + "http://www.thoitrangella.com/media/catalog/product/x/" + transName.Substring(1, 1).ToLower() + "/" + transName.ToLower() + "\"";
+                            description = description + " width=\"";
+                            description = description + "400\"";
+                            description = description + " height=\"";
+                            description = description + "auto\"";
+                            description = description + " />";
+
+                            short_description = short_description + "HÌNH XĂM " + splitName[0].ToUpper();
                         }
 
                         if (imageFiles[i].Name.Substring(0, 2).ToUpper() == "BK")

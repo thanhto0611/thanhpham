@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdGioHang = new System.Windows.Forms.RadioButton();
+            this.rdDonHang = new System.Windows.Forms.RadioButton();
             this.btnNhap = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
@@ -38,6 +40,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdGioHang);
+            this.groupBox1.Controls.Add(this.rdDonHang);
             this.groupBox1.Controls.Add(this.btnNhap);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -46,9 +50,30 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // rdGioHang
+            // 
+            this.rdGioHang.AutoSize = true;
+            this.rdGioHang.Location = new System.Drawing.Point(245, 42);
+            this.rdGioHang.Name = "rdGioHang";
+            this.rdGioHang.Size = new System.Drawing.Size(115, 17);
+            this.rdGioHang.TabIndex = 2;
+            this.rdGioHang.Text = "Nhập Từ Giỏ Hàng";
+            this.rdGioHang.UseVisualStyleBackColor = true;
+            // 
+            // rdDonHang
+            // 
+            this.rdDonHang.AutoSize = true;
+            this.rdDonHang.Checked = true;
+            this.rdDonHang.Location = new System.Drawing.Point(245, 19);
+            this.rdDonHang.Name = "rdDonHang";
+            this.rdDonHang.Size = new System.Drawing.Size(119, 17);
+            this.rdDonHang.TabIndex = 1;
+            this.rdDonHang.TabStop = true;
+            this.rdDonHang.Text = "Nhập Từ Đơn Hàng";
+            this.rdDonHang.UseVisualStyleBackColor = true;
+            // 
             // btnNhap
             // 
-            this.btnNhap.Enabled = false;
             this.btnNhap.Location = new System.Drawing.Point(12, 12);
             this.btnNhap.Name = "btnNhap";
             this.btnNhap.Size = new System.Drawing.Size(134, 53);
@@ -89,6 +114,7 @@
             this.Text = "Nhập Đơn Hàng Từ Web";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -100,5 +126,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button btnNhap;
+        private System.Windows.Forms.RadioButton rdGioHang;
+        private System.Windows.Forms.RadioButton rdDonHang;
     }
 }

@@ -179,7 +179,7 @@ namespace Presentation
                 string news_to_date = String.Format("{0:yyyy-MM-dd}", dtpNewToDate.Value);
                 news_from_date += " 00:00:00";
                 news_to_date += " 00:00:00";
-                string qty = "1.0000";
+                string qty = "10.0000";
                 string min_qty = "0.0000";
                 string use_config_min_qty = "1";
                 string is_qty_decimal = "0";

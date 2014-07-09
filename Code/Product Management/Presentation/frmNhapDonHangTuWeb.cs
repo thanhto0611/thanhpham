@@ -52,21 +52,48 @@ namespace Presentation
             {
                 SanPhamBUS spBus = new SanPhamBUS();
                 frmQuanLyDonHang.dt = spBus.GetNull();
-                HtmlElementCollection tables = webBrowser1.Document.GetElementsByTagName("table");
 
-                HtmlElementCollection tbodys = tables[2].GetElementsByTagName("tbody");
-                foreach (HtmlElement tbody in tbodys)
+                if (rdDonHang.Checked == true)
                 {
-                    HtmlElementCollection tds = tbody.GetElementsByTagName("tr")[0].GetElementsByTagName("td");
-                    DataRow dr = frmQuanLyDonHang.dt.NewRow();
-
-                    if (tds[0].GetElementsByTagName("span").Count > 0 && tds[0].GetElementsByTagName("span")[0].InnerText != "")
+                    HtmlElementCollection tables = webBrowser1.Document.GetElementsByTagName("table");
+                    HtmlElementCollection tbodys = tables[2].GetElementsByTagName("tbody");
+                    foreach (HtmlElement tbody in tbodys)
                     {
-                        SanPhamDTO spDto = SanPhamBUS.LaySanPham(tds[0].GetElementsByTagName("span")[0].InnerText);
-                        dr[0] = tds[0].GetElementsByTagName("span")[0].InnerText;
+                        HtmlElementCollection tds = tbody.GetElementsByTagName("tr")[0].GetElementsByTagName("td");
+                        DataRow dr = frmQuanLyDonHang.dt.NewRow();
+
+                        if (tds[0].GetElementsByTagName("span").Count > 0 && tds[0].GetElementsByTagName("span")[0].InnerText != "")
+                        {
+                            SanPhamDTO spDto = SanPhamBUS.LaySanPham(tds[0].GetElementsByTagName("span")[0].InnerText);
+                            dr[0] = tds[0].GetElementsByTagName("span")[0].InnerText; //ma san pham
+                            dr[1] = spDto.HinhAnh;
+                            dr[2] = spDto.MauSac;
+                            dr[4] = tds[4].GetElementsByTagName("strong")[0].InnerText;// so luong
+                            dr[5] = spDto.TrangThai;
+                            dr[7] = spDto.GiaSi;
+                            dr[8] = spDto.GiaLe;
+
+                            frmQuanLyDonHang.dt.Rows.Add(dr);
+                        }
+                    }
+                }
+
+                if (rdGioHang.Checked == true)
+                {
+                    HtmlElement cartTable = webBrowser1.Document.GetElementById("customer_cart_grid1_table");
+                    HtmlElementCollection tbody = cartTable.GetElementsByTagName("tbody");
+                    HtmlElementCollection trs = tbody[0].GetElementsByTagName("tr");
+
+                    foreach (HtmlElement tr in trs)
+                    {
+                        HtmlElementCollection tds = tr.GetElementsByTagName("td");
+                        DataRow dr = frmQuanLyDonHang.dt.NewRow();
+
+                        SanPhamDTO spDto = SanPhamBUS.LaySanPham(tds[1].InnerText.Trim());
+                        dr[0] = tds[1].InnerText.Trim(); //ma san pham
                         dr[1] = spDto.HinhAnh;
                         dr[2] = spDto.MauSac;
-                        dr[4] = tds[4].GetElementsByTagName("strong")[0].InnerText;
+                        dr[4] = tds[3].InnerText.Trim();// so luong
                         dr[5] = spDto.TrangThai;
                         dr[7] = spDto.GiaSi;
                         dr[8] = spDto.GiaLe;

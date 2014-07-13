@@ -257,6 +257,10 @@ namespace Presentation
                     {
                         sp.MaDanhMuc = dmBUS.LayMaDanhMuc(@"Đồng Hồ").MaDanhMuc;
                     }
+                    if (sp.MaSanPham.Substring(0, 2) == "MK")
+                    {
+                        sp.MaDanhMuc = dmBUS.LayMaDanhMuc(@"Móc Khóa").MaDanhMuc;
+                    }
                     if (sp.MaSanPham.Substring(0, 2) == "KQ")
                     {
                         sp.MaDanhMuc = dmBUS.LayMaDanhMuc(@"Khăn Quàng Cổ").MaDanhMuc;

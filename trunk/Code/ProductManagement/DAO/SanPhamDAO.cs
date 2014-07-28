@@ -207,7 +207,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Select MaSanPham, HinhAnh, MauSac, TrongLuong, SoLuong, TrangThai, GiaGoc, GiaSi, GiaLe, GiaBan, NgayNhap, NguoiNhap, NgayCapNhat, NguoiCapNhat from SANPHAM where MaSanPham like '%" + masp + "%'" + " order by MaSanPham ASC";
+            string cmdText = "Select MaSanPham, HinhAnh, MauSac, TrongLuong, SoLuong, TrangThai, GiaGoc, GiaSi, GiaLe, GiaBan, NgayNhap, NguoiNhap, NgayCapNhat, NguoiCapNhat from SANPHAM where MaSanPham = '" + masp + "'" + " order by MaSanPham ASC";
             OleDbDataAdapter adpter = new OleDbDataAdapter(cmdText, connection);
             adpter.Fill(dataTable);
             connection.Close();
@@ -218,7 +218,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Select 0 as MaChiTietDonHang, MaSanPham, HinhAnh, MauSac, 1 as SoLuongDatMua, SoLuong as SoLuongTrongKho, GiaSi, GiaLe, GiaBan from SANPHAM where MaSanPham like '%" + masp + "%'" + " order by MaSanPham ASC";
+            string cmdText = "Select 0 as MaChiTietDonHang, MaSanPham, HinhAnh, MauSac, 1 as SoLuongDatMua, SoLuong as SoLuongTrongKho, GiaSi, GiaLe, GiaBan from SANPHAM where MaSanPham = '" + masp + "'" + " order by MaSanPham ASC";
             OleDbDataAdapter adpter = new OleDbDataAdapter(cmdText, connection);
             adpter.Fill(dataTable);
             connection.Close();

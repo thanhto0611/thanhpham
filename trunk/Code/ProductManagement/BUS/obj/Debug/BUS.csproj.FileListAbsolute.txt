@@ -1,0 +1,81 @@
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\BUS\bin\Debug\BUS.dll
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\BUS\bin\Debug\BUS.pdb
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\BUS\bin\Debug\DAO.dll
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\BUS\bin\Debug\DTO.dll
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\BUS\bin\Debug\DTO.pdb
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\BUS\bin\Debug\DAO.pdb
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\BUS\obj\Debug\ResolveAssemblyReference.cache
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\BUS\obj\Debug\BUS.dll
+G:\Cac tai lieu tham khao\Hoc Ky 7\Phan tich va thiet ke phan mem\Thuc Hanh\Library Management\BUS\obj\Debug\BUS.pdb
+D:\Study\Library Management\BUS\bin\Debug\BUS.dll
+D:\Study\Library Management\BUS\bin\Debug\BUS.pdb
+D:\Study\Library Management\BUS\bin\Debug\DAO.dll
+D:\Study\Library Management\BUS\bin\Debug\DTO.dll
+D:\Study\Library Management\BUS\bin\Debug\DTO.pdb
+D:\Study\Library Management\BUS\bin\Debug\DAO.pdb
+D:\Study\Library Management\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\Study\Library Management\BUS\obj\Debug\BUS.dll
+D:\Study\Library Management\BUS\obj\Debug\BUS.pdb
+D:\Work\ELLA\Tools\Library Management\BUS\bin\Debug\BUS.dll
+D:\Work\ELLA\Tools\Library Management\BUS\bin\Debug\BUS.pdb
+D:\Work\ELLA\Tools\Library Management\BUS\bin\Debug\DAO.dll
+D:\Work\ELLA\Tools\Library Management\BUS\bin\Debug\DTO.dll
+D:\Work\ELLA\Tools\Library Management\BUS\bin\Debug\DTO.pdb
+D:\Work\ELLA\Tools\Library Management\BUS\bin\Debug\DAO.pdb
+D:\Work\ELLA\Tools\Library Management\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\ELLA\Tools\Library Management\BUS\obj\Debug\BUS.dll
+D:\Work\ELLA\Tools\Library Management\BUS\obj\Debug\BUS.pdb
+E:\Private\Work\Tools\Library Management\BUS\bin\Debug\BUS.dll
+E:\Private\Work\Tools\Library Management\BUS\bin\Debug\BUS.pdb
+E:\Private\Work\Tools\Library Management\BUS\bin\Debug\DAO.dll
+E:\Private\Work\Tools\Library Management\BUS\bin\Debug\DTO.dll
+E:\Private\Work\Tools\Library Management\BUS\bin\Debug\DTO.pdb
+E:\Private\Work\Tools\Library Management\BUS\bin\Debug\DAO.pdb
+E:\Private\Work\Tools\Library Management\BUS\obj\Debug\ResolveAssemblyReference.cache
+E:\Private\Work\Tools\Library Management\BUS\obj\Debug\BUS.dll
+E:\Private\Work\Tools\Library Management\BUS\obj\Debug\BUS.pdb
+E:\Private\Work\Tools\Library Management - Copy\BUS\bin\Debug\BUS.dll
+E:\Private\Work\Tools\Library Management - Copy\BUS\bin\Debug\BUS.pdb
+E:\Private\Work\Tools\Library Management - Copy\BUS\bin\Debug\DAO.dll
+E:\Private\Work\Tools\Library Management - Copy\BUS\bin\Debug\DTO.dll
+E:\Private\Work\Tools\Library Management - Copy\BUS\bin\Debug\DTO.pdb
+E:\Private\Work\Tools\Library Management - Copy\BUS\bin\Debug\DAO.pdb
+E:\Private\Work\Tools\Library Management - Copy\BUS\obj\Debug\ResolveAssemblyReference.cache
+E:\Private\Work\Tools\Library Management - Copy\BUS\obj\Debug\BUS.dll
+E:\Private\Work\Tools\Library Management - Copy\BUS\obj\Debug\BUS.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\BUS\bin\Debug\BUS.dll
+D:\Work\ELLA\Tools\Library Management - Copy\BUS\bin\Debug\BUS.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\BUS\bin\Debug\DAO.dll
+D:\Work\ELLA\Tools\Library Management - Copy\BUS\bin\Debug\DTO.dll
+D:\Work\ELLA\Tools\Library Management - Copy\BUS\bin\Debug\DTO.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\BUS\bin\Debug\DAO.pdb
+D:\Work\ELLA\Tools\Library Management - Copy\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\ELLA\Tools\Library Management - Copy\BUS\obj\Debug\BUS.dll
+D:\Work\ELLA\Tools\Library Management - Copy\BUS\obj\Debug\BUS.pdb
+D:\Google Drive\Code\Product Management\BUS\bin\Debug\BUS.dll
+D:\Google Drive\Code\Product Management\BUS\bin\Debug\BUS.pdb
+D:\Google Drive\Code\Product Management\BUS\bin\Debug\DAO.dll
+D:\Google Drive\Code\Product Management\BUS\bin\Debug\DTO.dll
+D:\Google Drive\Code\Product Management\BUS\bin\Debug\DTO.pdb
+D:\Google Drive\Code\Product Management\BUS\bin\Debug\DAO.pdb
+D:\Google Drive\Code\Product Management\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\Google Drive\Code\Product Management\BUS\obj\Debug\BUS.dll
+D:\Google Drive\Code\Product Management\BUS\obj\Debug\BUS.pdb
+D:\MySVN\Code\Product Management\BUS\bin\Debug\BUS.dll
+D:\MySVN\Code\Product Management\BUS\bin\Debug\BUS.pdb
+D:\MySVN\Code\Product Management\BUS\bin\Debug\DAO.dll
+D:\MySVN\Code\Product Management\BUS\bin\Debug\DTO.dll
+D:\MySVN\Code\Product Management\BUS\bin\Debug\DTO.pdb
+D:\MySVN\Code\Product Management\BUS\bin\Debug\DAO.pdb
+D:\MySVN\Code\Product Management\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\MySVN\Code\Product Management\BUS\obj\Debug\BUS.dll
+D:\MySVN\Code\Product Management\BUS\obj\Debug\BUS.pdb
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\BUS.dll
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\BUS.pdb
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\DAO.dll
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\DTO.dll
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\DTO.pdb
+D:\MySVN\trunk\Code\Product Management\BUS\bin\Debug\DAO.pdb
+D:\MySVN\trunk\Code\Product Management\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\MySVN\trunk\Code\Product Management\BUS\obj\Debug\BUS.dll
+D:\MySVN\trunk\Code\Product Management\BUS\obj\Debug\BUS.pdb

@@ -1,0 +1,74 @@
+F:\Source_RC1\Presentation\obj\Debug\ResolveAssemblyReference.cache
+F:\Source_RC1\Presentation\obj\Debug\Presentation.TKTheLoai.rpt
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.Main.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+F:\Source_RC1\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
+F:\Source_RC1\Presentation\bin\Debug\Presentation.exe
+F:\Source_RC1\Presentation\bin\Debug\Presentation.pdb
+F:\Source_RC1\Presentation\bin\Debug\BUS.dll
+F:\Source_RC1\Presentation\bin\Debug\DTO.dll
+F:\Source_RC1\Presentation\bin\Debug\DAO.dll
+F:\Source_RC1\Presentation\bin\Debug\DAO.pdb
+F:\Source_RC1\Presentation\bin\Debug\BUS.pdb
+F:\Source_RC1\Presentation\bin\Debug\DTO.pdb
+F:\Source_RC1\Presentation\obj\Debug\Presentation.exe
+F:\Source_RC1\Presentation\obj\Debug\Presentation.pdb
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.exe
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.pdb
+D:\Source code chinh thuc\Presentation\bin\Debug\Presentation.exe
+D:\Source code chinh thuc\Presentation\bin\Debug\Presentation.pdb
+D:\Source code chinh thuc\Presentation\bin\Debug\BUS.dll
+D:\Source code chinh thuc\Presentation\bin\Debug\DTO.dll
+D:\Source code chinh thuc\Presentation\bin\Debug\DAO.dll
+D:\Source code chinh thuc\Presentation\bin\Debug\DAO.pdb
+D:\Source code chinh thuc\Presentation\bin\Debug\BUS.pdb
+D:\Source code chinh thuc\Presentation\bin\Debug\DTO.pdb
+D:\Source code chinh thuc\Presentation\obj\Debug\ResolveAssemblyReference.cache
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.TKTheLoai.rpt
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmQuanLyDocGia.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmQuanLyNgonNgu.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmQuanLyNXB.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmQuanLySach.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmQuanLyTacGia.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmQuanLyTheLoaiSach.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmSuaDocGia.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmSuaLoaiSach.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmSuaNgonNgu.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmSuaNXB.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmSuaTacGia.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmThemDocGia.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmThemNgonNgu.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmThemNXB.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmThemTacGia.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmThemTheLoai.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmThemTheLoaiSach.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmThongKeTL.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.frmTraCuuSach.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.Main.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.MuonTraSach.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.SuaThongTinTacGia.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.TimKiemSach.resources
+D:\Source code chinh thuc\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache

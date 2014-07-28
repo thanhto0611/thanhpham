@@ -125,7 +125,10 @@ namespace Presentation
                         khDto.TKNganHang = dtgvTimKiemKhachHang.Rows[e.RowIndex].Cells["TKNganHang"].Value.ToString();
                         khDto.NguoiCapNhat = frmDangNhap.gUserName;
                         khDto.NgayCapNhat = System.DateTime.Now;
-                        khDto.DiemTichLuy = Int32.Parse(dtgvTimKiemKhachHang.Rows[e.RowIndex].Cells["DiemTichLuy"].Value.ToString().Replace(@",", ""));
+                        if (dtgvTimKiemKhachHang.Rows[e.RowIndex].Cells["DiemTichLuy"].Value.ToString() == "")
+                            khDto.DiemTichLuy = 0;
+                        else
+                            khDto.DiemTichLuy = Int32.Parse(dtgvTimKiemKhachHang.Rows[e.RowIndex].Cells["DiemTichLuy"].Value.ToString().Replace(@",", ""));
 
                         khBus.Update(khDto);
 

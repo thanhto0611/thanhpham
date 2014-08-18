@@ -41,10 +41,10 @@
             this.txtSearchKey = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPostToGroup = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtMessage = new System.Windows.Forms.TextBox();
-            this.btnFindGroup = new System.Windows.Forms.Button();
             this.dtgvGroupsJoined = new System.Windows.Forms.DataGridView();
+            this.btnFindGroup = new System.Windows.Forms.Button();
+            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabFacebook.SuspendLayout();
             this.tabLogin.SuspendLayout();
             this.tabFindJoinGroup.SuspendLayout();
@@ -189,21 +189,14 @@
             this.tabPostToGroup.Text = "Post To Group";
             this.tabPostToGroup.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // dtgvGroupsJoined
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(315, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "label4";
-            // 
-            // txtMessage
-            // 
-            this.txtMessage.Location = new System.Drawing.Point(371, 26);
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(323, 20);
-            this.txtMessage.TabIndex = 1;
+            this.dtgvGroupsJoined.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvGroupsJoined.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtgvGroupsJoined.Location = new System.Drawing.Point(0, 67);
+            this.dtgvGroupsJoined.Name = "dtgvGroupsJoined";
+            this.dtgvGroupsJoined.Size = new System.Drawing.Size(878, 379);
+            this.dtgvGroupsJoined.TabIndex = 3;
             // 
             // btnFindGroup
             // 
@@ -215,14 +208,21 @@
             this.btnFindGroup.UseVisualStyleBackColor = true;
             this.btnFindGroup.Click += new System.EventHandler(this.btnFindGroup_Click);
             // 
-            // dtgvGroupsJoined
+            // txtMessage
             // 
-            this.dtgvGroupsJoined.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvGroupsJoined.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgvGroupsJoined.Location = new System.Drawing.Point(0, 67);
-            this.dtgvGroupsJoined.Name = "dtgvGroupsJoined";
-            this.dtgvGroupsJoined.Size = new System.Drawing.Size(878, 379);
-            this.dtgvGroupsJoined.TabIndex = 3;
+            this.txtMessage.Location = new System.Drawing.Point(371, 26);
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(323, 20);
+            this.txtMessage.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(315, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "label4";
             // 
             // frmFacebook
             // 

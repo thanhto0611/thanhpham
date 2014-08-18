@@ -90,14 +90,21 @@ namespace Presentation
                 dt.Columns.Add("GroupId");
                 dt.Columns.Add("GroupName");
                 DataTable temp = new DataTable();
-                temp = fb.LoadGroups();
 
-                for (int i = 0; i < temp.Rows.Count; i++)
+                int startCount = 1;     //First Search Result Starts From 1
+
+                do
                 {
-                    DataRow dr = dt.NewRow();
-                    dr.ItemArray = temp.Rows[i].ItemArray.Clone() as object[];
-                    dt.Rows.Add(dr);
-                }
+                    temp = fb.LoadGroups();
+                    startCount += temp.Rows.Count;
+
+                    for (int i = 0; i < temp.Rows.Count; i++)
+                    {
+                        DataRow dr = dt.NewRow();
+                        dr.ItemArray = temp.Rows[i].ItemArray.Clone() as object[];
+                        dt.Rows.Add(dr);
+                    }
+                } while (temp.Rows.Count > 0);
 
                 dtgvGroupsJoined.DataSource = dt;
             }

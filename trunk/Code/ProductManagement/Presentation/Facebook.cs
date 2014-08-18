@@ -338,7 +338,7 @@ namespace mfb
             dt.Columns.Add("GroupId");
             dt.Columns.Add("GroupName");
 
-            string url = "https://m.facebook.com/groups/288036308032487";
+            string url = "https://m.facebook.com/browsegroups/?category=membership";
             //string url = "https://m.facebook.com/search/?search=group&search_source=search_bar&query=" + keyword + "&=search";
 
             string html = GetHtml(url);

@@ -23,3 +23,14 @@ E:\Private\Work\Ve May Bay\VeMayBayGiaRe\VietjetAir\bin\Debug\HtmlAgilityPack.xm
 D:\Share\Private\Work\Ve May Bay\VeMayBayGiaRe\VietjetAir\bin\Debug\VietjetAir.exe.config
 D:\Share\Private\Work\Ve May Bay\VeMayBayGiaRe\VietjetAir\obj\Debug\VietjetAir.exe
 D:\Share\Private\Work\Ve May Bay\VeMayBayGiaRe\VietjetAir\obj\Debug\VietjetAir.pdb
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\bin\Debug\VietjetAir.exe.config
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\obj\Debug\VietjetAir.exe
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\obj\Debug\VietjetAir.pdb
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\bin\Debug\VietjetAir.exe
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\bin\Debug\VietjetAir.pdb
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\bin\Debug\HtmlAgilityPack.pdb
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\bin\Debug\HtmlAgilityPack.xml
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\obj\Debug\ResolveAssemblyReference.cache
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\obj\Debug\VietjetAir.Form1.resources
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\obj\Debug\VietjetAir.Properties.Resources.resources
+D:\MySVN\trunk\Code\VeMayBayGiaRe\VietjetAir\obj\Debug\VietjetAir.csproj.GenerateResource.Cache

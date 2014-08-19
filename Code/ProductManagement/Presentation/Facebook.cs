@@ -12,7 +12,7 @@ namespace mfb
 {
     class Facebook
     {
-        static string userAgent = "Mozilla/2.0 (Windows NT 6.1; WOW64;) Gecko/20100101 Firefox/11.0";
+        static string userAgent = "User agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0)";
 
         CookieCollection myLoginCookies;
 
@@ -222,6 +222,106 @@ namespace mfb
 
             string html = sr.ReadToEnd();
             string action = "https://upload.facebook.com/_mupload_/composer/?site_category=m_basic";
+
+            Regex reg = new Regex("(?<=action=\")[^\"]+upload[^\"]+");
+            Match mAction = reg.Match(html);
+            if (mAction.Value != "")
+                action = mAction.Value.Replace("&amp;", "&");
+
+            reg = new Regex(@"name=""[^""]+"" value=""[^""]+""");
+            MatchCollection mc = reg.Matches(html);
+            List<string> values = new List<string>();
+            foreach (Match m in mc)
+            {
+                string s = m.Value.Replace(" value=\"", "\r\n\r\n");
+                s = s.Remove(s.LastIndexOf("\""));
+                values.Add(s);
+            }
+            values.Add("name=\"target\"\r\n\r\n");
+            values.Add("name=\"caption\"\r\n\r\n" + caption);
+
+            //preparing data to send
+            string boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x");
+            byte[] boundarybytes = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "\r\n");
+
+            HttpWebRequest wr = (HttpWebRequest)WebRequest.Create(action);
+            wr.ContentType = "multipart/form-data; boundary=" + boundary;
+            wr.KeepAlive = true;
+            wr.CookieContainer = new CookieContainer();
+            wr.CookieContainer.Add(cok); //recover cookies First request
+            wr.Method = WebRequestMethods.Http.Post;
+            wr.UserAgent = userAgent;
+            wr.AllowWriteStreamBuffering = true;
+            wr.ProtocolVersion = HttpVersion.Version11;
+            wr.AllowAutoRedirect = true;
+            wr.Referer = url;
+
+            //sending data
+            Stream rs = wr.GetRequestStream();
+            string formdataTemplate = "Content-Disposition: form-data; ";
+            foreach (string v in values)
+            {
+                rs.Write(boundarybytes, 0, boundarybytes.Length);
+                string formitem = formdataTemplate + v;
+                byte[] formitembytes = System.Text.Encoding.UTF8.GetBytes(formitem);
+                rs.Write(formitembytes, 0, formitembytes.Length);
+            }
+            rs.Write(boundarybytes, 0, boundarybytes.Length);
+
+            //prepairing file for upload
+            string headerTemplate = "Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: {2}\r\n\r\n";
+            string header = string.Format(headerTemplate, paramName, fileName, contentType);
+            byte[] headerbytes = System.Text.Encoding.UTF8.GetBytes(header);
+            rs.Write(headerbytes, 0, headerbytes.Length);
+
+            //uploading file
+            FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+            byte[] buffer = new byte[4096];
+            int bytesRead = 0;
+            while ((bytesRead = fileStream.Read(buffer, 0, buffer.Length)) != 0)
+            {
+                rs.Write(buffer, 0, bytesRead);
+            }
+            fileStream.Close();
+
+            //closing upload
+            byte[] trailer = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
+            rs.Write(trailer, 0, trailer.Length);
+            rs.Close();
+
+
+            HttpWebResponse wresp = (HttpWebResponse)wr.GetResponse();
+            string h = new StreamReader(wresp.GetResponseStream()).ReadToEnd();
+        }
+
+        public void UploadPhotoNew(string url)
+        {
+            CookieCollection cok = new CookieCollection();
+            cok.Add(myLoginCookies);
+
+            string filepath = "D:\\Temp\\Test\\kt009-10k.jpg";
+
+            string caption = "ELLA SHOP - TRANG SỨC PHỤ KIỆN GIÁ RẺ\nWWW.THOITRANGELLA.COM\nhttps://www.facebook.com/thoitrangella\n\n--------------\n\nChuyên cung cấp sỉ và lẻ trang sức phụ kiện giá rẻ, đẹp, phù hợp với mọi lứa tuổi";
+
+            FileInfo fi = new FileInfo(filepath);
+            string paramName = "file1";
+            string fileName = fi.Name;
+            string contentType = "image/" + fi.Extension.Replace(".", "");
+
+            //requesting upload page
+            //string url = "https://m.facebook.com/photos/upload/";
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+            req.CookieContainer = new CookieContainer();
+            req.CookieContainer.Add(cok);
+            req.AllowAutoRedirect = true;
+            req.UserAgent = userAgent;
+
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            cok.Add(resp.Cookies);
+            StreamReader sr = new StreamReader(resp.GetResponseStream());
+
+            string html = sr.ReadToEnd();
+            string action = url;
 
             Regex reg = new Regex("(?<=action=\")[^\"]+upload[^\"]+");
             Match mAction = reg.Match(html);

@@ -7,11 +7,36 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Data;
+using System.Runtime.InteropServices;
+using mfb;
 
 namespace Presentation
 {
     public partial class frmFacebookMe : Form
     {
+        // P/Invoke declarations
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindow(string id, string caption);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+
+        private const int WM_CLOSE = 0x10;
+
+        public void hideDialog()
+        {
+            IntPtr hWnd = FindWindow("#32770", null);
+
+            if (!hWnd.Equals(IntPtr.Zero))
+            {
+                SendMessage(hWnd, 0x0010, IntPtr.Zero, IntPtr.Zero);
+            }
+        }
+
+        Facebook fb;
+
+        static string userAgent = "Mozilla/2.0 (Windows NT 6.1; WOW64;) Gecko/20100101 Firefox/11.0";
+
         private int _step = 0;
         // 1: load group list
         // 2: navigate to group page
@@ -50,7 +75,8 @@ namespace Presentation
 
         private void frmFacebookMe_Load(object sender, EventArgs e)
         {
-            
+            fb = Facebook.Login("hongthanh0611@gmail.com", "nguoicodoc");
+            webFB.Navigate("https://m.facebook.com", null, null, "User agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0)");
         }
 
         private void btnLoadGroup_Click(object sender, EventArgs e)
@@ -126,6 +152,9 @@ namespace Presentation
             webFB.Navigate(url);
             _step = 2;
             timeCheck.Start();
+            //timer2.Start();
+            //openFileDialog1.ShowDialog();
+
         }
 
         private void goToPostImageForm()
@@ -141,6 +170,8 @@ namespace Presentation
                     break;
                 }
             }
+
+            //fb.UploadPhotoNew(url);
 
             webFB.Navigate(url);
             _step = 3;
@@ -164,8 +195,12 @@ namespace Presentation
             {
                 if (input.GetAttribute("name") == "file1")
                 {
-                    input.SetAttribute("value", @"D:\Temp\Phu Kien Toc\kt006-10k.jpg");
+                    input.Focus();
+                    //timer2.Start();
+                    //input.InvokeMember("click");
                     
+                    
+                    SendKeys.SendWait("                          " + "D:\\Temp\\Test\\kt009-10k.jpg" + (char)(13));
                     break;
                 }
                 //if (input.GetAttribute("type") == "submit")
@@ -174,6 +209,28 @@ namespace Presentation
                 //    break;
                 //}
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            IntPtr hWnd = FindWindow("#32770", "Open");
+
+            if (!hWnd.Equals(IntPtr.Zero))
+            {
+                timer1.Stop();
+                SendKeys.SendWait("D:\\Temp\\Test\\kt009-10k.jpg");
+                SendKeys.SendWait("{TAB 2}");
+                SendKeys.SendWait("{ENTER}");
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            IntPtr h = FindWindow("#32770", "Open");
+
+            SendMessage(h, 0x0010, IntPtr.Zero, IntPtr.Zero);
+
+            timer2.Stop();
         }
     }
 }

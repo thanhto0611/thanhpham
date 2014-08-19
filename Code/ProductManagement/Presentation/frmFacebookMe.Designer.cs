@@ -40,20 +40,23 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnLoadGroup = new System.Windows.Forms.Button();
-            this.timeCheck = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtgvGroupList = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnPostToGroup = new System.Windows.Forms.Button();
+            this.btnLoadGroup = new System.Windows.Forms.Button();
+            this.timeCheck = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGroupList)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -99,7 +102,7 @@
             this.webFB.ScriptErrorsSuppressed = true;
             this.webFB.Size = new System.Drawing.Size(936, 421);
             this.webFB.TabIndex = 0;
-            this.webFB.Url = new System.Uri("https://m.facebook.com", System.UriKind.Absolute);
+            this.webFB.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // groupBox1
             // 
@@ -173,32 +176,6 @@
             this.tabPage2.Text = "Post To Group";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnPostToGroup);
-            this.groupBox3.Controls.Add(this.btnLoadGroup);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(942, 100);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Post Info:";
-            // 
-            // btnLoadGroup
-            // 
-            this.btnLoadGroup.Location = new System.Drawing.Point(43, 34);
-            this.btnLoadGroup.Name = "btnLoadGroup";
-            this.btnLoadGroup.Size = new System.Drawing.Size(100, 23);
-            this.btnLoadGroup.TabIndex = 0;
-            this.btnLoadGroup.Text = "Load Groups";
-            this.btnLoadGroup.UseVisualStyleBackColor = true;
-            this.btnLoadGroup.Click += new System.EventHandler(this.btnLoadGroup_Click);
-            // 
-            // timeCheck
-            // 
-            this.timeCheck.Tick += new System.EventHandler(this.timeCheck_Tick);
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dtgvGroupList);
@@ -221,6 +198,18 @@
             this.dtgvGroupList.Size = new System.Drawing.Size(936, 370);
             this.dtgvGroupList.TabIndex = 0;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnPostToGroup);
+            this.groupBox3.Controls.Add(this.btnLoadGroup);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(942, 100);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Post Info:";
+            // 
             // btnPostToGroup
             // 
             this.btnPostToGroup.Location = new System.Drawing.Point(197, 34);
@@ -230,6 +219,32 @@
             this.btnPostToGroup.Text = "Post Group";
             this.btnPostToGroup.UseVisualStyleBackColor = true;
             this.btnPostToGroup.Click += new System.EventHandler(this.btnPostToGroup_Click);
+            // 
+            // btnLoadGroup
+            // 
+            this.btnLoadGroup.Location = new System.Drawing.Point(43, 34);
+            this.btnLoadGroup.Name = "btnLoadGroup";
+            this.btnLoadGroup.Size = new System.Drawing.Size(100, 23);
+            this.btnLoadGroup.TabIndex = 0;
+            this.btnLoadGroup.Text = "Load Groups";
+            this.btnLoadGroup.UseVisualStyleBackColor = true;
+            this.btnLoadGroup.Click += new System.EventHandler(this.btnLoadGroup_Click);
+            // 
+            // timeCheck
+            // 
+            this.timeCheck.Tick += new System.EventHandler(this.timeCheck_Tick);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // frmFacebookMe
             // 
@@ -246,9 +261,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGroupList)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -272,5 +287,8 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dtgvGroupList;
         private System.Windows.Forms.Button btnPostToGroup;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

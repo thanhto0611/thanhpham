@@ -19,6 +19,7 @@ namespace Presentation
         // 2: navigate to group page
 
         DataTable dt = new DataTable();
+        DataTable dtSearchGroup = new DataTable();
 
         private string[] imagesFileName;
 
@@ -61,7 +62,9 @@ namespace Presentation
 
         private void frmFacebookMe_Load(object sender, EventArgs e)
         {
-
+            dtSearchGroup.Columns.Add("GroupId");
+            dtSearchGroup.Columns.Add("GroupName");
+            dtSearchGroup.Columns.Add("GroupMember");
         }
 
         private void btnLoadGroup_Click(object sender, EventArgs e)
@@ -125,6 +128,15 @@ namespace Presentation
                         break;
                     case 4:
                         finish();
+                        break;
+                    case 5:
+                        searchGroup();
+                        break;
+                    case 6:
+                        goToGroupPage();
+                        break;
+                    case 7:
+                        getSearchGroupList();
                         break;
                     default:
                         break;
@@ -256,6 +268,117 @@ namespace Presentation
                 fileNames = fileNames + filename + ";";
             }
             txtImages.Text = fileNames;
+        }
+
+        private void btnSearchGroup_Click(object sender, EventArgs e)
+        {
+            if (txtGroupName.Text == "")
+            {
+                MessageBox.Show("Please input the group name");
+                return;
+            }
+
+            webFB.Navigate("https://m.facebook.com/search/");
+            _step = 5;
+            timeCheck.Start();
+        }
+
+        private void searchGroup()
+        {
+
+            HtmlElementCollection inputColec = webFB.Document.GetElementsByTagName("input");
+
+            foreach (HtmlElement input in inputColec)
+            {
+                if (input.GetAttribute("name") == "query")
+                {
+                    input.SetAttribute("value", txtGroupName.Text);
+                }
+                if (input.GetAttribute("type") == "submit")
+                {
+                    input.InvokeMember("click");
+                    break;
+                }
+            }
+            _step = 6;
+            timerTemp.Start();
+        }
+
+        private void goToGroupPage()
+        {
+            string url = "";
+            HtmlElementCollection aColec = webFB.Document.GetElementsByTagName("a");
+            foreach (HtmlElement a in aColec)
+            {
+                if (a.GetAttribute("href").Contains("search=group"))
+                {
+                    url += a.GetAttribute("href");
+                    break;
+                }
+            }
+
+            webFB.Navigate(url);
+            _step = 7;
+            timeCheck.Start();
+        }
+
+        private void getSearchGroupList()
+        {
+            HtmlElementCollection tableColec = webFB.Document.GetElementsByTagName("table");
+
+            HtmlElementCollection tdColec = tableColec[2].GetElementsByTagName("td");
+
+            foreach (HtmlElement td in tdColec)
+            {
+                string html = td.InnerHtml;
+                html = html.Replace(@"\/", "/");
+                html = html.Replace(@"\u0025", "%");
+                html = html.Replace("&amp;", "&");
+                html = html.Replace("&quot;", "\"");
+
+                Regex reg = new Regex("/groups/([0-9]{6,30})[^>]+>([^<]+)");
+                MatchCollection mc = reg.Matches(html);
+
+                if (mc.Count > 0)
+                {
+                    DataRow dr = dtSearchGroup.NewRow();
+                    dr[0] = mc[0].Groups[1].Value;
+                    dr[1] = td.GetElementsByTagName("a")[0].InnerText;
+                    string numMember = Regex.Replace(td.GetElementsByTagName("div")[0].InnerText, @"[^\d]", String.Empty);
+                    dr[2] = Int32.Parse(numMember);
+
+                    dtSearchGroup.Rows.Add(dr);
+                }
+            }
+            dtgvGroupSearchResult.DataSource = dtSearchGroup;
+            string url = "";
+            HtmlElementCollection aColec = webFB.Document.GetElementsByTagName("a");
+            foreach (HtmlElement a in aColec)
+            {
+                if (a.GetAttribute("href").Contains("search=group") && a.InnerText != "Tìm kiếm" && a.InnerText != "[ ↑ ] Trên cùng")
+                {
+                    string temp = a.GetAttribute("href") + a.InnerText + "\n";
+                    txtCaption.Text = temp;
+                    url += a.GetAttribute("href");
+                    break;
+                }
+            }
+
+            if (url != "")
+            {
+                webFB.Navigate(url);
+                _step = 7;
+                timeCheck.Start();
+            }
+            else
+                MessageBox.Show("Done");
+        }
+
+        private void timerTemp_Tick(object sender, EventArgs e)
+        {
+            timerTemp.Stop();
+            
+            timeCheck.Start();
         }
     }
 }

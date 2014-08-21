@@ -26,6 +26,8 @@ namespace Presentation
         private int rowIdx = -1;
         private int imgIdx = -1;
 
+        private int rowSearchIdx = -1;
+
 
         public frmFacebookMe()
         {
@@ -137,6 +139,9 @@ namespace Presentation
                         break;
                     case 7:
                         getSearchGroupList();
+                        break;
+                    case 8:
+                        requestJoinGroup();
                         break;
                     default:
                         break;
@@ -326,23 +331,46 @@ namespace Presentation
         {
             HtmlElementCollection tableColec = webFB.Document.GetElementsByTagName("table");
 
-            HtmlElementCollection tdColec = tableColec[2].GetElementsByTagName("td");
+            //HtmlElementCollection tdColec = tableColec[2].GetElementsByTagName("td");
 
-            foreach (HtmlElement td in tdColec)
+            HtmlElementCollection tdColec = null;
+
+            string html = "";
+
+            Regex reg = new Regex("/groups/([0-9]{6,30})[^>]+>([^<]+)");
+
+            foreach (HtmlElement table in tableColec)
             {
-                string html = td.InnerHtml;
+                html = table.InnerHtml;
                 html = html.Replace(@"\/", "/");
                 html = html.Replace(@"\u0025", "%");
                 html = html.Replace("&amp;", "&");
                 html = html.Replace("&quot;", "\"");
 
-                Regex reg = new Regex("/groups/([0-9]{6,30})[^>]+>([^<]+)");
+                
                 MatchCollection mc = reg.Matches(html);
 
                 if (mc.Count > 0)
                 {
+                    tdColec = table.GetElementsByTagName("td");
+                    break;
+                }
+            }
+
+            foreach (HtmlElement td in tdColec)
+            {
+                html = td.InnerHtml;
+                html = html.Replace(@"\/", "/");
+                html = html.Replace(@"\u0025", "%");
+                html = html.Replace("&amp;", "&");
+                html = html.Replace("&quot;", "\"");
+
+                MatchCollection mc1 = reg.Matches(html);
+
+                if (mc1.Count > 0)
+                {
                     DataRow dr = dtSearchGroup.NewRow();
-                    dr[0] = mc[0].Groups[1].Value;
+                    dr[0] = mc1[0].Groups[1].Value;
                     dr[1] = td.GetElementsByTagName("a")[0].InnerText;
                     string numMember = Regex.Replace(td.GetElementsByTagName("div")[0].InnerText, @"[^\d]", String.Empty);
                     dr[2] = Int32.Parse(numMember);
@@ -355,7 +383,7 @@ namespace Presentation
             HtmlElementCollection aColec = webFB.Document.GetElementsByTagName("a");
             foreach (HtmlElement a in aColec)
             {
-                if (a.GetAttribute("href").Contains("search=group") && a.InnerText != "Tìm kiếm" && a.InnerText != "[ ↑ ] Trên cùng")
+                if (a.GetAttribute("href").Contains("search=group") && a.InnerText == "Xem thêm kết quả")
                 {
                     string temp = a.GetAttribute("href") + a.InnerText + "\n";
                     txtCaption.Text = temp;
@@ -371,13 +399,65 @@ namespace Presentation
                 timeCheck.Start();
             }
             else
+            {
                 MessageBox.Show("Done");
+            }
         }
 
         private void timerTemp_Tick(object sender, EventArgs e)
         {
             timerTemp.Stop();
-            
+            if (_step == 8)
+            {
+                timerJoin.Start();
+            } 
+            else
+            {
+                timeCheck.Start();
+            }
+        }
+
+        private void btnJoinGroup_Click(object sender, EventArgs e)
+        {
+            if (dtgvGroupSearchResult.Rows.Count == 0)
+            {
+                MessageBox.Show("Please search groups first");
+                return;
+            }
+
+            timerJoin.Start();
+        }
+
+        private void requestJoinGroup()
+        {
+            HtmlElement joinButton = webFB.Document.GetElementById("groupJoinHeaderButton");
+            if (joinButton != null && joinButton.GetAttribute("value") == "Tham gia nhóm")
+            {
+                joinButton.InvokeMember("click");
+                dtgvGroupSearchResult.Rows[rowSearchIdx].DefaultCellStyle.BackColor = Color.Yellow;
+                timerTemp.Start();
+            } 
+            else
+            {
+                return;
+            }
+        }
+
+        private void timerJoin_Tick(object sender, EventArgs e)
+        {
+            timerJoin.Stop();
+
+            rowSearchIdx++;
+
+            if (rowSearchIdx >= dtgvGroupSearchResult.Rows.Count)
+            {
+                MessageBox.Show("Joined all groups");
+                return;
+            }
+
+            string url = "https://m.facebook.com/groups/" + dtgvGroupSearchResult.Rows[rowSearchIdx].Cells[0].Value.ToString();
+            webFB.Navigate(url);
+            _step = 8;
             timeCheck.Start();
         }
     }

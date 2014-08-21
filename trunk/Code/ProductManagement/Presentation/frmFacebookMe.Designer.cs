@@ -55,16 +55,18 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnLoadGroup = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.dtgvGroupSearchResult = new System.Windows.Forms.DataGridView();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnSearchGroup = new System.Windows.Forms.Button();
+            this.txtGroupName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.timeCheck = new System.Windows.Forms.Timer(this.components);
             this.timerDelayBetweenPost = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtGroupName = new System.Windows.Forms.TextBox();
-            this.btnSearchGroup = new System.Windows.Forms.Button();
-            this.dtgvGroupSearchResult = new System.Windows.Forms.DataGridView();
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
+            this.btnJoinGroup = new System.Windows.Forms.Button();
+            this.timerJoin = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -76,9 +78,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGroupList)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGroupSearchResult)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -352,6 +354,69 @@
             this.tabPage3.Text = "Find & Join Group";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dtgvGroupSearchResult);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox8.Location = new System.Drawing.Point(0, 100);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(948, 486);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Search Results";
+            // 
+            // dtgvGroupSearchResult
+            // 
+            this.dtgvGroupSearchResult.AllowUserToAddRows = false;
+            this.dtgvGroupSearchResult.AllowUserToDeleteRows = false;
+            this.dtgvGroupSearchResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvGroupSearchResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvGroupSearchResult.Location = new System.Drawing.Point(3, 16);
+            this.dtgvGroupSearchResult.Name = "dtgvGroupSearchResult";
+            this.dtgvGroupSearchResult.Size = new System.Drawing.Size(942, 467);
+            this.dtgvGroupSearchResult.TabIndex = 0;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.btnJoinGroup);
+            this.groupBox7.Controls.Add(this.btnSearchGroup);
+            this.groupBox7.Controls.Add(this.txtGroupName);
+            this.groupBox7.Controls.Add(this.label6);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox7.Location = new System.Drawing.Point(0, 0);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(948, 100);
+            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Search Info:";
+            // 
+            // btnSearchGroup
+            // 
+            this.btnSearchGroup.Location = new System.Drawing.Point(467, 31);
+            this.btnSearchGroup.Name = "btnSearchGroup";
+            this.btnSearchGroup.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchGroup.TabIndex = 2;
+            this.btnSearchGroup.Text = "Search";
+            this.btnSearchGroup.UseVisualStyleBackColor = true;
+            this.btnSearchGroup.Click += new System.EventHandler(this.btnSearchGroup_Click);
+            // 
+            // txtGroupName
+            // 
+            this.txtGroupName.Location = new System.Drawing.Point(113, 33);
+            this.txtGroupName.Name = "txtGroupName";
+            this.txtGroupName.Size = new System.Drawing.Size(319, 20);
+            this.txtGroupName.TabIndex = 1;
+            this.txtGroupName.Text = "rao vặt";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(37, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Group Name:";
+            // 
             // timeCheck
             // 
             this.timeCheck.Tick += new System.EventHandler(this.timeCheck_Tick);
@@ -366,72 +431,24 @@
             this.openFileDialog1.Multiselect = true;
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.btnSearchGroup);
-            this.groupBox7.Controls.Add(this.txtGroupName);
-            this.groupBox7.Controls.Add(this.label6);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox7.Location = new System.Drawing.Point(0, 0);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(948, 100);
-            this.groupBox7.TabIndex = 0;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Search Info:";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.dtgvGroupSearchResult);
-            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox8.Location = new System.Drawing.Point(0, 100);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(948, 486);
-            this.groupBox8.TabIndex = 1;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Search Results";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Group Name:";
-            // 
-            // txtGroupName
-            // 
-            this.txtGroupName.Location = new System.Drawing.Point(113, 33);
-            this.txtGroupName.Name = "txtGroupName";
-            this.txtGroupName.Size = new System.Drawing.Size(319, 20);
-            this.txtGroupName.TabIndex = 1;
-            this.txtGroupName.Text = "rao vặt";
-            // 
-            // btnSearchGroup
-            // 
-            this.btnSearchGroup.Location = new System.Drawing.Point(467, 31);
-            this.btnSearchGroup.Name = "btnSearchGroup";
-            this.btnSearchGroup.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchGroup.TabIndex = 2;
-            this.btnSearchGroup.Text = "Search";
-            this.btnSearchGroup.UseVisualStyleBackColor = true;
-            this.btnSearchGroup.Click += new System.EventHandler(this.btnSearchGroup_Click);
-            // 
-            // dtgvGroupSearchResult
-            // 
-            this.dtgvGroupSearchResult.AllowUserToAddRows = false;
-            this.dtgvGroupSearchResult.AllowUserToDeleteRows = false;
-            this.dtgvGroupSearchResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvGroupSearchResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvGroupSearchResult.Location = new System.Drawing.Point(3, 16);
-            this.dtgvGroupSearchResult.Name = "dtgvGroupSearchResult";
-            this.dtgvGroupSearchResult.Size = new System.Drawing.Size(942, 467);
-            this.dtgvGroupSearchResult.TabIndex = 0;
-            // 
             // timerTemp
             // 
             this.timerTemp.Interval = 5000;
             this.timerTemp.Tick += new System.EventHandler(this.timerTemp_Tick);
+            // 
+            // btnJoinGroup
+            // 
+            this.btnJoinGroup.Location = new System.Drawing.Point(601, 31);
+            this.btnJoinGroup.Name = "btnJoinGroup";
+            this.btnJoinGroup.Size = new System.Drawing.Size(75, 23);
+            this.btnJoinGroup.TabIndex = 3;
+            this.btnJoinGroup.Text = "Join Group";
+            this.btnJoinGroup.UseVisualStyleBackColor = true;
+            this.btnJoinGroup.Click += new System.EventHandler(this.btnJoinGroup_Click);
+            // 
+            // timerJoin
+            // 
+            this.timerJoin.Tick += new System.EventHandler(this.timerJoin_Tick);
             // 
             // frmFacebookMe
             // 
@@ -455,10 +472,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGroupList)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGroupSearchResult)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -501,5 +518,7 @@
         private System.Windows.Forms.Button btnSearchGroup;
         private System.Windows.Forms.DataGridView dtgvGroupSearchResult;
         private System.Windows.Forms.Timer timerTemp;
+        private System.Windows.Forms.Button btnJoinGroup;
+        private System.Windows.Forms.Timer timerJoin;
     }
 }

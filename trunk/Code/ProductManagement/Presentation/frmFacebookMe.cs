@@ -14,32 +14,18 @@ namespace Presentation
 {
     public partial class frmFacebookMe : Form
     {
-        // P/Invoke declarations
-        [DllImport("user32.dll", SetLastError = true)]
-        static extern IntPtr FindWindow(string id, string caption);
-
-        [DllImport("user32.dll")]
-        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
-
-        private const int WM_CLOSE = 0x10;
-
-        public void hideDialog()
-        {
-            IntPtr hWnd = FindWindow("#32770", null);
-
-            if (!hWnd.Equals(IntPtr.Zero))
-            {
-                SendMessage(hWnd, 0x0010, IntPtr.Zero, IntPtr.Zero);
-            }
-        }
-
-        Facebook fb;
-
-        static string userAgent = "Mozilla/2.0 (Windows NT 6.1; WOW64;) Gecko/20100101 Firefox/11.0";
-
         private int _step = 0;
         // 1: load group list
         // 2: navigate to group page
+
+        DataTable dt = new DataTable();
+
+        private string[] imagesFileName;
+
+        private int rowIdx = -1;
+        private int imgIdx = -1;
+
+
         public frmFacebookMe()
         {
             InitializeComponent();
@@ -75,8 +61,7 @@ namespace Presentation
 
         private void frmFacebookMe_Load(object sender, EventArgs e)
         {
-            fb = Facebook.Login("hongthanh0611@gmail.com", "nguoicodoc");
-            webFB.Navigate("https://m.facebook.com", null, null, "User agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0)");
+
         }
 
         private void btnLoadGroup_Click(object sender, EventArgs e)
@@ -90,7 +75,6 @@ namespace Presentation
         {
             HtmlElementCollection ulColec = webFB.Document.GetElementsByTagName("ul");
 
-            DataTable dt = new DataTable();
             dt.Columns.Add("GroupId");
             dt.Columns.Add("GroupName");
 
@@ -139,6 +123,9 @@ namespace Presentation
                     case 3:
                         postImage();
                         break;
+                    case 4:
+                        finish();
+                        break;
                     default:
                         break;
                 }
@@ -148,13 +135,27 @@ namespace Presentation
 
         private void btnPostToGroup_Click(object sender, EventArgs e)
         {
-            string url = "https://m.facebook.com/groups/288036308032487";
-            webFB.Navigate(url);
-            _step = 2;
-            timeCheck.Start();
-            //timer2.Start();
-            //openFileDialog1.ShowDialog();
+            if (dtgvGroupList.Rows.Count == 0)
+            {
+                MessageBox.Show("Please get group list");
+                return;
+            }
+            if (txtCaption.Text == "")
+            {
+                MessageBox.Show("Please put the caption");
+                return;
+            }
+            if (txtImages.Text == "")
+            {
+                MessageBox.Show("Please select Images to post");
+                return;
+            }
 
+            timerDelayBetweenPost.Interval = Int32.Parse(txtTimeBetweenPost.Text);
+            timerDelayBetweenPost.Start();
+
+
+            //string url = "https://m.facebook.com/groups/288036308032487";
         }
 
         private void goToPostImageForm()
@@ -185,7 +186,8 @@ namespace Presentation
             {
                 if (textarea.GetAttribute("name") == "caption")
                 {
-                    textarea.SetAttribute("value", "ELLA SHOP - TRANG SỨC PHỤ KIỆN GIÁ RẺ\nWWW.THOITRANGELLA.COM\nhttps://www.facebook.com/thoitrangella\n\n--------------\n\nChuyên cung cấp sỉ và lẻ trang sức phụ kiện giá rẻ, đẹp, phù hợp với mọi lứa tuổi");
+                    //textarea.SetAttribute("value", "ELLA SHOP - TRANG SỨC PHỤ KIỆN GIÁ RẺ\nWWW.THOITRANGELLA.COM\nhttps://www.facebook.com/thoitrangella\n\n--------------\n\nChuyên cung cấp sỉ và lẻ trang sức phụ kiện giá rẻ, đẹp, phù hợp với mọi lứa tuổi");
+                    textarea.SetAttribute("value", txtCaption.Text);
                     break;
                 }
             }
@@ -196,41 +198,64 @@ namespace Presentation
                 if (input.GetAttribute("name") == "file1")
                 {
                     input.Focus();
-                    //timer2.Start();
-                    //input.InvokeMember("click");
-                    
-                    
-                    SendKeys.SendWait("                          " + "D:\\Temp\\Test\\kt009-10k.jpg" + (char)(13));
+                    SendKeys.SendWait(imagesFileName[imgIdx]);
+                }
+                if (input.GetAttribute("type") == "submit")
+                {
+                    input.InvokeMember("click");
                     break;
                 }
-                //if (input.GetAttribute("type") == "submit")
-                //{
-                //    input.InvokeMember("click");
-                //    break;
-                //}
             }
+            _step = 4;
+            timeCheck.Start();
+        }
+
+        private void finish()
+        {
+            if (dtgvGroupList.Rows[rowIdx].DefaultCellStyle.BackColor == Color.Yellow)
+                dtgvGroupList.Rows[rowIdx].DefaultCellStyle.BackColor = Color.Green;
+            else
+                dtgvGroupList.Rows[rowIdx].DefaultCellStyle.BackColor = Color.Yellow;
+
+            timerDelayBetweenPost.Interval = Int32.Parse(txtTimeBetweenPost.Text);
+            timerDelayBetweenPost.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            IntPtr hWnd = FindWindow("#32770", "Open");
+            timerDelayBetweenPost.Stop();
 
-            if (!hWnd.Equals(IntPtr.Zero))
+            rowIdx++;
+            imgIdx++;
+
+            if (rowIdx >= dtgvGroupList.Rows.Count)
             {
-                timer1.Stop();
-                SendKeys.SendWait("D:\\Temp\\Test\\kt009-10k.jpg");
-                SendKeys.SendWait("{TAB 2}");
-                SendKeys.SendWait("{ENTER}");
+                rowIdx = 0;
             }
+            if (imgIdx >= imagesFileName.Length)
+            {
+                imgIdx = 0;
+            }
+            string url = "https://m.facebook.com/groups/" + dtgvGroupList.Rows[rowIdx].Cells[0].Value.ToString();
+            webFB.Navigate(url);
+            _step = 2;
+            timeCheck.Start();
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        private void btnBrowseImages_Click(object sender, EventArgs e)
         {
-            IntPtr h = FindWindow("#32770", "Open");
+            openFileDialog1.ShowDialog();
+        }
 
-            SendMessage(h, 0x0010, IntPtr.Zero, IntPtr.Zero);
-
-            timer2.Stop();
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            imagesFileName = openFileDialog1.FileNames;
+            string fileNames = "";
+            foreach (string filename in openFileDialog1.FileNames)
+            {
+                fileNames = fileNames + filename + ";";
+            }
+            txtImages.Text = fileNames;
         }
     }
 }

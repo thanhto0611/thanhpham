@@ -436,10 +436,10 @@ namespace Presentation
                 joinButton.InvokeMember("click");
                 dtgvGroupSearchResult.Rows[rowSearchIdx].DefaultCellStyle.BackColor = Color.Yellow;
                 timerTemp.Start();
-            } 
+            }
             else
             {
-                return;
+                timerJoin.Start();
             }
         }
 

@@ -439,6 +439,7 @@ namespace Presentation
             }
             else
             {
+                dtgvGroupSearchResult.Rows[rowSearchIdx].DefaultCellStyle.BackColor = Color.Green;
                 timerJoin.Start();
             }
         }

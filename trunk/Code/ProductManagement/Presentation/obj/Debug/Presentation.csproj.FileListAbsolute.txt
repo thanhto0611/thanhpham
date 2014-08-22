@@ -590,3 +590,6 @@ D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.pdb
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Presentation.pdb
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Interop.Microsoft.Office.Core.dll
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Interop.VBIDE.dll
+D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\office.dll
+D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Microsoft.Vbe.Interop.dll

@@ -58,6 +58,7 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dtgvGroupSearchResult = new System.Windows.Forms.DataGridView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnJoinGroup = new System.Windows.Forms.Button();
             this.btnSearchGroup = new System.Windows.Forms.Button();
             this.txtGroupName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.timerDelayBetweenPost = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
-            this.btnJoinGroup = new System.Windows.Forms.Button();
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -390,6 +390,16 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Search Info:";
             // 
+            // btnJoinGroup
+            // 
+            this.btnJoinGroup.Location = new System.Drawing.Point(601, 31);
+            this.btnJoinGroup.Name = "btnJoinGroup";
+            this.btnJoinGroup.Size = new System.Drawing.Size(75, 23);
+            this.btnJoinGroup.TabIndex = 3;
+            this.btnJoinGroup.Text = "Join Group";
+            this.btnJoinGroup.UseVisualStyleBackColor = true;
+            this.btnJoinGroup.Click += new System.EventHandler(this.btnJoinGroup_Click);
+            // 
             // btnSearchGroup
             // 
             this.btnSearchGroup.Location = new System.Drawing.Point(467, 31);
@@ -436,18 +446,9 @@
             this.timerTemp.Interval = 5000;
             this.timerTemp.Tick += new System.EventHandler(this.timerTemp_Tick);
             // 
-            // btnJoinGroup
-            // 
-            this.btnJoinGroup.Location = new System.Drawing.Point(601, 31);
-            this.btnJoinGroup.Name = "btnJoinGroup";
-            this.btnJoinGroup.Size = new System.Drawing.Size(75, 23);
-            this.btnJoinGroup.TabIndex = 3;
-            this.btnJoinGroup.Text = "Join Group";
-            this.btnJoinGroup.UseVisualStyleBackColor = true;
-            this.btnJoinGroup.Click += new System.EventHandler(this.btnJoinGroup_Click);
-            // 
             // timerJoin
             // 
+            this.timerJoin.Interval = 20000;
             this.timerJoin.Tick += new System.EventHandler(this.timerJoin_Tick);
             // 
             // frmFacebookMe

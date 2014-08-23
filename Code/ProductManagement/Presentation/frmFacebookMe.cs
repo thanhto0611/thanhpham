@@ -143,6 +143,9 @@ namespace Presentation
                     case 8:
                         requestJoinGroup();
                         break;
+                    case 9:
+                        getAlbumList();
+                        break;
                     default:
                         break;
                 }
@@ -460,6 +463,18 @@ namespace Presentation
             webFB.Navigate(url);
             _step = 8;
             timeCheck.Start();
+        }
+
+        private void btnGetAlbumList_Click(object sender, EventArgs e)
+        {
+            webFB.Navigate("https://m.facebook.com/thoitrangella?v=photos");
+            _step = 9;
+            timeCheck.Start();
+        }
+
+        private void getAlbumList()
+        {
+
         }
     }
 }

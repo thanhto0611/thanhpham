@@ -67,6 +67,10 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.btnGetAlbumList = new System.Windows.Forms.Button();
+            this.cbxAlbumList = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -81,6 +85,8 @@
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGroupSearchResult)).BeginInit();
             this.groupBox7.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -88,6 +94,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -451,6 +458,46 @@
             this.timerJoin.Interval = 20000;
             this.timerJoin.Tick += new System.EventHandler(this.timerJoin_Tick);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox9);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(948, 586);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Post Image to Fanpage";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.cbxAlbumList);
+            this.groupBox9.Controls.Add(this.btnGetAlbumList);
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox9.Location = new System.Drawing.Point(0, 0);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(948, 183);
+            this.groupBox9.TabIndex = 0;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Album list:";
+            // 
+            // btnGetAlbumList
+            // 
+            this.btnGetAlbumList.Location = new System.Drawing.Point(39, 37);
+            this.btnGetAlbumList.Name = "btnGetAlbumList";
+            this.btnGetAlbumList.Size = new System.Drawing.Size(96, 40);
+            this.btnGetAlbumList.TabIndex = 0;
+            this.btnGetAlbumList.Text = "Get Album List";
+            this.btnGetAlbumList.UseVisualStyleBackColor = true;
+            this.btnGetAlbumList.Click += new System.EventHandler(this.btnGetAlbumList_Click);
+            // 
+            // cbxAlbumList
+            // 
+            this.cbxAlbumList.FormattingEnabled = true;
+            this.cbxAlbumList.Location = new System.Drawing.Point(233, 48);
+            this.cbxAlbumList.Name = "cbxAlbumList";
+            this.cbxAlbumList.Size = new System.Drawing.Size(426, 21);
+            this.cbxAlbumList.TabIndex = 1;
+            // 
             // frmFacebookMe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,6 +524,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGroupSearchResult)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -521,5 +570,9 @@
         private System.Windows.Forms.Timer timerTemp;
         private System.Windows.Forms.Button btnJoinGroup;
         private System.Windows.Forms.Timer timerJoin;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Button btnGetAlbumList;
+        private System.Windows.Forms.ComboBox cbxAlbumList;
     }
 }

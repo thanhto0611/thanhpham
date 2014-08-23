@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Text;
 using System.IO;
 using System.Net;
@@ -20,6 +21,8 @@ namespace Presentation
 
         DataTable dt = new DataTable();
         DataTable dtSearchGroup = new DataTable();
+        DataTable dtAlbumList = new DataTable();
+        ArrayList arrAlbumList = new ArrayList();
 
         private string[] imagesFileName;
 
@@ -27,6 +30,29 @@ namespace Presentation
         private int imgIdx = -1;
 
         private int rowSearchIdx = -1;
+
+        public class album
+        {
+            public string _name;
+            public string _url;
+            public album(string Name, string Url)
+            {
+                this._name = Name;
+                this._url = Url;
+            }
+
+            public string name
+            {
+                get { return _name; }
+                set { _name = name; }
+            }
+
+            public string url
+            {
+                get { return _url; }
+                set { _url = url; }
+            }
+        }
 
 
         public frmFacebookMe()
@@ -67,6 +93,9 @@ namespace Presentation
             dtSearchGroup.Columns.Add("GroupId");
             dtSearchGroup.Columns.Add("GroupName");
             dtSearchGroup.Columns.Add("GroupMember");
+
+            dtAlbumList.Columns.Add("AlbumName");
+            dtAlbumList.Columns.Add("Url");
         }
 
         private void btnLoadGroup_Click(object sender, EventArgs e)
@@ -474,7 +503,44 @@ namespace Presentation
 
         private void getAlbumList()
         {
+            HtmlElement root = webFB.Document.GetElementById("root");
 
+            HtmlElementCollection aColec = root.GetElementsByTagName("a");
+
+            foreach (HtmlElement a in aColec)
+            {
+                if (a.GetAttribute("href").Contains("/thoitrangella/albums/"))
+                {
+                    album ab = new album(a.InnerText, a.GetAttribute("href"));
+                    
+                    arrAlbumList.Add(ab);
+                }
+            }
+
+            string url = "";
+
+            foreach (HtmlElement a in aColec)
+            {
+                if (a.GetAttribute("href").Contains("photos") && a.InnerText.Contains("album khác"))
+                {
+                    url = a.GetAttribute("href");
+                    break;
+                }
+            }
+
+            if (url != "")
+            {
+                webFB.Navigate(url);
+                _step = 9;
+                timeCheck.Start();
+            }
+            else
+            {
+                cbxAlbumList.DataSource = arrAlbumList;
+                cbxAlbumList.DisplayMember = "name";
+                cbxAlbumList.ValueMember = "url";
+                MessageBox.Show("Get album list done");
+            }
         }
     }
 }

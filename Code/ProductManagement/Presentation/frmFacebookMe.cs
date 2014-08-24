@@ -21,7 +21,7 @@ namespace Presentation
 
         DataTable dt = new DataTable();
         DataTable dtSearchGroup = new DataTable();
-        DataTable dtAlbumList = new DataTable();
+        DataTable dtAlbumImages = new DataTable();
         ArrayList arrAlbumList = new ArrayList();
 
         private string[] imagesFileName;
@@ -30,6 +30,7 @@ namespace Presentation
         private int imgIdx = -1;
 
         private int rowSearchIdx = -1;
+        private int rowAlbumImgIdx = -1;
 
         public class album
         {
@@ -94,8 +95,7 @@ namespace Presentation
             dtSearchGroup.Columns.Add("GroupName");
             dtSearchGroup.Columns.Add("GroupMember");
 
-            dtAlbumList.Columns.Add("AlbumName");
-            dtAlbumList.Columns.Add("Url");
+            dtAlbumImages.Columns.Add("ImageName");
         }
 
         private void btnLoadGroup_Click(object sender, EventArgs e)
@@ -174,6 +174,9 @@ namespace Presentation
                         break;
                     case 9:
                         getAlbumList();
+                        break;
+                    case 10:
+                        postImageToAlbum();
                         break;
                     default:
                         break;
@@ -511,7 +514,11 @@ namespace Presentation
             {
                 if (a.GetAttribute("href").Contains("/thoitrangella/albums/"))
                 {
-                    album ab = new album(a.InnerText, a.GetAttribute("href"));
+                    string html = a.GetAttribute("href");
+                    Regex reg = new Regex("/albums/([0-9]{6,30})");
+                    MatchCollection mc = reg.Matches(html);
+
+                    album ab = new album(a.InnerText, mc[0].Groups[1].Value.ToString());
                     
                     arrAlbumList.Add(ab);
                 }
@@ -541,6 +548,124 @@ namespace Presentation
                 cbxAlbumList.ValueMember = "url";
                 MessageBox.Show("Get album list done");
             }
+        }
+
+        private void btnBrowseAlbumImages_Click(object sender, EventArgs e)
+        {
+            openAlbumImages.ShowDialog();
+        }
+
+        private void openAlbumImages_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            imagesFileName = openAlbumImages.FileNames;
+            string fileNames = "";
+            foreach (string filename in openAlbumImages.FileNames)
+            {
+                fileNames = fileNames + filename + ";";
+                DataRow dr = dtAlbumImages.NewRow();
+                dr[0] = filename;
+
+                dtAlbumImages.Rows.Add(dr);
+            }
+            txtAlbumImages.Text = fileNames;
+            dtgvAlbumImages.DataSource = dtAlbumImages;
+        }
+
+        private void btnPostToAlbum_Click(object sender, EventArgs e)
+        {
+            if (cbxAlbumList.Text == "")
+            {
+                MessageBox.Show("Please get album list first");
+                return;
+            }
+            if (dtgvAlbumImages.Rows.Count == 0)
+            {
+                MessageBox.Show("Please select images to post");
+                return;
+            }
+
+            string url = "https://m.facebook.com/photos/upload/?album_id=" + cbxAlbumList.SelectedValue.ToString() + "&upload_source=album";
+
+            webFB.Navigate(url);
+            _step = 10;
+            timeCheck.Start();
+        }
+
+        private void postImageToAlbum()
+        {
+            rowAlbumImgIdx++;
+            if (rowAlbumImgIdx > 0)
+            {
+                System.IO.File.Move(dtgvAlbumImages.Rows[rowAlbumImgIdx - 1].Cells[0].Value.ToString(), dtgvAlbumImages.Rows[rowAlbumImgIdx - 1].Cells[0].Value.ToString() + ".posted");
+            }
+
+            if (rowAlbumImgIdx == dtgvAlbumImages.Rows.Count)
+            {
+                MessageBox.Show("All images were posted");
+                return;
+            }
+
+            HtmlElementCollection textareaColec = webFB.Document.GetElementsByTagName("textarea");
+
+            foreach (HtmlElement textarea in textareaColec)
+            {
+                if (textarea.GetAttribute("name") == "caption")
+                {
+                    string caption = txtAlbumImageCaption.Text;
+
+                    Uri uri = new Uri(dtgvAlbumImages.Rows[rowAlbumImgIdx].Cells[0].Value.ToString());
+                    string filename = "";
+                    if (uri.IsFile)
+                    {
+                        filename = System.IO.Path.GetFileName(uri.LocalPath);
+                    }
+
+                    string[] splitFileName = filename.Split('-');
+                    string giaSi = splitFileName[2].Split('.')[0];
+
+                    caption = caption + "\n" + splitFileName[0];
+                    caption = caption + "\nGIÁ SỈ: " + giaSi + "K";
+                    caption = caption + "\nGIÁ LẺ: " + splitFileName[1] + "K";
+                    caption = caption + "\nWWW.THOITRANGELLA.COM";
+
+                    textarea.SetAttribute("value", caption);
+                    break;
+                }
+            }
+
+            HtmlElementCollection inputColec = webFB.Document.GetElementsByTagName("input");
+            foreach (HtmlElement input in inputColec)
+            {
+                if (input.GetAttribute("name") == "file1")
+                {
+                    input.Focus();
+                    SendKeys.SendWait(dtgvAlbumImages.Rows[rowAlbumImgIdx].Cells[0].Value.ToString());
+                }
+                if (input.GetAttribute("type") == "submit")
+                {
+                    input.InvokeMember("click");
+                    dtgvAlbumImages.Rows[rowAlbumImgIdx].DefaultCellStyle.BackColor = Color.Yellow;
+                    
+                    break;
+                }
+            }
+
+            if (txtDelayAlbumPost.Text != "")
+            {
+                timerPostToAlbum.Interval = Int32.Parse(txtDelayAlbumPost.Text);
+            }
+            timerPostToAlbum.Start();
+        }
+
+        private void timerPostToAlbum_Tick(object sender, EventArgs e)
+        {
+            timerPostToAlbum.Stop();
+
+            string url = "https://m.facebook.com/photos/upload/?album_id=" + cbxAlbumList.SelectedValue.ToString() + "&upload_source=album";
+
+            webFB.Navigate(url);
+            _step = 10;
+            timeCheck.Start();
         }
     }
 }

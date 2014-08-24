@@ -528,6 +528,7 @@ D:\MySVN\trunk\Code\Product Management\Presentation\bin\Debug\Presentation.pdb
 D:\MySVN\trunk\Code\Product Management\Presentation\bin\Debug\Interop.Microsoft.Office.Core.dll
 D:\MySVN\trunk\Code\Product Management\Presentation\bin\Debug\Interop.VBIDE.dll
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Presentation.exe
+D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Presentation.pdb
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\BUS.dll
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\DTO.dll
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\EPPlus.dll
@@ -536,6 +537,8 @@ D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\EPPlus.xml
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\DAO.pdb
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\BUS.pdb
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\DTO.pdb
+D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Interop.Microsoft.Office.Core.dll
+D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Interop.VBIDE.dll
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\ResolveAssemblyReference.cache
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Interop.Microsoft.Office.Core.dll
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Interop.VBIDE.dll
@@ -587,9 +590,3 @@ D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.TimKie
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.exe
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.pdb
-D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Presentation.pdb
-D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Interop.Microsoft.Office.Core.dll
-D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Interop.VBIDE.dll
-D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Microsoft.Office.Interop.Excel.dll
-D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\office.dll
-D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Microsoft.Vbe.Interop.dll

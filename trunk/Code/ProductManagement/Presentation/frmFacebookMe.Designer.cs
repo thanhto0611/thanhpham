@@ -62,15 +62,28 @@
             this.btnSearchGroup = new System.Windows.Forms.Button();
             this.txtGroupName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.dtgvAlbumImages = new System.Windows.Forms.DataGridView();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.txtAlbumImageCaption = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnPostToAlbum = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnBrowseAlbumImages = new System.Windows.Forms.Button();
+            this.txtAlbumImages = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbxAlbumList = new System.Windows.Forms.ComboBox();
+            this.btnGetAlbumList = new System.Windows.Forms.Button();
             this.timeCheck = new System.Windows.Forms.Timer(this.components);
             this.timerDelayBetweenPost = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.btnGetAlbumList = new System.Windows.Forms.Button();
-            this.cbxAlbumList = new System.Windows.Forms.ComboBox();
+            this.openAlbumImages = new System.Windows.Forms.OpenFileDialog();
+            this.timerPostToAlbum = new System.Windows.Forms.Timer(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDelayAlbumPost = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -86,6 +99,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGroupSearchResult)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvAlbumImages)).BeginInit();
             this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,7 +146,6 @@
             this.webFB.Location = new System.Drawing.Point(3, 16);
             this.webFB.MinimumSize = new System.Drawing.Size(20, 20);
             this.webFB.Name = "webFB";
-            this.webFB.ScriptErrorsSuppressed = true;
             this.webFB.Size = new System.Drawing.Size(936, 512);
             this.webFB.TabIndex = 0;
             this.webFB.Url = new System.Uri("https://m.facebook.com", System.UriKind.Absolute);
@@ -434,6 +448,141 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Group Name:";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox10);
+            this.tabPage4.Controls.Add(this.groupBox9);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(948, 586);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Post Image to Fanpage";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.dtgvAlbumImages);
+            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox10.Location = new System.Drawing.Point(0, 221);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(948, 365);
+            this.groupBox10.TabIndex = 1;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Post Result:";
+            // 
+            // dtgvAlbumImages
+            // 
+            this.dtgvAlbumImages.AllowUserToAddRows = false;
+            this.dtgvAlbumImages.AllowUserToDeleteRows = false;
+            this.dtgvAlbumImages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvAlbumImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvAlbumImages.Location = new System.Drawing.Point(3, 16);
+            this.dtgvAlbumImages.Name = "dtgvAlbumImages";
+            this.dtgvAlbumImages.Size = new System.Drawing.Size(942, 346);
+            this.dtgvAlbumImages.TabIndex = 0;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.txtDelayAlbumPost);
+            this.groupBox9.Controls.Add(this.label10);
+            this.groupBox9.Controls.Add(this.txtAlbumImageCaption);
+            this.groupBox9.Controls.Add(this.label9);
+            this.groupBox9.Controls.Add(this.btnPostToAlbum);
+            this.groupBox9.Controls.Add(this.label8);
+            this.groupBox9.Controls.Add(this.btnBrowseAlbumImages);
+            this.groupBox9.Controls.Add(this.txtAlbumImages);
+            this.groupBox9.Controls.Add(this.label7);
+            this.groupBox9.Controls.Add(this.cbxAlbumList);
+            this.groupBox9.Controls.Add(this.btnGetAlbumList);
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox9.Location = new System.Drawing.Point(0, 0);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(948, 221);
+            this.groupBox9.TabIndex = 0;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Album list:";
+            // 
+            // txtAlbumImageCaption
+            // 
+            this.txtAlbumImageCaption.Location = new System.Drawing.Point(122, 164);
+            this.txtAlbumImageCaption.Multiline = true;
+            this.txtAlbumImageCaption.Name = "txtAlbumImageCaption";
+            this.txtAlbumImageCaption.Size = new System.Drawing.Size(426, 46);
+            this.txtAlbumImageCaption.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(46, 167);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 13);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Caption:";
+            // 
+            // btnPostToAlbum
+            // 
+            this.btnPostToAlbum.Location = new System.Drawing.Point(776, 55);
+            this.btnPostToAlbum.Name = "btnPostToAlbum";
+            this.btnPostToAlbum.Size = new System.Drawing.Size(87, 62);
+            this.btnPostToAlbum.TabIndex = 6;
+            this.btnPostToAlbum.Text = "Post To Album";
+            this.btnPostToAlbum.UseVisualStyleBackColor = true;
+            this.btnPostToAlbum.Click += new System.EventHandler(this.btnPostToAlbum_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(34, 40);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Album List:";
+            // 
+            // btnBrowseAlbumImages
+            // 
+            this.btnBrowseAlbumImages.Location = new System.Drawing.Point(591, 104);
+            this.btnBrowseAlbumImages.Name = "btnBrowseAlbumImages";
+            this.btnBrowseAlbumImages.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseAlbumImages.TabIndex = 4;
+            this.btnBrowseAlbumImages.Text = "Browse";
+            this.btnBrowseAlbumImages.UseVisualStyleBackColor = true;
+            this.btnBrowseAlbumImages.Click += new System.EventHandler(this.btnBrowseAlbumImages_Click);
+            // 
+            // txtAlbumImages
+            // 
+            this.txtAlbumImages.Location = new System.Drawing.Point(122, 81);
+            this.txtAlbumImages.Multiline = true;
+            this.txtAlbumImages.Name = "txtAlbumImages";
+            this.txtAlbumImages.Size = new System.Drawing.Size(426, 59);
+            this.txtAlbumImages.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 104);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Post Images:";
+            // 
+            // cbxAlbumList
+            // 
+            this.cbxAlbumList.FormattingEnabled = true;
+            this.cbxAlbumList.Location = new System.Drawing.Point(122, 37);
+            this.cbxAlbumList.Name = "cbxAlbumList";
+            this.cbxAlbumList.Size = new System.Drawing.Size(426, 21);
+            this.cbxAlbumList.TabIndex = 1;
+            // 
+            // btnGetAlbumList
+            // 
+            this.btnGetAlbumList.Location = new System.Drawing.Point(591, 26);
+            this.btnGetAlbumList.Name = "btnGetAlbumList";
+            this.btnGetAlbumList.Size = new System.Drawing.Size(96, 40);
+            this.btnGetAlbumList.TabIndex = 0;
+            this.btnGetAlbumList.Text = "Get Album List";
+            this.btnGetAlbumList.UseVisualStyleBackColor = true;
+            this.btnGetAlbumList.Click += new System.EventHandler(this.btnGetAlbumList_Click);
+            // 
             // timeCheck
             // 
             this.timeCheck.Tick += new System.EventHandler(this.timeCheck_Tick);
@@ -458,45 +607,32 @@
             this.timerJoin.Interval = 20000;
             this.timerJoin.Tick += new System.EventHandler(this.timerJoin_Tick);
             // 
-            // tabPage4
+            // openAlbumImages
             // 
-            this.tabPage4.Controls.Add(this.groupBox9);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(948, 586);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Post Image to Fanpage";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.openAlbumImages.FileName = "openFileDialog2";
+            this.openAlbumImages.Multiselect = true;
+            this.openAlbumImages.FileOk += new System.ComponentModel.CancelEventHandler(this.openAlbumImages_FileOk);
             // 
-            // groupBox9
+            // timerPostToAlbum
             // 
-            this.groupBox9.Controls.Add(this.cbxAlbumList);
-            this.groupBox9.Controls.Add(this.btnGetAlbumList);
-            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox9.Location = new System.Drawing.Point(0, 0);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(948, 183);
-            this.groupBox9.TabIndex = 0;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Album list:";
+            this.timerPostToAlbum.Interval = 7200000;
+            this.timerPostToAlbum.Tick += new System.EventHandler(this.timerPostToAlbum_Tick);
             // 
-            // btnGetAlbumList
+            // label10
             // 
-            this.btnGetAlbumList.Location = new System.Drawing.Point(39, 37);
-            this.btnGetAlbumList.Name = "btnGetAlbumList";
-            this.btnGetAlbumList.Size = new System.Drawing.Size(96, 40);
-            this.btnGetAlbumList.TabIndex = 0;
-            this.btnGetAlbumList.Text = "Get Album List";
-            this.btnGetAlbumList.UseVisualStyleBackColor = true;
-            this.btnGetAlbumList.Click += new System.EventHandler(this.btnGetAlbumList_Click);
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(588, 182);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(106, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Delay Between Post:";
             // 
-            // cbxAlbumList
+            // txtDelayAlbumPost
             // 
-            this.cbxAlbumList.FormattingEnabled = true;
-            this.cbxAlbumList.Location = new System.Drawing.Point(233, 48);
-            this.cbxAlbumList.Name = "cbxAlbumList";
-            this.cbxAlbumList.Size = new System.Drawing.Size(426, 21);
-            this.cbxAlbumList.TabIndex = 1;
+            this.txtDelayAlbumPost.Location = new System.Drawing.Point(711, 179);
+            this.txtDelayAlbumPost.Name = "txtDelayAlbumPost";
+            this.txtDelayAlbumPost.Size = new System.Drawing.Size(167, 20);
+            this.txtDelayAlbumPost.TabIndex = 10;
             // 
             // frmFacebookMe
             // 
@@ -525,7 +661,10 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvAlbumImages)).EndInit();
             this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -574,5 +713,18 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Button btnGetAlbumList;
         private System.Windows.Forms.ComboBox cbxAlbumList;
+        private System.Windows.Forms.Button btnBrowseAlbumImages;
+        private System.Windows.Forms.TextBox txtAlbumImages;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.OpenFileDialog openAlbumImages;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.DataGridView dtgvAlbumImages;
+        private System.Windows.Forms.Button btnPostToAlbum;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtAlbumImageCaption;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Timer timerPostToAlbum;
+        private System.Windows.Forms.TextBox txtDelayAlbumPost;
+        private System.Windows.Forms.Label label10;
     }
 }

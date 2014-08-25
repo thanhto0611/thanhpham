@@ -22,6 +22,8 @@ namespace Presentation
         DataTable dt = new DataTable();
         DataTable dtSearchGroup = new DataTable();
         DataTable dtAlbumImages = new DataTable();
+        DataTable dtAllImages = new DataTable();
+
         ArrayList arrAlbumList = new ArrayList();
 
         private string[] imagesFileName;
@@ -177,6 +179,9 @@ namespace Presentation
                         break;
                     case 10:
                         postImageToAlbum();
+                        break;
+                    case 11:
+                        getAlbumList();
                         break;
                     default:
                         break;
@@ -538,15 +543,21 @@ namespace Presentation
             if (url != "")
             {
                 webFB.Navigate(url);
-                _step = 9;
                 timeCheck.Start();
             }
             else
             {
-                cbxAlbumList.DataSource = arrAlbumList;
-                cbxAlbumList.DisplayMember = "name";
-                cbxAlbumList.ValueMember = "url";
-                MessageBox.Show("Get album list done");
+                if (_step == 9)
+                {
+                    cbxAlbumList.DataSource = arrAlbumList;
+                    cbxAlbumList.DisplayMember = "name";
+                    cbxAlbumList.ValueMember = "url";
+                    MessageBox.Show("Get album list done");
+                }
+                else
+                {
+                    getAllImages();
+                }
             }
         }
 
@@ -666,6 +677,18 @@ namespace Presentation
             webFB.Navigate(url);
             _step = 10;
             timeCheck.Start();
+        }
+
+        private void btnGetAllImages_Click(object sender, EventArgs e)
+        {
+            webFB.Navigate("https://m.facebook.com/thoitrangella?v=photos");
+            _step = 11;
+            timeCheck.Start();
+        }
+
+        private void getAllImages()
+        {
+            album ab = arrAlbumList[0];
         }
     }
 }

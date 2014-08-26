@@ -590,3 +590,6 @@ D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.TimKie
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.exe
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.pdb
+D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\office.dll
+D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Microsoft.Vbe.Interop.dll

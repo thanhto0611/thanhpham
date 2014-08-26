@@ -77,6 +77,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbxAlbumList = new System.Windows.Forms.ComboBox();
             this.btnGetAlbumList = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.dtgvStockData = new System.Windows.Forms.DataGridView();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.btnGetAllData = new System.Windows.Forms.Button();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.dtgvImageList = new System.Windows.Forms.DataGridView();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.btnGetAllImages = new System.Windows.Forms.Button();
             this.timeCheck = new System.Windows.Forms.Timer(this.components);
             this.timerDelayBetweenPost = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -84,17 +95,8 @@
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
             this.openAlbumImages = new System.Windows.Forms.OpenFileDialog();
             this.timerPostToAlbum = new System.Windows.Forms.Timer(this.components);
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.btnGetAllImages = new System.Windows.Forms.Button();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.btnGetAllData = new System.Windows.Forms.Button();
-            this.dtgvImageList = new System.Windows.Forms.DataGridView();
-            this.dtgvStockData = new System.Windows.Forms.DataGridView();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.txtNumOfGroup = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,14 +116,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAlbumImages)).BeginInit();
             this.groupBox9.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
             this.groupBox14.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvImageList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvStockData)).BeginInit();
             this.groupBox16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvStockData)).BeginInit();
+            this.groupBox15.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvImageList)).BeginInit();
+            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -420,6 +422,8 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label11);
+            this.groupBox7.Controls.Add(this.txtNumOfGroup);
             this.groupBox7.Controls.Add(this.btnJoinGroup);
             this.groupBox7.Controls.Add(this.btnSearchGroup);
             this.groupBox7.Controls.Add(this.txtGroupName);
@@ -620,6 +624,125 @@
             this.btnGetAlbumList.UseVisualStyleBackColor = true;
             this.btnGetAlbumList.Click += new System.EventHandler(this.btnGetAlbumList_Click);
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.groupBox14);
+            this.tabPage5.Controls.Add(this.groupBox11);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(948, 586);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Update Stock";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.groupBox16);
+            this.groupBox14.Controls.Add(this.groupBox15);
+            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox14.Location = new System.Drawing.Point(436, 0);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(512, 586);
+            this.groupBox14.TabIndex = 1;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Stock Data:";
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.dtgvStockData);
+            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox16.Location = new System.Drawing.Point(3, 134);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(506, 449);
+            this.groupBox16.TabIndex = 1;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Stock Data";
+            // 
+            // dtgvStockData
+            // 
+            this.dtgvStockData.AllowUserToAddRows = false;
+            this.dtgvStockData.AllowUserToDeleteRows = false;
+            this.dtgvStockData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvStockData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvStockData.Location = new System.Drawing.Point(3, 16);
+            this.dtgvStockData.Name = "dtgvStockData";
+            this.dtgvStockData.Size = new System.Drawing.Size(500, 430);
+            this.dtgvStockData.TabIndex = 1;
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.btnGetAllData);
+            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox15.Location = new System.Drawing.Point(3, 16);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(506, 118);
+            this.groupBox15.TabIndex = 0;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Query Info:";
+            // 
+            // btnGetAllData
+            // 
+            this.btnGetAllData.Location = new System.Drawing.Point(39, 34);
+            this.btnGetAllData.Name = "btnGetAllData";
+            this.btnGetAllData.Size = new System.Drawing.Size(75, 49);
+            this.btnGetAllData.TabIndex = 0;
+            this.btnGetAllData.Text = "Get All Data";
+            this.btnGetAllData.UseVisualStyleBackColor = true;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.groupBox13);
+            this.groupBox11.Controls.Add(this.groupBox12);
+            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox11.Location = new System.Drawing.Point(0, 0);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(436, 586);
+            this.groupBox11.TabIndex = 0;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "All Album Images:";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.dtgvImageList);
+            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox13.Location = new System.Drawing.Point(3, 134);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(430, 449);
+            this.groupBox13.TabIndex = 1;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Images List:";
+            // 
+            // dtgvImageList
+            // 
+            this.dtgvImageList.AllowUserToAddRows = false;
+            this.dtgvImageList.AllowUserToDeleteRows = false;
+            this.dtgvImageList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvImageList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvImageList.Location = new System.Drawing.Point(3, 16);
+            this.dtgvImageList.Name = "dtgvImageList";
+            this.dtgvImageList.Size = new System.Drawing.Size(424, 430);
+            this.dtgvImageList.TabIndex = 0;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.btnGetAllImages);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox12.Location = new System.Drawing.Point(3, 16);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(430, 118);
+            this.groupBox12.TabIndex = 0;
+            this.groupBox12.TabStop = false;
+            // 
+            // btnGetAllImages
+            // 
+            this.btnGetAllImages.Location = new System.Drawing.Point(32, 37);
+            this.btnGetAllImages.Name = "btnGetAllImages";
+            this.btnGetAllImages.Size = new System.Drawing.Size(88, 46);
+            this.btnGetAllImages.TabIndex = 0;
+            this.btnGetAllImages.Text = "Get All Images";
+            this.btnGetAllImages.UseVisualStyleBackColor = true;
+            this.btnGetAllImages.Click += new System.EventHandler(this.btnGetAllImages_Click);
+            // 
             // timeCheck
             // 
             this.timeCheck.Tick += new System.EventHandler(this.timeCheck_Tick);
@@ -655,124 +778,21 @@
             this.timerPostToAlbum.Interval = 7200000;
             this.timerPostToAlbum.Tick += new System.EventHandler(this.timerPostToAlbum_Tick);
             // 
-            // tabPage5
+            // txtNumOfGroup
             // 
-            this.tabPage5.Controls.Add(this.groupBox14);
-            this.tabPage5.Controls.Add(this.groupBox11);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(948, 586);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Update Stock";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.txtNumOfGroup.Location = new System.Drawing.Point(113, 59);
+            this.txtNumOfGroup.Name = "txtNumOfGroup";
+            this.txtNumOfGroup.Size = new System.Drawing.Size(100, 20);
+            this.txtNumOfGroup.TabIndex = 4;
             // 
-            // groupBox11
+            // label11
             // 
-            this.groupBox11.Controls.Add(this.groupBox13);
-            this.groupBox11.Controls.Add(this.groupBox12);
-            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox11.Location = new System.Drawing.Point(0, 0);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(436, 586);
-            this.groupBox11.TabIndex = 0;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "All Album Images:";
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.btnGetAllImages);
-            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox12.Location = new System.Drawing.Point(3, 16);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(430, 118);
-            this.groupBox12.TabIndex = 0;
-            this.groupBox12.TabStop = false;
-            // 
-            // btnGetAllImages
-            // 
-            this.btnGetAllImages.Location = new System.Drawing.Point(32, 37);
-            this.btnGetAllImages.Name = "btnGetAllImages";
-            this.btnGetAllImages.Size = new System.Drawing.Size(88, 46);
-            this.btnGetAllImages.TabIndex = 0;
-            this.btnGetAllImages.Text = "Get All Images";
-            this.btnGetAllImages.UseVisualStyleBackColor = true;
-            this.btnGetAllImages.Click += new System.EventHandler(this.btnGetAllImages_Click);
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.dtgvImageList);
-            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox13.Location = new System.Drawing.Point(3, 134);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(430, 449);
-            this.groupBox13.TabIndex = 1;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Images List:";
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.groupBox16);
-            this.groupBox14.Controls.Add(this.groupBox15);
-            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox14.Location = new System.Drawing.Point(436, 0);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(512, 586);
-            this.groupBox14.TabIndex = 1;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Stock Data:";
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.btnGetAllData);
-            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox15.Location = new System.Drawing.Point(3, 16);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(506, 118);
-            this.groupBox15.TabIndex = 0;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Query Info:";
-            // 
-            // btnGetAllData
-            // 
-            this.btnGetAllData.Location = new System.Drawing.Point(39, 34);
-            this.btnGetAllData.Name = "btnGetAllData";
-            this.btnGetAllData.Size = new System.Drawing.Size(75, 49);
-            this.btnGetAllData.TabIndex = 0;
-            this.btnGetAllData.Text = "Get All Data";
-            this.btnGetAllData.UseVisualStyleBackColor = true;
-            // 
-            // dtgvImageList
-            // 
-            this.dtgvImageList.AllowUserToAddRows = false;
-            this.dtgvImageList.AllowUserToDeleteRows = false;
-            this.dtgvImageList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvImageList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvImageList.Location = new System.Drawing.Point(3, 16);
-            this.dtgvImageList.Name = "dtgvImageList";
-            this.dtgvImageList.Size = new System.Drawing.Size(424, 430);
-            this.dtgvImageList.TabIndex = 0;
-            // 
-            // dtgvStockData
-            // 
-            this.dtgvStockData.AllowUserToAddRows = false;
-            this.dtgvStockData.AllowUserToDeleteRows = false;
-            this.dtgvStockData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvStockData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvStockData.Location = new System.Drawing.Point(3, 16);
-            this.dtgvStockData.Name = "dtgvStockData";
-            this.dtgvStockData.Size = new System.Drawing.Size(500, 430);
-            this.dtgvStockData.TabIndex = 1;
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.dtgvStockData);
-            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox16.Location = new System.Drawing.Point(3, 134);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(506, 449);
-            this.groupBox16.TabIndex = 1;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Stock Data";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(31, 62);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(76, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Num of Group:";
             // 
             // frmFacebookMe
             // 
@@ -806,14 +826,14 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.tabPage5.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
-            this.groupBox15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvImageList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvStockData)).EndInit();
             this.groupBox16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvStockData)).EndInit();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvImageList)).EndInit();
+            this.groupBox12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -886,5 +906,7 @@
         private System.Windows.Forms.DataGridView dtgvImageList;
         private System.Windows.Forms.DataGridView dtgvStockData;
         private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtNumOfGroup;
     }
 }

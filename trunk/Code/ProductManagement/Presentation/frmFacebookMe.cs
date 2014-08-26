@@ -22,7 +22,7 @@ namespace Presentation
         DataTable dt = new DataTable();
         DataTable dtSearchGroup = new DataTable();
         DataTable dtAlbumImages = new DataTable();
-        DataTable dtAllImages = new DataTable();
+        DataTable dtAllAlbumImages = new DataTable();
 
         ArrayList arrAlbumList = new ArrayList();
 
@@ -33,6 +33,7 @@ namespace Presentation
 
         private int rowSearchIdx = -1;
         private int rowAlbumImgIdx = -1;
+        private int arrAlbumListIndex = -1;
 
         public class album
         {
@@ -98,6 +99,8 @@ namespace Presentation
             dtSearchGroup.Columns.Add("GroupMember");
 
             dtAlbumImages.Columns.Add("ImageName");
+
+            dtAllAlbumImages.Columns.Add("ImageURL");
         }
 
         private void btnLoadGroup_Click(object sender, EventArgs e)
@@ -182,6 +185,9 @@ namespace Presentation
                         break;
                     case 11:
                         getAlbumList();
+                        break;
+                    case 12:
+                        getImages();
                         break;
                     default:
                         break;
@@ -489,6 +495,14 @@ namespace Presentation
             timerJoin.Stop();
 
             rowSearchIdx++;
+            if (txtNumOfGroup.Text != "")
+            {
+                if (rowSearchIdx >= Int32.Parse(txtNumOfGroup.Text))
+                {
+                    MessageBox.Show("Joined {0} groups", txtNumOfGroup.Text);
+                    return;
+                }
+            }
 
             if (rowSearchIdx >= dtgvGroupSearchResult.Rows.Count)
             {
@@ -556,7 +570,7 @@ namespace Presentation
                 }
                 else
                 {
-                    getAllImages();
+                    navigateToAlbum();
                 }
             }
         }
@@ -686,9 +700,55 @@ namespace Presentation
             timeCheck.Start();
         }
 
-        private void getAllImages()
+        private void navigateToAlbum()
         {
-            album ab = arrAlbumList[0];
+            arrAlbumListIndex++;
+            if (arrAlbumListIndex >= arrAlbumList.Count)
+            {
+                MessageBox.Show("Get all images done");
+                return;
+            }
+            album ab = (album)arrAlbumList[arrAlbumListIndex];
+            string url = "https://m.facebook.com/thoitrangella/albums/" + ab._url;
+            
+            webFB.Navigate(url);
+            _step = 12;
+            timeCheck.Start();
+        }
+
+        private void getImages()
+        {
+            if (webFB.Document.Body.InnerHtml == "")
+            {
+                _step = 12;
+                timeCheck.Start();
+                return;
+            }
+            HtmlElement moreItems = webFB.Document.GetElementById("m_more_item");
+
+            if (moreItems == null)
+            {
+                navigateToAlbum();
+                return;
+            }
+
+            HtmlElement thumbnail_area = webFB.Document.GetElementById("thumbnail_area");
+            HtmlElementCollection aColec = thumbnail_area.GetElementsByTagName("a");
+
+            foreach (HtmlElement a in aColec)
+            {
+                DataRow dr = dtAllAlbumImages.NewRow();
+
+                dr[0] = a.GetAttribute("href");
+
+                dtAllAlbumImages.Rows.Add(dr);
+            }
+
+            dtgvImageList.DataSource = dtAllAlbumImages;
+
+            webFB.Navigate(moreItems.GetElementsByTagName("a")[0].GetAttribute("href"));
+            _step = 12;
+            timeCheck.Start();
         }
     }
 }

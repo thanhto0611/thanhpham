@@ -34,6 +34,7 @@ namespace Presentation
         private int rowSearchIdx = -1;
         private int rowAlbumImgIdx = -1;
         private int arrAlbumListIndex = -1;
+        private int numGroupJoined = 0;
 
         public class album
         {
@@ -476,14 +477,38 @@ namespace Presentation
 
         private void requestJoinGroup()
         {
-            HtmlElement joinButton = webFB.Document.GetElementById("groupJoinHeaderButton");
-            if (joinButton != null && joinButton.GetAttribute("value") == "Tham gia nhóm")
+            //HtmlElement joinButton = webFB.Document.GetElementById("groupJoinHeaderButton");
+            
+            //if (joinButton != null && joinButton.GetAttribute("value") == "Tham gia nhóm")
+            //{
+            //    joinButton.InvokeMember("click");
+            //    dtgvGroupSearchResult.Rows[rowSearchIdx].DefaultCellStyle.BackColor = Color.Yellow;
+            //    numGroupJoined++;
+            //    timerTemp.Start();
+            //}
+            //else
+            //{
+            //    dtgvGroupSearchResult.Rows[rowSearchIdx].DefaultCellStyle.BackColor = Color.Green;
+            //    timerJoin.Start();
+            //}
+
+            HtmlElementCollection inputColec = webFB.Document.GetElementsByTagName("input");
+            bool joinClick = false;
+
+            foreach (HtmlElement input in inputColec)
             {
-                joinButton.InvokeMember("click");
-                dtgvGroupSearchResult.Rows[rowSearchIdx].DefaultCellStyle.BackColor = Color.Yellow;
-                timerTemp.Start();
+                if (input.GetAttribute("value") == "Tham gia nhóm")
+                {
+                    input.InvokeMember("click");
+                    dtgvGroupSearchResult.Rows[rowSearchIdx].DefaultCellStyle.BackColor = Color.Yellow;
+                    numGroupJoined++;
+                    joinClick = true;
+                    timerTemp.Start();
+                    break;
+                }
             }
-            else
+
+            if (joinClick == false)
             {
                 dtgvGroupSearchResult.Rows[rowSearchIdx].DefaultCellStyle.BackColor = Color.Green;
                 timerJoin.Start();
@@ -497,9 +522,9 @@ namespace Presentation
             rowSearchIdx++;
             if (txtNumOfGroup.Text != "")
             {
-                if (rowSearchIdx >= Int32.Parse(txtNumOfGroup.Text))
+                if (numGroupJoined > Int32.Parse(txtNumOfGroup.Text))
                 {
-                    MessageBox.Show("Joined {0} groups", txtNumOfGroup.Text);
+                    MessageBox.Show("Joined %s groups", txtNumOfGroup.Text);
                     return;
                 }
             }

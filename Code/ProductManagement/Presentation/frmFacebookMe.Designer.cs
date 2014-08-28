@@ -58,6 +58,8 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dtgvGroupSearchResult = new System.Windows.Forms.DataGridView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtNumOfGroup = new System.Windows.Forms.TextBox();
             this.btnJoinGroup = new System.Windows.Forms.Button();
             this.btnSearchGroup = new System.Windows.Forms.Button();
             this.txtGroupName = new System.Windows.Forms.TextBox();
@@ -95,8 +97,6 @@
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
             this.openAlbumImages = new System.Windows.Forms.OpenFileDialog();
             this.timerPostToAlbum = new System.Windows.Forms.Timer(this.components);
-            this.txtNumOfGroup = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -436,6 +436,22 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Search Info:";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(31, 62);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(76, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Num of Group:";
+            // 
+            // txtNumOfGroup
+            // 
+            this.txtNumOfGroup.Location = new System.Drawing.Point(113, 59);
+            this.txtNumOfGroup.Name = "txtNumOfGroup";
+            this.txtNumOfGroup.Size = new System.Drawing.Size(100, 20);
+            this.txtNumOfGroup.TabIndex = 4;
+            // 
             // btnJoinGroup
             // 
             this.btnJoinGroup.Location = new System.Drawing.Point(601, 31);
@@ -764,7 +780,7 @@
             // 
             // timerJoin
             // 
-            this.timerJoin.Interval = 20000;
+            this.timerJoin.Interval = 10000;
             this.timerJoin.Tick += new System.EventHandler(this.timerJoin_Tick);
             // 
             // openAlbumImages
@@ -777,22 +793,6 @@
             // 
             this.timerPostToAlbum.Interval = 7200000;
             this.timerPostToAlbum.Tick += new System.EventHandler(this.timerPostToAlbum_Tick);
-            // 
-            // txtNumOfGroup
-            // 
-            this.txtNumOfGroup.Location = new System.Drawing.Point(113, 59);
-            this.txtNumOfGroup.Name = "txtNumOfGroup";
-            this.txtNumOfGroup.Size = new System.Drawing.Size(100, 20);
-            this.txtNumOfGroup.TabIndex = 4;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(31, 62);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(76, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Num of Group:";
             // 
             // frmFacebookMe
             // 

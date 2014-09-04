@@ -97,7 +97,7 @@ namespace Presentation
         {
             dtSearchGroup.Columns.Add("GroupId");
             dtSearchGroup.Columns.Add("GroupName");
-            dtSearchGroup.Columns.Add("GroupMember");
+            dtSearchGroup.Columns.Add("GroupMember", typeof(int));
 
             dtAlbumImages.Columns.Add("ImageName");
 

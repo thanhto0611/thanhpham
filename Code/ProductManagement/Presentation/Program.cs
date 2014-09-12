@@ -14,7 +14,7 @@ namespace Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmFacebookMe());
+            Application.Run(new Main2());
         }
     }
 }

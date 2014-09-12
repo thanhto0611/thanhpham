@@ -192,7 +192,7 @@ namespace Presentation
                 SanPhamBUS spBus = new SanPhamBUS();
                 foreach (DataGridViewRow row in this.dtgvSanPham.Rows)
                 {
-                    SanPhamDTO sp = new SanPhamDTO();
+                    SanPhamDTO sp = SanPhamBUS.LaySanPham(row.Cells["MaSanPham"].Value.ToString());
                     sp.MaSanPham = row.Cells["MaSanPham"].Value.ToString();
                     sp.MauSac = row.Cells["MauSac"].Value.ToString();
                     sp.TrongLuong = Int32.Parse(row.Cells["TrongLuong"].Value.ToString());

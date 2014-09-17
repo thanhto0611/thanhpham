@@ -37,8 +37,9 @@
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.XuatKhoHang = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportProductFromImages = new System.Windows.Forms.ToolStripMenuItem();
-            this.Window = new System.Windows.Forms.ToolStripMenuItem();
             this.applicationConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Window = new System.Windows.Forms.ToolStripMenuItem();
+            this.facebookToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,7 +101,8 @@
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.XuatKhoHang,
             this.ImportProductFromImages,
-            this.applicationConfigToolStripMenuItem});
+            this.applicationConfigToolStripMenuItem,
+            this.facebookToolsToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -119,18 +121,25 @@
             this.ImportProductFromImages.Text = "Import Product From Images";
             this.ImportProductFromImages.Click += new System.EventHandler(this.ImportProductFromImages_Click);
             // 
-            // Window
-            // 
-            this.Window.Name = "Window";
-            this.Window.Size = new System.Drawing.Size(108, 20);
-            this.Window.Text = "Cửa Sổ Đang Mở";
-            // 
             // applicationConfigToolStripMenuItem
             // 
             this.applicationConfigToolStripMenuItem.Name = "applicationConfigToolStripMenuItem";
             this.applicationConfigToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.applicationConfigToolStripMenuItem.Text = "Application Config";
             this.applicationConfigToolStripMenuItem.Click += new System.EventHandler(this.applicationConfigToolStripMenuItem_Click);
+            // 
+            // Window
+            // 
+            this.Window.Name = "Window";
+            this.Window.Size = new System.Drawing.Size(108, 20);
+            this.Window.Text = "Cửa Sổ Đang Mở";
+            // 
+            // facebookToolsToolStripMenuItem
+            // 
+            this.facebookToolsToolStripMenuItem.Name = "facebookToolsToolStripMenuItem";
+            this.facebookToolsToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.facebookToolsToolStripMenuItem.Text = "Facebook Tools";
+            this.facebookToolsToolStripMenuItem.Click += new System.EventHandler(this.facebookToolsToolStripMenuItem_Click);
             // 
             // Main2
             // 
@@ -164,5 +173,6 @@
         private System.Windows.Forms.ToolStripMenuItem ImportProductFromImages;
         private System.Windows.Forms.ToolStripMenuItem QuanLyKhachHang;
         private System.Windows.Forms.ToolStripMenuItem applicationConfigToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facebookToolsToolStripMenuItem;
     }
 }

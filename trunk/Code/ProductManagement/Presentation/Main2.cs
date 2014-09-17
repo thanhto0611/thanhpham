@@ -149,5 +149,11 @@ namespace Presentation
             }
         }
 
+        private void facebookToolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFacebookMe frm = new frmFacebookMe();
+            frm.Show();
+        }
+
     }
 }

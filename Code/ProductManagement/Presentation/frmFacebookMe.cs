@@ -113,12 +113,14 @@ namespace Presentation
 
         private void getGroupList()
         {
-            HtmlElementCollection ulColec = webFB.Document.GetElementsByTagName("ul");
+            HtmlElement contentTable = webFB.Document.GetElementById("objects_container");
+            //HtmlElementCollection ulColec = webFB.Document.GetElementsByTagName("a");
 
             dt.Columns.Add("GroupId");
             dt.Columns.Add("GroupName");
 
-            string html = ulColec[0].InnerHtml;
+            //string html = ulColec[0].InnerHtml;
+            string html = contentTable.InnerHtml;
             html = html.Replace(@"\/", "/");
             html = html.Replace(@"\u0025", "%");
             html = html.Replace("&amp;", "&");

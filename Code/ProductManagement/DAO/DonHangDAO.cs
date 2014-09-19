@@ -60,7 +60,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "select dh.MaDonHang, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh, CHITIETDONHANG ctdh where dh.MaKhachHang = kh.MaKhachHang and dh.MaDonHang = ctdh.MaDonHang and ctdh.MaSanPham like '%" + maSp + "%'  order by dh.NgayDatHang DESC";
+            string cmdText = "select DISTINCT dh.MaDonHang, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from (DONHANG dh left join KHACHHANG kh on dh.MaKhachHang = kh.MaKhachHang) left join CHITIETDONHANG ctdh on dh.MaDonHang = ctdh.MaDonHang where ctdh.MaSanPham like '%" + maSp + "%'  order by dh.NgayDatHang DESC";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             adapter.Fill(dataTable);

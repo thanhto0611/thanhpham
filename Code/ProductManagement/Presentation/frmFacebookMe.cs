@@ -102,6 +102,9 @@ namespace Presentation
             dtAlbumImages.Columns.Add("ImageName");
 
             dtAllAlbumImages.Columns.Add("ImageURL");
+
+            dt.Columns.Add("GroupId");
+            dt.Columns.Add("GroupName");
         }
 
         private void btnLoadGroup_Click(object sender, EventArgs e)
@@ -114,35 +117,60 @@ namespace Presentation
         private void getGroupList()
         {
             HtmlElement contentTable = webFB.Document.GetElementById("objects_container");
-            //HtmlElementCollection ulColec = webFB.Document.GetElementsByTagName("a");
+            HtmlElementCollection aColec = contentTable.GetElementsByTagName("a");
 
-            dt.Columns.Add("GroupId");
-            dt.Columns.Add("GroupName");
-
-            //string html = ulColec[0].InnerHtml;
-            string html = contentTable.InnerHtml;
-            html = html.Replace(@"\/", "/");
-            html = html.Replace(@"\u0025", "%");
-            html = html.Replace("&amp;", "&");
-            html = html.Replace("&quot;", "\"");
-
-            Regex reg = new Regex("/groups/([0-9]{6,30})[^>]+>([^<]+)");
-            MatchCollection mc = reg.Matches(html);
-
+            Regex reg = new Regex("/groups/([0-9]{6,30})");
             List<string> keys = new List<string>();
-            foreach (Match m in mc)
+
+            foreach (HtmlElement a in aColec)
             {
-                if (!keys.Contains(m.Groups[1].Value))
+                if (reg.IsMatch(a.GetAttribute("href")))
                 {
-                    DataRow dr = dt.NewRow();
-                    dr[0] = m.Groups[1].Value;
-                    dr[1] = m.Groups[2].Value;
-                    //ids.Add(m.Groups[1].Value, m.Groups[2].Value);
-                    dt.Rows.Add(dr);
-                    keys.Add(m.Groups[1].Value);
+                    string href = a.GetAttribute("href").Replace("https://m.facebook.com/groups/", "");
+                    if (!keys.Contains(href))
+                    {
+                        DataRow dr = dt.NewRow();
+                        dr[0] = href;
+                        dr[1] = a.InnerText;
+                        
+                        dt.Rows.Add(dr);
+                        keys.Add(href);
+                    }
                 }
             }
+
+            ////string html = ulColec[0].InnerHtml;
+            //string html = contentTable.InnerHtml;
+            //html = html.Replace(@"\/", "/");
+            //html = html.Replace(@"\u0025", "%");
+            //html = html.Replace("&amp;", "&");
+            //html = html.Replace("&quot;", "\"");
+
+            ////Regex reg = new Regex("/groups/([0-9]{6,30})[^>]+>([^<]+)");
+            //MatchCollection mc = reg.Matches(html);
+
+            //List<string> keys = new List<string>();
+            //foreach (Match m in mc)
+            //{
+            //    if (!keys.Contains(m.Groups[1].Value))
+            //    {
+            //        DataRow dr = dt.NewRow();
+            //        dr[0] = m.Groups[1].Value;
+            //        dr[1] = m.Groups[2].Value;
+            //        //ids.Add(m.Groups[1].Value, m.Groups[2].Value);
+            //        dt.Rows.Add(dr);
+            //        keys.Add(m.Groups[1].Value);
+            //    }
+            //}
             dtgvGroupList.DataSource = dt;
+
+            HtmlElement seeMore = webFB.Document.GetElementById("m_more_item");
+            if (seeMore != null)
+            {
+                webFB.Navigate(seeMore.GetElementsByTagName("a")[0].GetAttribute("href"));
+                _step = 1;
+                timeCheck.Start();
+            }
         }
 
         private void timeCheck_Tick(object sender, EventArgs e)
@@ -160,7 +188,7 @@ namespace Presentation
                         getGroupList();
                         break;
                     case 2:
-                        goToPostImageForm();
+                        goToComposerForm();
                         break;
                     case 3:
                         postImage();
@@ -192,6 +220,9 @@ namespace Presentation
                     case 12:
                         getImages();
                         break;
+                    case 13:
+                        goToPostImageForm();
+                        break;
                     default:
                         break;
                 }
@@ -222,6 +253,29 @@ namespace Presentation
 
 
             //string url = "https://m.facebook.com/groups/288036308032487";
+        }
+
+        private void goToComposerForm()
+        {
+            string url = "";
+
+            HtmlElement form = webFB.Document.GetElementById("composer_form");
+
+            HtmlElementCollection aColec = webFB.Document.GetElementsByTagName("a");
+            foreach (HtmlElement a in aColec)
+            {
+                if (a.GetAttribute("href").Contains("/composer/?tid="))
+                {
+                    url += a.GetAttribute("href");
+                    break;
+                }
+            }
+
+            //fb.UploadPhotoNew(url);
+
+            webFB.Navigate(url);
+            _step = 13;
+            timeCheck.Start();
         }
 
         private void goToPostImageForm()
@@ -266,6 +320,16 @@ namespace Presentation
                     input.Focus();
                     SendKeys.SendWait(imagesFileName[imgIdx]);
                 }
+                if (input.GetAttribute("name") == "file2")
+                {
+                    input.Focus();
+                    SendKeys.SendWait(imagesFileName[imgIdx + 1]);
+                }
+                if (input.GetAttribute("name") == "file3")
+                {
+                    input.Focus();
+                    SendKeys.SendWait(imagesFileName[imgIdx + 2]);
+                }
                 if (input.GetAttribute("type") == "submit")
                 {
                     input.InvokeMember("click");
@@ -292,13 +356,13 @@ namespace Presentation
             timerDelayBetweenPost.Stop();
 
             rowIdx++;
-            imgIdx++;
+            imgIdx+=3;
 
             if (rowIdx >= dtgvGroupList.Rows.Count)
             {
                 rowIdx = 0;
             }
-            if (imgIdx >= imagesFileName.Length)
+            if ((imagesFileName.Length - imgIdx) < 3)
             {
                 imgIdx = 0;
             }

@@ -780,7 +780,7 @@
             // 
             // timerJoin
             // 
-            this.timerJoin.Interval = 10000;
+            this.timerJoin.Interval = 2000;
             this.timerJoin.Tick += new System.EventHandler(this.timerJoin_Tick);
             // 
             // openAlbumImages

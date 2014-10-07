@@ -36,6 +36,8 @@ namespace Presentation
         private int arrAlbumListIndex = -1;
         private int numGroupJoined = 0;
 
+        private bool showWbPostToFanpage = false;
+
         public class album
         {
             public string _name;
@@ -609,14 +611,14 @@ namespace Presentation
 
         private void btnGetAlbumList_Click(object sender, EventArgs e)
         {
-            webFB.Navigate("https://m.facebook.com/thoitrangella?v=photos");
+            wbPostToFanpage.Navigate("https://m.facebook.com/thoitrangella?v=photos");
             _step = 9;
             timeCheck.Start();
         }
 
         private void getAlbumList()
         {
-            HtmlElement root = webFB.Document.GetElementById("root");
+            HtmlElement root = wbPostToFanpage.Document.GetElementById("root");
 
             HtmlElementCollection aColec = root.GetElementsByTagName("a");
 
@@ -647,7 +649,7 @@ namespace Presentation
 
             if (url != "")
             {
-                webFB.Navigate(url);
+                wbPostToFanpage.Navigate(url);
                 timeCheck.Start();
             }
             else
@@ -702,7 +704,7 @@ namespace Presentation
 
             string url = "https://m.facebook.com/photos/upload/?album_id=" + cbxAlbumList.SelectedValue.ToString() + "&upload_source=album";
 
-            webFB.Navigate(url);
+            wbPostToFanpage.Navigate(url);
             _step = 10;
             timeCheck.Start();
         }
@@ -721,7 +723,7 @@ namespace Presentation
                 return;
             }
 
-            HtmlElementCollection textareaColec = webFB.Document.GetElementsByTagName("textarea");
+            HtmlElementCollection textareaColec = wbPostToFanpage.Document.GetElementsByTagName("textarea");
 
             foreach (HtmlElement textarea in textareaColec)
             {
@@ -749,7 +751,7 @@ namespace Presentation
                 }
             }
 
-            HtmlElementCollection inputColec = webFB.Document.GetElementsByTagName("input");
+            HtmlElementCollection inputColec = wbPostToFanpage.Document.GetElementsByTagName("input");
             foreach (HtmlElement input in inputColec)
             {
                 if (input.GetAttribute("name") == "file1")
@@ -779,7 +781,7 @@ namespace Presentation
 
             string url = "https://m.facebook.com/photos/upload/?album_id=" + cbxAlbumList.SelectedValue.ToString() + "&upload_source=album";
 
-            webFB.Navigate(url);
+            wbPostToFanpage.Navigate(url);
             _step = 10;
             timeCheck.Start();
         }
@@ -801,7 +803,7 @@ namespace Presentation
             }
             album ab = (album)arrAlbumList[arrAlbumListIndex];
             string url = "https://m.facebook.com/thoitrangella/albums/" + ab._url;
-            
+
             webFB.Navigate(url);
             _step = 12;
             timeCheck.Start();
@@ -840,6 +842,16 @@ namespace Presentation
             webFB.Navigate(moreItems.GetElementsByTagName("a")[0].GetAttribute("href"));
             _step = 12;
             timeCheck.Start();
+        }
+
+        private void btnShowHideWbPostToFanpage_Click(object sender, EventArgs e)
+        {
+            if (showWbPostToFanpage)
+                showWbPostToFanpage = false;
+            else
+                showWbPostToFanpage = true;
+
+            wbPostToFanpage.Visible = showWbPostToFanpage;
         }
     }
 }

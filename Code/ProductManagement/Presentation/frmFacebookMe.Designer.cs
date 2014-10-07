@@ -97,6 +97,8 @@
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
             this.openAlbumImages = new System.Windows.Forms.OpenFileDialog();
             this.timerPostToAlbum = new System.Windows.Forms.Timer(this.components);
+            this.wbPostToFanpage = new System.Windows.Forms.WebBrowser();
+            this.btnShowHideWbPostToFanpage = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -502,6 +504,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.wbPostToFanpage);
             this.groupBox10.Controls.Add(this.dtgvAlbumImages);
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(0, 221);
@@ -524,6 +527,7 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.btnShowHideWbPostToFanpage);
             this.groupBox9.Controls.Add(this.txtDelayAlbumPost);
             this.groupBox9.Controls.Add(this.label10);
             this.groupBox9.Controls.Add(this.txtAlbumImageCaption);
@@ -578,7 +582,7 @@
             // 
             // btnPostToAlbum
             // 
-            this.btnPostToAlbum.Location = new System.Drawing.Point(776, 55);
+            this.btnPostToAlbum.Location = new System.Drawing.Point(722, 78);
             this.btnPostToAlbum.Name = "btnPostToAlbum";
             this.btnPostToAlbum.Size = new System.Drawing.Size(87, 62);
             this.btnPostToAlbum.TabIndex = 6;
@@ -794,6 +798,27 @@
             this.timerPostToAlbum.Interval = 7200000;
             this.timerPostToAlbum.Tick += new System.EventHandler(this.timerPostToAlbum_Tick);
             // 
+            // wbPostToFanpage
+            // 
+            this.wbPostToFanpage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wbPostToFanpage.Location = new System.Drawing.Point(3, 16);
+            this.wbPostToFanpage.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbPostToFanpage.Name = "wbPostToFanpage";
+            this.wbPostToFanpage.Size = new System.Drawing.Size(942, 346);
+            this.wbPostToFanpage.TabIndex = 11;
+            this.wbPostToFanpage.Url = new System.Uri("https://m.facebook.com", System.UriKind.Absolute);
+            this.wbPostToFanpage.Visible = false;
+            // 
+            // btnShowHideWbPostToFanpage
+            // 
+            this.btnShowHideWbPostToFanpage.Location = new System.Drawing.Point(722, 35);
+            this.btnShowHideWbPostToFanpage.Name = "btnShowHideWbPostToFanpage";
+            this.btnShowHideWbPostToFanpage.Size = new System.Drawing.Size(113, 23);
+            this.btnShowHideWbPostToFanpage.TabIndex = 11;
+            this.btnShowHideWbPostToFanpage.Text = "Show/Hide WEB";
+            this.btnShowHideWbPostToFanpage.UseVisualStyleBackColor = true;
+            this.btnShowHideWbPostToFanpage.Click += new System.EventHandler(this.btnShowHideWbPostToFanpage_Click);
+            // 
             // frmFacebookMe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -908,5 +933,7 @@
         private System.Windows.Forms.GroupBox groupBox16;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtNumOfGroup;
+        private System.Windows.Forms.WebBrowser wbPostToFanpage;
+        private System.Windows.Forms.Button btnShowHideWbPostToFanpage;
     }
 }

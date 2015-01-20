@@ -177,7 +177,7 @@ namespace Presentation
 
         private void timeCheck_Tick(object sender, EventArgs e)
         {
-            if (webFB.ReadyState != WebBrowserReadyState.Complete)
+            if (webFB.ReadyState != WebBrowserReadyState.Complete || wbPostToFanpage.ReadyState != WebBrowserReadyState.Complete)
             {
                 return;
             }
@@ -259,46 +259,56 @@ namespace Presentation
 
         private void goToComposerForm()
         {
-            string url = "";
+            //string url = "";
 
-            HtmlElement form = webFB.Document.GetElementById("composer_form");
+            HtmlElement input = webFB.Document.GetElementById("u_0_1");
+            input.InvokeMember("click");
 
-            HtmlElementCollection aColec = webFB.Document.GetElementsByTagName("a");
-            foreach (HtmlElement a in aColec)
-            {
-                if (a.GetAttribute("href").Contains("/composer/?tid="))
-                {
-                    url += a.GetAttribute("href");
-                    break;
-                }
-            }
+            //HtmlElementCollection aColec = webFB.Document.GetElementsByTagName("a");
+            //foreach (HtmlElement a in aColec)
+            //{
+            //    if (a.GetAttribute("href").Contains("/composer/?tid="))
+            //    {
+            //        url += a.GetAttribute("href");
+            //        break;
+            //    }
+            //}
 
             //fb.UploadPhotoNew(url);
 
-            webFB.Navigate(url);
+            //webFB.Navigate(url);
             _step = 13;
-            timeCheck.Start();
+            timerTemp.Start();
         }
 
         private void goToPostImageForm()
         {
-            string url = "";
+            //string url = "";
 
-            HtmlElementCollection aColec = webFB.Document.GetElementsByTagName("a");
-            foreach (HtmlElement a in aColec)
+            //HtmlElementCollection aColec = webFB.Document.GetElementsByTagName("a");
+            //foreach (HtmlElement a in aColec)
+            //{
+            //    if (a.GetAttribute("href").Contains("/photos/upload/"))
+            //    {
+            //        url += a.GetAttribute("href");
+            //        break;
+            //    }
+            //}
+
+            ////fb.UploadPhotoNew(url);
+
+            //webFB.Navigate(url);
+            //_step = 3;
+            //timeCheck.Start();
+
+            HtmlElement input = webFB.Document.GetElementById("u_0_1");
+            if (input != null)
             {
-                if (a.GetAttribute("href").Contains("/photos/upload/"))
-                {
-                    url += a.GetAttribute("href");
-                    break;
-                }
+                input.InvokeMember("click");
             }
 
-            //fb.UploadPhotoNew(url);
-
-            webFB.Navigate(url);
             _step = 3;
-            timeCheck.Start();
+            timerTemp.Start();
         }
 
         private void postImage()
@@ -306,7 +316,7 @@ namespace Presentation
             HtmlElementCollection textareaColec = webFB.Document.GetElementsByTagName("textarea");
             foreach (HtmlElement textarea in textareaColec)
             {
-                if (textarea.GetAttribute("name") == "caption")
+                if (textarea.GetAttribute("name") == "xc_message")
                 {
                     //textarea.SetAttribute("value", "ELLA SHOP - TRANG SỨC PHỤ KIỆN GIÁ RẺ\nWWW.THOITRANGELLA.COM\nhttps://www.facebook.com/thoitrangella\n\n--------------\n\nChuyên cung cấp sỉ và lẻ trang sức phụ kiện giá rẻ, đẹp, phù hợp với mọi lứa tuổi");
                     textarea.SetAttribute("value", txtCaption.Text);
@@ -351,27 +361,6 @@ namespace Presentation
 
             timerDelayBetweenPost.Interval = Int32.Parse(txtTimeBetweenPost.Text);
             timerDelayBetweenPost.Start();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            timerDelayBetweenPost.Stop();
-
-            rowIdx++;
-            imgIdx+=3;
-
-            if (rowIdx >= dtgvGroupList.Rows.Count)
-            {
-                rowIdx = 0;
-            }
-            if ((imagesFileName.Length - imgIdx) < 3)
-            {
-                imgIdx = 0;
-            }
-            string url = "https://m.facebook.com/groups/" + dtgvGroupList.Rows[rowIdx].Cells[0].Value.ToString();
-            webFB.Navigate(url);
-            _step = 2;
-            timeCheck.Start();
         }
 
         private void btnBrowseImages_Click(object sender, EventArgs e)
@@ -611,7 +600,8 @@ namespace Presentation
 
         private void btnGetAlbumList_Click(object sender, EventArgs e)
         {
-            wbPostToFanpage.Navigate("https://m.facebook.com/thoitrangella?v=photos");
+            //wbPostToFanpage.Navigate("https://m.facebook.com/thoitrangella?v=photos");
+            wbPostToFanpage.Navigate("https://m.facebook.com/thoitrangella/photos/albums/?owner_id=323527981089854&refid=17");
             _step = 9;
             timeCheck.Start();
         }
@@ -640,10 +630,13 @@ namespace Presentation
 
             foreach (HtmlElement a in aColec)
             {
-                if (a.GetAttribute("href").Contains("photos") && a.InnerText.Contains("album khác"))
+                if (a.InnerText != null)
                 {
-                    url = a.GetAttribute("href");
-                    break;
+                    if (a.GetAttribute("href").Contains("/photos/albums/") && a.InnerText.Contains("Xem thêm"))
+                    {
+                        url = a.GetAttribute("href");
+                        break;
+                    }
                 }
             }
 
@@ -852,6 +845,27 @@ namespace Presentation
                 showWbPostToFanpage = true;
 
             wbPostToFanpage.Visible = showWbPostToFanpage;
+        }
+
+        private void timerDelayBetweenPost_Tick(object sender, EventArgs e)
+        {
+            timerDelayBetweenPost.Stop();
+
+            rowIdx++;
+            imgIdx += 3;
+
+            if (rowIdx >= dtgvGroupList.Rows.Count)
+            {
+                rowIdx = 0;
+            }
+            if ((imagesFileName.Length - imgIdx) < 3)
+            {
+                imgIdx = 0;
+            }
+            string url = "https://m.facebook.com/groups/" + dtgvGroupList.Rows[rowIdx].Cells[0].Value.ToString();
+            webFB.Navigate(url);
+            _step = 13;
+            timeCheck.Start();
         }
     }
 }

@@ -66,8 +66,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.wbPostToFanpage = new System.Windows.Forms.WebBrowser();
             this.dtgvAlbumImages = new System.Windows.Forms.DataGridView();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.btnShowHideWbPostToFanpage = new System.Windows.Forms.Button();
             this.txtDelayAlbumPost = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtAlbumImageCaption = new System.Windows.Forms.TextBox();
@@ -97,8 +99,6 @@
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
             this.openAlbumImages = new System.Windows.Forms.OpenFileDialog();
             this.timerPostToAlbum = new System.Windows.Forms.Timer(this.components);
-            this.wbPostToFanpage = new System.Windows.Forms.WebBrowser();
-            this.btnShowHideWbPostToFanpage = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -514,6 +514,17 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Post Result:";
             // 
+            // wbPostToFanpage
+            // 
+            this.wbPostToFanpage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wbPostToFanpage.Location = new System.Drawing.Point(3, 16);
+            this.wbPostToFanpage.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbPostToFanpage.Name = "wbPostToFanpage";
+            this.wbPostToFanpage.Size = new System.Drawing.Size(942, 346);
+            this.wbPostToFanpage.TabIndex = 11;
+            this.wbPostToFanpage.Url = new System.Uri("https://m.facebook.com", System.UriKind.Absolute);
+            this.wbPostToFanpage.Visible = false;
+            // 
             // dtgvAlbumImages
             // 
             this.dtgvAlbumImages.AllowUserToAddRows = false;
@@ -546,6 +557,16 @@
             this.groupBox9.TabIndex = 0;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Album list:";
+            // 
+            // btnShowHideWbPostToFanpage
+            // 
+            this.btnShowHideWbPostToFanpage.Location = new System.Drawing.Point(722, 35);
+            this.btnShowHideWbPostToFanpage.Name = "btnShowHideWbPostToFanpage";
+            this.btnShowHideWbPostToFanpage.Size = new System.Drawing.Size(113, 23);
+            this.btnShowHideWbPostToFanpage.TabIndex = 11;
+            this.btnShowHideWbPostToFanpage.Text = "Show/Hide WEB";
+            this.btnShowHideWbPostToFanpage.UseVisualStyleBackColor = true;
+            this.btnShowHideWbPostToFanpage.Click += new System.EventHandler(this.btnShowHideWbPostToFanpage_Click);
             // 
             // txtDelayAlbumPost
             // 
@@ -769,7 +790,7 @@
             // 
             // timerDelayBetweenPost
             // 
-            this.timerDelayBetweenPost.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerDelayBetweenPost.Tick += new System.EventHandler(this.timerDelayBetweenPost_Tick);
             // 
             // openFileDialog1
             // 
@@ -797,27 +818,6 @@
             // 
             this.timerPostToAlbum.Interval = 7200000;
             this.timerPostToAlbum.Tick += new System.EventHandler(this.timerPostToAlbum_Tick);
-            // 
-            // wbPostToFanpage
-            // 
-            this.wbPostToFanpage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wbPostToFanpage.Location = new System.Drawing.Point(3, 16);
-            this.wbPostToFanpage.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbPostToFanpage.Name = "wbPostToFanpage";
-            this.wbPostToFanpage.Size = new System.Drawing.Size(942, 346);
-            this.wbPostToFanpage.TabIndex = 11;
-            this.wbPostToFanpage.Url = new System.Uri("https://m.facebook.com", System.UriKind.Absolute);
-            this.wbPostToFanpage.Visible = false;
-            // 
-            // btnShowHideWbPostToFanpage
-            // 
-            this.btnShowHideWbPostToFanpage.Location = new System.Drawing.Point(722, 35);
-            this.btnShowHideWbPostToFanpage.Name = "btnShowHideWbPostToFanpage";
-            this.btnShowHideWbPostToFanpage.Size = new System.Drawing.Size(113, 23);
-            this.btnShowHideWbPostToFanpage.TabIndex = 11;
-            this.btnShowHideWbPostToFanpage.Text = "Show/Hide WEB";
-            this.btnShowHideWbPostToFanpage.UseVisualStyleBackColor = true;
-            this.btnShowHideWbPostToFanpage.Click += new System.EventHandler(this.btnShowHideWbPostToFanpage_Click);
             // 
             // frmFacebookMe
             // 

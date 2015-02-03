@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C0B47DBB-6E6F-4AE8-ADE3-CA2A00C62216}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -45,6 +45,7 @@
     <Compile Include="DanhMucBUS.cs" />
     <Compile Include="DocGiaBUS.cs" />
     <Compile Include="DonHangBUS.cs" />
+    <Compile Include="FbGroupBUS.cs" />
     <Compile Include="KhachHangBUS.cs" />
     <Compile Include="NhanVienBUS.cs" />
     <Compile Include="PhieuPhatBUS.cs" />

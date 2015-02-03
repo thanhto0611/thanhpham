@@ -10,6 +10,9 @@ using System.Drawing;
 using System.Data;
 using System.Runtime.InteropServices;
 using mfb;
+using Microsoft.VisualBasic.FileIO;
+using DTO;
+using BUS;
 
 namespace Presentation
 {
@@ -871,6 +874,52 @@ namespace Presentation
             webFB.Navigate(url);
             _step = 13;
             timeCheck.Start();
+        }
+
+        private void btnSaveGroups_Click(object sender, EventArgs e)
+        {
+            if (dtgvGroupList.Rows.Count == 0)
+            {
+                MessageBox.Show("Please load group list first");
+                return;
+            }
+
+            foreach (DataGridViewRow row in this.dtgvGroupList.Rows)
+            {
+                FbGroupDTO groupDTO = new FbGroupDTO();
+                groupDTO.GroupId = row.Cells["GroupId"].Value.ToString();
+                groupDTO.GroupName = row.Cells["GroupName"].Value.ToString();
+                //groupDTO.NumberOfMember = Int32.Parse(row.Cells["GroupMember"].Value.ToString());
+                groupDTO.NguoiNhap = frmDangNhap.gUserName;
+                groupDTO.NgayNhap = System.DateTime.Now;
+
+                FbGroupBUS.Insert(groupDTO);
+            }
+
+            MessageBox.Show("Done");
+        }
+
+        private void btnUpdateGroups_Click(object sender, EventArgs e)
+        {
+            if (dtgvGroupSearchResult.Rows.Count == 0)
+            {
+                MessageBox.Show("Please load group list first");
+                return;
+            }
+
+            foreach (DataGridViewRow row in this.dtgvGroupSearchResult.Rows)
+            {
+                FbGroupDTO groupDTO = new FbGroupDTO();
+                groupDTO.GroupId = row.Cells["GroupId"].Value.ToString();
+                groupDTO.GroupName = row.Cells["GroupName"].Value.ToString();
+                groupDTO.NumberOfMember = Int32.Parse(row.Cells["GroupMember"].Value.ToString());
+                groupDTO.NguoiCapNhat = frmDangNhap.gUserName;
+                groupDTO.NgayCapNhat = System.DateTime.Now;
+
+                FbGroupBUS.Update(groupDTO);
+            }
+
+            MessageBox.Show("Done");
         }
     }
 }

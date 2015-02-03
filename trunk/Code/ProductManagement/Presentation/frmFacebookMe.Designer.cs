@@ -58,6 +58,7 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dtgvGroupSearchResult = new System.Windows.Forms.DataGridView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnSaveGroups = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNumOfGroup = new System.Windows.Forms.TextBox();
             this.btnJoinGroup = new System.Windows.Forms.Button();
@@ -99,6 +100,7 @@
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
             this.openAlbumImages = new System.Windows.Forms.OpenFileDialog();
             this.timerPostToAlbum = new System.Windows.Forms.Timer(this.components);
+            this.btnUpdateGroups = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -424,6 +426,8 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.btnUpdateGroups);
+            this.groupBox7.Controls.Add(this.btnSaveGroups);
             this.groupBox7.Controls.Add(this.label11);
             this.groupBox7.Controls.Add(this.txtNumOfGroup);
             this.groupBox7.Controls.Add(this.btnJoinGroup);
@@ -437,6 +441,16 @@
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Search Info:";
+            // 
+            // btnSaveGroups
+            // 
+            this.btnSaveGroups.Location = new System.Drawing.Point(709, 30);
+            this.btnSaveGroups.Name = "btnSaveGroups";
+            this.btnSaveGroups.Size = new System.Drawing.Size(88, 23);
+            this.btnSaveGroups.TabIndex = 6;
+            this.btnSaveGroups.Text = "Save Groups";
+            this.btnSaveGroups.UseVisualStyleBackColor = true;
+            this.btnSaveGroups.Click += new System.EventHandler(this.btnSaveGroups_Click);
             // 
             // label11
             // 
@@ -819,6 +833,16 @@
             this.timerPostToAlbum.Interval = 7200000;
             this.timerPostToAlbum.Tick += new System.EventHandler(this.timerPostToAlbum_Tick);
             // 
+            // btnUpdateGroups
+            // 
+            this.btnUpdateGroups.Location = new System.Drawing.Point(803, 31);
+            this.btnUpdateGroups.Name = "btnUpdateGroups";
+            this.btnUpdateGroups.Size = new System.Drawing.Size(88, 23);
+            this.btnUpdateGroups.TabIndex = 7;
+            this.btnUpdateGroups.Text = "Update Groups";
+            this.btnUpdateGroups.UseVisualStyleBackColor = true;
+            this.btnUpdateGroups.Click += new System.EventHandler(this.btnUpdateGroups_Click);
+            // 
             // frmFacebookMe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -935,5 +959,7 @@
         private System.Windows.Forms.TextBox txtNumOfGroup;
         private System.Windows.Forms.WebBrowser wbPostToFanpage;
         private System.Windows.Forms.Button btnShowHideWbPostToFanpage;
+        private System.Windows.Forms.Button btnSaveGroups;
+        private System.Windows.Forms.Button btnUpdateGroups;
     }
 }

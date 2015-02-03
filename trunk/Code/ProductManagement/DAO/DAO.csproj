@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F5502379-259C-43BF-A13C-A443D9B59925}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -46,6 +46,7 @@
     <Compile Include="DataProvider.cs" />
     <Compile Include="DocGiaDAO.cs" />
     <Compile Include="DonHangDAO.cs" />
+    <Compile Include="FbGroupDAO.cs" />
     <Compile Include="KhachHangDAO.cs" />
     <Compile Include="NhanVienDAO.cs" />
     <Compile Include="PhieuPhatDAO.cs" />

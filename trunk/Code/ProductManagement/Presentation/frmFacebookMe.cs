@@ -118,8 +118,9 @@ namespace Presentation
 
         private void getGroupList()
         {
-            HtmlElement contentTable = webFB.Document.GetElementById("objects_container");
-            HtmlElementCollection aColec = contentTable.GetElementsByTagName("a");
+            HtmlElement root = webFB.Document.GetElementById("root");
+            HtmlElementCollection divColec = root.GetElementsByTagName("div");
+            HtmlElementCollection aColec = divColec[1].GetElementsByTagName("a");
 
             Regex reg = new Regex("/groups/([0-9]{6,30})");
             List<string> keys = new List<string>();
@@ -172,6 +173,10 @@ namespace Presentation
                 webFB.Navigate(seeMore.GetElementsByTagName("a")[0].GetAttribute("href"));
                 _step = 1;
                 timeCheck.Start();
+            }
+            else
+            {
+                MessageBox.Show("List groups done");
             }
         }
 

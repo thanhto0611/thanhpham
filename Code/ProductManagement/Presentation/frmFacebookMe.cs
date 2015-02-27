@@ -589,7 +589,7 @@ namespace Presentation
             {
                 if (numGroupJoined > Int32.Parse(txtNumOfGroup.Text))
                 {
-                    MessageBox.Show("Joined %s groups", txtNumOfGroup.Text);
+                    MessageBox.Show("Joined " + txtNumOfGroup.Text + " groups");
                     return;
                 }
             }
@@ -920,6 +920,11 @@ namespace Presentation
             }
 
             MessageBox.Show("Done");
+        }
+
+        private void btnGetAllData_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

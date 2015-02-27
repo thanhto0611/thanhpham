@@ -17,6 +17,9 @@ namespace Presentation
         public static frmImportProducts frmIP = null;
         public static frmQuanLyKhachHang frmQLKH = null;
         public static frmConfig frmCfg = null;
+        public static frmFbFindAndJoinGroups frmFbFindJoinGroups = null;
+        public static frmFbPostToGroups frmFbPostToGroups = null;
+        public static frmFbPostImageToFanpage frmFbPostImageToFanpage = null;
 
         public Main2()
         {
@@ -155,5 +158,52 @@ namespace Presentation
             frm.Show();
         }
 
+        private void FindAndJoinGroups_Click(object sender, EventArgs e)
+        {
+            if (frmFbFindJoinGroups == null)
+            {
+                frmFbFindJoinGroups = new frmFbFindAndJoinGroups();
+                frmFbFindJoinGroups.MdiParent = this;
+                frmFbFindJoinGroups.Dock = DockStyle.Fill;
+                frmFbFindJoinGroups.WindowState = FormWindowState.Maximized;
+                frmFbFindJoinGroups.Show();
+            }
+            else
+            {
+                frmFbFindJoinGroups.BringToFront();
+            }
+        }
+
+        private void PostToGroup_Click(object sender, EventArgs e)
+        {
+            if (frmFbPostToGroups == null)
+            {
+                frmFbPostToGroups = new frmFbPostToGroups();
+                frmFbPostToGroups.MdiParent = this;
+                frmFbPostToGroups.Dock = DockStyle.Fill;
+                frmFbPostToGroups.WindowState = FormWindowState.Maximized;
+                frmFbPostToGroups.Show();
+            }
+            else
+            {
+                frmFbPostToGroups.BringToFront();
+            }
+        }
+
+        private void PostImageToFanpage_Click(object sender, EventArgs e)
+        {
+            if (frmFbPostImageToFanpage == null)
+            {
+                frmFbPostImageToFanpage = new frmFbPostImageToFanpage();
+                frmFbPostImageToFanpage.MdiParent = this;
+                frmFbPostImageToFanpage.Dock = DockStyle.Fill;
+                frmFbPostImageToFanpage.WindowState = FormWindowState.Maximized;
+                frmFbPostImageToFanpage.Show();
+            }
+            else
+            {
+                frmFbPostImageToFanpage.BringToFront();
+            }
+        }
     }
 }

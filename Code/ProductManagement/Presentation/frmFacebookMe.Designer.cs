@@ -58,6 +58,7 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dtgvGroupSearchResult = new System.Windows.Forms.DataGridView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnUpdateGroups = new System.Windows.Forms.Button();
             this.btnSaveGroups = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNumOfGroup = new System.Windows.Forms.TextBox();
@@ -100,7 +101,6 @@
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
             this.openAlbumImages = new System.Windows.Forms.OpenFileDialog();
             this.timerPostToAlbum = new System.Windows.Forms.Timer(this.components);
-            this.btnUpdateGroups = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -442,6 +442,16 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Search Info:";
             // 
+            // btnUpdateGroups
+            // 
+            this.btnUpdateGroups.Location = new System.Drawing.Point(803, 31);
+            this.btnUpdateGroups.Name = "btnUpdateGroups";
+            this.btnUpdateGroups.Size = new System.Drawing.Size(88, 23);
+            this.btnUpdateGroups.TabIndex = 7;
+            this.btnUpdateGroups.Text = "Update Groups";
+            this.btnUpdateGroups.UseVisualStyleBackColor = true;
+            this.btnUpdateGroups.Click += new System.EventHandler(this.btnUpdateGroups_Click);
+            // 
             // btnSaveGroups
             // 
             this.btnSaveGroups.Location = new System.Drawing.Point(709, 30);
@@ -743,6 +753,7 @@
             this.btnGetAllData.TabIndex = 0;
             this.btnGetAllData.Text = "Get All Data";
             this.btnGetAllData.UseVisualStyleBackColor = true;
+            this.btnGetAllData.Click += new System.EventHandler(this.btnGetAllData_Click);
             // 
             // groupBox11
             // 
@@ -832,16 +843,6 @@
             // 
             this.timerPostToAlbum.Interval = 7200000;
             this.timerPostToAlbum.Tick += new System.EventHandler(this.timerPostToAlbum_Tick);
-            // 
-            // btnUpdateGroups
-            // 
-            this.btnUpdateGroups.Location = new System.Drawing.Point(803, 31);
-            this.btnUpdateGroups.Name = "btnUpdateGroups";
-            this.btnUpdateGroups.Size = new System.Drawing.Size(88, 23);
-            this.btnUpdateGroups.TabIndex = 7;
-            this.btnUpdateGroups.Text = "Update Groups";
-            this.btnUpdateGroups.UseVisualStyleBackColor = true;
-            this.btnUpdateGroups.Click += new System.EventHandler(this.btnUpdateGroups_Click);
             // 
             // frmFacebookMe
             // 

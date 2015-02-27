@@ -38,8 +38,13 @@
             this.XuatKhoHang = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportProductFromImages = new System.Windows.Forms.ToolStripMenuItem();
             this.applicationConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Window = new System.Windows.Forms.ToolStripMenuItem();
             this.facebookToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.FindAndJoinGroups = new System.Windows.Forms.ToolStripMenuItem();
+            this.PostToGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.PostImageToFanpage = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Window = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +56,7 @@
             this.QuanLyDonHang,
             this.QuanLyKhachHang,
             this.adminToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.Window});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.Window;
@@ -128,18 +134,56 @@
             this.applicationConfigToolStripMenuItem.Text = "Application Config";
             this.applicationConfigToolStripMenuItem.Click += new System.EventHandler(this.applicationConfigToolStripMenuItem_Click);
             // 
-            // Window
-            // 
-            this.Window.Name = "Window";
-            this.Window.Size = new System.Drawing.Size(108, 20);
-            this.Window.Text = "Cửa Sổ Đang Mở";
-            // 
             // facebookToolsToolStripMenuItem
             // 
             this.facebookToolsToolStripMenuItem.Name = "facebookToolsToolStripMenuItem";
             this.facebookToolsToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.facebookToolsToolStripMenuItem.Text = "Facebook Tools";
             this.facebookToolsToolStripMenuItem.Click += new System.EventHandler(this.facebookToolsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FindAndJoinGroups,
+            this.PostToGroup,
+            this.PostImageToFanpage,
+            this.updateStockToolStripMenuItem});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(102, 20);
+            this.toolStripMenuItem2.Text = "Facebook Tools";
+            // 
+            // FindAndJoinGroups
+            // 
+            this.FindAndJoinGroups.Name = "FindAndJoinGroups";
+            this.FindAndJoinGroups.Size = new System.Drawing.Size(198, 22);
+            this.FindAndJoinGroups.Text = "Find and Join Groups";
+            this.FindAndJoinGroups.Click += new System.EventHandler(this.FindAndJoinGroups_Click);
+            // 
+            // PostToGroup
+            // 
+            this.PostToGroup.Name = "PostToGroup";
+            this.PostToGroup.Size = new System.Drawing.Size(198, 22);
+            this.PostToGroup.Text = "Post To Group";
+            this.PostToGroup.Click += new System.EventHandler(this.PostToGroup_Click);
+            // 
+            // PostImageToFanpage
+            // 
+            this.PostImageToFanpage.Name = "PostImageToFanpage";
+            this.PostImageToFanpage.Size = new System.Drawing.Size(198, 22);
+            this.PostImageToFanpage.Text = "Post Image To Fanpage";
+            this.PostImageToFanpage.Click += new System.EventHandler(this.PostImageToFanpage_Click);
+            // 
+            // updateStockToolStripMenuItem
+            // 
+            this.updateStockToolStripMenuItem.Name = "updateStockToolStripMenuItem";
+            this.updateStockToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.updateStockToolStripMenuItem.Text = "Update Stock";
+            // 
+            // Window
+            // 
+            this.Window.Name = "Window";
+            this.Window.Size = new System.Drawing.Size(108, 20);
+            this.Window.Text = "Cửa Sổ Đang Mở";
             // 
             // Main2
             // 
@@ -174,5 +218,10 @@
         private System.Windows.Forms.ToolStripMenuItem QuanLyKhachHang;
         private System.Windows.Forms.ToolStripMenuItem applicationConfigToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facebookToolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem FindAndJoinGroups;
+        private System.Windows.Forms.ToolStripMenuItem PostToGroup;
+        private System.Windows.Forms.ToolStripMenuItem PostImageToFanpage;
+        private System.Windows.Forms.ToolStripMenuItem updateStockToolStripMenuItem;
     }
 }

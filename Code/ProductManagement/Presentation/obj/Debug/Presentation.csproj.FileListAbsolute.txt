@@ -593,3 +593,6 @@ D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.pdb
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Microsoft.Office.Interop.Excel.dll
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\office.dll
 D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmFbFindAndJoinGroups.resources
+D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmFbPostToGroups.resources
+D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmFbPostImageToFanpage.resources

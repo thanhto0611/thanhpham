@@ -51,8 +51,11 @@
             this.txtImages = new System.Windows.Forms.TextBox();
             this.txtCaption = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.wbPostToGroup = new System.Windows.Forms.WebBrowser();
             this.dtgvGroupList = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnResetPostToGroup = new System.Windows.Forms.Button();
+            this.btnShowHideWbPostToGroups = new System.Windows.Forms.Button();
             this.btnLoadGroup = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -101,6 +104,10 @@
             this.timerJoin = new System.Windows.Forms.Timer(this.components);
             this.openAlbumImages = new System.Windows.Forms.OpenFileDialog();
             this.timerPostToAlbum = new System.Windows.Forms.Timer(this.components);
+            this.timerCheckPostToGroup = new System.Windows.Forms.Timer(this.components);
+            this.timerDelayPostToGroup = new System.Windows.Forms.Timer(this.components);
+            this.timerCheckPostToFP = new System.Windows.Forms.Timer(this.components);
+            this.btnResetPostToFP = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -350,6 +357,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.wbPostToGroup);
             this.groupBox5.Controls.Add(this.dtgvGroupList);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox5.Location = new System.Drawing.Point(3, 16);
@@ -358,6 +366,16 @@
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Group List:";
+            // 
+            // wbPostToGroup
+            // 
+            this.wbPostToGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wbPostToGroup.Location = new System.Drawing.Point(3, 16);
+            this.wbPostToGroup.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbPostToGroup.Name = "wbPostToGroup";
+            this.wbPostToGroup.Size = new System.Drawing.Size(424, 474);
+            this.wbPostToGroup.TabIndex = 1;
+            this.wbPostToGroup.Visible = false;
             // 
             // dtgvGroupList
             // 
@@ -372,6 +390,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnResetPostToGroup);
+            this.groupBox3.Controls.Add(this.btnShowHideWbPostToGroups);
             this.groupBox3.Controls.Add(this.btnLoadGroup);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
@@ -381,11 +401,33 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Post Info:";
             // 
+            // btnResetPostToGroup
+            // 
+            this.btnResetPostToGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetPostToGroup.ForeColor = System.Drawing.Color.Red;
+            this.btnResetPostToGroup.Location = new System.Drawing.Point(420, 19);
+            this.btnResetPostToGroup.Name = "btnResetPostToGroup";
+            this.btnResetPostToGroup.Size = new System.Drawing.Size(75, 43);
+            this.btnResetPostToGroup.TabIndex = 14;
+            this.btnResetPostToGroup.Text = "RESET";
+            this.btnResetPostToGroup.UseVisualStyleBackColor = true;
+            this.btnResetPostToGroup.Click += new System.EventHandler(this.btnResetPostToGroup_Click);
+            // 
+            // btnShowHideWbPostToGroups
+            // 
+            this.btnShowHideWbPostToGroups.Location = new System.Drawing.Point(237, 19);
+            this.btnShowHideWbPostToGroups.Name = "btnShowHideWbPostToGroups";
+            this.btnShowHideWbPostToGroups.Size = new System.Drawing.Size(113, 43);
+            this.btnShowHideWbPostToGroups.TabIndex = 13;
+            this.btnShowHideWbPostToGroups.Text = "Show/Hide WEB";
+            this.btnShowHideWbPostToGroups.UseVisualStyleBackColor = true;
+            this.btnShowHideWbPostToGroups.Click += new System.EventHandler(this.btnShowHideWbPostToGroups_Click);
+            // 
             // btnLoadGroup
             // 
-            this.btnLoadGroup.Location = new System.Drawing.Point(43, 34);
+            this.btnLoadGroup.Location = new System.Drawing.Point(86, 19);
             this.btnLoadGroup.Name = "btnLoadGroup";
-            this.btnLoadGroup.Size = new System.Drawing.Size(100, 23);
+            this.btnLoadGroup.Size = new System.Drawing.Size(100, 43);
             this.btnLoadGroup.TabIndex = 0;
             this.btnLoadGroup.Text = "Load Groups";
             this.btnLoadGroup.UseVisualStyleBackColor = true;
@@ -562,6 +604,7 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.btnResetPostToFP);
             this.groupBox9.Controls.Add(this.btnShowHideWbPostToFanpage);
             this.groupBox9.Controls.Add(this.txtDelayAlbumPost);
             this.groupBox9.Controls.Add(this.label10);
@@ -844,6 +887,31 @@
             this.timerPostToAlbum.Interval = 7200000;
             this.timerPostToAlbum.Tick += new System.EventHandler(this.timerPostToAlbum_Tick);
             // 
+            // timerCheckPostToGroup
+            // 
+            this.timerCheckPostToGroup.Tick += new System.EventHandler(this.timerCheckPostToGroup_Tick);
+            // 
+            // timerDelayPostToGroup
+            // 
+            this.timerDelayPostToGroup.Interval = 5000;
+            this.timerDelayPostToGroup.Tick += new System.EventHandler(this.timerDelayPostToGroup_Tick);
+            // 
+            // timerCheckPostToFP
+            // 
+            this.timerCheckPostToFP.Tick += new System.EventHandler(this.timerCheckPostToFP_Tick);
+            // 
+            // btnResetPostToFP
+            // 
+            this.btnResetPostToFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetPostToFP.ForeColor = System.Drawing.Color.Red;
+            this.btnResetPostToFP.Location = new System.Drawing.Point(834, 78);
+            this.btnResetPostToFP.Name = "btnResetPostToFP";
+            this.btnResetPostToFP.Size = new System.Drawing.Size(87, 62);
+            this.btnResetPostToFP.TabIndex = 12;
+            this.btnResetPostToFP.Text = "RESET";
+            this.btnResetPostToFP.UseVisualStyleBackColor = true;
+            this.btnResetPostToFP.Click += new System.EventHandler(this.btnResetPostToFP_Click);
+            // 
             // frmFacebookMe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -962,5 +1030,12 @@
         private System.Windows.Forms.Button btnShowHideWbPostToFanpage;
         private System.Windows.Forms.Button btnSaveGroups;
         private System.Windows.Forms.Button btnUpdateGroups;
+        private System.Windows.Forms.Timer timerCheckPostToGroup;
+        private System.Windows.Forms.WebBrowser wbPostToGroup;
+        private System.Windows.Forms.Button btnShowHideWbPostToGroups;
+        private System.Windows.Forms.Timer timerDelayPostToGroup;
+        private System.Windows.Forms.Button btnResetPostToGroup;
+        private System.Windows.Forms.Timer timerCheckPostToFP;
+        private System.Windows.Forms.Button btnResetPostToFP;
     }
 }

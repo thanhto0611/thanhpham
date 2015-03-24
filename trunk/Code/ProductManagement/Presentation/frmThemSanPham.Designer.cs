@@ -40,6 +40,8 @@
             this.btnBrowseCvsFile = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.openfdCvs = new System.Windows.Forms.OpenFileDialog();
+            this.rdNew = new System.Windows.Forms.RadioButton();
+            this.rdUpdate = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabNhapTuFile.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -95,6 +97,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdUpdate);
+            this.groupBox1.Controls.Add(this.rdNew);
             this.groupBox1.Controls.Add(this.btnImport);
             this.groupBox1.Controls.Add(this.txtCvsFile);
             this.groupBox1.Controls.Add(this.btnDocFile);
@@ -174,6 +178,28 @@
             this.openfdCvs.FileName = "openFileDialog1";
             this.openfdCvs.FileOk += new System.ComponentModel.CancelEventHandler(this.openfdCvs_FileOk);
             // 
+            // rdNew
+            // 
+            this.rdNew.AutoSize = true;
+            this.rdNew.Location = new System.Drawing.Point(77, 46);
+            this.rdNew.Name = "rdNew";
+            this.rdNew.Size = new System.Drawing.Size(87, 17);
+            this.rdNew.TabIndex = 5;
+            this.rdNew.TabStop = true;
+            this.rdNew.Text = "Nhập mới SP";
+            this.rdNew.UseVisualStyleBackColor = true;
+            // 
+            // rdUpdate
+            // 
+            this.rdUpdate.AutoSize = true;
+            this.rdUpdate.Location = new System.Drawing.Point(77, 73);
+            this.rdUpdate.Name = "rdUpdate";
+            this.rdUpdate.Size = new System.Drawing.Size(85, 17);
+            this.rdUpdate.TabIndex = 6;
+            this.rdUpdate.TabStop = true;
+            this.rdUpdate.Text = "Cập nhật SP";
+            this.rdUpdate.UseVisualStyleBackColor = true;
+            // 
             // frmThemSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,5 +235,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dtgvCvsData;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.RadioButton rdUpdate;
+        private System.Windows.Forms.RadioButton rdNew;
     }
 }

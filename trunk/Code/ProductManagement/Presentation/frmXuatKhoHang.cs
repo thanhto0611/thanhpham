@@ -47,7 +47,17 @@ namespace Presentation
 
                 string outFileName = txtLocation.Text + @"/import_product_stocks_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".csv";
 
-                DataTable dt = SanPhamBUS.XuatKhoHang();
+                DataTable dt = new DataTable();
+
+                if (cbxUseLastUpdateDate.Checked == true)
+                {
+                    string date = dtpLastUpdateDate.Value.ToString("MM/dd/yyyy");
+                    dt = SanPhamBUS.XuatKhoHangByDate(date);
+                }
+                else
+                {
+                    dt = SanPhamBUS.XuatKhoHang();
+                }
 
                 string store = "admin";
                 string sku = "";
@@ -58,15 +68,16 @@ namespace Presentation
                 {
                     sku = row.ItemArray.GetValue(0).ToString();
                     qty = row.ItemArray.GetValue(1).ToString() + ".0000";
+                    is_in_stock = row.ItemArray.GetValue(2).ToString();
 
-                    if (Int32.Parse(row.ItemArray.GetValue(1).ToString()) <= 0)
-                    {
-                        is_in_stock = "0";
-                    }
-                    else
-                    {
-                        is_in_stock = "1";
-                    }
+                    //if (Int32.Parse(row.ItemArray.GetValue(1).ToString()) <= 0)
+                    //{
+                    //    is_in_stock = "0";
+                    //}
+                    //else
+                    //{
+                    //    is_in_stock = "1";
+                    //}
 
                     DataRow dr = resultTable.NewRow();
                     dr[0] = store;
@@ -103,6 +114,11 @@ namespace Presentation
         private void frmXuatKhoHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             Main2.frmXKH = null;
+        }
+
+        private void cbxUseLastUpdateDate_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpLastUpdateDate.Enabled = cbxUseLastUpdateDate.Checked;
         }
     }
 }

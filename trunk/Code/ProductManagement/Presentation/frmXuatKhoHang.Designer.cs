@@ -34,18 +34,22 @@
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.folderBrowserLocation = new System.Windows.Forms.FolderBrowserDialog();
+            this.dtpLastUpdateDate = new System.Windows.Forms.DateTimePicker();
+            this.cbxUseLastUpdateDate = new System.Windows.Forms.CheckBox();
             this.grbXuatKhoHang.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbXuatKhoHang
             // 
+            this.grbXuatKhoHang.Controls.Add(this.cbxUseLastUpdateDate);
+            this.grbXuatKhoHang.Controls.Add(this.dtpLastUpdateDate);
             this.grbXuatKhoHang.Controls.Add(this.btnXuat);
             this.grbXuatKhoHang.Controls.Add(this.btnBrowse);
             this.grbXuatKhoHang.Controls.Add(this.txtLocation);
             this.grbXuatKhoHang.Controls.Add(this.label1);
             this.grbXuatKhoHang.Location = new System.Drawing.Point(12, 12);
             this.grbXuatKhoHang.Name = "grbXuatKhoHang";
-            this.grbXuatKhoHang.Size = new System.Drawing.Size(575, 211);
+            this.grbXuatKhoHang.Size = new System.Drawing.Size(659, 250);
             this.grbXuatKhoHang.TabIndex = 0;
             this.grbXuatKhoHang.TabStop = false;
             this.grbXuatKhoHang.Text = "Xuất Kho Hàng:";
@@ -54,7 +58,7 @@
             // 
             this.btnXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXuat.ForeColor = System.Drawing.Color.Red;
-            this.btnXuat.Location = new System.Drawing.Point(200, 84);
+            this.btnXuat.Location = new System.Drawing.Point(213, 151);
             this.btnXuat.Name = "btnXuat";
             this.btnXuat.Size = new System.Drawing.Size(97, 78);
             this.btnXuat.TabIndex = 3;
@@ -64,7 +68,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(468, 31);
+            this.btnBrowse.Location = new System.Drawing.Point(530, 34);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnBrowse.TabIndex = 2;
@@ -74,7 +78,7 @@
             // 
             // txtLocation
             // 
-            this.txtLocation.Location = new System.Drawing.Point(89, 33);
+            this.txtLocation.Location = new System.Drawing.Point(151, 36);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Size = new System.Drawing.Size(359, 20);
             this.txtLocation.TabIndex = 1;
@@ -82,11 +86,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 36);
+            this.label1.Location = new System.Drawing.Point(54, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nơi Lưu Trữ:";
+            // 
+            // dtpLastUpdateDate
+            // 
+            this.dtpLastUpdateDate.Enabled = false;
+            this.dtpLastUpdateDate.Location = new System.Drawing.Point(151, 73);
+            this.dtpLastUpdateDate.Name = "dtpLastUpdateDate";
+            this.dtpLastUpdateDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpLastUpdateDate.TabIndex = 5;
+            // 
+            // cbxUseLastUpdateDate
+            // 
+            this.cbxUseLastUpdateDate.AutoSize = true;
+            this.cbxUseLastUpdateDate.Location = new System.Drawing.Point(20, 78);
+            this.cbxUseLastUpdateDate.Name = "cbxUseLastUpdateDate";
+            this.cbxUseLastUpdateDate.Size = new System.Drawing.Size(122, 17);
+            this.cbxUseLastUpdateDate.TabIndex = 6;
+            this.cbxUseLastUpdateDate.Text = "Ngày cập nhật cuối:";
+            this.cbxUseLastUpdateDate.UseVisualStyleBackColor = true;
+            this.cbxUseLastUpdateDate.CheckedChanged += new System.EventHandler(this.cbxUseLastUpdateDate_CheckedChanged);
             // 
             // frmXuatKhoHang
             // 
@@ -111,5 +134,7 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserLocation;
         private System.Windows.Forms.Button btnXuat;
+        private System.Windows.Forms.DateTimePicker dtpLastUpdateDate;
+        private System.Windows.Forms.CheckBox cbxUseLastUpdateDate;
     }
 }

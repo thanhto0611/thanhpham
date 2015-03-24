@@ -169,6 +169,12 @@ namespace Presentation
         {
             try
             {
+                if (!rdNew.Checked && !rdUpdate.Checked)
+                {
+                    MessageBox.Show("Please select type of import");
+                    return;
+                }
+
                 SanPhamBUS spBus = new SanPhamBUS();
                 foreach (DataGridViewRow row in this.dtgvCvsData.Rows)
                 {
@@ -195,8 +201,15 @@ namespace Presentation
                     sp.TrongLuong = Int32.Parse(splitTrongLuong[0]);
                     sp.MauSac = row.Cells["mau_sac"].Value.ToString();
                     string[] splitSoLuong = row.Cells["qty"].Value.ToString().Split('.');
-                    //sp.SoLuong = Int32.Parse(splitSoLuong[0]);
-                    sp.SoLuong = 100;
+                    if (rdNew.Checked == true)
+                    {
+                        sp.SoLuong = 100;
+                    }
+                    else
+                    {
+                        sp.SoLuong = Int32.Parse(splitSoLuong[0]);
+                    }
+                    
                     sp.TrangThai = Int32.Parse(row.Cells["is_in_stock"].Value.ToString());
                     string[] splitGiaLe = row.Cells["price"].Value.ToString().Split('.');
                     sp.GiaLe = long.Parse(splitGiaLe[0]);

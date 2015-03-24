@@ -24,6 +24,11 @@ namespace BUS
             return SanPhamDAO.XuatKhoHang();
         }
 
+        public static DataTable XuatKhoHangByDate(string date)
+        {
+            return SanPhamDAO.XuatKhoHangByDate(date);
+        }
+
         //public IList GetList()
         //{
         //    SanPhamDAO sd = new SanPhamDAO();

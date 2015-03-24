@@ -32,6 +32,23 @@ namespace DAO
             return dataTable;
         }
 
+        public static DataTable XuatKhoHangByDate(string date)
+        {
+            DataTable dataTable = new DataTable();
+            OleDbConnection connection = DataProvider.CreateConnection();
+            //string cmdText = "Select MaSanPham, SoLuong, TrangThai from SANPHAM where Format(NgayCapNhat,'dd/MM/yyyy') <= ? or Format(NgayNhap,'dd/MM/yyyy') <= ?";
+            string cmdText = "Select MaSanPham, SoLuong, TrangThai, Format(NgayNhap,'yyyy/MM/dd') as NgayNhap from SANPHAM where NgayNhap >= ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            //command.Parameters.Add("@NgayCapNhat", OleDbType.VarWChar);
+            //command.Parameters["@NgayCapNhat"].Value = date;
+            command.Parameters.Add("@NgayNhap", OleDbType.VarWChar);
+            command.Parameters["@NgayNhap"].Value = date;
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
         //public static IList GetList()
         //{
         //    ArrayList arrList = new ArrayList();

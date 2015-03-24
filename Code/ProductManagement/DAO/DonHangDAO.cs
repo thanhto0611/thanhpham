@@ -42,6 +42,7 @@ namespace DAO
             command.Parameters["@MaDonHang"].Value = MaDH;
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             adapter.Fill(dataTable);
+            connection.Close();
             return dataTable;
         }
 
@@ -53,6 +54,7 @@ namespace DAO
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             adapter.Fill(dataTable);
+            connection.Close();
             return dataTable;
         }
 
@@ -64,6 +66,7 @@ namespace DAO
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             adapter.Fill(dataTable);
+            connection.Close();
             return dataTable;
         }
 
@@ -77,6 +80,7 @@ namespace DAO
             command.Parameters["@NgayDatHang"].Value = date;
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             adapter.Fill(dataTable);
+            connection.Close();
             return dataTable;
         }
 

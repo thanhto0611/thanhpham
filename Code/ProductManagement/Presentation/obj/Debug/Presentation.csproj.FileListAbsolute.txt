@@ -596,3 +596,4 @@ D:\MySVN\trunk\Code\ProductManagement\Presentation\bin\Debug\Microsoft.Vbe.Inter
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmFbFindAndJoinGroups.resources
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmFbPostToGroups.resources
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmFbPostImageToFanpage.resources
+D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmSyncToWeb.resources

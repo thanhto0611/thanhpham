@@ -39,6 +39,7 @@
             this.ImportProductFromImages = new System.Windows.Forms.ToolStripMenuItem();
             this.applicationConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facebookToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.syncToWEBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.FindAndJoinGroups = new System.Windows.Forms.ToolStripMenuItem();
             this.PostToGroup = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,7 +109,8 @@
             this.XuatKhoHang,
             this.ImportProductFromImages,
             this.applicationConfigToolStripMenuItem,
-            this.facebookToolsToolStripMenuItem});
+            this.facebookToolsToolStripMenuItem,
+            this.syncToWEBToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -140,6 +142,13 @@
             this.facebookToolsToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.facebookToolsToolStripMenuItem.Text = "Facebook Tools";
             this.facebookToolsToolStripMenuItem.Click += new System.EventHandler(this.facebookToolsToolStripMenuItem_Click);
+            // 
+            // syncToWEBToolStripMenuItem
+            // 
+            this.syncToWEBToolStripMenuItem.Name = "syncToWEBToolStripMenuItem";
+            this.syncToWEBToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.syncToWEBToolStripMenuItem.Text = "Sync to WEB";
+            this.syncToWEBToolStripMenuItem.Click += new System.EventHandler(this.syncToWEBToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -223,5 +232,6 @@
         private System.Windows.Forms.ToolStripMenuItem PostToGroup;
         private System.Windows.Forms.ToolStripMenuItem PostImageToFanpage;
         private System.Windows.Forms.ToolStripMenuItem updateStockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem syncToWEBToolStripMenuItem;
     }
 }

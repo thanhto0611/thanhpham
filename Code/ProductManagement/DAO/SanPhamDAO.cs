@@ -25,7 +25,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Select MaSanPham, SoLuong, TrangThai from SANPHAM ";
+            string cmdText = "Select MaSanPham, SoLuong, TrangThai, GiaSi, GiaLe from SANPHAM ";
             OleDbDataAdapter adpter = new OleDbDataAdapter(cmdText, connection);
             adpter.Fill(dataTable);
             connection.Close();

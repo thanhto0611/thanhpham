@@ -205,5 +205,11 @@ namespace Presentation
                 frmFbPostImageToFanpage.BringToFront();
             }
         }
+
+        private void syncToWEBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSyncToWeb frm = new frmSyncToWeb();
+            frm.Show();
+        }
     }
 }

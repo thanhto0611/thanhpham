@@ -1425,11 +1425,11 @@ namespace Presentation
 
         private void txtThongTinKH_TimKiem_TextChanged(object sender, EventArgs e)
         {
-            DonHangBUS dhBus = new DonHangBUS();
+            //DonHangBUS dhBus = new DonHangBUS();
 
-            dtTimKiem = dhBus.TimKiemTheoThongTinKhachHang(txtThongTinKH_TimKiem.Text);
-            dtgvTimKiemDonHang.DataSource = dtTimKiem;
-            formatDataTimKiem();
+            //dtTimKiem = dhBus.TimKiemTheoThongTinKhachHang(txtThongTinKH_TimKiem.Text);
+            //dtgvTimKiemDonHang.DataSource = dtTimKiem;
+            //formatDataTimKiem();
         }
 
         private void txtMaSP_TimKiem_TextChanged(object sender, EventArgs e)

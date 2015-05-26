@@ -84,6 +84,12 @@
     <Compile Include="frmConfig.Designer.cs">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCronJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCronJob.Designer.cs">
+      <DependentUpon>frmCronJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFacebook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +360,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmConfig.resx">
       <DependentUpon>frmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCronJob.resx">
+      <DependentUpon>frmCronJob.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacebook.resx">
       <DependentUpon>frmFacebook.cs</DependentUpon>

@@ -597,3 +597,8 @@ D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmFbF
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmFbPostToGroups.resources
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmFbPostImageToFanpage.resources
 D:\MySVN\trunk\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmSyncToWeb.resources
+D:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Interop.VBIDE.dll
+D:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Presentation.csproj.ResolveComReference.cache
+D:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Presentation.exe
+D:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Presentation.pdb

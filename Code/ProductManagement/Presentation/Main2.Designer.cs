@@ -46,6 +46,7 @@
             this.PostImageToFanpage = new System.Windows.Forms.ToolStripMenuItem();
             this.updateStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Window = new System.Windows.Forms.ToolStripMenuItem();
+            this.cronJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,7 +111,8 @@
             this.ImportProductFromImages,
             this.applicationConfigToolStripMenuItem,
             this.facebookToolsToolStripMenuItem,
-            this.syncToWEBToolStripMenuItem});
+            this.syncToWEBToolStripMenuItem,
+            this.cronJobToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -194,6 +196,12 @@
             this.Window.Size = new System.Drawing.Size(108, 20);
             this.Window.Text = "Cửa Sổ Đang Mở";
             // 
+            // cronJobToolStripMenuItem
+            // 
+            this.cronJobToolStripMenuItem.Name = "cronJobToolStripMenuItem";
+            this.cronJobToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.cronJobToolStripMenuItem.Text = "Cron Job";
+            // 
             // Main2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,5 +241,6 @@
         private System.Windows.Forms.ToolStripMenuItem PostImageToFanpage;
         private System.Windows.Forms.ToolStripMenuItem updateStockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem syncToWEBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cronJobToolStripMenuItem;
     }
 }

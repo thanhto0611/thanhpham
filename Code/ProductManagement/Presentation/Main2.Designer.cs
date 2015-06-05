@@ -40,13 +40,13 @@
             this.applicationConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facebookToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.syncToWEBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cronJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.FindAndJoinGroups = new System.Windows.Forms.ToolStripMenuItem();
             this.PostToGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.PostImageToFanpage = new System.Windows.Forms.ToolStripMenuItem();
             this.updateStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Window = new System.Windows.Forms.ToolStripMenuItem();
-            this.cronJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,6 +152,13 @@
             this.syncToWEBToolStripMenuItem.Text = "Sync to WEB";
             this.syncToWEBToolStripMenuItem.Click += new System.EventHandler(this.syncToWEBToolStripMenuItem_Click);
             // 
+            // cronJobToolStripMenuItem
+            // 
+            this.cronJobToolStripMenuItem.Name = "cronJobToolStripMenuItem";
+            this.cronJobToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.cronJobToolStripMenuItem.Text = "Cron Job";
+            this.cronJobToolStripMenuItem.Click += new System.EventHandler(this.cronJobToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -195,12 +202,6 @@
             this.Window.Name = "Window";
             this.Window.Size = new System.Drawing.Size(108, 20);
             this.Window.Text = "Cửa Sổ Đang Mở";
-            // 
-            // cronJobToolStripMenuItem
-            // 
-            this.cronJobToolStripMenuItem.Name = "cronJobToolStripMenuItem";
-            this.cronJobToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.cronJobToolStripMenuItem.Text = "Cron Job";
             // 
             // Main2
             // 

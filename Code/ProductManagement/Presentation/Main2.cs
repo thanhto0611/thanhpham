@@ -211,5 +211,11 @@ namespace Presentation
             frmSyncToWeb frm = new frmSyncToWeb();
             frm.Show();
         }
+
+        private void cronJobToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCronJob frm = new frmCronJob();
+            frm.Show();
+        }
     }
 }

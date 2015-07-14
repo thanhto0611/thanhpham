@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompareVisio", "CompareVisio\CompareVisio.csproj", "{682B05BF-A841-48C0-82F6-8AD1751212A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PE.xml Variable Search", "PE.xml Variable Search\PE.xml Variable Search.csproj", "{D90E1CBD-6EC4-415E-B029-F49AD542B4FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adeptra_Tools", "Adeptra_Tools\Adeptra_Tools.csproj", "{935BE9EB-E60F-4D9F-A0B0-6D7D67B0CD68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBlockList", "CheckBlockList\CheckBlockList.csproj", "{5509618B-7FFB-42A7-99C2-CF9C32A12359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoCopyPrompt", "AutoCopyPrompt\AutoCopyPrompt.csproj", "{DBD3360F-2162-4128-9011-C3D1DA8DD80D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailChecker", "EmailChecker\EmailChecker.csproj", "{E0157C36-D81F-49E3-B1EA-27F1C18A4FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportJiraList", "ExportJiraList\ExportJiraList.csproj", "{80F3EA02-579D-4856-9C44-F2994A03E440}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{682B05BF-A841-48C0-82F6-8AD1751212A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682B05BF-A841-48C0-82F6-8AD1751212A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682B05BF-A841-48C0-82F6-8AD1751212A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682B05BF-A841-48C0-82F6-8AD1751212A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90E1CBD-6EC4-415E-B029-F49AD542B4FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90E1CBD-6EC4-415E-B029-F49AD542B4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90E1CBD-6EC4-415E-B029-F49AD542B4FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90E1CBD-6EC4-415E-B029-F49AD542B4FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{935BE9EB-E60F-4D9F-A0B0-6D7D67B0CD68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935BE9EB-E60F-4D9F-A0B0-6D7D67B0CD68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935BE9EB-E60F-4D9F-A0B0-6D7D67B0CD68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935BE9EB-E60F-4D9F-A0B0-6D7D67B0CD68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5509618B-7FFB-42A7-99C2-CF9C32A12359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5509618B-7FFB-42A7-99C2-CF9C32A12359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5509618B-7FFB-42A7-99C2-CF9C32A12359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5509618B-7FFB-42A7-99C2-CF9C32A12359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD3360F-2162-4128-9011-C3D1DA8DD80D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD3360F-2162-4128-9011-C3D1DA8DD80D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD3360F-2162-4128-9011-C3D1DA8DD80D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD3360F-2162-4128-9011-C3D1DA8DD80D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0157C36-D81F-49E3-B1EA-27F1C18A4FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0157C36-D81F-49E3-B1EA-27F1C18A4FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0157C36-D81F-49E3-B1EA-27F1C18A4FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0157C36-D81F-49E3-B1EA-27F1C18A4FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80F3EA02-579D-4856-9C44-F2994A03E440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F3EA02-579D-4856-9C44-F2994A03E440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F3EA02-579D-4856-9C44-F2994A03E440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F3EA02-579D-4856-9C44-F2994A03E440}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

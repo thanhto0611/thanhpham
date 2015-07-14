@@ -1,0 +1,16 @@
+E:\Private\Adeptra\AutoCopyPrompt\bin\Debug\AutoCopyPrompt.exe
+E:\Private\Adeptra\AutoCopyPrompt\bin\Debug\AutoCopyPrompt.pdb
+E:\Private\Adeptra\AutoCopyPrompt\obj\Debug\ResolveAssemblyReference.cache
+E:\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.frmAutoCopyPrompt.resources
+E:\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.Properties.Resources.resources
+E:\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.csproj.GenerateResource.Cache
+E:\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.exe
+E:\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.pdb
+D:\Share\Private\Adeptra\AutoCopyPrompt\bin\Debug\AutoCopyPrompt.exe
+D:\Share\Private\Adeptra\AutoCopyPrompt\bin\Debug\AutoCopyPrompt.pdb
+D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\ResolveAssemblyReference.cache
+D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.frmAutoCopyPrompt.resources
+D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.Properties.Resources.resources
+D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.csproj.GenerateResource.Cache
+D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.exe
+D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.pdb

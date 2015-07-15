@@ -55,5 +55,10 @@ namespace BUS
         {
             return DonHangDAO.GetTable();
         }
+
+        public DataTable GetTableWithLimitOrder(string numOfOrder)
+        {
+            return DonHangDAO.GetTableWithLimitOrder(numOfOrder);
+        }
     }
 }

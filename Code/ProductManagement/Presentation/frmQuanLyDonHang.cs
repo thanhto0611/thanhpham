@@ -54,11 +54,13 @@ namespace Presentation
                 cbxNgayDatHang_TimKiem.Checked = false;
                 cbxThongTinKH_TimKiem.Checked = false;
                 cbxMaSP_TimKiem.Checked = false;
+                cmbSoLuongHienThi.Enabled = false;
             }
             else
             {
                 txtMaDonHang_TimKiem.Enabled = false;
                 txtMaDonHang_TimKiem.BackColor = Color.White;
+                cmbSoLuongHienThi.Enabled = true;
             }
         }
 
@@ -71,11 +73,13 @@ namespace Presentation
                 cbxNgayDatHang_TimKiem.Checked = false;
                 cbxMaDonHang_TimKiem.Checked = false;
                 cbxMaSP_TimKiem.Checked = false;
+                cmbSoLuongHienThi.Enabled = false;
             }
             else
             {
                 txtThongTinKH_TimKiem.Enabled = false;
                 txtThongTinKH_TimKiem.BackColor = Color.White;
+                cmbSoLuongHienThi.Enabled = true;
             }
         }
 
@@ -88,11 +92,13 @@ namespace Presentation
                 cbxNgayDatHang_TimKiem.Checked = false;
                 cbxMaDonHang_TimKiem.Checked = false;
                 cbxThongTinKH_TimKiem.Checked = false;
+                cmbSoLuongHienThi.Enabled = false;
             }
             else
             {
                 txtMaSP_TimKiem.Enabled = false;
                 txtMaSP_TimKiem.BackColor = Color.White;
+                cmbSoLuongHienThi.Enabled = true;
             }
         }
 
@@ -104,10 +110,12 @@ namespace Presentation
                 cbxMaDonHang_TimKiem.Checked = false;
                 cbxThongTinKH_TimKiem.Checked = false;
                 cbxMaSP_TimKiem.Checked = false;
+                cmbSoLuongHienThi.Enabled = false;
             }
             else
             {
                 dtpNgayDatHang_TimKiem.Enabled = false;
+                cmbSoLuongHienThi.Enabled = true;
             }
         }
 
@@ -132,23 +140,28 @@ namespace Presentation
                 if (cbxMaDonHang_TimKiem.Checked == true)
                 {
                     dtTimKiem = dhBus.TimKiemTheoMaDonHang(Int32.Parse(txtMaDonHang_TimKiem.Text.ToString()));
-                    dtgvTimKiemDonHang.DataSource = dtTimKiem;
                 }
-                if (cbxThongTinKH_TimKiem.Checked == true)
+                else if (cbxThongTinKH_TimKiem.Checked == true)
                 {
                     dtTimKiem = dhBus.TimKiemTheoThongTinKhachHang(txtThongTinKH_TimKiem.Text);
-                    dtgvTimKiemDonHang.DataSource = dtTimKiem;
                 }
-                if (cbxMaSP_TimKiem.Checked == true)
+                else if (cbxMaSP_TimKiem.Checked == true)
                 {
                     dtTimKiem = dhBus.TimKiemTheoMaSanPham(txtMaSP_TimKiem.Text);
-                    dtgvTimKiemDonHang.DataSource = dtTimKiem;
                 }
-                if (cbxNgayDatHang_TimKiem.Checked == true)
+                else if (cbxNgayDatHang_TimKiem.Checked == true)
                 {
                     dtTimKiem = dhBus.TimKiemTheoNgayDatHang(dtpNgayDatHang_TimKiem.Value.ToString("dd/MM/yyyy"));
-                    dtgvTimKiemDonHang.DataSource = dtTimKiem;
                 }
+                else
+                {
+                    string numOfOrder = cmbSoLuongHienThi.SelectedItem.ToString();
+                    if (numOfOrder != "Tất cả")
+                        dtTimKiem = dhBus.GetTableWithLimitOrder(numOfOrder);
+                    else
+                        dtTimKiem = dhBus.GetTable();
+                }
+                dtgvTimKiemDonHang.DataSource = dtTimKiem;
                 formatDataTimKiem();
             }
             catch (System.Exception ex)
@@ -771,7 +784,7 @@ namespace Presentation
                 this.dtgvTimKiemDonHang.Columns["NgayDatHang"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
                 this.dtgvTimKiemDonHang.Columns["NgayCapNhat"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
 
-                this.dtgvTimKiemDonHang.Columns["MaDonHang"].ReadOnly = true;
+                this.dtgvTimKiemDonHang.Columns["MaDH"].ReadOnly = true;
                 this.dtgvTimKiemDonHang.Columns["HoTen"].ReadOnly = true;
                 this.dtgvTimKiemDonHang.Columns["SoLuongSanPham"].ReadOnly = true;
                 this.dtgvTimKiemDonHang.Columns["TongTien"].ReadOnly = true;
@@ -783,7 +796,7 @@ namespace Presentation
                 foreach (DataGridViewRow row in this.dtgvTimKiemDonHang.Rows)
                 {
                     row.Cells["CmbTrangThai"].Value = row.Cells["TrangThai"].Value;
-                    if(row.Index % 2 == 1)
+                    if (row.Index % 2 == 1)
                     {
                         row.DefaultCellStyle.BackColor = Color.PowderBlue;
                     }
@@ -1259,7 +1272,7 @@ namespace Presentation
                     DataTable dtCtdh = new DataTable();
                     DataTable dhTemp = new DataTable();
 
-                    DonHangDTO dhDto_TimKiem = dhBus.LayBangMaDonHang(Int32.Parse(dtgvTimKiemDonHang.Rows[e.RowIndex].Cells["MaDonHang"].Value.ToString()));
+                    DonHangDTO dhDto_TimKiem = dhBus.LayBangMaDonHang(Int32.Parse(dtgvTimKiemDonHang.Rows[e.RowIndex].Cells["MaDH"].Value.ToString()));
 
                     int ttHienTai = dhDto_TimKiem.TrangThai;
                     long pvcHienTai = dhDto_TimKiem.PhiVanChuyen;
@@ -1279,7 +1292,7 @@ namespace Presentation
                     dhDto_TimKiem.TongTien = tongtienHienTai - pvcHienTai + dhDto_TimKiem.PhiVanChuyen;
                     dhDto_TimKiem.NguoiCapNhat = frmDangNhap.gUserName;
 
-                    dtCtdh = ctdhBus.TimKiemTheoMaDonHang(Int32.Parse(dtgvTimKiemDonHang.Rows[e.RowIndex].Cells["MaDonHang"].Value.ToString()));
+                    dtCtdh = ctdhBus.TimKiemTheoMaDonHang(Int32.Parse(dtgvTimKiemDonHang.Rows[e.RowIndex].Cells["MaDH"].Value.ToString()));
 
                     if (ttdh == 1 || ttdh == 3 || ttdh == 4)
                     {
@@ -1340,7 +1353,7 @@ namespace Presentation
             {
                 try
                 {
-                    gMaDH = Int32.Parse(dtgvTimKiemDonHang.Rows[e.RowIndex].Cells["MaDonHang"].Value.ToString());
+                    gMaDH = Int32.Parse(dtgvTimKiemDonHang.Rows[e.RowIndex].Cells["MaDH"].Value.ToString());
                     //frmChiTietDonHang frm = new frmChiTietDonHang();
                     //frmChiTietDonHangNew frm = new frmChiTietDonHangNew();
                     frmChiTietDonHangNew2 frm = new frmChiTietDonHangNew2();
@@ -1434,11 +1447,11 @@ namespace Presentation
 
         private void txtMaSP_TimKiem_TextChanged(object sender, EventArgs e)
         {
-            DonHangBUS dhBus = new DonHangBUS();
+            //DonHangBUS dhBus = new DonHangBUS();
 
-            dtTimKiem = dhBus.TimKiemTheoMaSanPham(txtMaSP_TimKiem.Text);
-            dtgvTimKiemDonHang.DataSource = dtTimKiem;
-            formatDataTimKiem();
+            //dtTimKiem = dhBus.TimKiemTheoMaSanPham(txtMaSP_TimKiem.Text);
+            //dtgvTimKiemDonHang.DataSource = dtTimKiem;
+            //formatDataTimKiem();
         }
 
         frmShowPicture HoverZoom = new frmShowPicture();
@@ -1628,21 +1641,6 @@ namespace Presentation
         private void dtgvTimKiemDonHang_Sorted(object sender, EventArgs e)
         {
             formatDataTimKiem();
-        }
-
-        private void btnTimTatCaDonHang_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DonHangBUS dhBus = new DonHangBUS();
-                dtTimKiem = dhBus.GetTable();
-                dtgvTimKiemDonHang.DataSource = dtTimKiem;
-                formatDataTimKiem();
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void frmQuanLyDonHang_FormClosed(object sender, FormClosedEventArgs e)
@@ -1938,6 +1936,23 @@ namespace Presentation
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dtgvTimKiemDonHang_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                dtgvTimKiemDonHang.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+        }
+
+        private void dtgvTimKiemDonHang_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.RowIndex % 2 == 1)
+                    dtgvTimKiemDonHang.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.PowderBlue;
+                else
+                    dtgvTimKiemDonHang.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
             }
         }
     }

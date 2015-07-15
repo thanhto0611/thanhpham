@@ -68,3 +68,10 @@ D:\MySVN\trunk\Code\ProductManagement\DAO\bin\Debug\DTO.pdb
 D:\MySVN\trunk\Code\ProductManagement\DAO\obj\Debug\ResolveAssemblyReference.cache
 D:\MySVN\trunk\Code\ProductManagement\DAO\obj\Debug\DAO.dll
 D:\MySVN\trunk\Code\ProductManagement\DAO\obj\Debug\DAO.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\DAO\bin\Debug\DAO.dll
+D:\GitCode\thanhpham\Code\ProductManagement\DAO\bin\Debug\DAO.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\DAO\bin\Debug\DTO.dll
+D:\GitCode\thanhpham\Code\ProductManagement\DAO\bin\Debug\DTO.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\DAO\obj\Debug\ResolveAssemblyReference.cache
+D:\GitCode\thanhpham\Code\ProductManagement\DAO\obj\Debug\DAO.dll
+D:\GitCode\thanhpham\Code\ProductManagement\DAO\obj\Debug\DAO.pdb

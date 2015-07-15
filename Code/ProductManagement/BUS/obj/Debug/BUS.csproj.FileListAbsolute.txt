@@ -88,3 +88,12 @@ D:\MySVN\trunk\Code\ProductManagement\BUS\bin\Debug\DAO.pdb
 D:\MySVN\trunk\Code\ProductManagement\BUS\obj\Debug\ResolveAssemblyReference.cache
 D:\MySVN\trunk\Code\ProductManagement\BUS\obj\Debug\BUS.dll
 D:\MySVN\trunk\Code\ProductManagement\BUS\obj\Debug\BUS.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\BUS\bin\Debug\BUS.dll
+D:\GitCode\thanhpham\Code\ProductManagement\BUS\bin\Debug\BUS.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\BUS\bin\Debug\DAO.dll
+D:\GitCode\thanhpham\Code\ProductManagement\BUS\bin\Debug\DTO.dll
+D:\GitCode\thanhpham\Code\ProductManagement\BUS\bin\Debug\DTO.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\BUS\bin\Debug\DAO.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\GitCode\thanhpham\Code\ProductManagement\BUS\obj\Debug\BUS.dll
+D:\GitCode\thanhpham\Code\ProductManagement\BUS\obj\Debug\BUS.pdb

@@ -14,18 +14,31 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "select dh.MaDonHang, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh where dh.MaKhachHang = kh.MaKhachHang order by dh.NgayDatHang DESC";
+            string cmdText = "select dh.MaDonHang as MaDH, kh.HoTen, dh.SoLuongSanPham , dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh where dh.MaKhachHang = kh.MaKhachHang order by dh.NgayDatHang DESC";
             OleDbDataAdapter adpter = new OleDbDataAdapter(cmdText, connection);
             adpter.Fill(dataTable);
 
             connection.Close();
             return dataTable;
         }
+
+        public static DataTable GetTableWithLimitOrder(string numOfOrder)
+        {
+            DataTable dataTable = new DataTable();
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select top " + numOfOrder + " dh.MaDonHang as MaDH, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh where dh.MaKhachHang = kh.MaKhachHang order by dh.NgayDatHang DESC";
+            OleDbDataAdapter adpter = new OleDbDataAdapter(cmdText, connection);
+            adpter.Fill(dataTable);
+
+            connection.Close();
+            return dataTable;
+        }
+
         public static DataTable GetNull()
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "select dh.MaDonHang, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh where dh.MaKhachHang = kh.MaKhachHang and dh.MaDonHang = -1";
+            string cmdText = "select dh.MaDonHang as MaDH, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh where dh.MaKhachHang = kh.MaKhachHang and dh.MaDonHang = -1";
             OleDbDataAdapter adpter = new OleDbDataAdapter(cmdText, connection);
             adpter.Fill(dataTable);
 
@@ -36,7 +49,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "select dh.MaDonHang, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh where dh.MaKhachHang = kh.MaKhachHang and dh.MaDonHang = ? order by dh.NgayDatHang DESC";
+            string cmdText = "select dh.MaDonHang as MaDH, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh where dh.MaKhachHang = kh.MaKhachHang and dh.MaDonHang = ? order by dh.NgayDatHang DESC";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             command.Parameters.Add("@MaDonHang", OleDbType.Integer);
             command.Parameters["@MaDonHang"].Value = MaDH;
@@ -50,7 +63,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "select dh.MaDonHang, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh inner join KHACHHANG kh on dh.MaKhachHang = kh.MaKhachHang where kh.HoTen like '%" + data + "%' " + "or kh.DiaChi like '%" + data + "%' " + "or kh.DienThoai like '%" + data + "%' " + "or kh.Email like '%" + data + "%' " + "or kh.Facebook like '%" + data + "%' " + "or kh.TKNganHang like '%" + data + "%'  order by dh.NgayDatHang DESC";
+            string cmdText = "select dh.MaDonHang as MaDH, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh inner join KHACHHANG kh on dh.MaKhachHang = kh.MaKhachHang where kh.HoTen like '%" + data + "%' " + "or kh.DiaChi like '%" + data + "%' " + "or kh.DienThoai like '%" + data + "%' " + "or kh.Email like '%" + data + "%' " + "or kh.Facebook like '%" + data + "%' " + "or kh.TKNganHang like '%" + data + "%'  order by dh.NgayDatHang DESC";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             adapter.Fill(dataTable);
@@ -62,7 +75,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "select DISTINCT dh.MaDonHang, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from (DONHANG dh left join KHACHHANG kh on dh.MaKhachHang = kh.MaKhachHang) left join CHITIETDONHANG ctdh on dh.MaDonHang = ctdh.MaDonHang where ctdh.MaSanPham like '%" + maSp + "%'  order by dh.NgayDatHang DESC";
+            string cmdText = "select DISTINCT dh.MaDonHang as MaDH, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from (DONHANG dh left join KHACHHANG kh on dh.MaKhachHang = kh.MaKhachHang) left join CHITIETDONHANG ctdh on dh.MaDonHang = ctdh.MaDonHang where ctdh.MaSanPham like '%" + maSp + "%'  order by dh.NgayDatHang DESC";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             adapter.Fill(dataTable);
@@ -74,7 +87,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "select dh.MaDonHang, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh where dh.MaKhachHang = kh.MaKhachHang and Format([dh.NgayDatHang],'dd/MM/yyyy') = ? order by dh.NgayDatHang DESC";
+            string cmdText = "select dh.MaDonHang as MaDH, kh.HoTen, dh.SoLuongSanPham, dh.PhiVanChuyen, dh.TongTien, dh.TrangThai, dh.NgayDatHang, dh.NguoiNhap, dh.NgayCapNhat, dh.NguoiCapNhat from DONHANG dh, KHACHHANG kh where dh.MaKhachHang = kh.MaKhachHang and Format([dh.NgayDatHang],'dd/MM/yyyy') = ? order by dh.NgayDatHang DESC";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             command.Parameters.Add("@NgayDatHang", OleDbType.VarWChar);
             command.Parameters["@NgayDatHang"].Value = date;

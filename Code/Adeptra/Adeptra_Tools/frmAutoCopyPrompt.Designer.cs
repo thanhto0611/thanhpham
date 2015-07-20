@@ -42,16 +42,19 @@
             this.btnBrowseTargetVoxFolder = new System.Windows.Forms.Button();
             this.folderBrowserTargetVox = new System.Windows.Forms.FolderBrowserDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCopy
             // 
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.ForeColor = System.Drawing.Color.Blue;
-            this.btnCopy.Location = new System.Drawing.Point(626, 17);
+            this.btnCopy.Location = new System.Drawing.Point(648, 19);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(92, 75);
             this.btnCopy.TabIndex = 16;
@@ -62,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 20);
+            this.label2.Location = new System.Drawing.Point(24, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 13);
             this.label2.TabIndex = 13;
@@ -74,14 +77,14 @@
             // 
             // txtTtsFolder
             // 
-            this.txtTtsFolder.Location = new System.Drawing.Point(129, 17);
+            this.txtTtsFolder.Location = new System.Drawing.Point(151, 19);
             this.txtTtsFolder.Name = "txtTtsFolder";
             this.txtTtsFolder.Size = new System.Drawing.Size(395, 20);
             this.txtTtsFolder.TabIndex = 17;
             // 
             // btnBrowseTtsFolder
             // 
-            this.btnBrowseTtsFolder.Location = new System.Drawing.Point(536, 15);
+            this.btnBrowseTtsFolder.Location = new System.Drawing.Point(558, 17);
             this.btnBrowseTtsFolder.Name = "btnBrowseTtsFolder";
             this.btnBrowseTtsFolder.Size = new System.Drawing.Size(75, 23);
             this.btnBrowseTtsFolder.TabIndex = 18;
@@ -92,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 49);
+            this.label3.Location = new System.Drawing.Point(46, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 13;
@@ -100,14 +103,14 @@
             // 
             // txtSourceVoxFolder
             // 
-            this.txtSourceVoxFolder.Location = new System.Drawing.Point(129, 46);
+            this.txtSourceVoxFolder.Location = new System.Drawing.Point(151, 48);
             this.txtSourceVoxFolder.Name = "txtSourceVoxFolder";
             this.txtSourceVoxFolder.Size = new System.Drawing.Size(395, 20);
             this.txtSourceVoxFolder.TabIndex = 19;
             // 
             // btnBrowseSourceVoxFolder
             // 
-            this.btnBrowseSourceVoxFolder.Location = new System.Drawing.Point(536, 44);
+            this.btnBrowseSourceVoxFolder.Location = new System.Drawing.Point(558, 46);
             this.btnBrowseSourceVoxFolder.Name = "btnBrowseSourceVoxFolder";
             this.btnBrowseSourceVoxFolder.Size = new System.Drawing.Size(75, 23);
             this.btnBrowseSourceVoxFolder.TabIndex = 20;
@@ -118,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 74);
+            this.label4.Location = new System.Drawing.Point(49, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 13);
             this.label4.TabIndex = 13;
@@ -126,14 +129,14 @@
             // 
             // txtTargetVoxFolder
             // 
-            this.txtTargetVoxFolder.Location = new System.Drawing.Point(129, 71);
+            this.txtTargetVoxFolder.Location = new System.Drawing.Point(151, 73);
             this.txtTargetVoxFolder.Name = "txtTargetVoxFolder";
             this.txtTargetVoxFolder.Size = new System.Drawing.Size(395, 20);
             this.txtTargetVoxFolder.TabIndex = 21;
             // 
             // btnBrowseTargetVoxFolder
             // 
-            this.btnBrowseTargetVoxFolder.Location = new System.Drawing.Point(536, 69);
+            this.btnBrowseTargetVoxFolder.Location = new System.Drawing.Point(558, 71);
             this.btnBrowseTargetVoxFolder.Name = "btnBrowseTargetVoxFolder";
             this.btnBrowseTargetVoxFolder.Size = new System.Drawing.Size(75, 23);
             this.btnBrowseTargetVoxFolder.TabIndex = 22;
@@ -145,58 +148,70 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 164);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(728, 396);
+            this.dataGridView1.Size = new System.Drawing.Size(1205, 471);
             this.dataGridView1.TabIndex = 23;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 134);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Missing Voxs:";
             // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(626, 104);
+            this.btnClose.Location = new System.Drawing.Point(786, 22);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(92, 39);
+            this.btnClose.Size = new System.Drawing.Size(92, 72);
             this.btnClose.TabIndex = 24;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtSourceVoxFolder);
+            this.groupBox1.Controls.Add(this.btnClose);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.btnBrowseTargetVoxFolder);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtTargetVoxFolder);
+            this.groupBox1.Controls.Add(this.btnCopy);
+            this.groupBox1.Controls.Add(this.btnBrowseSourceVoxFolder);
+            this.groupBox1.Controls.Add(this.txtTtsFolder);
+            this.groupBox1.Controls.Add(this.btnBrowseTtsFolder);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1211, 111);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 111);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1211, 490);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Missing Voxs:";
+            // 
             // frmAutoCopyPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(728, 560);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnBrowseTargetVoxFolder);
-            this.Controls.Add(this.txtTargetVoxFolder);
-            this.Controls.Add(this.btnBrowseSourceVoxFolder);
-            this.Controls.Add(this.txtSourceVoxFolder);
-            this.Controls.Add(this.btnBrowseTtsFolder);
-            this.Controls.Add(this.txtTtsFolder);
-            this.Controls.Add(this.btnCopy);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1211, 601);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Name = "frmAutoCopyPrompt";
             this.Text = "Auto Copy Prompt";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -216,8 +231,9 @@
         private System.Windows.Forms.Button btnBrowseTargetVoxFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserTargetVox;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

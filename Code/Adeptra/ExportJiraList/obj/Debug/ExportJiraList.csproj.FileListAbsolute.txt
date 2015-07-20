@@ -16,3 +16,12 @@ D:\Share\Private\Adeptra\ExportJiraList\obj\Debug\ResolveAssemblyReference.cache
 D:\Share\Private\Adeptra\ExportJiraList\obj\Debug\ExportJiraList.Form1.resources
 D:\Share\Private\Adeptra\ExportJiraList\obj\Debug\ExportJiraList.Properties.Resources.resources
 D:\Share\Private\Adeptra\ExportJiraList\obj\Debug\ExportJiraList.csproj.GenerateResource.Cache
+D:\GitCode\thanhpham\Code\Adeptra\ExportJiraList\bin\Debug\ExportJiraList.exe
+D:\GitCode\thanhpham\Code\Adeptra\ExportJiraList\bin\Debug\ExportJiraList.pdb
+D:\GitCode\thanhpham\Code\Adeptra\ExportJiraList\bin\Debug\EPPlus.xml
+D:\GitCode\thanhpham\Code\Adeptra\ExportJiraList\obj\Debug\ResolveAssemblyReference.cache
+D:\GitCode\thanhpham\Code\Adeptra\ExportJiraList\obj\Debug\ExportJiraList.Form1.resources
+D:\GitCode\thanhpham\Code\Adeptra\ExportJiraList\obj\Debug\ExportJiraList.Properties.Resources.resources
+D:\GitCode\thanhpham\Code\Adeptra\ExportJiraList\obj\Debug\ExportJiraList.csproj.GenerateResource.Cache
+D:\GitCode\thanhpham\Code\Adeptra\ExportJiraList\obj\Debug\ExportJiraList.exe
+D:\GitCode\thanhpham\Code\Adeptra\ExportJiraList\obj\Debug\ExportJiraList.pdb

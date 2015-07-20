@@ -13,32 +13,44 @@ namespace Adeptra_Tools
 {
     public partial class frmMain : Form
     {
+        public static frmPEVariableSearch frmPESearch = null;
+        public static frmAutoCopyPrompt frmCopyPrompts = null;
+
         public frmMain()
         {
             InitializeComponent();
         }
 
-        private void toolStripButtonClose_Click(object sender, EventArgs e)
+        private void PESearch_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (frmPESearch == null)
+            {
+                frmPESearch = new frmPEVariableSearch();
+                frmPESearch.MdiParent = this;
+                frmPESearch.Dock = DockStyle.Fill;
+                frmPESearch.WindowState = FormWindowState.Maximized;
+                frmPESearch.Show();
+            }
+            else
+            {
+                frmPESearch.BringToFront();
+            }
         }
 
-        private void visioCompareToolStripButton_Click(object sender, EventArgs e)
+        private void copyVoxFiles_Click(object sender, EventArgs e)
         {
-            frmVisioCompare frm = new frmVisioCompare();
-            frm.Show();
-        }
-
-        private void variableSearchToolStripButton_Click(object sender, EventArgs e)
-        {
-            frmPEVariableSearch frm = new frmPEVariableSearch();
-            frm.Show();
-        }
-
-        private void copyVoxFile_Click(object sender, EventArgs e)
-        {
-            frmAutoCopyPrompt frm = new frmAutoCopyPrompt();
-            frm.Show();
+            if (frmCopyPrompts == null)
+            {
+                frmCopyPrompts = new frmAutoCopyPrompt();
+                frmCopyPrompts.MdiParent = this;
+                frmCopyPrompts.Dock = DockStyle.Fill;
+                frmCopyPrompts.WindowState = FormWindowState.Maximized;
+                frmCopyPrompts.Show();
+            }
+            else
+            {
+                frmCopyPrompts.BringToFront();
+            }
         }
     }
 }

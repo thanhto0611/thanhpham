@@ -40,7 +40,7 @@ namespace Presentation
         {
             try
             {
-                ftp ftpClient = new ftp(@"ftp://115.84.181.41", "thoitra", "Pnht!)!!**");
+                ftp ftpClient = new ftp(@"ftp://112.213.89.7", "sanvekhu", "Pnht!)!!**");
 
                 ftpClient.upload("public_html/var/import/test.txt", @"D:\test.txt");
 

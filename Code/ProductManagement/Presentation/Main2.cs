@@ -20,6 +20,9 @@ namespace Presentation
         public static frmFbFindAndJoinGroups frmFbFindJoinGroups = null;
         public static frmFbPostToGroups frmFbPostToGroups = null;
         public static frmFbPostImageToFanpage frmFbPostImageToFanpage = null;
+        public static frmCronJob frmCronJob = null;
+        public static frmSyncToWeb frmSyncToWeb = null;
+        public static frmFacebookMe frmFacebookMe = null;
 
         public Main2()
         {
@@ -154,8 +157,18 @@ namespace Presentation
 
         private void facebookToolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmFacebookMe frm = new frmFacebookMe();
-            frm.Show();
+            if (frmFacebookMe == null)
+            {
+                frmFacebookMe = new frmFacebookMe();
+                frmFacebookMe.MdiParent = this;
+                frmFacebookMe.Dock = DockStyle.Fill;
+                frmFacebookMe.WindowState = FormWindowState.Maximized;
+                frmFacebookMe.Show();
+            }
+            else
+            {
+                frmFacebookMe.BringToFront();
+            }
         }
 
         private void FindAndJoinGroups_Click(object sender, EventArgs e)
@@ -208,14 +221,34 @@ namespace Presentation
 
         private void syncToWEBToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSyncToWeb frm = new frmSyncToWeb();
-            frm.Show();
+            if (frmSyncToWeb == null)
+            {
+                frmSyncToWeb = new frmSyncToWeb();
+                frmSyncToWeb.MdiParent = this;
+                frmSyncToWeb.Dock = DockStyle.Fill;
+                frmSyncToWeb.WindowState = FormWindowState.Maximized;
+                frmSyncToWeb.Show();
+            }
+            else
+            {
+                frmSyncToWeb.BringToFront();
+            }
         }
 
         private void cronJobToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCronJob frm = new frmCronJob();
-            frm.Show();
+            if (frmCronJob == null)
+            {
+                frmCronJob = new frmCronJob();
+                frmCronJob.MdiParent = this;
+                frmCronJob.Dock = DockStyle.Fill;
+                frmCronJob.WindowState = FormWindowState.Maximized;
+                frmCronJob.Show();
+            }
+            else
+            {
+                frmCronJob.BringToFront();
+            }
         }
     }
 }

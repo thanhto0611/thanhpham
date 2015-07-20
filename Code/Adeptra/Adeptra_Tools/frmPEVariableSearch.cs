@@ -28,13 +28,13 @@ namespace PE.xml_Variable_Search
 
         private void btnBrowse1_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "PE xml file|parameters_effective.xml";
+            //openFileDialog1.Filter = "PE xml file|parameters_effective.xml";
             openFileDialog1.ShowDialog();
         }
 
         private void txtFileLocation1_MouseDown(object sender, MouseEventArgs e)
         {
-            openFileDialog1.Filter = "PE xml file|parameters_effective.xml";
+            //openFileDialog1.Filter = "PE xml file|parameters_effective.xml";
             openFileDialog1.ShowDialog();
         }
 
@@ -47,9 +47,29 @@ namespace PE.xml_Variable_Search
         {
             try
             {
+                search();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void search()
+        {
+            try
+            {
                 if (txtFileLocation1.Text == "")
                 {
                     MessageBox.Show("Please choose PE.xml file");
+                    txtVariableName.Clear();
+                    return;
+                }
+
+                if (rdVarStartWith.Checked == false && rdVarContainOf.Checked == false)
+                {
+                    MessageBox.Show("Please select Search Type");
                     txtVariableName.Clear();
                     return;
                 }
@@ -64,66 +84,123 @@ namespace PE.xml_Variable_Search
                     string enumValue = "";
                     int count = 0;
 
-                    XmlNodeList nodeList = doc.GetElementsByTagName("variable");
-
-                    XmlNode parentNode = null;
-
-                    foreach (XmlNode node in nodeList)
+                    if (rdVarContainOf.Checked || rdVarStartWith.Checked)
                     {
-                        path = "";
-                        enumValue = "";
-                        parentNode = null;
-                        CultureInfo ci = new CultureInfo("en-US");
-                        
-                        //if (String.Compare(node.Attributes["name"].Value, txtVariableName.Text, true) == 0)
-                        if (node.Attributes["name"].Value.StartsWith(txtVariableName.Text, true, ci))
+                        XmlNodeList nodeList = doc.GetElementsByTagName("variable");
+                        XmlNode parentNode = null;
+
+                        foreach (XmlNode node in nodeList)
                         {
-                            parentNode = node;
-                            
-                            while (parentNode.ParentNode != null && parentNode.Attributes.GetNamedItem("name") != null)
+                            path = "";
+                            enumValue = "";
+                            parentNode = null;
+                            CultureInfo ci = new CultureInfo("en-US");
+
+                            //if (String.Compare(node.Attributes["name"].Value, txtVariableName.Text, true) == 0)
+                            if (rdVarStartWith.Checked)
                             {
-                                if (path == "")
+                                if (node.Attributes["name"].Value.ToLower().StartsWith(txtVariableName.Text.ToLower(), true, ci))
                                 {
-                                    path += parentNode.Attributes["name"].Value;
+                                    parentNode = node;
+
+                                    while (parentNode.ParentNode != null && parentNode.Attributes.GetNamedItem("name") != null)
+                                    {
+                                        if (path == "")
+                                        {
+                                            path += parentNode.Attributes["name"].Value;
+                                        }
+                                        else
+                                        {
+                                            path = parentNode.Attributes["name"].Value + "." + path;
+                                        }
+                                        parentNode = parentNode.ParentNode;
+                                    }
+
+                                    XmlDocument newDoc = new XmlDocument();
+                                    newDoc.LoadXml(node.InnerXml);
+
+                                    XmlNodeList defaultNodeList = newDoc.GetElementsByTagName("default");
+                                    XmlNodeList enumNodeList = newDoc.GetElementsByTagName("item");
+                                    XmlNodeList typeNodeList = newDoc.GetElementsByTagName("type");
+
+                                    foreach (XmlNode enumNode in enumNodeList)
+                                    {
+                                        if (enumValue == "")
+                                        {
+                                            enumValue += enumNode.InnerText;
+                                        }
+                                        else
+                                        {
+                                            enumValue += " | " + enumNode.InnerText;
+                                        }
+                                    }
+
+                                    DataRow dr = resultTable.NewRow();
+                                    dr[0] = count + 1;
+                                    dr[1] = node.Attributes["name"].Value;
+                                    dr[2] = path;
+                                    dr[3] = defaultNodeList.Item(0).InnerText;
+                                    dr[4] = enumValue;
+                                    dr[5] = typeNodeList.Item(0).ChildNodes[0].Name.ToString();
+
+                                    resultTable.Rows.Add(dr);
+                                    count++;
                                 }
-                                else
-                                {
-                                    path = parentNode.Attributes["name"].Value + "." + path;
-                                }
-                                parentNode = parentNode.ParentNode;
                             }
-                            
-                            XmlDocument newDoc = new XmlDocument();
-                            newDoc.LoadXml(node.InnerXml);
 
-                            XmlNodeList defaultNodeList = newDoc.GetElementsByTagName("default");
-                            XmlNodeList enumNodeList = newDoc.GetElementsByTagName("item");
-                            XmlNodeList typeNodeList = newDoc.GetElementsByTagName("type");
-
-                            foreach (XmlNode enumNode in enumNodeList)
+                            if (rdVarContainOf.Checked)
                             {
-                                if (enumValue == "")
+                                if (node.Attributes["name"].Value.ToLower().Contains(txtVariableName.Text.ToLower()))
                                 {
-                                    enumValue += enumNode.InnerText;
-                                } 
-                                else
-                                {
-                                    enumValue += " | " + enumNode.InnerText;
+                                    parentNode = node;
+
+                                    while (parentNode.ParentNode != null && parentNode.Attributes.GetNamedItem("name") != null)
+                                    {
+                                        if (path == "")
+                                        {
+                                            path += parentNode.Attributes["name"].Value;
+                                        }
+                                        else
+                                        {
+                                            path = parentNode.Attributes["name"].Value + "." + path;
+                                        }
+                                        parentNode = parentNode.ParentNode;
+                                    }
+
+                                    XmlDocument newDoc = new XmlDocument();
+                                    newDoc.LoadXml(node.InnerXml);
+
+                                    XmlNodeList defaultNodeList = newDoc.GetElementsByTagName("default");
+                                    XmlNodeList enumNodeList = newDoc.GetElementsByTagName("item");
+                                    XmlNodeList typeNodeList = newDoc.GetElementsByTagName("type");
+
+                                    foreach (XmlNode enumNode in enumNodeList)
+                                    {
+                                        if (enumValue == "")
+                                        {
+                                            enumValue += enumNode.InnerText;
+                                        }
+                                        else
+                                        {
+                                            enumValue += " | " + enumNode.InnerText;
+                                        }
+                                    }
+
+                                    DataRow dr = resultTable.NewRow();
+                                    dr[0] = count + 1;
+                                    dr[1] = node.Attributes["name"].Value;
+                                    dr[2] = path;
+                                    dr[3] = defaultNodeList.Item(0).InnerText;
+                                    dr[4] = enumValue;
+                                    dr[5] = typeNodeList.Item(0).ChildNodes[0].Name.ToString();
+
+                                    resultTable.Rows.Add(dr);
+                                    count++;
                                 }
                             }
-                            
-                            DataRow dr = resultTable.NewRow();
-                            dr[0] = count + 1;
-                            dr[1] = node.Attributes["name"].Value;
-                            dr[2] = path;
-                            dr[3] = defaultNodeList.Item(0).InnerText;
-                            dr[4] = enumValue;
-                            dr[5] = typeNodeList.Item(0).ChildNodes[0].Name.ToString();
-
-                            resultTable.Rows.Add(dr);
-                            count++;
                         }
                     }
+
                     dataGridView1.DataSource = resultTable;
                 }
             }
@@ -155,6 +232,7 @@ namespace PE.xml_Variable_Search
                     txtVariableName.Clear();
                     return;
                 }
+                
                 DataGridViewSelectedRowCollection rowList = dataGridView1.SelectedRows;
                 DataGridViewSelectedCellCollection cellList = dataGridView1.SelectedCells;
                 if (rowList.Count == 0 && cellList.Count == 0)
@@ -238,6 +316,32 @@ namespace PE.xml_Variable_Search
                 {
                     cell.Selected = false;
                 }
+            }
+        }
+
+        private void rdStartWith_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                search();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void rdContainOf_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                search();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
     }

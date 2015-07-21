@@ -23,6 +23,7 @@ namespace Presentation
         public static frmCronJob frmCronJob = null;
         public static frmSyncToWeb frmSyncToWeb = null;
         public static frmFacebookMe frmFacebookMe = null;
+        public static frmSyncAPI frmSyncAPI = null;
 
         public Main2()
         {
@@ -248,6 +249,22 @@ namespace Presentation
             else
             {
                 frmCronJob.BringToFront();
+            }
+        }
+
+        private void syncAPI_Click(object sender, EventArgs e)
+        {
+            if (frmSyncAPI == null)
+            {
+                frmSyncAPI = new frmSyncAPI();
+                frmSyncAPI.MdiParent = this;
+                frmSyncAPI.Dock = DockStyle.Fill;
+                frmSyncAPI.WindowState = FormWindowState.Maximized;
+                frmSyncAPI.Show();
+            }
+            else
+            {
+                frmSyncAPI.BringToFront();
             }
         }
     }

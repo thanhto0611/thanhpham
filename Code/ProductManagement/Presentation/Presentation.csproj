@@ -50,6 +50,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CookComputing.XmlRpcV2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Xmlrpc\obj\Debug\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -59,6 +63,10 @@
       <HintPath>..\..\EPPlus_3.1.3\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Ez.Newsletter.MagentoApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MagentoApi\bin\Debug\Ez.Newsletter.MagentoApi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -131,6 +139,12 @@
     </Compile>
     <Compile Include="frmNhapDonHangTuWeb.Designer.cs">
       <DependentUpon>frmNhapDonHangTuWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSyncAPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSyncAPI.Designer.cs">
+      <DependentUpon>frmSyncAPI.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSyncToWeb.cs">
       <SubType>Form</SubType>
@@ -389,6 +403,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhapDonHangTuWeb.resx">
       <DependentUpon>frmNhapDonHangTuWeb.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSyncAPI.resx">
+      <DependentUpon>frmSyncAPI.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSyncToWeb.resx">

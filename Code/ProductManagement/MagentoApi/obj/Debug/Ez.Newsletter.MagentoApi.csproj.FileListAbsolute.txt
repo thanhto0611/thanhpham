@@ -1,0 +1,16 @@
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\MagentoApi\bin\Debug\Ez.Newsletter.MagentoApi.dll.config
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\MagentoApi\bin\Debug\Ez.Newsletter.MagentoApi.dll
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\MagentoApi\bin\Debug\Ez.Newsletter.MagentoApi.pdb
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\MagentoApi\bin\Debug\CookComputing.XmlRpcV2.dll
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\MagentoApi\bin\Debug\CookComputing.XmlRpcV2.pdb
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\MagentoApi\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\MagentoApi\obj\Debug\Ez.Newsletter.MagentoApi.dll
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\MagentoApi\obj\Debug\Ez.Newsletter.MagentoApi.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\MagentoApi\bin\Debug\Ez.Newsletter.MagentoApi.dll.config
+D:\GitCode\thanhpham\Code\ProductManagement\MagentoApi\bin\Debug\Ez.Newsletter.MagentoApi.dll
+D:\GitCode\thanhpham\Code\ProductManagement\MagentoApi\bin\Debug\Ez.Newsletter.MagentoApi.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\MagentoApi\obj\Debug\ResolveAssemblyReference.cache
+D:\GitCode\thanhpham\Code\ProductManagement\MagentoApi\obj\Debug\Ez.Newsletter.MagentoApi.dll
+D:\GitCode\thanhpham\Code\ProductManagement\MagentoApi\obj\Debug\Ez.Newsletter.MagentoApi.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\MagentoApi\bin\Debug\CookComputing.XmlRpcV2.dll
+D:\GitCode\thanhpham\Code\ProductManagement\MagentoApi\bin\Debug\CookComputing.XmlRpcV2.pdb

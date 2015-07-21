@@ -1,0 +1,11 @@
+D:\Work\ez-llc\dotnet\Development\xml-rpc\src\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\xml-rpc\bin\CookComputing.XmlRpcV2.dll
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\xml-rpc\bin\CookComputing.XmlRpcV2.pdb
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\xml-rpc\src\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\xml-rpc\src\obj\Debug\CookComputing.XmlRpcV2.dll
+C:\Users\thanhpham.HARVEYNASH\Downloads\Ez.Newsletter.MagentoApi_v1.1\xml-rpc\src\obj\Debug\CookComputing.XmlRpcV2.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\bin\CookComputing.XmlRpcV2.dll
+D:\GitCode\thanhpham\Code\ProductManagement\bin\CookComputing.XmlRpcV2.pdb
+D:\GitCode\thanhpham\Code\ProductManagement\Xmlrpc\obj\Debug\ResolveAssemblyReference.cache
+D:\GitCode\thanhpham\Code\ProductManagement\Xmlrpc\obj\Debug\CookComputing.XmlRpcV2.dll
+D:\GitCode\thanhpham\Code\ProductManagement\Xmlrpc\obj\Debug\CookComputing.XmlRpcV2.pdb

@@ -15,6 +15,8 @@ using System.Diagnostics;
 using OfficeOpenXml;
 using Microsoft.Office.Core;
 using Excel = Microsoft.Office.Interop.Excel;
+using CookComputing.XmlRpc;
+using Ez.Newsletter.MagentoApi;
 
 namespace Presentation
 {
@@ -460,6 +462,7 @@ namespace Presentation
                                 }
                                 SanPhamBUS spBus = new SanPhamBUS();
                                 spBus.CapNhatKhoHang(maSp, sl + spDto.SoLuong, trangThai);
+                                updateWebInventor(maSp, sl + spDto.SoLuong, trangThai);
                             }
 
                             if (dhDto.MaDonHang != 0)
@@ -992,6 +995,7 @@ namespace Presentation
                         }
                         SanPhamBUS spBus = new SanPhamBUS();
                         spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
+                        updateWebInventor(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
                     }
                 }
 
@@ -1109,6 +1113,7 @@ namespace Presentation
                         }
                         SanPhamBUS spBus = new SanPhamBUS();
                         spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
+                        updateWebInventor(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
                     }
                 }
 
@@ -1137,6 +1142,7 @@ namespace Presentation
                             }
                             SanPhamBUS spBus = new SanPhamBUS();
                             spBus.CapNhatKhoHang(maSp, sl + spDtoOld.SoLuong, trangThai);
+                            updateWebInventor(maSp, sl + spDtoOld.SoLuong, trangThai);
                         }
                         else
                         {
@@ -1178,6 +1184,7 @@ namespace Presentation
                             }
 
                             spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
+                            updateWebInventor(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
                         }
                         else
                         {
@@ -1193,6 +1200,7 @@ namespace Presentation
                             }
 
                             spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
+                            updateWebInventor(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
                         }
                     }
                 }
@@ -1309,6 +1317,7 @@ namespace Presentation
                                     trangThai = 1;
                                 }
                                 spBus.CapNhatKhoHang(maSp, sl + spDtoOld.SoLuong, trangThai);
+                                updateWebInventor(maSp, sl + spDtoOld.SoLuong, trangThai);
                             }
                         }
                         dhBus.Update(dhDto_TimKiem);
@@ -1341,6 +1350,7 @@ namespace Presentation
                                     trangthai = 0;
                                 }
                                 spBus.CapNhatKhoHang(maSp, slTonKho - sl, trangthai);
+                                updateWebInventor(maSp, slTonKho - sl, trangthai);
                             }
                         }
                         dhBus.Update(dhDto_TimKiem);
@@ -1954,6 +1964,15 @@ namespace Presentation
                 else
                     dtgvTimKiemDonHang.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
             }
+        }
+
+        public void updateWebInventor(string masp, int soluong, int trangthai)
+        {
+            Inventory myInventoryUpdate = new Inventory();
+            myInventoryUpdate.sku = masp;
+            myInventoryUpdate.qty = soluong.ToString() + ".0000";
+            myInventoryUpdate.is_in_stock = trangthai.ToString();
+            bool wasUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.IO;
+using CookComputing.XmlRpc;
+using Ez.Newsletter.MagentoApi;
 
 namespace Presentation
 {
@@ -47,6 +49,20 @@ namespace Presentation
 
                 return NewImage;
             }
+        }
+
+        public static bool APIUpdateProduct(Product product)
+        {
+            // update product
+            bool wasProductUpdated = Product.Update(Main2.apiUrl, Main2.sessionId, new object[] { product.sku, product });
+            return wasProductUpdated;
+        }
+
+        public static bool APIUpdateInventor(Inventory myInventoryUpdate)
+        {
+            // update the inventory
+            bool wasInventoryUpdated = Inventory.Update(Main2.apiUrl, Main2.sessionId, new object[] { myInventoryUpdate.sku, myInventoryUpdate });
+            return wasInventoryUpdated;
         }
     }
 

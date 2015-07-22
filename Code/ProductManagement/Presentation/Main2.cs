@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using CookComputing.XmlRpc;
+using Ez.Newsletter.MagentoApi;
 
 namespace Presentation
 {
@@ -24,6 +26,11 @@ namespace Presentation
         public static frmSyncToWeb frmSyncToWeb = null;
         public static frmFacebookMe frmFacebookMe = null;
         public static frmSyncAPI frmSyncAPI = null;
+
+        public static string apiUrl = "http://localhost/ella/api/xmlrpc";
+        public static string apiUser = "ellaxmlrpc";
+        public static string apiPass = "nguoicodoc";
+        public static string sessionId = "";
 
         public Main2()
         {
@@ -84,6 +91,16 @@ namespace Presentation
 
         private void Main2_Load(object sender, EventArgs e)
         {
+            try
+            {
+                // login (make sure you have user and role assigned in magento admin)
+                sessionId = Connection.Login(apiUrl, apiUser, apiPass);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Không thể kết nối tới web, sử dụng OFFLINE MODE");
+            }
+
             // kiem tra dang nhap
             if (frmDangNhap.kiemTraDangNhap == false)
             {

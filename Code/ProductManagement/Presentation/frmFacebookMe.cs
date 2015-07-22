@@ -1068,6 +1068,11 @@ namespace Presentation
 
         }
 
+        private void frmFacebookMe_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Main2.frmFacebookMe = null;
+        }
+
         
  
     }

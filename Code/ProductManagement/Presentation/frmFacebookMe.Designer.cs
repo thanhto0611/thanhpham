@@ -74,6 +74,7 @@
             this.wbPostToFanpage = new System.Windows.Forms.WebBrowser();
             this.dtgvAlbumImages = new System.Windows.Forms.DataGridView();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.btnResetPostToFP = new System.Windows.Forms.Button();
             this.btnShowHideWbPostToFanpage = new System.Windows.Forms.Button();
             this.txtDelayAlbumPost = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -107,7 +108,6 @@
             this.timerCheckPostToGroup = new System.Windows.Forms.Timer(this.components);
             this.timerDelayPostToGroup = new System.Windows.Forms.Timer(this.components);
             this.timerCheckPostToFP = new System.Windows.Forms.Timer(this.components);
-            this.btnResetPostToFP = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -625,6 +625,18 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Album list:";
             // 
+            // btnResetPostToFP
+            // 
+            this.btnResetPostToFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetPostToFP.ForeColor = System.Drawing.Color.Red;
+            this.btnResetPostToFP.Location = new System.Drawing.Point(834, 78);
+            this.btnResetPostToFP.Name = "btnResetPostToFP";
+            this.btnResetPostToFP.Size = new System.Drawing.Size(87, 62);
+            this.btnResetPostToFP.TabIndex = 12;
+            this.btnResetPostToFP.Text = "RESET";
+            this.btnResetPostToFP.UseVisualStyleBackColor = true;
+            this.btnResetPostToFP.Click += new System.EventHandler(this.btnResetPostToFP_Click);
+            // 
             // btnShowHideWbPostToFanpage
             // 
             this.btnShowHideWbPostToFanpage.Location = new System.Drawing.Point(722, 35);
@@ -900,18 +912,6 @@
             // 
             this.timerCheckPostToFP.Tick += new System.EventHandler(this.timerCheckPostToFP_Tick);
             // 
-            // btnResetPostToFP
-            // 
-            this.btnResetPostToFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetPostToFP.ForeColor = System.Drawing.Color.Red;
-            this.btnResetPostToFP.Location = new System.Drawing.Point(834, 78);
-            this.btnResetPostToFP.Name = "btnResetPostToFP";
-            this.btnResetPostToFP.Size = new System.Drawing.Size(87, 62);
-            this.btnResetPostToFP.TabIndex = 12;
-            this.btnResetPostToFP.Text = "RESET";
-            this.btnResetPostToFP.UseVisualStyleBackColor = true;
-            this.btnResetPostToFP.Click += new System.EventHandler(this.btnResetPostToFP_Click);
-            // 
             // frmFacebookMe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -921,6 +921,7 @@
             this.Name = "frmFacebookMe";
             this.Text = "Facebook Tools";
             this.Load += new System.EventHandler(this.frmFacebookMe_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmFacebookMe_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

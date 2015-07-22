@@ -39,6 +39,13 @@ namespace Presentation
         DataTable dtTimKiem = new DataTable();
         public static DataTable dtWeb = new DataTable();
 
+        public class inventor
+        {
+            public string masp;
+            public int soluong;
+            public int trangthai;
+        }
+
         DonHangDTO dhDto = new DonHangDTO();
         KhachHangDTO khDto = new KhachHangDTO();
 
@@ -462,7 +469,7 @@ namespace Presentation
                                 }
                                 SanPhamBUS spBus = new SanPhamBUS();
                                 spBus.CapNhatKhoHang(maSp, sl + spDto.SoLuong, trangThai);
-                                updateWebInventor(maSp, sl + spDto.SoLuong, trangThai);
+                                startThread(maSp, sl + spDto.SoLuong, trangThai);
                             }
 
                             if (dhDto.MaDonHang != 0)
@@ -995,7 +1002,7 @@ namespace Presentation
                         }
                         SanPhamBUS spBus = new SanPhamBUS();
                         spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
-                        updateWebInventor(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
+                        startThread(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
                     }
                 }
 
@@ -1113,7 +1120,7 @@ namespace Presentation
                         }
                         SanPhamBUS spBus = new SanPhamBUS();
                         spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
-                        updateWebInventor(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
+                        startThread(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
                     }
                 }
 
@@ -1142,7 +1149,7 @@ namespace Presentation
                             }
                             SanPhamBUS spBus = new SanPhamBUS();
                             spBus.CapNhatKhoHang(maSp, sl + spDtoOld.SoLuong, trangThai);
-                            updateWebInventor(maSp, sl + spDtoOld.SoLuong, trangThai);
+                            startThread(maSp, sl + spDtoOld.SoLuong, trangThai);
                         }
                         else
                         {
@@ -1184,7 +1191,7 @@ namespace Presentation
                             }
 
                             spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
-                            updateWebInventor(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
+                            startThread(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
                         }
                         else
                         {
@@ -1200,7 +1207,7 @@ namespace Presentation
                             }
 
                             spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
-                            updateWebInventor(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
+                            startThread(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
                         }
                     }
                 }
@@ -1317,7 +1324,7 @@ namespace Presentation
                                     trangThai = 1;
                                 }
                                 spBus.CapNhatKhoHang(maSp, sl + spDtoOld.SoLuong, trangThai);
-                                updateWebInventor(maSp, sl + spDtoOld.SoLuong, trangThai);
+                                startThread(maSp, sl + spDtoOld.SoLuong, trangThai);
                             }
                         }
                         dhBus.Update(dhDto_TimKiem);
@@ -1350,7 +1357,7 @@ namespace Presentation
                                     trangthai = 0;
                                 }
                                 spBus.CapNhatKhoHang(maSp, slTonKho - sl, trangthai);
-                                updateWebInventor(maSp, slTonKho - sl, trangthai);
+                                startThread(maSp, slTonKho - sl, trangthai);
                             }
                         }
                         dhBus.Update(dhDto_TimKiem);
@@ -1973,6 +1980,32 @@ namespace Presentation
             myInventoryUpdate.qty = soluong.ToString() + ".0000";
             myInventoryUpdate.is_in_stock = trangthai.ToString();
             bool wasUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            inventor iv = (inventor)e.Argument;
+            updateWebInventor(iv.masp, iv.soluong, iv.trangthai);
+        }
+
+        public void startThread(string masp, int soluong, int trangthai)
+        {
+            inventor iv = new inventor();
+            iv.masp = masp;
+            iv.soluong = soluong;
+            iv.trangthai = trangthai;
+
+            backgroundWorker1.RunWorkerAsync(iv);
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
         }
     }
 }

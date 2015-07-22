@@ -595,6 +595,7 @@
       <DependentUpon>TKTheLoai.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Words.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">

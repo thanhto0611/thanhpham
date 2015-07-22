@@ -68,6 +68,7 @@
             this.txtMaKH_Them = new System.Windows.Forms.TextBox();
             this.txtTenKH_Them = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabDonHang.SuspendLayout();
             this.tabThemDonHang.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -520,6 +521,12 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Tên Khách Hàng";
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // frmChiTietDonHangNew2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,5 +597,6 @@
         private System.Windows.Forms.Label lbMaDonHang;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExport;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

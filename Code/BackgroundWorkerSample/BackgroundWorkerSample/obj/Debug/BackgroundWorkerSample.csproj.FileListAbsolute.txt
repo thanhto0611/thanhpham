@@ -1,0 +1,8 @@
+C:\Users\Admin\Downloads\Compressed\Article\Article\Article\BackgroundWorkerSample\BackgroundWorkerSample\bin\Debug\BackgroundWorkerSample.exe
+C:\Users\Admin\Downloads\Compressed\Article\Article\Article\BackgroundWorkerSample\BackgroundWorkerSample\bin\Debug\BackgroundWorkerSample.pdb
+C:\Users\Admin\Downloads\Compressed\Article\Article\Article\BackgroundWorkerSample\BackgroundWorkerSample\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Admin\Downloads\Compressed\Article\Article\Article\BackgroundWorkerSample\BackgroundWorkerSample\obj\Debug\BackgroundWorkerSample.Form1.resources
+C:\Users\Admin\Downloads\Compressed\Article\Article\Article\BackgroundWorkerSample\BackgroundWorkerSample\obj\Debug\BackgroundWorkerSample.Properties.Resources.resources
+C:\Users\Admin\Downloads\Compressed\Article\Article\Article\BackgroundWorkerSample\BackgroundWorkerSample\obj\Debug\BackgroundWorkerSample.csproj.GenerateResource.Cache
+C:\Users\Admin\Downloads\Compressed\Article\Article\Article\BackgroundWorkerSample\BackgroundWorkerSample\obj\Debug\BackgroundWorkerSample.exe
+C:\Users\Admin\Downloads\Compressed\Article\Article\Article\BackgroundWorkerSample\BackgroundWorkerSample\obj\Debug\BackgroundWorkerSample.pdb

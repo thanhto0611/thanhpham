@@ -30,6 +30,7 @@
         {
             this.chbxTichLuyDiem = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.cbUseAPISync = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // chbxTichLuyDiem
@@ -53,11 +54,23 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // cbUseAPISync
+            // 
+            this.cbUseAPISync.AutoSize = true;
+            this.cbUseAPISync.Location = new System.Drawing.Point(35, 54);
+            this.cbUseAPISync.Name = "cbUseAPISync";
+            this.cbUseAPISync.Size = new System.Drawing.Size(92, 17);
+            this.cbUseAPISync.TabIndex = 3;
+            this.cbUseAPISync.Text = "Use API Sync";
+            this.cbUseAPISync.UseVisualStyleBackColor = true;
+            this.cbUseAPISync.CheckedChanged += new System.EventHandler(this.cbUseAPISync_CheckedChanged);
+            // 
             // frmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 485);
+            this.Controls.Add(this.cbUseAPISync);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.chbxTichLuyDiem);
             this.Name = "frmConfig";
@@ -74,5 +87,6 @@
 
         private System.Windows.Forms.CheckBox chbxTichLuyDiem;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.CheckBox cbUseAPISync;
     }
 }

@@ -410,7 +410,7 @@ namespace Presentation
                                 trangthai = 1;
                             }
                             SanPhamBUS spBus = new SanPhamBUS();
-                            spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
+                            //spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
                         }
                     }
 
@@ -654,7 +654,7 @@ namespace Presentation
                                 trangthai = 1;
                             }
                             SanPhamBUS spBus = new SanPhamBUS();
-                            spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
+                            //spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
                         }
                     }
 
@@ -682,7 +682,7 @@ namespace Presentation
                                     trangThai = 1;
                                 }
                                 SanPhamBUS spBus = new SanPhamBUS();
-                                spBus.CapNhatKhoHang(maSp, sl + spDtoOld.SoLuong, trangThai);
+                                //spBus.CapNhatKhoHang(maSp, sl + spDtoOld.SoLuong, trangThai);
                             }
                             else
                             {
@@ -723,7 +723,7 @@ namespace Presentation
                                     trangThai = 1;
                                 }
 
-                                spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
+                                //spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
                             }
                             else
                             {
@@ -738,7 +738,7 @@ namespace Presentation
                                     trangThai = 1;
                                 }
 
-                                spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
+                                //spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
                             }
                         }
                     }

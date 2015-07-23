@@ -53,16 +53,24 @@ namespace Presentation
 
         public static bool APIUpdateProduct(Product product)
         {
-            // update product
-            bool wasProductUpdated = Product.Update(Main2.apiUrl, Main2.sessionId, new object[] { product.sku, product });
-            return wasProductUpdated;
+            if (Main2._cfgDto.UseAPISycn)
+            {
+                // update product
+                bool wasProductUpdated = Product.Update(Main2.apiUrl, Main2.sessionId, new object[] { product.sku, product });
+                return wasProductUpdated;
+            }
+            return false;
         }
 
         public static bool APIUpdateInventor(Inventory myInventoryUpdate)
         {
-            // update the inventory
-            bool wasInventoryUpdated = Inventory.Update(Main2.apiUrl, Main2.sessionId, new object[] { myInventoryUpdate.sku, myInventoryUpdate });
-            return wasInventoryUpdated;
+            if (Main2._cfgDto.UseAPISycn)
+            {
+                // update the inventory
+                bool wasInventoryUpdated = Inventory.Update(Main2.apiUrl, Main2.sessionId, new object[] { myInventoryUpdate.sku, myInventoryUpdate });
+                return wasInventoryUpdated;
+            }
+            return false;
         }
     }
 

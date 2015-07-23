@@ -17,6 +17,7 @@ using Microsoft.Office.Core;
 using Excel = Microsoft.Office.Interop.Excel;
 using CookComputing.XmlRpc;
 using Ez.Newsletter.MagentoApi;
+using System.Threading;
 
 namespace Presentation
 {
@@ -1973,19 +1974,14 @@ namespace Presentation
             }
         }
 
-        public void updateWebInventor(string masp, int soluong, int trangthai)
+        public void updateWebInventor(Object threadContext)
         {
+            inventor iv = (inventor)threadContext;
             Inventory myInventoryUpdate = new Inventory();
-            myInventoryUpdate.sku = masp;
-            myInventoryUpdate.qty = soluong.ToString() + ".0000";
-            myInventoryUpdate.is_in_stock = trangthai.ToString();
+            myInventoryUpdate.sku = iv.masp;
+            myInventoryUpdate.qty = iv.soluong.ToString() + ".0000";
+            myInventoryUpdate.is_in_stock = iv.trangthai.ToString();
             bool wasUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            inventor iv = (inventor)e.Argument;
-            updateWebInventor(iv.masp, iv.soluong, iv.trangthai);
         }
 
         public void startThread(string masp, int soluong, int trangthai)
@@ -1995,17 +1991,7 @@ namespace Presentation
             iv.soluong = soluong;
             iv.trangthai = trangthai;
 
-            backgroundWorker1.RunWorkerAsync(iv);
-        }
-
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-
+            ThreadPool.QueueUserWorkItem(updateWebInventor, iv);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Presentation
 {
     public partial class frmConfig : Form
     {
-        public ConfigDTO _cfgDto = new ConfigDTO();
+        //public ConfigDTO _cfgDto = new ConfigDTO();
         public bool _changed = false;
 
         public frmConfig()
@@ -23,10 +23,11 @@ namespace Presentation
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
-            _cfgDto = ConfigBUS.GetConfig();
+            //_cfgDto = ConfigBUS.GetConfig();
 
             //Tich Luy Diem
-            chbxTichLuyDiem.Checked = _cfgDto.TichLuyDiem;
+            chbxTichLuyDiem.Checked = Main2._cfgDto.TichLuyDiem;
+            cbUseAPISync.Checked = Main2._cfgDto.UseAPISycn;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -40,11 +41,13 @@ namespace Presentation
                         MessageBoxDefaultButton.Button1);
                 if (result == DialogResult.Yes)
                 {
-                    _cfgDto.TichLuyDiem = chbxTichLuyDiem.Checked;
+                    Main2._cfgDto.TichLuyDiem = chbxTichLuyDiem.Checked;
+                    Main2._cfgDto.UseAPISycn = cbUseAPISync.Checked;
 
-                    ConfigBUS.SaveConfig(_cfgDto);
+                    ConfigBUS.SaveConfig(Main2._cfgDto);
 
                     MessageBox.Show("Save config thành công");
+                    _changed = false;
                 }
             }
             catch (System.Exception ex)
@@ -61,7 +64,7 @@ namespace Presentation
         private void chbxTichLuyDiem_CheckedChanged(object sender, EventArgs e)
         {
             _changed = true;
-            _cfgDto.TichLuyDiem = chbxTichLuyDiem.Checked;
+            Main2._cfgDto.TichLuyDiem = chbxTichLuyDiem.Checked;
         }
 
         private void frmConfig_FormClosing(object sender, FormClosingEventArgs e)
@@ -78,7 +81,7 @@ namespace Presentation
                     if (result == DialogResult.Yes)
                     {
                         e.Cancel = true;
-                        ConfigBUS.SaveConfig(_cfgDto);
+                        ConfigBUS.SaveConfig(Main2._cfgDto);
                         MessageBox.Show("Save config thành công");
                         _changed = false;
                     }
@@ -92,6 +95,12 @@ namespace Presentation
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cbUseAPISync_CheckedChanged(object sender, EventArgs e)
+        {
+            _changed = true;
+            Main2._cfgDto.UseAPISycn = cbUseAPISync.Checked;
         }
     }
 }

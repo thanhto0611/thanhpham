@@ -8,6 +8,7 @@ namespace DTO
     {
         #region Attributes
         private bool _TichLuyDiem;
+        private bool _UseAPISycn;
         #endregion
 
         #region Properties
@@ -22,12 +23,24 @@ namespace DTO
                 _TichLuyDiem = value;
             }
         }
+        public bool UseAPISycn
+        {
+            get
+            {
+                return _UseAPISycn;
+            }
+            set
+            {
+                _UseAPISycn = value;
+            }
+        }
         #endregion
 
         #region Constructor
         public ConfigDTO()
         {
             _TichLuyDiem = false;
+            _UseAPISycn = false;
         }
         #endregion
     }

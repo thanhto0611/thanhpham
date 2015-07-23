@@ -15,6 +15,7 @@ using System.Diagnostics;
 using OfficeOpenXml;
 using CookComputing.XmlRpc;
 using Ez.Newsletter.MagentoApi;
+using System.Threading;
 
 namespace Presentation
 {
@@ -998,29 +999,26 @@ namespace Presentation
             }
         }
 
-        public void updateWebInventor(string masp, int soluong, int trangthai)
+        public void updateWebInventor(Object threadContext)
         {
+            SanPhamBUS.inventor iv = (SanPhamBUS.inventor)threadContext;
             Inventory myInventoryUpdate = new Inventory();
-            myInventoryUpdate.sku = masp;
-            myInventoryUpdate.qty = soluong.ToString() + ".0000";
-            myInventoryUpdate.is_in_stock = trangthai.ToString();
+            myInventoryUpdate.sku = iv.masp;
+            myInventoryUpdate.qty = iv.soluong.ToString() + ".0000";
+            myInventoryUpdate.is_in_stock = iv.trangthai.ToString();
             bool wasUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            inventor iv = (inventor)e.Argument;
-            updateWebInventor(iv.masp, iv.soluong, iv.trangthai);
         }
 
         public void startThread(string masp, int soluong, int trangthai)
         {
-            inventor iv = new inventor();
+            //inventor iv = new inventor();
+            SanPhamBUS.inventor iv = new SanPhamBUS.inventor();
             iv.masp = masp;
             iv.soluong = soluong;
             iv.trangthai = trangthai;
 
-            backgroundWorker1.RunWorkerAsync(iv);
+            ThreadPool.QueueUserWorkItem(updateWebInventor, iv);
+            //ThreadPool.QueueUserWorkItem(SanPhamBUS.CapNhatKhoHang, iv);
         }
     }
 }

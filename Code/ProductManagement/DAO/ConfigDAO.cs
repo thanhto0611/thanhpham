@@ -20,6 +20,7 @@ namespace DAO
             while (reader.Read())
             {
                 cfgDto.TichLuyDiem = (bool)reader["TichLuyDiem"];
+                cfgDto.UseAPISycn = (bool)reader["UseAPISync"];
             }
 
             reader.Close();
@@ -30,12 +31,14 @@ namespace DAO
         public static void SaveConfig(ConfigDTO cfgDto)
         {
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Update CONFIG Set TichLuyDiem = ? where ID=1";
+            string cmdText = "Update CONFIG Set TichLuyDiem = ?, UseAPISync = ? where ID=1";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
             command.Parameters.Add("@TichLuyDiem", OleDbType.Boolean);
+            command.Parameters.Add("@UseAPISycn", OleDbType.Boolean);
 
             command.Parameters["@TichLuyDiem"].Value = cfgDto.TichLuyDiem;
+            command.Parameters["@UseAPISycn"].Value = cfgDto.UseAPISycn;
 
             int row = command.ExecuteNonQuery();
             connection.Close();

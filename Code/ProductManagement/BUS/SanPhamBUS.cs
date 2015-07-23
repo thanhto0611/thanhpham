@@ -11,6 +11,13 @@ namespace BUS
 {
     public class SanPhamBUS
     {
+        public class inventor
+        {
+            public string masp;
+            public int soluong;
+            public int trangthai;
+        }
+
         public DataTable GetTable()
         {
             SanPhamDAO sd = new SanPhamDAO();
@@ -142,7 +149,14 @@ namespace BUS
         public void CapNhatKhoHang(string masp, int sl, int trangthai)
         {
             SanPhamDAO sanPhamDAO = new SanPhamDAO();
-            sanPhamDAO.CapNhatKhoHang(masp,sl,trangthai);
+            sanPhamDAO.CapNhatKhoHang(masp, sl, trangthai);
+        }
+
+        public static void CapNhatKhoHang(Object threadContext)
+        {
+            inventor iv = (inventor)threadContext;
+            SanPhamDAO sanPhamDAO = new SanPhamDAO();
+            sanPhamDAO.CapNhatKhoHang(iv.masp, iv.soluong, iv.trangthai);
         }
 
         public static SanPhamDTO LaySanPham(string masp)

@@ -491,7 +491,7 @@ namespace CookComputing.XmlRpc
       xdoc.PreserveWhitespace = true;
       try
       {
-        xdoc.Load(stm);
+          xdoc.Load(stm);
       }
       catch (Exception ex)
       {

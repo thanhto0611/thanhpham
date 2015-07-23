@@ -10,6 +10,13 @@ namespace DAO
 {
     public class SanPhamDAO
     {
+        //public class inventor
+        //{
+        //    public string masp;
+        //    public int soluong;
+        //    public int trangthai;
+        //}
+
         public static DataTable GetTable()
         {
             DataTable dataTable = new DataTable();
@@ -470,6 +477,30 @@ namespace DAO
             int row = command.ExecuteNonQuery();
             connection.Close();
         }
+
+        //public void CapNhatKhoHang(Object iv)
+        //{
+        //    inventor ivt = (inventor)iv;
+        //    OleDbConnection connection = DataProvider.CreateConnection();
+        //    //string masp = sanPhamDTO.MaSanPham;
+        //    string cmdText = "Update SANPHAM Set SoLuong = ? , TrangThai = ? Where MaSanPham like ?";
+        //    //string cmdText = "Update SANPHAM set MauSac = ? where MaSanPham like ?";
+        //    OleDbCommand command = new OleDbCommand(cmdText, connection);
+
+
+        //    //command.Parameters.Add("@HinhAnh", OleDbType.WChar);
+        //    command.Parameters.Add("@SoLuong", OleDbType.Integer);
+        //    command.Parameters.Add("@TrangThai", OleDbType.Integer);
+        //    command.Parameters.Add("@MaSanPham", OleDbType.VarWChar);
+
+        //    //command.Parameters["@HinhAnh"].Value = sanPhamDTO.HinhAnh;
+        //    command.Parameters["@SoLuong"].Value = ivt.soluong;
+        //    command.Parameters["@TrangThai"].Value = ivt.trangthai;
+        //    command.Parameters["@MaSanPham"].Value = ivt.masp;
+
+        //    int row = command.ExecuteNonQuery();
+        //    connection.Close();
+        //}
 
         public static SanPhamDTO LaySanPham(string maSP)
         {

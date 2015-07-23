@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using CookComputing.XmlRpc;
 using Ez.Newsletter.MagentoApi;
+using DTO;
+using BUS;
 
 namespace Presentation
 {
@@ -31,6 +33,7 @@ namespace Presentation
         public static string apiUser = "ellaxmlrpc";
         public static string apiPass = "nguoicodoc";
         public static string sessionId = "";
+        public static ConfigDTO _cfgDto = new ConfigDTO();
 
         public Main2()
         {
@@ -95,6 +98,8 @@ namespace Presentation
             {
                 // login (make sure you have user and role assigned in magento admin)
                 sessionId = Connection.Login(apiUrl, apiUser, apiPass);
+
+                _cfgDto = ConfigBUS.GetConfig();
             }
             catch (System.Exception ex)
             {

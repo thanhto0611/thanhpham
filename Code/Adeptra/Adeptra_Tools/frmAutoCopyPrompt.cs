@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Adeptra_Tools;
 
 namespace AutoCopyPrompt
 {
@@ -158,6 +159,11 @@ namespace AutoCopyPrompt
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmAutoCopyPrompt_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmMain.frmCopyPrompts = null;
         }
     }
 }

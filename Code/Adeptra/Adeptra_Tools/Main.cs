@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using CompareVisio;
 using PE.xml_Variable_Search;
 using AutoCopyPrompt;
+using System.Globalization;
 
 namespace Adeptra_Tools
 {

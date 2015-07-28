@@ -87,7 +87,6 @@
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Adeptra Tools";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Globalization;
+using Adeptra_Tools;
 
 namespace PE.xml_Variable_Search
 {
@@ -343,6 +344,11 @@ namespace PE.xml_Variable_Search
                 MessageBox.Show(ex.Message);
                 return;
             }
+        }
+
+        private void frmPEVariableSearch_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmMain.frmPESearch = null;
         }
     }
 }

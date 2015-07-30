@@ -32,15 +32,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDelayTime = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtUri = new System.Windows.Forms.TextBox();
+            this.txtRefreshTime = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnRun = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.wbCron = new System.Windows.Forms.WebBrowser();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             this.timerCron = new System.Windows.Forms.Timer(this.components);
-            this.txtRefreshTime = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUri = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -79,6 +79,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clear Image Cache";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(291, 64);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtUri
+            // 
+            this.txtUri.Location = new System.Drawing.Point(348, 35);
+            this.txtUri.Name = "txtUri";
+            this.txtUri.Size = new System.Drawing.Size(425, 20);
+            this.txtUri.TabIndex = 5;
+            // 
+            // txtRefreshTime
+            // 
+            this.txtRefreshTime.Location = new System.Drawing.Point(93, 67);
+            this.txtRefreshTime.Name = "txtRefreshTime";
+            this.txtRefreshTime.Size = new System.Drawing.Size(100, 20);
+            this.txtRefreshTime.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Refresh time:";
+            // 
             // btnRun
             // 
             this.btnRun.Location = new System.Drawing.Point(228, 30);
@@ -108,7 +141,7 @@
             this.wbCron.Name = "wbCron";
             this.wbCron.Size = new System.Drawing.Size(801, 366);
             this.wbCron.TabIndex = 0;
-            this.wbCron.Url = new System.Uri("http://thoitrangella.com/admin", System.UriKind.Absolute);
+            this.wbCron.Url = new System.Uri("http://www.thoitrangella.com/admin", System.UriKind.Absolute);
             this.wbCron.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbCron_DocumentCompleted);
             // 
             // timerRefresh
@@ -119,39 +152,6 @@
             // timerCron
             // 
             this.timerCron.Tick += new System.EventHandler(this.timerCron_Tick);
-            // 
-            // txtRefreshTime
-            // 
-            this.txtRefreshTime.Location = new System.Drawing.Point(93, 67);
-            this.txtRefreshTime.Name = "txtRefreshTime";
-            this.txtRefreshTime.Size = new System.Drawing.Size(100, 20);
-            this.txtRefreshTime.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Refresh time:";
-            // 
-            // txtUri
-            // 
-            this.txtUri.Location = new System.Drawing.Point(348, 35);
-            this.txtUri.Name = "txtUri";
-            this.txtUri.Size = new System.Drawing.Size(425, 20);
-            this.txtUri.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(291, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // timerTemp
             // 
@@ -167,6 +167,7 @@
             this.Name = "frmCronJob";
             this.Text = "Cron Job";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCronJob_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

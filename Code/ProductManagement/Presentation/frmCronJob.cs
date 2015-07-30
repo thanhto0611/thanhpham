@@ -165,5 +165,10 @@ namespace Presentation
                 timerCron.Start();
             }
         }
+
+        private void frmCronJob_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Main2.frmCronJob = null;
+        }
     }
 }

@@ -742,10 +742,10 @@ D:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Presentation.
 D:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmSyncAPI.resources
 D:\GitCode\thanhpham\Code\ProductManagement\Presentation\bin\Debug\CookComputing.XmlRpcV2.dll
 D:\GitCode\thanhpham\Code\ProductManagement\Presentation\bin\Debug\Ez.Newsletter.MagentoApi.dll
-D:\GitCode\thanhpham\Code\ProductManagement\Presentation\bin\Debug\CookComputing.XmlRpcV2.pdb
 D:\GitCode\thanhpham\Code\ProductManagement\Presentation\bin\Debug\Ez.Newsletter.MagentoApi.pdb
 G:\GitCode\thanhpham\Code\ProductManagement\Presentation\bin\Debug\CookComputing.XmlRpcV2.dll
 G:\GitCode\thanhpham\Code\ProductManagement\Presentation\bin\Debug\Ez.Newsletter.MagentoApi.dll
 G:\GitCode\thanhpham\Code\ProductManagement\Presentation\bin\Debug\CookComputing.XmlRpcV2.pdb
 G:\GitCode\thanhpham\Code\ProductManagement\Presentation\bin\Debug\Ez.Newsletter.MagentoApi.pdb
 G:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmSyncAPI.resources
+D:\GitCode\thanhpham\Code\ProductManagement\Presentation\bin\Debug\CookComputing.XmlRpcV2.pdb

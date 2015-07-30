@@ -1986,12 +1986,15 @@ namespace Presentation
 
         public void startThread(string masp, int soluong, int trangthai)
         {
-            inventor iv = new inventor();
-            iv.masp = masp;
-            iv.soluong = soluong;
-            iv.trangthai = trangthai;
+            if (Main2._cfgDto.UseAPISycn)
+            {
+                inventor iv = new inventor();
+                iv.masp = masp;
+                iv.soluong = soluong;
+                iv.trangthai = trangthai;
 
-            ThreadPool.QueueUserWorkItem(updateWebInventor, iv);
+                ThreadPool.QueueUserWorkItem(updateWebInventor, iv);
+            }
         }
     }
 }

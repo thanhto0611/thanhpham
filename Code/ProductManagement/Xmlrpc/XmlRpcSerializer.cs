@@ -464,6 +464,7 @@ namespace CookComputing.XmlRpc
 
     public XmlRpcResponse DeserializeResponse(Stream stm, Type svcType)
     {
+        //string strStm;
       if (stm == null)
         throw new ArgumentNullException("stm",
           "XmlRpcSerializer.DeserializeResponse");

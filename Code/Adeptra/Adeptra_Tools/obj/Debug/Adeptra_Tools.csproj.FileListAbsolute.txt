@@ -31,3 +31,4 @@ D:\GitCode\thanhpham\Code\Adeptra\Adeptra_Tools\obj\Debug\CompareVisio.frmVisioC
 D:\GitCode\thanhpham\Code\Adeptra\Adeptra_Tools\obj\Debug\Adeptra_Tools.frmMain.resources
 D:\GitCode\thanhpham\Code\Adeptra\Adeptra_Tools\obj\Debug\Adeptra_Tools.Properties.Resources.resources
 D:\GitCode\thanhpham\Code\Adeptra\Adeptra_Tools\obj\Debug\Adeptra_Tools.csproj.GenerateResource.Cache
+D:\GitCode\thanhpham\Code\Adeptra\Adeptra_Tools\obj\Debug\Adeptra_Tools.frmSnapshotTool.resources

@@ -23,9 +23,10 @@ namespace Adeptra_Tools
         private void btnCheck_Click(object sender, EventArgs e)
         {
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location).Replace("\\", "/");
-            string text = System.IO.File.ReadAllText(@"C:\Users\Admin\Desktop\Portal\apm2_lloydsbgukfraudcredit_snapshot.sql");
+            //string text = System.IO.File.ReadAllText(@"C:\Users\Admin\Desktop\Portal\apm2_lloydsbgukfraudcredit_snapshot.sql");
+            string text = System.IO.File.ReadAllText(@"C:\Users\thanhpham.HARVEYNASH\Desktop\Portal\apm2_lloydsbgukfraudcredit_snapshot.sql");
 
-            string html = System.IO.File.ReadAllText(@"C:\Users\Admin\Desktop\Portal\lloydsCredit.htm");
+            string html = System.IO.File.ReadAllText(@"C:\Users\thanhpham.HARVEYNASH\Desktop\Portal\lloydsCredit.htm");
 
             Regex regModel = new Regex(@"<model>(.*?)<\/model>");
             MatchCollection mcModel = regModel.Matches(text);
@@ -42,20 +43,30 @@ namespace Adeptra_Tools
                 portfolioNames[i] = mcPortfolioName[0].Value.Replace("'", "");
             }
 
-            DisplayHtml(html);
-            //MatchCollection mcPortfolio = regPortfolio.Match(text);
+            //DisplayHtml(html);
 
-            textBox1.Text = mcModel[0].Value;
+            foreach (string porfolioName in portfolioNames)
+            {
+                TabPage myTabPage = new TabPage(porfolioName);
+                myTabPage.Name = "tabPage" + tabControl1.TabCount.ToString();
+                WebBrowser myWebBrowser = new WebBrowser();
+                myWebBrowser.Dock = DockStyle.Fill;
+                myWebBrowser.ScriptErrorsSuppressed = true;
+                //myWebBrowser.DocumentText = "<html>Thanh Pham</html>";
+                myWebBrowser.DocumentText = html;
+                myTabPage.Controls.Add(myWebBrowser);
+                tabControl1.TabPages.Add(myTabPage);
+            }
         }
 
         private void DisplayHtml(string html)
         {
-            webBrowser1.Navigate("about:blank");
-            if (webBrowser1.Document != null)
-            {
-                webBrowser1.Document.Write(string.Empty);
-            }
-            webBrowser1.DocumentText = html;
+            //webBrowser1.Navigate("about:blank");
+            //if (webBrowser1.Document != null)
+            //{
+            //    webBrowser1.Document.Write(string.Empty);
+            //}
+            //webBrowser1.DocumentText = html;
         }
 
         public static void CopyContentToIsolatedStorage(string file)

@@ -14,3 +14,11 @@ D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.Properties.Reso
 D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.csproj.GenerateResource.Cache
 D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.exe
 D:\Share\Private\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.pdb
+G:\GitCode\thanhpham\Code\Adeptra\AutoCopyPrompt\bin\Debug\AutoCopyPrompt.exe
+G:\GitCode\thanhpham\Code\Adeptra\AutoCopyPrompt\bin\Debug\AutoCopyPrompt.pdb
+G:\GitCode\thanhpham\Code\Adeptra\AutoCopyPrompt\obj\Debug\ResolveAssemblyReference.cache
+G:\GitCode\thanhpham\Code\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.frmAutoCopyPrompt.resources
+G:\GitCode\thanhpham\Code\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.Properties.Resources.resources
+G:\GitCode\thanhpham\Code\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.csproj.GenerateResource.Cache
+G:\GitCode\thanhpham\Code\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.exe
+G:\GitCode\thanhpham\Code\Adeptra\AutoCopyPrompt\obj\Debug\AutoCopyPrompt.pdb

@@ -1,0 +1,91 @@
+#container{
+	margin-left: 20px;
+}
+.color-square{
+	height: 90px;
+	width: 90px;
+	padding: 10px;
+	font-size: 22px;
+	font-weight: bold;
+}
+.nav {
+	margin-bottom: 0px;
+}
+.navbar-inner > .nav > .disabled > a:hover{
+	color:#ccc;
+	cursor: not-allowed;
+}
+.navbar-inner > .nav > .disabled > a{
+	color:#ccc;
+	cursor: not-allowed;
+}
+.btn-primary[disabled] {
+	background-color:#f8971d;
+}
+.btn-link {
+	background-color: transparent;
+	border: none;
+	color: #00ADDC;
+	font-family: 'LatoSemiBold';
+    font-size: 14px;
+}
+.btn-link:hover,.btn-link:active,.btn-link:focus {
+	opacity: 1;
+	color: #00ADDC;
+	background-color: transparent;
+	border: none;
+	text-decoration: underline;
+}
+.multiselectlist {
+  -webkit-border-radius: 0 0 0 0;
+	 -moz-border-radius: 0 0 0 0;
+	    border-radius: 0 0 0 0;
+}
+.multiselect-header {
+  -webkit-border-radius: 0 0 0 0;
+	 -moz-border-radius: 0 0 0 0;
+	    border-radius: 0 0 0 0;
+}
+input[type="button"] {
+	padding: 4px 12px;
+}
+#footer{
+	border-top:2px solid #00addc;
+	position:absolute;	
+	bottom:0px;
+	left:20px;
+	right:20px;
+	height:50px;
+}
+#footer-links{
+	margin-top: 12px;
+	margin-left: 30px;
+}
+#footer-links > a{
+	margin-right:12px;
+	color:#777;
+}
+#footer-links > span{
+	font-size:11px;
+}
+.alert {
+	background-image: url("images/alertWarning.png");
+	background-repeat: no-repeat;
+	padding-left: 40px;
+	background-position: 6px 6px;
+}
+.alert.alert-error {
+	background-image: url("images/alertError.png");
+	background-repeat: no-repeat;
+	padding-left: 40px;
+	background-position: 6px 6px;
+	
+}
+
+.lastLogBox {
+    color: #777;
+    font-size:10px;
+    line-height:20px;
+    padding-right: 10px;
+    text-align: right;
+}

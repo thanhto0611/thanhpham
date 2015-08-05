@@ -26,7 +26,18 @@ namespace Adeptra_Tools
             //string text = System.IO.File.ReadAllText(@"C:\Users\Admin\Desktop\Portal\apm2_lloydsbgukfraudcredit_snapshot.sql");
             string text = System.IO.File.ReadAllText(@"C:\Users\thanhpham.HARVEYNASH\Desktop\Portal\apm2_lloydsbgukfraudcredit_snapshot.sql");
 
-            string html = System.IO.File.ReadAllText(@"C:\Users\thanhpham.HARVEYNASH\Desktop\Portal\lloydsCredit.htm");
+            string html = "<html lang=\"en\"><head><title>FICO - Portfolio Manager</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><link rel=\"icon\" type=\"image/ico\" href=\"https://portal-rabat.dev.gb2.adeptra.com:9443/favicon.ico\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/container.css\" rel=\"stylesheet\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/reset.css\" rel=\"stylesheet\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/menu.css\" rel=\"stylesheet\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/adeptra.css\" rel=\"stylesheet\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/portfolio.css\" rel=\"stylesheet\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/bootstrap.css\" rel=\"stylesheet\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/cloud.css\" rel=\"stylesheet\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/header_100.css\" rel=\"stylesheet\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/style.css\" rel=\"stylesheet\">";
+            html += "<link href=\"" + path + "/lloydsCredit_files/fonts.css\" rel=\"stylesheet\">";
+            html += System.IO.File.ReadAllText(path + "/lloydsCredit.htm");
 
             Regex regModel = new Regex(@"<model>(.*?)<\/model>");
             MatchCollection mcModel = regModel.Matches(text);
@@ -34,13 +45,14 @@ namespace Adeptra_Tools
             Regex regPortfolio = new Regex(@"INSERT INTO `tblPortfolio` VALUES(.*?);");
             MatchCollection mcPortfolio = regPortfolio.Matches(text);
 
-            string[] portfolioNames = new string[mcPortfolio.Count];
+            //string[] portfolioNames = new string[mcPortfolio.Count];
+            List<string> portfolioNames = new List<string>();
 
             for (int i = 0; i< mcPortfolio.Count;i++)
             {
                 Regex regPortfolioName = new Regex(@"'(.*?)'");
                 MatchCollection mcPortfolioName = regPortfolioName.Matches(mcPortfolio[i].Value);
-                portfolioNames[i] = mcPortfolioName[0].Value.Replace("'", "");
+                portfolioNames.Add(mcPortfolioName[0].Value.Replace("'", ""));
             }
 
             //DisplayHtml(html);
@@ -57,6 +69,7 @@ namespace Adeptra_Tools
                 myTabPage.Controls.Add(myWebBrowser);
                 tabControl1.TabPages.Add(myTabPage);
             }
+            listPortfolioName.DataSource = portfolioNames;
         }
 
         private void DisplayHtml(string html)
@@ -98,6 +111,18 @@ namespace Adeptra_Tools
             //        }
             //    }
             //}
+        }
+
+        private void listPortfolioName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Get the currently selected item in the ListBox. 
+            string curItem = listPortfolioName.SelectedItem.ToString();
+
+            // Find the string in ListBox2. 
+            int index = listPortfolioName.FindString(curItem);
+
+            tabControl1.SelectedTab = tabControl1.TabPages[index];
+            
         }
     }
 }

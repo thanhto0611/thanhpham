@@ -30,6 +30,7 @@
         {
             this.btnCheck = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.listPortfolioName = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnCheck
@@ -51,11 +52,21 @@
             this.tabControl1.Size = new System.Drawing.Size(1180, 472);
             this.tabControl1.TabIndex = 3;
             // 
+            // listPortfolioName
+            // 
+            this.listPortfolioName.FormattingEnabled = true;
+            this.listPortfolioName.Location = new System.Drawing.Point(40, 28);
+            this.listPortfolioName.Name = "listPortfolioName";
+            this.listPortfolioName.Size = new System.Drawing.Size(120, 160);
+            this.listPortfolioName.TabIndex = 4;
+            this.listPortfolioName.SelectedIndexChanged += new System.EventHandler(this.listPortfolioName_SelectedIndexChanged);
+            // 
             // frmSnapshotTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 714);
+            this.Controls.Add(this.listPortfolioName);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnCheck);
             this.Name = "frmSnapshotTool";
@@ -69,5 +80,6 @@
 
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.ListBox listPortfolioName;
     }
 }

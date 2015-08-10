@@ -1664,6 +1664,8 @@ namespace Presentation
         private void frmQuanLyDonHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             Main2.frmQLDH = null;
+            this.ClearForm();
+            _readFromWebDone = false;
         }
 
         private void btnExport_Click(object sender, EventArgs e)

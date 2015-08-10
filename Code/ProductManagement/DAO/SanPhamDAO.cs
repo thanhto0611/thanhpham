@@ -505,7 +505,7 @@ namespace DAO
         public static SanPhamDTO LaySanPham(string maSP)
         {
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Select * from SANPHAM where MaSanPham like '%" + maSP + "%'";
+            string cmdText = "Select * from SANPHAM where MaSanPham = '" + maSP + "'";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             OleDbDataReader reader = command.ExecuteReader();
             SanPhamDTO spDto = new SanPhamDTO();

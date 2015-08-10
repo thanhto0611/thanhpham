@@ -47,6 +47,7 @@ namespace Adeptra_Tools
 
             //string[] portfolioNames = new string[mcPortfolio.Count];
             List<string> portfolioNames = new List<string>();
+            
 
             for (int i = 0; i< mcPortfolio.Count;i++)
             {
@@ -123,6 +124,25 @@ namespace Adeptra_Tools
 
             tabControl1.SelectedTab = tabControl1.TabPages[index];
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string rawDataXml = txtRawData.Text;
+
+            string reg = @"<span data-raw=" + "\"" + "([0-9a-zA-Z :.-]{0,}).*\">([0-9a-zA-Z :.-]{0,})" + "<\/span>";
+            
+            Regex regRaw = new Regex(reg);
+            MatchCollection mcRaw = regRaw.Matches(rawDataXml);
+
+            var keyValueList = new List<KeyValuePair<string, string>>();
+
+            for (int i = 0; i < mcRaw.Count; i++)
+            {
+                keyValueList.Add(new KeyValuePair<string, string>(mcRaw[i].Groups[0].Value, mcRaw[i].Groups[1].Value));
+            }
+
+            textBox1.Text = keyValueList.Find(x => x.Key == "inputPayload").Value;
         }
     }
 }

@@ -1,0 +1,7 @@
+G:\GitCode\thanhpham\Code\QLBM\DAO\bin\Debug\DAO.dll
+G:\GitCode\thanhpham\Code\QLBM\DAO\bin\Debug\DAO.pdb
+G:\GitCode\thanhpham\Code\QLBM\DAO\bin\Debug\DTO.dll
+G:\GitCode\thanhpham\Code\QLBM\DAO\bin\Debug\DTO.pdb
+G:\GitCode\thanhpham\Code\QLBM\DAO\obj\Debug\ResolveAssemblyReference.cache
+G:\GitCode\thanhpham\Code\QLBM\DAO\obj\Debug\DAO.dll
+G:\GitCode\thanhpham\Code\QLBM\DAO\obj\Debug\DAO.pdb

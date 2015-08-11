@@ -1,0 +1,16 @@
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\QuanLyBoMon.exe
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\QuanLyBoMon.pdb
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\BUS.dll
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\DTO.dll
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\DAO.dll
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\BUS.pdb
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\DAO.pdb
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\DTO.pdb
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\ResolveAssemblyReference.cache
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmMain.resources
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemLop.resources
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.Properties.Resources.resources
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.csproj.GenerateResource.Cache
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.exe
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.pdb
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemMon.resources

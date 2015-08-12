@@ -22,6 +22,11 @@ namespace BUS
             return ChiTietMonDAO.GetList();
         }
 
+        public static ChiTietMonDTO TimTheoMaChiTietMon(int maCTM)
+        {
+            return ChiTietMonDAO.TimTheoMaChiTietMon(maCTM);
+        }
+
         public static void Insert(ChiTietMonDTO chiTietMonDTO)
         {
             ChiTietMonDAO.Insert(chiTietMonDTO);
@@ -30,6 +35,11 @@ namespace BUS
         public static void UpdateRecord(ChiTietMonDTO chiTietMonDTO)
         {
             ChiTietMonDAO.UpdateRecord(chiTietMonDTO);
+        }
+
+        public static void UpdateGiangVien(ChiTietMonDTO chiTietMonDTO)
+        {
+            ChiTietMonDAO.UpdateGiangVien(chiTietMonDTO);
         }
 
         public static void Delete(int maChiTietMon)

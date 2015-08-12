@@ -205,6 +205,7 @@ namespace QuanLyBoMon
                     dtgvChiTietMon.Columns["GhiChu"].HeaderText = "Ghi Chú";
 
                     dtgvChiTietMon.Columns["MaChiTietMon"].Visible = false;
+                    dtgvChiTietMon.Columns["MaMon"].Visible = false;
                     dtgvChiTietMon.Columns["TenMon"].ReadOnly = true;
 
                     dtgvChiTietMon.Columns["TenMon"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;

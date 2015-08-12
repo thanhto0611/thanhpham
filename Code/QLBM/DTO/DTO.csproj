@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChiTietMonDTO.cs" />
+    <Compile Include="GiangVienDTO.cs" />
     <Compile Include="LopDTO.cs" />
     <Compile Include="LopMonDTO.cs" />
     <Compile Include="MonDTO.cs" />

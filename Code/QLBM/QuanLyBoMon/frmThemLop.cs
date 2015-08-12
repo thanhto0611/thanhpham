@@ -20,6 +20,11 @@ namespace QuanLyBoMon
 
         public static bool isFrmThemMonClosed = false;
         public static bool isFrmThemNamHocClosed = false;
+        public static bool isFrmThemGiangVienClosed = false;
+
+        public static int gMaChiTietMon;
+
+        public LopDTO lopDTO = new LopDTO();
 
         public frmThemLop()
         {
@@ -142,11 +147,23 @@ namespace QuanLyBoMon
                         MessageBoxDefaultButton.Button1);
                 if (result == DialogResult.Yes)
                 {
-                    LopDTO lopDTO = new LopDTO();
                     lopDTO.TenLop = txtTenLop.Text;
-                    lopDTO.SoLuongSinhVien = Int32.Parse(txtSoLuongSinhVien.Text);
-                    lopDTO.SoLuongTrongNganSach = Int32.Parse(txtSoLuongTrongNganSach.Text);
-                    lopDTO.SoLuongNgoaiNganSach = Int32.Parse(txtSoLuongNgoaiNganSach.Text);
+
+                    if (txtSoLuongSinhVien.Text == "")
+                        lopDTO.SoLuongSinhVien = 0;
+                    else
+                        lopDTO.SoLuongSinhVien = Int32.Parse(txtSoLuongSinhVien.Text);
+
+                    if (txtSoLuongTrongNganSach.Text == "")
+                        lopDTO.SoLuongTrongNganSach = 0;
+                    else
+                        lopDTO.SoLuongTrongNganSach = Int32.Parse(txtSoLuongTrongNganSach.Text);
+
+                    if (txtSoLuongNgoaiNganSach.Text == "")
+                        lopDTO.SoLuongNgoaiNganSach = 0;
+                    else
+                        lopDTO.SoLuongNgoaiNganSach = Int32.Parse(txtSoLuongNgoaiNganSach.Text);
+
                     lopDTO.MaNamHoc = (cmbNamHoc.SelectedItem as NamHocDTO).MaNamHoc;
                     LopBUS.Insert(lopDTO);
 
@@ -167,49 +184,88 @@ namespace QuanLyBoMon
 
                     MessageBox.Show("Thêm lớp thành công");
 
-                    dtChiTietMon = ChiTietMonBUS.GetTable(lopDTO.MaLop);
-                    dtgvChiTietMon.DataSource = dtChiTietMon;
-
-                    dtgvChiTietMon.Columns["TenMon"].HeaderText = "Môn";
-                    dtgvChiTietMon.Columns["ThoiGianHoc"].HeaderText = "Thời Gian Học";
-                    dtgvChiTietMon.Columns["GioHoc"].HeaderText = "Giờ Học";
-                    dtgvChiTietMon.Columns["GiangDuong"].HeaderText = "Giảng Đường";
-                    dtgvChiTietMon.Columns["GiangVien"].HeaderText = "Giảng Viên";
-                    dtgvChiTietMon.Columns["NgayThiLan1"].HeaderText = "Ngày Thi Lần 1";
-                    dtgvChiTietMon.Columns["GioThiLan1"].HeaderText = "Giờ Thi Lần 1";
-                    dtgvChiTietMon.Columns["GiangDuongThiLan1"].HeaderText = "Giảng Đường Thi Lần 1";
-                    dtgvChiTietMon.Columns["CanBoCoiThiLan1"].HeaderText = "Cán Bộ Coi Thi Lần 1";
-                    dtgvChiTietMon.Columns["SoBaiThiLan1"].HeaderText = "Số Bài Thi Lần 1";
-                    dtgvChiTietMon.Columns["NgayThiLan2"].HeaderText = "Ngày Thi Lần 2";
-                    dtgvChiTietMon.Columns["GioThiLan2"].HeaderText = "Giờ Thi Lần 2";
-                    dtgvChiTietMon.Columns["GiangDuongThiLan2"].HeaderText = "Giảng Đường Thi Lần 2";
-                    dtgvChiTietMon.Columns["CanBoCoiThiLan2"].HeaderText = "Cán Bộ Coi Thi Lần 2";
-                    dtgvChiTietMon.Columns["SoBaiThiLan2"].HeaderText = "Số Bài Thi Lần 2";
-                    dtgvChiTietMon.Columns["GhiChu"].HeaderText = "Ghi Chú";
-
-                    dtgvChiTietMon.Columns["TenMon"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["ThoiGianHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["GioHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["GiangDuong"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["GiangVien"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["NgayThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["GioThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["GiangDuongThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["CanBoCoiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["SoBaiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["NgayThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["GioThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["GiangDuongThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["CanBoCoiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["SoBaiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvChiTietMon.Columns["GhiChu"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
-                    dtgvChiTietMon.Columns["MaChiTietMon"].Visible = false;
-                    dtgvChiTietMon.Columns["TenMon"].ReadOnly = true;
+                    LayDanhSachChiTietMon();
+                    
                     btnCapNhatChiTietMon.Visible = true;
                     dtgvChiTietMon.Visible = true;
                     btnThemLop.Enabled = false;
                 }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void LayDanhSachChiTietMon()
+        {
+            try
+            {
+                dtChiTietMon = ChiTietMonBUS.GetTable(lopDTO.MaLop);
+                foreach (DataRow dr in dtChiTietMon.Rows)
+                {
+                    if (dr["GiangVien"].ToString() != "")
+                    {
+                        string[] groupGiangVien = dr["GiangVien"].ToString().Split(',');
+                        string giangVien = "";
+
+                        for (int i = 0; i < groupGiangVien.Count(); i++)
+                        {
+                            GiangVienDTO giangVienDTO = GiangVienBUS.TimTheoMaGiangVien(Int32.Parse(groupGiangVien[i]));
+
+                            if (giangVien == "")
+                            {
+                                giangVien += giangVienDTO.TenGiangVien;
+                            }
+                            else
+                            {
+                                giangVien = giangVien + Environment.NewLine + giangVienDTO.TenGiangVien;
+                            }
+                        }
+
+                        dr["GiangVien"] = giangVien;
+                    }
+                }
+
+                dtgvChiTietMon.DataSource = dtChiTietMon;
+
+                dtgvChiTietMon.Columns["TenMon"].HeaderText = "Môn";
+                dtgvChiTietMon.Columns["ThoiGianHoc"].HeaderText = "Thời Gian Học";
+                dtgvChiTietMon.Columns["GioHoc"].HeaderText = "Giờ Học";
+                dtgvChiTietMon.Columns["GiangDuong"].HeaderText = "Giảng Đường";
+                dtgvChiTietMon.Columns["GiangVien"].HeaderText = "Giảng Viên";
+                dtgvChiTietMon.Columns["NgayThiLan1"].HeaderText = "Ngày Thi Lần 1";
+                dtgvChiTietMon.Columns["GioThiLan1"].HeaderText = "Giờ Thi Lần 1";
+                dtgvChiTietMon.Columns["GiangDuongThiLan1"].HeaderText = "Giảng Đường Thi Lần 1";
+                dtgvChiTietMon.Columns["CanBoCoiThiLan1"].HeaderText = "Cán Bộ Coi Thi Lần 1";
+                dtgvChiTietMon.Columns["SoBaiThiLan1"].HeaderText = "Số Bài Thi Lần 1";
+                dtgvChiTietMon.Columns["NgayThiLan2"].HeaderText = "Ngày Thi Lần 2";
+                dtgvChiTietMon.Columns["GioThiLan2"].HeaderText = "Giờ Thi Lần 2";
+                dtgvChiTietMon.Columns["GiangDuongThiLan2"].HeaderText = "Giảng Đường Thi Lần 2";
+                dtgvChiTietMon.Columns["CanBoCoiThiLan2"].HeaderText = "Cán Bộ Coi Thi Lần 2";
+                dtgvChiTietMon.Columns["SoBaiThiLan2"].HeaderText = "Số Bài Thi Lần 2";
+                dtgvChiTietMon.Columns["GhiChu"].HeaderText = "Ghi Chú";
+
+                dtgvChiTietMon.Columns["TenMon"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["ThoiGianHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["GioHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["GiangDuong"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["GiangVien"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["NgayThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["GioThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["GiangDuongThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["CanBoCoiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["SoBaiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["NgayThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["GioThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["GiangDuongThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["CanBoCoiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["SoBaiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dtgvChiTietMon.Columns["GhiChu"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+                dtgvChiTietMon.Columns["MaChiTietMon"].Visible = false;
+                dtgvChiTietMon.Columns["MaMon"].Visible = false;
+                dtgvChiTietMon.Columns["TenMon"].ReadOnly = true;
             }
             catch (System.Exception ex)
             {
@@ -249,7 +305,7 @@ namespace QuanLyBoMon
                         chiTietMonDTO.ThoiGianHoc = row.Cells["ThoiGianHoc"].Value.ToString();
                         chiTietMonDTO.GioHoc = row.Cells["GioHoc"].Value.ToString();
                         chiTietMonDTO.GiangDuong = row.Cells["GiangDuong"].Value.ToString();
-                        chiTietMonDTO.GiangVien = row.Cells["GiangVien"].Value.ToString();
+                        //chiTietMonDTO.GiangVien = row.Cells["GiangVien"].Value.ToString();
                         chiTietMonDTO.NgayThiLan1 = row.Cells["NgayThiLan1"].Value.ToString();
                         chiTietMonDTO.GioThiLan1 = row.Cells["GioThiLan1"].Value.ToString();
                         chiTietMonDTO.GiangDuongThiLan1 = row.Cells["GiangDuongThiLan1"].Value.ToString();
@@ -291,6 +347,35 @@ namespace QuanLyBoMon
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dtgvChiTietMon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dtgvChiTietMon.Columns[e.ColumnIndex].Name == "GiangVien" && e.RowIndex >= 0)
+                {
+                    isFrmThemGiangVienClosed = false;
+                    gMaChiTietMon = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaChiTietMon"].Value.ToString());
+
+                    frmThemGiangVienVaoMon frm = new frmThemGiangVienVaoMon();
+                    frm.Show();
+                    timerCheckThemGiangVien.Start();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void timerCheckThemGiangVien_Tick(object sender, EventArgs e)
+        {
+            if (isFrmThemGiangVienClosed)
+            {
+                timerCheckThemGiangVien.Stop();
+                LayDanhSachChiTietMon();
             }
         }
     }

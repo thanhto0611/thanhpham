@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ChiTietMonDAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="GiangVienDAO.cs" />
     <Compile Include="LopDAO.cs" />
     <Compile Include="LopMonDAO.cs" />
     <Compile Include="MonDAO.cs" />

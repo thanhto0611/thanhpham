@@ -13,6 +13,7 @@ namespace QuanLyBoMon
     {
         public static frmThemLop frmThemLop = null;
         public static frmTimKiemLop frmTimLop = null;
+        public static frmQuanLyGiangVien frmQLGV = null;
 
         public frmMain()
         {
@@ -48,6 +49,22 @@ namespace QuanLyBoMon
             else
             {
                 frmTimLop.BringToFront();
+            }
+        }
+
+        private void quanLyGiangVien_Click(object sender, EventArgs e)
+        {
+            if (frmQLGV == null)
+            {
+                frmQLGV = new frmQuanLyGiangVien();
+                frmQLGV.MdiParent = this;
+                frmQLGV.Dock = DockStyle.Fill;
+                frmQLGV.WindowState = FormWindowState.Maximized;
+                frmQLGV.Show();
+            }
+            else
+            {
+                frmQLGV.BringToFront();
             }
         }
     }

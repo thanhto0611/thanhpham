@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnThemNamHoc = new System.Windows.Forms.Button();
+            this.cmbNamHoc = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnThemLop = new System.Windows.Forms.Button();
             this.btnThemMon = new System.Windows.Forms.Button();
             this.dtgvDSMon = new System.Windows.Forms.DataGridView();
@@ -48,9 +51,7 @@
             this.dtgvChiTietMon = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnCapNhatChiTietMon = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbNamHoc = new System.Windows.Forms.ComboBox();
-            this.btnThemNamHoc = new System.Windows.Forms.Button();
+            this.timerCheckThemGiangVien = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDSMon)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -83,6 +84,33 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập thông tin lớp:";
+            // 
+            // btnThemNamHoc
+            // 
+            this.btnThemNamHoc.Location = new System.Drawing.Point(422, 82);
+            this.btnThemNamHoc.Name = "btnThemNamHoc";
+            this.btnThemNamHoc.Size = new System.Drawing.Size(105, 23);
+            this.btnThemNamHoc.TabIndex = 14;
+            this.btnThemNamHoc.Text = "Thêm Năm Học";
+            this.btnThemNamHoc.UseVisualStyleBackColor = true;
+            this.btnThemNamHoc.Click += new System.EventHandler(this.btnThemNamHoc_Click);
+            // 
+            // cmbNamHoc
+            // 
+            this.cmbNamHoc.FormattingEnabled = true;
+            this.cmbNamHoc.Location = new System.Drawing.Point(436, 51);
+            this.cmbNamHoc.Name = "cmbNamHoc";
+            this.cmbNamHoc.Size = new System.Drawing.Size(91, 21);
+            this.cmbNamHoc.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(377, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Năm học:";
             // 
             // btnThemLop
             // 
@@ -221,6 +249,7 @@
             this.dtgvChiTietMon.AllowUserToAddRows = false;
             this.dtgvChiTietMon.AllowUserToDeleteRows = false;
             this.dtgvChiTietMon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgvChiTietMon.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgvChiTietMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvChiTietMon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvChiTietMon.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
@@ -229,6 +258,7 @@
             this.dtgvChiTietMon.Size = new System.Drawing.Size(1162, 389);
             this.dtgvChiTietMon.TabIndex = 0;
             this.dtgvChiTietMon.Visible = false;
+            this.dtgvChiTietMon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvChiTietMon_CellClick);
             // 
             // groupBox3
             // 
@@ -242,43 +272,20 @@
             // 
             // btnCapNhatChiTietMon
             // 
-            this.btnCapNhatChiTietMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhatChiTietMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhatChiTietMon.ForeColor = System.Drawing.Color.Red;
             this.btnCapNhatChiTietMon.Location = new System.Drawing.Point(468, 19);
             this.btnCapNhatChiTietMon.Name = "btnCapNhatChiTietMon";
-            this.btnCapNhatChiTietMon.Size = new System.Drawing.Size(160, 49);
+            this.btnCapNhatChiTietMon.Size = new System.Drawing.Size(202, 49);
             this.btnCapNhatChiTietMon.TabIndex = 0;
             this.btnCapNhatChiTietMon.Text = "Cập Nhật Chi Tiết Môn";
             this.btnCapNhatChiTietMon.UseVisualStyleBackColor = true;
             this.btnCapNhatChiTietMon.Visible = false;
             this.btnCapNhatChiTietMon.Click += new System.EventHandler(this.btnCapNhatChiTietMon_Click);
             // 
-            // label6
+            // timerCheckThemGiangVien
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(377, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Năm học:";
-            // 
-            // cmbNamHoc
-            // 
-            this.cmbNamHoc.FormattingEnabled = true;
-            this.cmbNamHoc.Location = new System.Drawing.Point(436, 51);
-            this.cmbNamHoc.Name = "cmbNamHoc";
-            this.cmbNamHoc.Size = new System.Drawing.Size(91, 21);
-            this.cmbNamHoc.TabIndex = 13;
-            // 
-            // btnThemNamHoc
-            // 
-            this.btnThemNamHoc.Location = new System.Drawing.Point(422, 91);
-            this.btnThemNamHoc.Name = "btnThemNamHoc";
-            this.btnThemNamHoc.Size = new System.Drawing.Size(105, 23);
-            this.btnThemNamHoc.TabIndex = 14;
-            this.btnThemNamHoc.Text = "Thêm Năm Học";
-            this.btnThemNamHoc.UseVisualStyleBackColor = true;
-            this.btnThemNamHoc.Click += new System.EventHandler(this.btnThemNamHoc_Click);
+            this.timerCheckThemGiangVien.Tick += new System.EventHandler(this.timerCheckThemGiangVien_Tick);
             // 
             // frmThemLop
             // 
@@ -328,5 +335,6 @@
         private System.Windows.Forms.ComboBox cmbNamHoc;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnThemNamHoc;
+        private System.Windows.Forms.Timer timerCheckThemGiangVien;
     }
 }

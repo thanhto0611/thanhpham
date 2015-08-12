@@ -32,6 +32,7 @@
             this.quanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmLơpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timLopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quanLyGiangVien = new System.Windows.Forms.ToolStripMenuItem();
             this.Window = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
@@ -40,6 +41,7 @@
             // 
             this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quanToolStripMenuItem,
+            this.quanLyGiangVien,
             this.Window});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.MdiWindowListItem = this.Window;
@@ -70,6 +72,13 @@
             this.timLopToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.timLopToolStripMenuItem.Text = "Tim Kiếm Lớp";
             this.timLopToolStripMenuItem.Click += new System.EventHandler(this.timLopToolStripMenuItem_Click);
+            // 
+            // quanLyGiangVien
+            // 
+            this.quanLyGiangVien.Name = "quanLyGiangVien";
+            this.quanLyGiangVien.Size = new System.Drawing.Size(123, 20);
+            this.quanLyGiangVien.Text = "Quản Lý Giảng Viên";
+            this.quanLyGiangVien.Click += new System.EventHandler(this.quanLyGiangVien_Click);
             // 
             // Window
             // 
@@ -102,6 +111,7 @@
         private System.Windows.Forms.ToolStripMenuItem thêmLơpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem timLopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Window;
+        private System.Windows.Forms.ToolStripMenuItem quanLyGiangVien;
 
     }
 }

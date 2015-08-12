@@ -31,6 +31,7 @@
             this.menuMain = new System.Windows.Forms.MenuStrip();
             this.quanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmLơpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timLopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@
             // quanToolStripMenuItem
             // 
             this.quanToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thêmLơpToolStripMenuItem});
+            this.thêmLơpToolStripMenuItem,
+            this.timLopToolStripMenuItem});
             this.quanToolStripMenuItem.Name = "quanToolStripMenuItem";
             this.quanToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.quanToolStripMenuItem.Text = "Quản Lý Lớp";
@@ -57,6 +59,14 @@
             this.thêmLơpToolStripMenuItem.Name = "thêmLơpToolStripMenuItem";
             this.thêmLơpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.thêmLơpToolStripMenuItem.Text = "Thêm Lớp";
+            this.thêmLơpToolStripMenuItem.Click += new System.EventHandler(this.thêmLơpToolStripMenuItem_Click);
+            // 
+            // timLopToolStripMenuItem
+            // 
+            this.timLopToolStripMenuItem.Name = "timLopToolStripMenuItem";
+            this.timLopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.timLopToolStripMenuItem.Text = "Tim Kiếm Lớp";
+            this.timLopToolStripMenuItem.Click += new System.EventHandler(this.timLopToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -81,6 +91,7 @@
         private System.Windows.Forms.MenuStrip menuMain;
         private System.Windows.Forms.ToolStripMenuItem quanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thêmLơpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem timLopToolStripMenuItem;
 
     }
 }

@@ -36,5 +36,15 @@ namespace BUS
         {
             LopDAO.Delete(maLop);
         }
+
+        public static DataTable TimLopTheoTenLop(string tenLop)
+        {
+            return LopDAO.TimLopTheoTenLop(tenLop);
+        }
+
+        public static LopDTO TimLopTheoMaLop(int maLop)
+        {
+            return LopDAO.TimLopTheoMaLop(maLop);
+        }
     }
 }

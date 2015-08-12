@@ -45,8 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietMonDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="LopDAO.cs" />
+    <Compile Include="LopMonDAO.cs" />
     <Compile Include="MonDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

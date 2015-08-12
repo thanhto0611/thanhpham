@@ -120,5 +120,45 @@ namespace DAO
             connection.Close();
             return result;
         }
+
+        public static DataTable TimLopTheoTenLop(string tenLop)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select * from LOP where TenLop like '%" + tenLop + "%' ";
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static LopDTO TimLopTheoMaLop(int maLop)
+        {
+            ArrayList arrList = new ArrayList();
+
+            LopDTO lop = new LopDTO();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select * from LOP where MaLop = ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            command.Parameters.Add("@MaLop", OleDbType.Integer);
+            command.Parameters["@MaLop"].Value = maLop;
+            OleDbDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                lop.MaLop = (int)reader["MaLop"];
+                lop.TenLop = (string)reader["TenLop"];
+                lop.SoLuongSinhVien = (int)reader["SoLuongSinhVien"];
+                lop.SoLuongTrongNganSach = (int)reader["SoLuongTrongNganSach"];
+                lop.SoLuongNgoaiNganSach = (int)reader["SoLuongNgoaiNganSach"];
+            }
+                
+            reader.Close();
+            connection.Close();
+            return lop;
+        }
     }
 }

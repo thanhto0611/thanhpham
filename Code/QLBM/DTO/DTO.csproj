@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietMonDTO.cs" />
     <Compile Include="LopDTO.cs" />
+    <Compile Include="LopMonDTO.cs" />
     <Compile Include="MonDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

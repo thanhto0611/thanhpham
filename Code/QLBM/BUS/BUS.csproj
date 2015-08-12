@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietMonBUS.cs" />
     <Compile Include="LopBUS.cs" />
+    <Compile Include="LopMonBUS.cs" />
     <Compile Include="MonBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -42,6 +42,7 @@ namespace DAO
                 lop.SoLuongSinhVien = (long)reader["SoLuongSinhVien"];
                 lop.SoLuongTrongNganSach = (long)reader["SoLuongTrongNganSach"];
                 lop.SoLuongNgoaiNganSach = (long)reader["SoLuongNgoaiNganSach"];
+                lop.MaNamHoc = (int)reader["MaNamHoc"];
                 arrList.Add(lop);
             }
             reader.Close();
@@ -63,19 +64,21 @@ namespace DAO
         public static void UpdateRecord(LopDTO lopDTO)
         {
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Update LOP Set [TenLop] = ? , [SoLuongSinhVien] = ? , [SoLuongTrongNganSach] = ? , [SoLuongNgoaiNganSach] = ? Where [MaLop] = ?";
+            string cmdText = "Update LOP Set [TenLop] = ? , [SoLuongSinhVien] = ? , [SoLuongTrongNganSach] = ? , [SoLuongNgoaiNganSach] = ?, [MaNamHoc] = ? Where [MaLop] = ?";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
             command.Parameters.Add("@TenLop", OleDbType.WChar);
             command.Parameters.Add("@SoLuongSinhVien", OleDbType.Numeric);
             command.Parameters.Add("@SoLuongTrongNganSach", OleDbType.Numeric);
             command.Parameters.Add("@SoLuongNgoaiNganSach", OleDbType.Numeric);
+            command.Parameters.Add("@MaNamHoc", OleDbType.Integer);
             command.Parameters.Add("@MaLop", OleDbType.Integer);
 
             command.Parameters["@TenLop"].Value = lopDTO.TenLop;
             command.Parameters["@SoLuongSinhVien"].Value = lopDTO.SoLuongSinhVien;
             command.Parameters["@SoLuongTrongNganSach"].Value = lopDTO.SoLuongTrongNganSach;
             command.Parameters["@SoLuongNgoaiNganSach"].Value = lopDTO.SoLuongNgoaiNganSach;
+            command.Parameters["@MaNamHoc"].Value = lopDTO.MaNamHoc;
             command.Parameters["@MaLop"].Value = lopDTO.MaLop;
 
             command.ExecuteNonQuery();
@@ -85,18 +88,20 @@ namespace DAO
         public static void Insert(LopDTO lopDTO)
         {
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Insert into LOP(TenLop, SoLuongSinhVien, SoLuongTrongNganSach, SoLuongNgoaiNganSach) values(?,?,?,?)";
+            string cmdText = "Insert into LOP(TenLop, SoLuongSinhVien, SoLuongTrongNganSach, SoLuongNgoaiNganSach, MaNamHoc) values(?,?,?,?,?)";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
             command.Parameters.Add("@TenLop", OleDbType.WChar);
             command.Parameters.Add("@SoLuongSinhVien", OleDbType.Numeric);
             command.Parameters.Add("@SoLuongTrongNganSach", OleDbType.Numeric);
             command.Parameters.Add("@SoLuongNgoaiNganSach", OleDbType.Numeric);
+            command.Parameters.Add("@MaNamHoc", OleDbType.Integer);
 
             command.Parameters["@TenLop"].Value = lopDTO.TenLop;
             command.Parameters["@SoLuongSinhVien"].Value = lopDTO.SoLuongSinhVien;
             command.Parameters["@SoLuongTrongNganSach"].Value = lopDTO.SoLuongTrongNganSach;
             command.Parameters["@SoLuongNgoaiNganSach"].Value = lopDTO.SoLuongNgoaiNganSach;
+            command.Parameters["@MaNamHoc"].Value = lopDTO.MaNamHoc;
 
             command.ExecuteNonQuery();
             command.CommandText = "select @@IDENTITY";
@@ -134,6 +139,175 @@ namespace DAO
             return dataTable;
         }
 
+        public static DataTable TimLopTheoTenLop(string tenLop, int maNamHoc)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select * from LOP where TenLop like '%" + tenLop + "%' and MaNamHoc = " + maNamHoc.ToString();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoGiangDuong(string giangDuong)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.GiangDuong like '%" + giangDuong + "%' ";
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoGiangDuong(string giangDuong, int maNamHoc)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.GiangDuong like '%" + giangDuong + "%' and l.MaNamHoc = " + maNamHoc.ToString();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoGiangVien(string giangVien)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.GiangVien like '%" + giangVien + "%' ";
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoGiangVien(string giangVien, int maNamHoc)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.GiangVien like '%" + giangVien + "%' and l.MaNamHoc = " + maNamHoc.ToString();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoGiangDuongThiL1(string giangDuong)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.GiangDuongThiLan1 like '%" + giangDuong + "%' ";
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoGiangDuongThiL1(string giangDuong, int maNamHoc)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.GiangDuongThiLan1 like '%" + giangDuong + "%' and l.MaNamHoc = " + maNamHoc.ToString();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoCanBoCoiThiL1(string canBo)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.CanBoCoiThiLan1 like '%" + canBo + "%' ";
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoCanBoCoiThiL1(string canBo, int maNamHoc)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.CanBoCoiThiLan1 like '%" + canBo + "%' and l.MaNamHoc = " + maNamHoc.ToString();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoGiangDuongThiL2(string giangDuong)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.GiangDuongThiLan2 like '%" + giangDuong + "%' ";
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoGiangDuongThiL2(string giangDuong, int maNamHoc)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.GiangDuongThiLan2 like '%" + giangDuong + "%' and l.MaNamHoc = " + maNamHoc.ToString();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoCanBoCoiThiL2(string canBo)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.CanBoCoiThiLan2 like '%" + canBo + "%' ";
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable TimLopTheoCanBoCoiThiL2(string canBo, int maNamHoc)
+        {
+            DataTable dataTable = new DataTable();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "select DISTINCT l.MaLop, l.TenLop from (LOP l inner join LOPMON lm on l.MaLop = lm.MaLop) inner join CHITIETMON ctm on lm.MaLopMon = ctm.MaLopMon where ctm.CanBoCoiThiLan2 like '%" + canBo + "%' and l.MaNamHoc = " + maNamHoc.ToString();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmdText, connection);
+
+            adapter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
         public static LopDTO TimLopTheoMaLop(int maLop)
         {
             ArrayList arrList = new ArrayList();
@@ -154,6 +328,7 @@ namespace DAO
                 lop.SoLuongSinhVien = (int)reader["SoLuongSinhVien"];
                 lop.SoLuongTrongNganSach = (int)reader["SoLuongTrongNganSach"];
                 lop.SoLuongNgoaiNganSach = (int)reader["SoLuongNgoaiNganSach"];
+                lop.MaNamHoc = (int)reader["MaNamHoc"];
             }
                 
             reader.Close();

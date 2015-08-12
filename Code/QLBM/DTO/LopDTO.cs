@@ -13,6 +13,7 @@ namespace DTO
         private long _SoLuongSinhVien;
         private long _SoLuongTrongNganSach;
         private long _SoLuongNgoaiNganSach;
+        private int _MaNamHoc;
         #endregion
 
         #region Properties
@@ -71,15 +72,28 @@ namespace DTO
                 _SoLuongNgoaiNganSach = value;
             }
         }
+        public int MaNamHoc
+        {
+            get
+            {
+                return _MaNamHoc;
+            }
+            set
+            {
+                _MaNamHoc = value;
+            }
+        }
         #endregion
 
         #region Constructor
         public LopDTO()
         {
+            _MaLop = 0;
             _TenLop = "";
             _SoLuongSinhVien = 0;
             _SoLuongTrongNganSach = 0;
             _SoLuongNgoaiNganSach = 0;
+            _MaNamHoc = 0;
         }
         #endregion
     }

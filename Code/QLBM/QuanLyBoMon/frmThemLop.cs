@@ -16,8 +16,10 @@ namespace QuanLyBoMon
     {
         public DataTable dtDanhSachMon = new DataTable();
         public DataTable dtChiTietMon = new DataTable();
+        public DataTable dtNamHoc = new DataTable();
 
         public static bool isFrmThemMonClosed = false;
+        public static bool isFrmThemNamHocClosed = false;
 
         public frmThemLop()
         {
@@ -26,26 +28,37 @@ namespace QuanLyBoMon
 
         private void frmThemLop_Load(object sender, EventArgs e)
         {
-            dtDanhSachMon = MonBUS.GetTable();
-            dtgvDSMon.DataSource = dtDanhSachMon;
+            try
+            {
+                dtDanhSachMon = MonBUS.GetTable();
+                dtgvDSMon.DataSource = dtDanhSachMon;
 
-            DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
-            checkboxColumn.Width = 30;
-            checkboxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dtgvDSMon.Columns.Insert(0, checkboxColumn);
+                DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
+                checkboxColumn.Width = 30;
+                checkboxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dtgvDSMon.Columns.Insert(0, checkboxColumn);
 
-            // add checkbox header
-            Rectangle rect = dtgvDSMon.GetCellDisplayRectangle(0, -1, true);
-            // set checkbox header to center of header cell. +1 pixel to position correctly.
-            rect.X = rect.Location.X + (rect.Width / 4);
+                // add checkbox header
+                Rectangle rect = dtgvDSMon.GetCellDisplayRectangle(0, -1, true);
+                // set checkbox header to center of header cell. +1 pixel to position correctly.
+                rect.X = rect.Location.X + (rect.Width / 4);
 
-            CheckBox checkboxHeader = new CheckBox();
-            checkboxHeader.Name = "checkboxHeader";
-            checkboxHeader.Size = new Size(18, 18);
-            checkboxHeader.Location = rect.Location;
-            checkboxHeader.CheckedChanged += new EventHandler(checkboxHeader_CheckedChanged);
+                CheckBox checkboxHeader = new CheckBox();
+                checkboxHeader.Name = "checkboxHeader";
+                checkboxHeader.Size = new Size(18, 18);
+                checkboxHeader.Location = rect.Location;
+                checkboxHeader.CheckedChanged += new EventHandler(checkboxHeader_CheckedChanged);
 
-            dtgvDSMon.Controls.Add(checkboxHeader);
+                dtgvDSMon.Controls.Add(checkboxHeader);
+
+                cmbNamHoc.DataSource = NamHocBUS.GetList();
+                cmbNamHoc.DisplayMember = "TenNamHoc";
+                cmbNamHoc.ValueMember = "MaNamHoc";
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void checkboxHeader_CheckedChanged(object sender, EventArgs e)
@@ -72,11 +85,18 @@ namespace QuanLyBoMon
             }
         }
 
-        public void refreshData()
+        public void refreshMonData()
         {
             dtDanhSachMon = MonBUS.GetTable();
             dtgvDSMon.DataSource = dtDanhSachMon;
             ((CheckBox)dtgvDSMon.Controls.Find("checkboxHeader", true)[0]).Checked = false;
+        }
+
+        public void refreshNamHocData()
+        {
+            cmbNamHoc.DataSource = NamHocBUS.GetList();
+            cmbNamHoc.DisplayMember = "TenNamHoc";
+            cmbNamHoc.ValueMember = "MaNamHoc";
         }
 
         private void dtgvDSMon_DataSourceChanged(object sender, EventArgs e)
@@ -90,7 +110,13 @@ namespace QuanLyBoMon
             if (isFrmThemMonClosed)
             {
                 timer1.Stop();
-                refreshData();
+                refreshMonData();
+            }
+
+            if (isFrmThemNamHocClosed)
+            {
+                timer1.Stop();
+                refreshNamHocData();
             }
         }
 
@@ -121,6 +147,7 @@ namespace QuanLyBoMon
                     lopDTO.SoLuongSinhVien = Int32.Parse(txtSoLuongSinhVien.Text);
                     lopDTO.SoLuongTrongNganSach = Int32.Parse(txtSoLuongTrongNganSach.Text);
                     lopDTO.SoLuongNgoaiNganSach = Int32.Parse(txtSoLuongNgoaiNganSach.Text);
+                    lopDTO.MaNamHoc = (cmbNamHoc.SelectedItem as NamHocDTO).MaNamHoc;
                     LopBUS.Insert(lopDTO);
 
                     foreach (DataGridViewRow row in dtgvDSMon.Rows)
@@ -149,21 +176,22 @@ namespace QuanLyBoMon
                     dtgvChiTietMon.Columns["GiangDuong"].HeaderText = "Giảng Đường";
                     dtgvChiTietMon.Columns["GiangVien"].HeaderText = "Giảng Viên";
                     dtgvChiTietMon.Columns["NgayThiLan1"].HeaderText = "Ngày Thi Lần 1";
-                    dtgvChiTietMon.Columns["GioThiLan1"].HeaderText = "Giờ Thi";
-                    dtgvChiTietMon.Columns["GiangDuongThiLan1"].HeaderText = "Giảng Đường";
-                    dtgvChiTietMon.Columns["CanBoCoiThiLan1"].HeaderText = "Cán Bộ Coi Thi";
-                    dtgvChiTietMon.Columns["SoBaiThiLan1"].HeaderText = "Số Bài";
+                    dtgvChiTietMon.Columns["GioThiLan1"].HeaderText = "Giờ Thi Lần 1";
+                    dtgvChiTietMon.Columns["GiangDuongThiLan1"].HeaderText = "Giảng Đường Thi Lần 1";
+                    dtgvChiTietMon.Columns["CanBoCoiThiLan1"].HeaderText = "Cán Bộ Coi Thi Lần 1";
+                    dtgvChiTietMon.Columns["SoBaiThiLan1"].HeaderText = "Số Bài Thi Lần 1";
                     dtgvChiTietMon.Columns["NgayThiLan2"].HeaderText = "Ngày Thi Lần 2";
-                    dtgvChiTietMon.Columns["GioThiLan2"].HeaderText = "Giờ Thi";
-                    dtgvChiTietMon.Columns["GiangDuongThiLan2"].HeaderText = "Giảng Đường";
-                    dtgvChiTietMon.Columns["CanBoCoiThiLan2"].HeaderText = "Cán Bộ Coi Thi";
-                    dtgvChiTietMon.Columns["SoBaiThiLan2"].HeaderText = "Số Bài";
+                    dtgvChiTietMon.Columns["GioThiLan2"].HeaderText = "Giờ Thi Lần 2";
+                    dtgvChiTietMon.Columns["GiangDuongThiLan2"].HeaderText = "Giảng Đường Thi Lần 2";
+                    dtgvChiTietMon.Columns["CanBoCoiThiLan2"].HeaderText = "Cán Bộ Coi Thi Lần 2";
+                    dtgvChiTietMon.Columns["SoBaiThiLan2"].HeaderText = "Số Bài Thi Lần 2";
                     dtgvChiTietMon.Columns["GhiChu"].HeaderText = "Ghi Chú";
 
                     dtgvChiTietMon.Columns["MaChiTietMon"].Visible = false;
                     dtgvChiTietMon.Columns["TenMon"].ReadOnly = true;
                     btnCapNhatChiTietMon.Visible = true;
                     dtgvChiTietMon.Visible = true;
+                    btnThemLop.Enabled = false;
                 }
             }
             catch (System.Exception ex)
@@ -232,6 +260,21 @@ namespace QuanLyBoMon
         private void frmThemLop_FormClosed(object sender, FormClosedEventArgs e)
         {
             frmMain.frmThemLop = null;
+        }
+
+        private void btnThemNamHoc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                isFrmThemNamHocClosed = false;
+                timer1.Start();
+                frmThemNamHoc frm = new frmThemNamHoc();
+                frm.Show();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

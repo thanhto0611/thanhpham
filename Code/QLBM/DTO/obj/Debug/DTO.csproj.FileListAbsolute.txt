@@ -3,3 +3,8 @@ G:\GitCode\thanhpham\Code\QLBM\DTO\bin\Debug\DTO.pdb
 G:\GitCode\thanhpham\Code\QLBM\DTO\obj\Debug\ResolveAssemblyReference.cache
 G:\GitCode\thanhpham\Code\QLBM\DTO\obj\Debug\DTO.dll
 G:\GitCode\thanhpham\Code\QLBM\DTO\obj\Debug\DTO.pdb
+D:\GitCode\thanhpham\Code\QLBM\DTO\bin\Debug\DTO.dll
+D:\GitCode\thanhpham\Code\QLBM\DTO\bin\Debug\DTO.pdb
+D:\GitCode\thanhpham\Code\QLBM\DTO\obj\Debug\ResolveAssemblyReference.cache
+D:\GitCode\thanhpham\Code\QLBM\DTO\obj\Debug\DTO.dll
+D:\GitCode\thanhpham\Code\QLBM\DTO\obj\Debug\DTO.pdb

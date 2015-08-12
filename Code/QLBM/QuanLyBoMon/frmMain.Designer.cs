@@ -32,14 +32,17 @@
             this.quanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmLơpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timLopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Window = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuMain
             // 
             this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quanToolStripMenuItem});
+            this.quanToolStripMenuItem,
+            this.Window});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
+            this.menuMain.MdiWindowListItem = this.Window;
             this.menuMain.Name = "menuMain";
             this.menuMain.Size = new System.Drawing.Size(1068, 24);
             this.menuMain.TabIndex = 1;
@@ -57,16 +60,22 @@
             // thêmLơpToolStripMenuItem
             // 
             this.thêmLơpToolStripMenuItem.Name = "thêmLơpToolStripMenuItem";
-            this.thêmLơpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.thêmLơpToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.thêmLơpToolStripMenuItem.Text = "Thêm Lớp";
             this.thêmLơpToolStripMenuItem.Click += new System.EventHandler(this.thêmLơpToolStripMenuItem_Click);
             // 
             // timLopToolStripMenuItem
             // 
             this.timLopToolStripMenuItem.Name = "timLopToolStripMenuItem";
-            this.timLopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.timLopToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.timLopToolStripMenuItem.Text = "Tim Kiếm Lớp";
             this.timLopToolStripMenuItem.Click += new System.EventHandler(this.timLopToolStripMenuItem_Click);
+            // 
+            // Window
+            // 
+            this.Window.Name = "Window";
+            this.Window.Size = new System.Drawing.Size(106, 20);
+            this.Window.Text = "Cửa sổ đang mở";
             // 
             // frmMain
             // 
@@ -92,6 +101,7 @@
         private System.Windows.Forms.ToolStripMenuItem quanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thêmLơpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem timLopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Window;
 
     }
 }

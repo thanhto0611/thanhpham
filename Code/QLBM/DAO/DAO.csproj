@@ -50,6 +50,7 @@
     <Compile Include="LopDAO.cs" />
     <Compile Include="LopMonDAO.cs" />
     <Compile Include="MonDAO.cs" />
+    <Compile Include="NamHocDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

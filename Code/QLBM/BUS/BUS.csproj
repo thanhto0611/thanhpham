@@ -49,6 +49,7 @@
     <Compile Include="LopBUS.cs" />
     <Compile Include="LopMonBUS.cs" />
     <Compile Include="MonBUS.cs" />
+    <Compile Include="NamHocBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

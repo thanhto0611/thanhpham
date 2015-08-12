@@ -44,20 +44,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtgvChiTietMon = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnCapNhatChiTietMon = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbNamHoc = new System.Windows.Forms.ComboBox();
+            this.btnThemNamHoc = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDSMon)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChiTietMon)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnThemNamHoc);
+            this.groupBox1.Controls.Add(this.cmbNamHoc);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnThemLop);
             this.groupBox1.Controls.Add(this.btnThemMon);
             this.groupBox1.Controls.Add(this.dtgvDSMon);
@@ -199,16 +205,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Môn học của lớp:";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnCapNhatChiTietMon);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(3, 16);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1168, 79);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dtgvChiTietMon);
@@ -234,6 +230,16 @@
             this.dtgvChiTietMon.TabIndex = 0;
             this.dtgvChiTietMon.Visible = false;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnCapNhatChiTietMon);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(3, 16);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1168, 79);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            // 
             // btnCapNhatChiTietMon
             // 
             this.btnCapNhatChiTietMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,6 +252,33 @@
             this.btnCapNhatChiTietMon.UseVisualStyleBackColor = true;
             this.btnCapNhatChiTietMon.Visible = false;
             this.btnCapNhatChiTietMon.Click += new System.EventHandler(this.btnCapNhatChiTietMon_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(377, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Năm học:";
+            // 
+            // cmbNamHoc
+            // 
+            this.cmbNamHoc.FormattingEnabled = true;
+            this.cmbNamHoc.Location = new System.Drawing.Point(436, 51);
+            this.cmbNamHoc.Name = "cmbNamHoc";
+            this.cmbNamHoc.Size = new System.Drawing.Size(91, 21);
+            this.cmbNamHoc.TabIndex = 13;
+            // 
+            // btnThemNamHoc
+            // 
+            this.btnThemNamHoc.Location = new System.Drawing.Point(422, 91);
+            this.btnThemNamHoc.Name = "btnThemNamHoc";
+            this.btnThemNamHoc.Size = new System.Drawing.Size(105, 23);
+            this.btnThemNamHoc.TabIndex = 14;
+            this.btnThemNamHoc.Text = "Thêm Năm Học";
+            this.btnThemNamHoc.UseVisualStyleBackColor = true;
+            this.btnThemNamHoc.Click += new System.EventHandler(this.btnThemNamHoc_Click);
             // 
             // frmThemLop
             // 
@@ -264,9 +297,9 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDSMon)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChiTietMon)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -292,5 +325,8 @@
         private System.Windows.Forms.DataGridView dtgvChiTietMon;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnCapNhatChiTietMon;
+        private System.Windows.Forms.ComboBox cmbNamHoc;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnThemNamHoc;
     }
 }

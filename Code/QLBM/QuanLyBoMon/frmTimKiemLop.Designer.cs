@@ -382,6 +382,7 @@
             this.dtgvChiTietMon.AllowUserToAddRows = false;
             this.dtgvChiTietMon.AllowUserToDeleteRows = false;
             this.dtgvChiTietMon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgvChiTietMon.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgvChiTietMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvChiTietMon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvChiTietMon.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;

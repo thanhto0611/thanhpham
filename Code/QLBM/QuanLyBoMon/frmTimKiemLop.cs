@@ -206,6 +206,24 @@ namespace QuanLyBoMon
 
                     dtgvChiTietMon.Columns["MaChiTietMon"].Visible = false;
                     dtgvChiTietMon.Columns["TenMon"].ReadOnly = true;
+
+                    dtgvChiTietMon.Columns["TenMon"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["ThoiGianHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["GioHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["GiangDuong"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["GiangVien"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["NgayThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["GioThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["GiangDuongThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["CanBoCoiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["SoBaiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["NgayThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["GioThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["GiangDuongThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["CanBoCoiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["SoBaiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dtgvChiTietMon.Columns["GhiChu"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
                     btnCapNhatChiTietMon.Visible = true;
                     dtgvChiTietMon.Visible = true;
                     groupBox2.Visible = true;

@@ -42,6 +42,16 @@ namespace BUS
             ChiTietMonDAO.UpdateGiangVien(chiTietMonDTO);
         }
 
+        public static void UpdateCanBoCoiThiLan1(ChiTietMonDTO chiTietMonDTO)
+        {
+            ChiTietMonDAO.UpdateCanBoCoiThiLan1(chiTietMonDTO);
+        }
+
+        public static void UpdateCanBoCoiThiLan2(ChiTietMonDTO chiTietMonDTO)
+        {
+            ChiTietMonDAO.UpdateCanBoCoiThiLan2(chiTietMonDTO);
+        }
+
         public static void Delete(int maChiTietMon)
         {
             ChiTietMonDAO.Delete(maChiTietMon);

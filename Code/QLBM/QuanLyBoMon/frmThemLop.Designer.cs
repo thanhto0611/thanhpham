@@ -51,7 +51,6 @@
             this.dtgvChiTietMon = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnCapNhatChiTietMon = new System.Windows.Forms.Button();
-            this.timerCheckThemGiangVien = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDSMon)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -283,10 +282,6 @@
             this.btnCapNhatChiTietMon.Visible = false;
             this.btnCapNhatChiTietMon.Click += new System.EventHandler(this.btnCapNhatChiTietMon_Click);
             // 
-            // timerCheckThemGiangVien
-            // 
-            this.timerCheckThemGiangVien.Tick += new System.EventHandler(this.timerCheckThemGiangVien_Tick);
-            // 
             // frmThemLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,6 +330,5 @@
         private System.Windows.Forms.ComboBox cmbNamHoc;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnThemNamHoc;
-        private System.Windows.Forms.Timer timerCheckThemGiangVien;
     }
 }

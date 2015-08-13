@@ -61,6 +61,18 @@
     <Compile Include="frmQuanLyGiangVien.Designer.cs">
       <DependentUpon>frmQuanLyGiangVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThemCanBoCoiThiLan1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemCanBoCoiThiLan1.Designer.cs">
+      <DependentUpon>frmThemCanBoCoiThiLan1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemCanBoCoiThiLan2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemCanBoCoiThiLan2.Designer.cs">
+      <DependentUpon>frmThemCanBoCoiThiLan2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemGiangVienVaoMon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +111,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyGiangVien.resx">
       <DependentUpon>frmQuanLyGiangVien.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemCanBoCoiThiLan1.resx">
+      <DependentUpon>frmThemCanBoCoiThiLan1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemCanBoCoiThiLan2.resx">
+      <DependentUpon>frmThemCanBoCoiThiLan2.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemGiangVienVaoMon.resx">

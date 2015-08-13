@@ -175,6 +175,38 @@ namespace DAO
             connection.Close();
         }
 
+        public static void UpdateCanBoCoiThiLan1(ChiTietMonDTO chiTietMonDTO)
+        {
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Update CHITIETMON Set [CanBoCoiThiLan1] = ? Where [MaChiTietMon] = ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+
+            command.Parameters.Add("@CanBoCoiThiLan1", OleDbType.WChar);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
+
+            command.Parameters["@CanBoCoiThiLan1"].Value = chiTietMonDTO.CanBoCoiThiLan1;
+            command.Parameters["@MaChiTietMon"].Value = chiTietMonDTO.MaChiTietMon;
+
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void UpdateCanBoCoiThiLan2(ChiTietMonDTO chiTietMonDTO)
+        {
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Update CHITIETMON Set [CanBoCoiThiLan2] = ? Where [MaChiTietMon] = ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+
+            command.Parameters.Add("@CanBoCoiThiLan2", OleDbType.WChar);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
+
+            command.Parameters["@CanBoCoiThiLan2"].Value = chiTietMonDTO.CanBoCoiThiLan2;
+            command.Parameters["@MaChiTietMon"].Value = chiTietMonDTO.MaChiTietMon;
+
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
         public static void Insert(ChiTietMonDTO chiTietMonDTO)
         {
             OleDbConnection connection = DataProvider.CreateConnection();

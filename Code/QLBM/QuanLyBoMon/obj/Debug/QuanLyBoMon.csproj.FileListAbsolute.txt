@@ -36,3 +36,7 @@ D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.csproj.Generate
 G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmQuanLyGiangVien.resources
 G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemNamHoc.resources
 G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemGiangVienVaoMon.resources
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmQuanLyGiangVien.resources
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemCanBoCoiThiLan1.resources
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemCanBoCoiThiLan2.resources
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemGiangVienVaoMon.resources

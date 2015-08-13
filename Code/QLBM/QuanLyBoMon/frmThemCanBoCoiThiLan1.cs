@@ -13,15 +13,50 @@ using System.Data.SqlClient;
 
 namespace QuanLyBoMon
 {
-    public partial class frmThemGiangVienVaoMon : Form
+    public partial class frmThemCanBoCoiThiLan1 : Form
     {
+
         public DataTable dtGiangVienCuaMon = new DataTable();
         public ChiTietMonDTO chiTietMonDTO = new ChiTietMonDTO();
-        public int maChiTietMon;
 
-        public frmThemGiangVienVaoMon()
+        public frmThemCanBoCoiThiLan1()
         {
             InitializeComponent();
+        }
+
+        private void frmThemCanBoCoiThiLan1_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                dtGiangVienCuaMon.Columns.Add("MaGiangVien", typeof(int));
+                dtGiangVienCuaMon.Columns.Add("TenGiangVien", typeof(string));
+
+                chiTietMonDTO = ChiTietMonBUS.TimTheoMaChiTietMon(frmThemLop.gMaChiTietMon);
+
+                if (chiTietMonDTO.CanBoCoiThiLan1 != "")
+                {
+                    string[] groupGiangVien = chiTietMonDTO.CanBoCoiThiLan1.Split(',');
+
+                    for (int i = 0; i < groupGiangVien.Count(); i++)
+                    {
+                        GiangVienDTO giangVienDTO = GiangVienBUS.TimTheoMaGiangVien(Int32.Parse(groupGiangVien[i]));
+
+                        DataRow dr = dtGiangVienCuaMon.NewRow();
+                        dr[0] = giangVienDTO.MaGiangVien;
+                        dr[1] = giangVienDTO.TenGiangVien;
+
+                        dtGiangVienCuaMon.Rows.Add(dr);
+                    }
+                }
+
+                listGiangVienMon.DataSource = dtGiangVienCuaMon;
+                listGiangVienMon.DisplayMember = "TenGiangVien";
+                listGiangVienMon.ValueMember = "MaGiangVien";
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txtThongTinTimKiem_TextChanged(object sender, EventArgs e)
@@ -43,48 +78,6 @@ namespace QuanLyBoMon
                 listGiangVien.DataSource = GiangVienBUS.GetTable(txtThongTinTimKiem.Text);
                 listGiangVien.DisplayMember = "TenGiangVien";
                 listGiangVien.ValueMember = "MaGiangVien";
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void frmThemGiangVienVaoMon_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                maChiTietMon = frmThemLop.gMaChiTietMon;
-                dtGiangVienCuaMon = GiangVienBUS.LayDanhSachGiangVienCuaMon(maChiTietMon);
-
-
-
-
-
-                //dtGiangVienCuaMon.Columns.Add("MaGiangVien", typeof(int));
-                //dtGiangVienCuaMon.Columns.Add("TenGiangVien", typeof(string));
-
-                //chiTietMonDTO = ChiTietMonBUS.TimTheoMaChiTietMon(frmThemLop.gMaChiTietMon);
-
-                //if (chiTietMonDTO.GiangVien != "")
-                //{
-                //    string[] groupGiangVien = chiTietMonDTO.GiangVien.Split(',');
-
-                //    for (int i = 0; i < groupGiangVien.Count(); i++)
-                //    {
-                //        GiangVienDTO giangVienDTO = GiangVienBUS.TimTheoMaGiangVien(Int32.Parse(groupGiangVien[i]));
-
-                //        DataRow dr = dtGiangVienCuaMon.NewRow();
-                //        dr[0] = giangVienDTO.MaGiangVien;
-                //        dr[1] = giangVienDTO.TenGiangVien;
-
-                //        dtGiangVienCuaMon.Rows.Add(dr);
-                //    }
-                //}
-
-                listGiangVienMon.DataSource = dtGiangVienCuaMon;
-                listGiangVienMon.DisplayMember = "TenGiangVien";
-                listGiangVienMon.ValueMember = "MaGiangVien";
             }
             catch (System.Exception ex)
             {
@@ -114,10 +107,7 @@ namespace QuanLyBoMon
                         listGiangVienMon.DisplayMember = "TenGiangVien";
                         listGiangVienMon.ValueMember = "MaGiangVien";
 
-                        if (!GiangVienBUS.KiemTraGiangVienTheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon))
-                        {
-                            GiangVienBUS.ThemGiangVienMon(maGiangVien, maChiTietMon);
-                        }
+                        CapNhatGiangVien();
                     }
                 }
             }
@@ -135,12 +125,18 @@ namespace QuanLyBoMon
 
                 foreach (DataRow row in dtGiangVienCuaMon.Rows)
                 {
-                    int maGiangVien = Int32.Parse(row["MaGiangVien"].ToString());
-                    if (GiangVienBUS.KiemTraGiangVienTheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon))
+                    if (giangVien == "")
                     {
-                        GiangVienBUS.ThemGiangVienMon(maGiangVien, maChiTietMon);
+                        giangVien += row[0].ToString();
+                    }
+                    else
+                    {
+                        giangVien = giangVien + "," + row[0].ToString();
                     }
                 }
+
+                chiTietMonDTO.CanBoCoiThiLan1 = giangVien;
+                ChiTietMonBUS.UpdateCanBoCoiThiLan1(chiTietMonDTO);
             }
             catch (System.Exception ex)
             {
@@ -154,13 +150,13 @@ namespace QuanLyBoMon
             {
                 if (listGiangVienMon.SelectedIndex >= 0)
                 {
-                    GiangVienBUS.XoaGiangVienMon(Int32.Parse(listGiangVienMon.SelectedValue.ToString()), maChiTietMon);
-
                     dtGiangVienCuaMon.Rows.Remove(dtGiangVienCuaMon.Rows[listGiangVienMon.SelectedIndex]);
 
                     listGiangVienMon.DataSource = dtGiangVienCuaMon;
                     listGiangVienMon.DisplayMember = "TenGiangVien";
                     listGiangVienMon.ValueMember = "MaGiangVien";
+
+                    CapNhatGiangVien();
                 }
             }
             catch (System.Exception ex)
@@ -174,9 +170,9 @@ namespace QuanLyBoMon
             this.Close();
         }
 
-        private void frmThemGiangVienVaoMon_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmThemCanBoCoiThiLan1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmThemLop.isFrmThemGiangVienClosed = true;
+            frmThemLop.isFrmThemCanBoCoiThiLan1Closed = true;
         }
     }
 }

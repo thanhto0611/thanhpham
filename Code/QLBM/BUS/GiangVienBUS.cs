@@ -22,6 +22,16 @@ namespace BUS
             return GiangVienDAO.GetTable(thongTinGiangVien);
         }
 
+        public static DataTable LayDanhSachGiangVienCuaMon(int maChiTietMon)
+        {
+            return GiangVienDAO.LayDanhSachGiangVienCuaMon(maChiTietMon);
+        }
+
+        public static bool KiemTraGiangVienTheoMaGiangVienMaChiTietMon(int maGiangVien, int maChiTietMon)
+        {
+            return GiangVienDAO.KiemTraGiangVienTheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon);
+        }
+        
         public static IList GetList()
         {
             return GiangVienDAO.GetList();
@@ -37,6 +47,11 @@ namespace BUS
             GiangVienDAO.Insert(giangVienDTO);
         }
 
+        public static void ThemGiangVienMon(int maGiangVien, int maChiTietMon)
+        {
+            GiangVienDAO.ThemGiangVienMon(maGiangVien, maChiTietMon);
+        }
+
         public static void UpdateRecord(GiangVienDTO giangVienDTO)
         {
             GiangVienDAO.UpdateRecord(giangVienDTO);
@@ -45,6 +60,11 @@ namespace BUS
         public static void Delete(int maGiangVien)
         {
             GiangVienDAO.Delete(maGiangVien);
+        }
+
+        public static void XoaGiangVienMon(int maGiangVien, int maChiTietMon)
+        {
+            GiangVienDAO.XoaGiangVienMon(maGiangVien, maChiTietMon);
         }
     }
 }

@@ -21,6 +21,8 @@ namespace QuanLyBoMon
         public static bool isFrmThemMonClosed = false;
         public static bool isFrmThemNamHocClosed = false;
         public static bool isFrmThemGiangVienClosed = false;
+        public static bool isFrmThemCanBoCoiThiLan1Closed = false;
+        public static bool isFrmThemCanBoCoiThiLan2Closed = false;
 
         public static int gMaChiTietMon;
 
@@ -123,6 +125,24 @@ namespace QuanLyBoMon
                 timer1.Stop();
                 refreshNamHocData();
             }
+
+            if (isFrmThemGiangVienClosed)
+            {
+                timer1.Stop();
+                LayDanhSachChiTietMon();
+            }
+
+            if (isFrmThemCanBoCoiThiLan1Closed)
+            {
+                timer1.Stop();
+                LayDanhSachChiTietMon();
+            }
+
+            if (isFrmThemCanBoCoiThiLan2Closed)
+            {
+                timer1.Stop();
+                LayDanhSachChiTietMon();
+            }
         }
 
         private void btnThemLop_Click(object sender, EventArgs e)
@@ -204,27 +224,90 @@ namespace QuanLyBoMon
                 dtChiTietMon = ChiTietMonBUS.GetTable(lopDTO.MaLop);
                 foreach (DataRow dr in dtChiTietMon.Rows)
                 {
-                    if (dr["GiangVien"].ToString() != "")
+                    DataTable dtGiangVienMon = GiangVienBUS.LayDanhSachGiangVienCuaMon(Int32.Parse(dr["MaChiTietMon"].ToString()));
+                    if (dtChiTietMon.Rows.Count > 0)
                     {
-                        string[] groupGiangVien = dr["GiangVien"].ToString().Split(',');
                         string giangVien = "";
 
-                        for (int i = 0; i < groupGiangVien.Count(); i++)
+                        foreach (DataRow drGiangVienMon in dtGiangVienMon.Rows)
                         {
-                            GiangVienDTO giangVienDTO = GiangVienBUS.TimTheoMaGiangVien(Int32.Parse(groupGiangVien[i]));
-
                             if (giangVien == "")
                             {
-                                giangVien += giangVienDTO.TenGiangVien;
+                                giangVien += drGiangVienMon["TenGiangVien"].ToString();
                             }
                             else
                             {
-                                giangVien = giangVien + Environment.NewLine + giangVienDTO.TenGiangVien;
+                                giangVien = giangVien + Environment.NewLine + drGiangVienMon["TenGiangVien"].ToString();
                             }
                         }
-
                         dr["GiangVien"] = giangVien;
                     }
+
+                    //if (dr["GiangVien"].ToString() != "")
+                    //{
+                    //    string[] groupGiangVien = dr["GiangVien"].ToString().Split(',');
+                    //    string giangVien = "";
+
+                    //    for (int i = 0; i < groupGiangVien.Count(); i++)
+                    //    {
+                    //        GiangVienDTO giangVienDTO = GiangVienBUS.TimTheoMaGiangVien(Int32.Parse(groupGiangVien[i]));
+
+                    //        if (giangVien == "")
+                    //        {
+                    //            giangVien += giangVienDTO.TenGiangVien;
+                    //        }
+                    //        else
+                    //        {
+                    //            giangVien = giangVien + Environment.NewLine + giangVienDTO.TenGiangVien;
+                    //        }
+                    //    }
+
+                    //    dr["GiangVien"] = giangVien;
+                    //}
+
+                    //if (dr["CanBoCoiThiLan1"].ToString() != "")
+                    //{
+                    //    string[] groupCanBoCoiThiLan1 = dr["CanBoCoiThiLan1"].ToString().Split(',');
+                    //    string canBoCoiThiLan1 = "";
+
+                    //    for (int i = 0; i < groupCanBoCoiThiLan1.Count(); i++)
+                    //    {
+                    //        GiangVienDTO giangVienDTO = GiangVienBUS.TimTheoMaGiangVien(Int32.Parse(groupCanBoCoiThiLan1[i]));
+
+                    //        if (canBoCoiThiLan1 == "")
+                    //        {
+                    //            canBoCoiThiLan1 += giangVienDTO.TenGiangVien;
+                    //        }
+                    //        else
+                    //        {
+                    //            canBoCoiThiLan1 = canBoCoiThiLan1 + Environment.NewLine + giangVienDTO.TenGiangVien;
+                    //        }
+                    //    }
+
+                    //    dr["CanBoCoiThiLan1"] = canBoCoiThiLan1;
+                    //}
+
+                    //if (dr["CanBoCoiThiLan2"].ToString() != "")
+                    //{
+                    //    string[] groupCanBoCoiThiLan2 = dr["CanBoCoiThiLan2"].ToString().Split(',');
+                    //    string canBoCoiThiLan2 = "";
+
+                    //    for (int i = 0; i < groupCanBoCoiThiLan2.Count(); i++)
+                    //    {
+                    //        GiangVienDTO giangVienDTO = GiangVienBUS.TimTheoMaGiangVien(Int32.Parse(groupCanBoCoiThiLan2[i]));
+
+                    //        if (canBoCoiThiLan2 == "")
+                    //        {
+                    //            canBoCoiThiLan2 += giangVienDTO.TenGiangVien;
+                    //        }
+                    //        else
+                    //        {
+                    //            canBoCoiThiLan2 = canBoCoiThiLan2 + Environment.NewLine + giangVienDTO.TenGiangVien;
+                    //        }
+                    //    }
+
+                    //    dr["CanBoCoiThiLan1"] = canBoCoiThiLan2;
+                    //}
                 }
 
                 dtgvChiTietMon.DataSource = dtChiTietMon;
@@ -361,21 +444,32 @@ namespace QuanLyBoMon
 
                     frmThemGiangVienVaoMon frm = new frmThemGiangVienVaoMon();
                     frm.Show();
-                    timerCheckThemGiangVien.Start();
+                    timer1.Start();
+                }
+
+                if (dtgvChiTietMon.Columns[e.ColumnIndex].Name == "CanBoCoiThiLan1" && e.RowIndex >= 0)
+                {
+                    isFrmThemCanBoCoiThiLan1Closed = false;
+                    gMaChiTietMon = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaChiTietMon"].Value.ToString());
+
+                    frmThemCanBoCoiThiLan1 frm = new frmThemCanBoCoiThiLan1();
+                    frm.Show();
+                    timer1.Start();
+                }
+
+                if (dtgvChiTietMon.Columns[e.ColumnIndex].Name == "CanBoCoiThiLan2" && e.RowIndex >= 0)
+                {
+                    isFrmThemCanBoCoiThiLan1Closed = false;
+                    gMaChiTietMon = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaChiTietMon"].Value.ToString());
+
+                    frmThemCanBoCoiThiLan2 frm = new frmThemCanBoCoiThiLan2();
+                    frm.Show();
+                    timer1.Start();
                 }
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void timerCheckThemGiangVien_Tick(object sender, EventArgs e)
-        {
-            if (isFrmThemGiangVienClosed)
-            {
-                timerCheckThemGiangVien.Stop();
-                LayDanhSachChiTietMon();
             }
         }
     }

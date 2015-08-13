@@ -82,9 +82,11 @@
             // 
             // btnChon
             // 
-            this.btnChon.Location = new System.Drawing.Point(444, 149);
+            this.btnChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnChon.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnChon.Location = new System.Drawing.Point(432, 149);
             this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(75, 23);
+            this.btnChon.Size = new System.Drawing.Size(87, 23);
             this.btnChon.TabIndex = 16;
             this.btnChon.Text = "Chọn >>";
             this.btnChon.UseVisualStyleBackColor = true;
@@ -92,9 +94,11 @@
             // 
             // btnBoChon
             // 
-            this.btnBoChon.Location = new System.Drawing.Point(444, 189);
+            this.btnBoChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnBoChon.ForeColor = System.Drawing.Color.Red;
+            this.btnBoChon.Location = new System.Drawing.Point(432, 189);
             this.btnBoChon.Name = "btnBoChon";
-            this.btnBoChon.Size = new System.Drawing.Size(75, 23);
+            this.btnBoChon.Size = new System.Drawing.Size(87, 23);
             this.btnBoChon.TabIndex = 17;
             this.btnBoChon.Text = "<< Bỏ Chọn";
             this.btnBoChon.UseVisualStyleBackColor = true;

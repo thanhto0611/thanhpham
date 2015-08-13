@@ -36,11 +36,77 @@ namespace DAO
             return dataTable;
         }
 
+        public static DataTable LayDanhSachCanBoCoiThiLan1CuaMon(int maChiTietMon)
+        {
+            DataTable dataTable = new DataTable();
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select DISTINCT gv.MaGiangVien, gv.TenGiangVien from (GIANGVIEN gv inner join CANBOCOITHILAN1MON cbct on gv.MaGiangVien = cbct.MaGiangVien) where cbct.MaChiTietMon = ? order by gv.TenGiangVien ASC";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
+            command.Parameters["@MaChiTietMon"].Value = maChiTietMon;
+            OleDbDataAdapter adpter = new OleDbDataAdapter(command);
+            adpter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
+        public static DataTable LayDanhSachCanBoCoiThiLan2CuaMon(int maChiTietMon)
+        {
+            DataTable dataTable = new DataTable();
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select DISTINCT gv.MaGiangVien, gv.TenGiangVien from (GIANGVIEN gv inner join CANBOCOITHILAN2MON cbct on gv.MaGiangVien = cbct.MaGiangVien) where cbct.MaChiTietMon = ? order by gv.TenGiangVien ASC";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
+            command.Parameters["@MaChiTietMon"].Value = maChiTietMon;
+            OleDbDataAdapter adpter = new OleDbDataAdapter(command);
+            adpter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
         public static bool KiemTraGiangVienTheoMaGiangVienMaChiTietMon(int maGiangVien, int maChiTietMon)
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
             string cmdText = "Select * from GIANGVIENMON where MaGiangVien = ? and MaChiTietMon = ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            command.Parameters.Add("@MaGiangVien", OleDbType.Numeric);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
+
+            command.Parameters["@MaGiangVien"].Value = maGiangVien;
+            command.Parameters["@MaChiTietMon"].Value = maChiTietMon;
+            OleDbDataAdapter adpter = new OleDbDataAdapter(command);
+            adpter.Fill(dataTable);
+            connection.Close();
+            if (dataTable.Rows.Count > 0)
+                return true;
+            return false;
+        }
+
+        public static bool KiemTraCanBoCoiThiLan1TheoMaGiangVienMaChiTietMon(int maGiangVien, int maChiTietMon)
+        {
+            DataTable dataTable = new DataTable();
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select * from CANBOCOITHILAN1MON where MaGiangVien = ? and MaChiTietMon = ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            command.Parameters.Add("@MaGiangVien", OleDbType.Numeric);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
+
+            command.Parameters["@MaGiangVien"].Value = maGiangVien;
+            command.Parameters["@MaChiTietMon"].Value = maChiTietMon;
+            OleDbDataAdapter adpter = new OleDbDataAdapter(command);
+            adpter.Fill(dataTable);
+            connection.Close();
+            if (dataTable.Rows.Count > 0)
+                return true;
+            return false;
+        }
+
+        public static bool KiemTraCanBoCoiThiLan2TheoMaGiangVienMaChiTietMon(int maGiangVien, int maChiTietMon)
+        {
+            DataTable dataTable = new DataTable();
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select * from CANBOCOITHILAN2MON where MaGiangVien = ? and MaChiTietMon = ?";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             command.Parameters.Add("@MaGiangVien", OleDbType.Numeric);
             command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
@@ -190,6 +256,38 @@ namespace DAO
             connection.Close();
         }
 
+        public static void ThemCanBoCoiThiLan1Mon(int maGiangVien, int maChiTietMon)
+        {
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Insert into CANBOCOITHILAN1MON(MaGiangVien, MaChiTietMon) values(?,?)";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+
+            command.Parameters.Add("@MaGiangVien", OleDbType.Integer);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Integer);
+
+            command.Parameters["@MaGiangVien"].Value = maGiangVien;
+            command.Parameters["@MaChiTietMon"].Value = maChiTietMon;
+
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void ThemCanBoCoiThiLan2Mon(int maGiangVien, int maChiTietMon)
+        {
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Insert into CANBOCOITHILAN2MON(MaGiangVien, MaChiTietMon) values(?,?)";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+
+            command.Parameters.Add("@MaGiangVien", OleDbType.Integer);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Integer);
+
+            command.Parameters["@MaGiangVien"].Value = maGiangVien;
+            command.Parameters["@MaChiTietMon"].Value = maChiTietMon;
+
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
         public static bool Delete(int maGiangVien)
         {
             bool result = false;
@@ -213,6 +311,46 @@ namespace DAO
 
             OleDbConnection connection = DataProvider.CreateConnection();
             string cmdText = "delete from GIANGVIENMON where MaGiangVien = ? and MaChiTietMon = ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            command.Parameters.Add("@MaGiangVien", OleDbType.Integer);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Integer);
+
+            command.Parameters["@MaGiangVien"].Value = maGiangVien;
+            command.Parameters["@MaChiTietMon"].Value = maChiTietMon;
+
+            int row = command.ExecuteNonQuery();
+            if (row > 0)
+                result = true;
+            connection.Close();
+            return result;
+        }
+
+        public static bool XoaCanBoCoiThiLan1Mon(int maGiangVien, int maChiTietMon)
+        {
+            bool result = false;
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "delete from CANBOCOITHILAN1MON where MaGiangVien = ? and MaChiTietMon = ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            command.Parameters.Add("@MaGiangVien", OleDbType.Integer);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Integer);
+
+            command.Parameters["@MaGiangVien"].Value = maGiangVien;
+            command.Parameters["@MaChiTietMon"].Value = maChiTietMon;
+
+            int row = command.ExecuteNonQuery();
+            if (row > 0)
+                result = true;
+            connection.Close();
+            return result;
+        }
+
+        public static bool XoaCanBoCoiThiLan2Mon(int maGiangVien, int maChiTietMon)
+        {
+            bool result = false;
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "delete from CANBOCOITHILAN2MON where MaGiangVien = ? and MaChiTietMon = ?";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
             command.Parameters.Add("@MaGiangVien", OleDbType.Integer);
             command.Parameters.Add("@MaChiTietMon", OleDbType.Integer);

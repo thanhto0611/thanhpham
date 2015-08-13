@@ -67,6 +67,8 @@
             this.Controls.Add(this.btnThemMon);
             this.Controls.Add(this.txtTenMon);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmThemMon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Môn Học";

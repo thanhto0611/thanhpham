@@ -290,6 +290,8 @@
             this.ClientSize = new System.Drawing.Size(1174, 724);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmThemLop";
             this.Text = "Thêm Lớp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

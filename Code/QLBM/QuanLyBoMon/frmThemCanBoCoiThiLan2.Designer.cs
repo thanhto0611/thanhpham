@@ -129,6 +129,8 @@
             this.Controls.Add(this.listGiangVien);
             this.Controls.Add(this.txtThongTinTimKiem);
             this.Controls.Add(this.label5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmThemCanBoCoiThiLan2";
             this.Text = "Thêm Cán Bộ Coi Thi Lần 2";
             this.Load += new System.EventHandler(this.frmThemCanBoCoiThiLan2_Load);

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyBoMon
 {
-    partial class frmThemCanBoCoiThiLan1
+    partial class frmThemGiangVienVaoMonTimKiem
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@
             // 
             this.btnDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDong.ForeColor = System.Drawing.Color.Red;
-            this.btnDong.Location = new System.Drawing.Point(856, 106);
+            this.btnDong.Location = new System.Drawing.Point(857, 97);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(100, 93);
             this.btnDong.TabIndex = 26;
@@ -54,9 +54,9 @@
             // 
             this.btnBoChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnBoChon.ForeColor = System.Drawing.Color.Red;
-            this.btnBoChon.Location = new System.Drawing.Point(421, 176);
+            this.btnBoChon.Location = new System.Drawing.Point(418, 172);
             this.btnBoChon.Name = "btnBoChon";
-            this.btnBoChon.Size = new System.Drawing.Size(88, 23);
+            this.btnBoChon.Size = new System.Drawing.Size(87, 23);
             this.btnBoChon.TabIndex = 25;
             this.btnBoChon.Text = "<< Bỏ Chọn";
             this.btnBoChon.UseVisualStyleBackColor = true;
@@ -66,9 +66,9 @@
             // 
             this.btnChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnChon.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnChon.Location = new System.Drawing.Point(421, 141);
+            this.btnChon.Location = new System.Drawing.Point(418, 132);
             this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(88, 23);
+            this.btnChon.Size = new System.Drawing.Size(87, 23);
             this.btnChon.TabIndex = 24;
             this.btnChon.Text = "Chọn >>";
             this.btnChon.UseVisualStyleBackColor = true;
@@ -77,7 +77,7 @@
             // listGiangVienMon
             // 
             this.listGiangVienMon.FormattingEnabled = true;
-            this.listGiangVienMon.Location = new System.Drawing.Point(515, 47);
+            this.listGiangVienMon.Location = new System.Drawing.Point(516, 38);
             this.listGiangVienMon.Name = "listGiangVienMon";
             this.listGiangVienMon.Size = new System.Drawing.Size(335, 290);
             this.listGiangVienMon.TabIndex = 23;
@@ -85,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(512, 24);
+            this.label1.Location = new System.Drawing.Point(513, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 13);
             this.label1.TabIndex = 22;
@@ -94,14 +94,14 @@
             // listGiangVien
             // 
             this.listGiangVien.FormattingEnabled = true;
-            this.listGiangVien.Location = new System.Drawing.Point(12, 47);
+            this.listGiangVien.Location = new System.Drawing.Point(13, 38);
             this.listGiangVien.Name = "listGiangVien";
             this.listGiangVien.Size = new System.Drawing.Size(399, 290);
             this.listGiangVien.TabIndex = 21;
             // 
             // txtThongTinTimKiem
             // 
-            this.txtThongTinTimKiem.Location = new System.Drawing.Point(97, 21);
+            this.txtThongTinTimKiem.Location = new System.Drawing.Point(98, 12);
             this.txtThongTinTimKiem.Name = "txtThongTinTimKiem";
             this.txtThongTinTimKiem.Size = new System.Drawing.Size(314, 20);
             this.txtThongTinTimKiem.TabIndex = 20;
@@ -110,17 +110,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 24);
+            this.label5.Location = new System.Drawing.Point(10, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 19;
             this.label5.Text = "Tìm Giảng Viên:";
             // 
-            // frmThemCanBoCoiThiLan1
+            // frmThemGiangVienVaoMonTimKiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 364);
+            this.ClientSize = new System.Drawing.Size(973, 348);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnBoChon);
             this.Controls.Add(this.btnChon);
@@ -129,12 +129,10 @@
             this.Controls.Add(this.listGiangVien);
             this.Controls.Add(this.txtThongTinTimKiem);
             this.Controls.Add(this.label5);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "frmThemCanBoCoiThiLan1";
-            this.Text = "Thêm Cán Bộ Coi Thi Lần 1";
-            this.Load += new System.EventHandler(this.frmThemCanBoCoiThiLan1_Load);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmThemCanBoCoiThiLan1_FormClosed);
+            this.Name = "frmThemGiangVienVaoMonTimKiem";
+            this.Text = "Thêm Giảng Viên Vào Môn";
+            this.Load += new System.EventHandler(this.frmThemGiangVienVaoMonTimKiem_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmThemGiangVienVaoMonTimKiem_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

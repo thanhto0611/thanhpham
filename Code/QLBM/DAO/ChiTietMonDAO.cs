@@ -118,7 +118,7 @@ namespace DAO
         public static void UpdateRecord(ChiTietMonDTO chiTietMonDTO)
         {
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Update CHITIETMON Set [ThoiGianHoc] = ?, [GioHoc] = ?, [GiangDuong] = ?, [NgayThiLan1] = ?, [GioThiLan1] = ?, [GiangDuongThiLan1] = ?, [CanBoCoiThiLan1] = ?, [SoBaiThiLan1] = ?, [NgayThiLan2] = ?, [GioThiLan2] = ?, [GiangDuongThiLan2] = ?, [CanBoCoiThiLan2] = ?, [SoBaiThiLan2] = ?, [GhiChu] = ? Where [MaChiTietMon] = ?";
+            string cmdText = "Update CHITIETMON Set [ThoiGianHoc] = ?, [GioHoc] = ?, [GiangDuong] = ?, [NgayThiLan1] = ?, [GioThiLan1] = ?, [GiangDuongThiLan1] = ?, [SoBaiThiLan1] = ?, [NgayThiLan2] = ?, [GioThiLan2] = ?, [GiangDuongThiLan2] = ?, [SoBaiThiLan2] = ?, [GhiChu] = ? Where [MaChiTietMon] = ?";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
             command.Parameters.Add("@ThoiGianHoc", OleDbType.WChar);
@@ -128,12 +128,12 @@ namespace DAO
             command.Parameters.Add("@NgayThiLan1", OleDbType.WChar);
             command.Parameters.Add("@GioThiLan1", OleDbType.WChar);
             command.Parameters.Add("@GiangDuongThiLan1", OleDbType.WChar);
-            command.Parameters.Add("@CanBoCoiThiLan1", OleDbType.WChar);
+            //command.Parameters.Add("@CanBoCoiThiLan1", OleDbType.WChar);
             command.Parameters.Add("@SoBaiThiLan1", OleDbType.Numeric);
             command.Parameters.Add("@NgayThiLan2", OleDbType.WChar);
             command.Parameters.Add("@GioThiLan2", OleDbType.WChar);
             command.Parameters.Add("@GiangDuongThiLan2", OleDbType.WChar);
-            command.Parameters.Add("@CanBoCoiThiLan2", OleDbType.WChar);
+            //command.Parameters.Add("@CanBoCoiThiLan2", OleDbType.WChar);
             command.Parameters.Add("@SoBaiThiLan2", OleDbType.Numeric);
             command.Parameters.Add("@GhiChu", OleDbType.WChar);
             command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
@@ -145,12 +145,12 @@ namespace DAO
             command.Parameters["@NgayThiLan1"].Value = chiTietMonDTO.NgayThiLan1;
             command.Parameters["@GioThiLan1"].Value = chiTietMonDTO.GioThiLan1;
             command.Parameters["@GiangDuongThiLan1"].Value = chiTietMonDTO.GiangDuongThiLan1;
-            command.Parameters["@CanBoCoiThiLan1"].Value = chiTietMonDTO.CanBoCoiThiLan1;
+            //command.Parameters["@CanBoCoiThiLan1"].Value = chiTietMonDTO.CanBoCoiThiLan1;
             command.Parameters["@SoBaiThiLan1"].Value = chiTietMonDTO.SoBaiThiLan1;
             command.Parameters["@NgayThiLan2"].Value = chiTietMonDTO.NgayThiLan2;
             command.Parameters["@GioThiLan2"].Value = chiTietMonDTO.GioThiLan2;
             command.Parameters["@GiangDuongThiLan2"].Value = chiTietMonDTO.GiangDuongThiLan2;
-            command.Parameters["@CanBoCoiThiLan2"].Value = chiTietMonDTO.CanBoCoiThiLan2;
+            //command.Parameters["@CanBoCoiThiLan2"].Value = chiTietMonDTO.CanBoCoiThiLan2;
             command.Parameters["@SoBaiThiLan2"].Value = chiTietMonDTO.SoBaiThiLan2;
             command.Parameters["@GhiChu"].Value = chiTietMonDTO.GhiChu;
             command.Parameters["@MaChiTietMon"].Value = chiTietMonDTO.MaChiTietMon;

@@ -27,9 +27,29 @@ namespace BUS
             return GiangVienDAO.LayDanhSachGiangVienCuaMon(maChiTietMon);
         }
 
+        public static DataTable LayDanhSachCanBoCoiThiLan1CuaMon(int maChiTietMon)
+        {
+            return GiangVienDAO.LayDanhSachCanBoCoiThiLan1CuaMon(maChiTietMon);
+        }
+
+        public static DataTable LayDanhSachCanBoCoiThiLan2CuaMon(int maChiTietMon)
+        {
+            return GiangVienDAO.LayDanhSachCanBoCoiThiLan2CuaMon(maChiTietMon);
+        }
+
         public static bool KiemTraGiangVienTheoMaGiangVienMaChiTietMon(int maGiangVien, int maChiTietMon)
         {
             return GiangVienDAO.KiemTraGiangVienTheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon);
+        }
+
+        public static bool KiemTraCanBoCoiThiLan1TheoMaGiangVienMaChiTietMon(int maGiangVien, int maChiTietMon)
+        {
+            return GiangVienDAO.KiemTraCanBoCoiThiLan1TheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon);
+        }
+
+        public static bool KiemTraCanBoCoiThiLan2TheoMaGiangVienMaChiTietMon(int maGiangVien, int maChiTietMon)
+        {
+            return GiangVienDAO.KiemTraCanBoCoiThiLan2TheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon);
         }
         
         public static IList GetList()
@@ -52,6 +72,16 @@ namespace BUS
             GiangVienDAO.ThemGiangVienMon(maGiangVien, maChiTietMon);
         }
 
+        public static void ThemCanBoCoiThiLan1Mon(int maGiangVien, int maChiTietMon)
+        {
+            GiangVienDAO.ThemCanBoCoiThiLan1Mon(maGiangVien, maChiTietMon);
+        }
+
+        public static void ThemCanBoCoiThiLan2Mon(int maGiangVien, int maChiTietMon)
+        {
+            GiangVienDAO.ThemCanBoCoiThiLan2Mon(maGiangVien, maChiTietMon);
+        }
+
         public static void UpdateRecord(GiangVienDTO giangVienDTO)
         {
             GiangVienDAO.UpdateRecord(giangVienDTO);
@@ -65,6 +95,16 @@ namespace BUS
         public static void XoaGiangVienMon(int maGiangVien, int maChiTietMon)
         {
             GiangVienDAO.XoaGiangVienMon(maGiangVien, maChiTietMon);
+        }
+
+        public static void XoaCanBoCoiThiLan1Mon(int maGiangVien, int maChiTietMon)
+        {
+            GiangVienDAO.XoaCanBoCoiThiLan1Mon(maGiangVien, maChiTietMon);
+        }
+
+        public static void XoaCanBoCoiThiLan2Mon(int maGiangVien, int maChiTietMon)
+        {
+            GiangVienDAO.XoaCanBoCoiThiLan2Mon(maGiangVien, maChiTietMon);
         }
     }
 }

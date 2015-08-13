@@ -67,17 +67,35 @@
     <Compile Include="frmThemCanBoCoiThiLan1.Designer.cs">
       <DependentUpon>frmThemCanBoCoiThiLan1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThemCanBoCoiThiLan1TimKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemCanBoCoiThiLan1TimKiem.Designer.cs">
+      <DependentUpon>frmThemCanBoCoiThiLan1TimKiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemCanBoCoiThiLan2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmThemCanBoCoiThiLan2.Designer.cs">
       <DependentUpon>frmThemCanBoCoiThiLan2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThemCanBoCoiThiLan2TimKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemCanBoCoiThiLan2TimKiem.Designer.cs">
+      <DependentUpon>frmThemCanBoCoiThiLan2TimKiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemGiangVienVaoMon.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmThemGiangVienVaoMon.Designer.cs">
       <DependentUpon>frmThemGiangVienVaoMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemGiangVienVaoMonTimKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemGiangVienVaoMonTimKiem.Designer.cs">
+      <DependentUpon>frmThemGiangVienVaoMonTimKiem.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThemLop.cs">
       <SubType>Form</SubType>
@@ -117,12 +135,24 @@
       <DependentUpon>frmThemCanBoCoiThiLan1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmThemCanBoCoiThiLan1TimKiem.resx">
+      <DependentUpon>frmThemCanBoCoiThiLan1TimKiem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThemCanBoCoiThiLan2.resx">
       <DependentUpon>frmThemCanBoCoiThiLan2.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmThemCanBoCoiThiLan2TimKiem.resx">
+      <DependentUpon>frmThemCanBoCoiThiLan2TimKiem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThemGiangVienVaoMon.resx">
       <DependentUpon>frmThemGiangVienVaoMon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemGiangVienVaoMonTimKiem.resx">
+      <DependentUpon>frmThemGiangVienVaoMonTimKiem.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemLop.resx">

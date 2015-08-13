@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.cmbNamHocCuaLop = new System.Windows.Forms.ComboBox();
@@ -60,6 +61,7 @@
             this.dtgvChiTietMon = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnCapNhatChiTietMon = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -391,6 +393,7 @@
             this.dtgvChiTietMon.Size = new System.Drawing.Size(1191, 300);
             this.dtgvChiTietMon.TabIndex = 0;
             this.dtgvChiTietMon.Visible = false;
+            this.dtgvChiTietMon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvChiTietMon_CellClick);
             // 
             // groupBox3
             // 
@@ -415,6 +418,10 @@
             this.btnCapNhatChiTietMon.Visible = false;
             this.btnCapNhatChiTietMon.Click += new System.EventHandler(this.btnCapNhatChiTietMon_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmTimKiemLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,6 +429,8 @@
             this.ClientSize = new System.Drawing.Size(1203, 589);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmTimKiemLop";
             this.Text = "Tìm Kiếm Lớp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -474,5 +483,6 @@
         private System.Windows.Forms.RadioButton rdGiangDuongThiLan2;
         private System.Windows.Forms.ComboBox cmbNamHocCuaLop;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer timer1;
     }
 }

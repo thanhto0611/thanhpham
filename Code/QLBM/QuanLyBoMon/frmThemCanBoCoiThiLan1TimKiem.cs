@@ -13,23 +13,23 @@ using System.Data.SqlClient;
 
 namespace QuanLyBoMon
 {
-    public partial class frmThemCanBoCoiThiLan2 : Form
+    public partial class frmThemCanBoCoiThiLan1TimKiem : Form
     {
         public DataTable dtGiangVienCuaMon = new DataTable();
         public ChiTietMonDTO chiTietMonDTO = new ChiTietMonDTO();
         public int maChiTietMon;
 
-        public frmThemCanBoCoiThiLan2()
+        public frmThemCanBoCoiThiLan1TimKiem()
         {
             InitializeComponent();
         }
 
-        private void frmThemCanBoCoiThiLan2_Load(object sender, EventArgs e)
+        private void frmThemCanBoCoiThiLan1TimKiem_Load(object sender, EventArgs e)
         {
             try
             {
-                maChiTietMon = frmThemLop.gMaChiTietMon;
-                dtGiangVienCuaMon = GiangVienBUS.LayDanhSachCanBoCoiThiLan2CuaMon(maChiTietMon);
+                maChiTietMon = frmTimKiemLop.gMaChiTietMon;
+                dtGiangVienCuaMon = GiangVienBUS.LayDanhSachCanBoCoiThiLan1CuaMon(maChiTietMon);
 
                 listGiangVienMon.DataSource = dtGiangVienCuaMon;
                 listGiangVienMon.DisplayMember = "TenGiangVien";
@@ -89,9 +89,9 @@ namespace QuanLyBoMon
                         listGiangVienMon.DisplayMember = "TenGiangVien";
                         listGiangVienMon.ValueMember = "MaGiangVien";
 
-                        if (!GiangVienBUS.KiemTraCanBoCoiThiLan2TheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon))
+                        if (!GiangVienBUS.KiemTraCanBoCoiThiLan1TheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon))
                         {
-                            GiangVienBUS.ThemCanBoCoiThiLan2Mon(maGiangVien, maChiTietMon);
+                            GiangVienBUS.ThemCanBoCoiThiLan1Mon(maGiangVien, maChiTietMon);
                         }
                     }
                 }
@@ -108,7 +108,7 @@ namespace QuanLyBoMon
             {
                 if (listGiangVienMon.SelectedIndex >= 0)
                 {
-                    GiangVienBUS.XoaCanBoCoiThiLan2Mon(Int32.Parse(listGiangVienMon.SelectedValue.ToString()), maChiTietMon);
+                    GiangVienBUS.XoaCanBoCoiThiLan1Mon(Int32.Parse(listGiangVienMon.SelectedValue.ToString()), maChiTietMon);
 
                     dtGiangVienCuaMon.Rows.Remove(dtGiangVienCuaMon.Rows[listGiangVienMon.SelectedIndex]);
 
@@ -128,9 +128,9 @@ namespace QuanLyBoMon
             this.Close();
         }
 
-        private void frmThemCanBoCoiThiLan2_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmThemCanBoCoiThiLan1TimKiem_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmThemLop.isFrmThemCanBoCoiThiLan2Closed = true;
+            frmTimKiemLop.isFrmThemCanBoCoiThiLan1Closed = true;
         }
     }
 }

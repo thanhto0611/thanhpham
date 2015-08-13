@@ -318,6 +318,8 @@
             this.ClientSize = new System.Drawing.Size(1254, 635);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmQuanLyGiangVien";
             this.ShowIcon = false;
             this.Text = "Quản Lý Giảng Viên";

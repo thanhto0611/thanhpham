@@ -67,6 +67,8 @@
             this.Controls.Add(this.btnThemNamHoc);
             this.Controls.Add(this.txtNamHoc);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmThemNamHoc";
             this.Text = "Thêm Năm Học";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmThemNamHoc_FormClosed);

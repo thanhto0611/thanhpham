@@ -13,22 +13,22 @@ using System.Data.SqlClient;
 
 namespace QuanLyBoMon
 {
-    public partial class frmThemCanBoCoiThiLan2 : Form
+    public partial class frmThemCanBoCoiThiLan2TimKiem : Form
     {
         public DataTable dtGiangVienCuaMon = new DataTable();
         public ChiTietMonDTO chiTietMonDTO = new ChiTietMonDTO();
         public int maChiTietMon;
 
-        public frmThemCanBoCoiThiLan2()
+        public frmThemCanBoCoiThiLan2TimKiem()
         {
             InitializeComponent();
         }
 
-        private void frmThemCanBoCoiThiLan2_Load(object sender, EventArgs e)
+        private void frmThemCanBoCoiThiLan2TimKiem_Load(object sender, EventArgs e)
         {
             try
             {
-                maChiTietMon = frmThemLop.gMaChiTietMon;
+                maChiTietMon = frmTimKiemLop.gMaChiTietMon;
                 dtGiangVienCuaMon = GiangVienBUS.LayDanhSachCanBoCoiThiLan2CuaMon(maChiTietMon);
 
                 listGiangVienMon.DataSource = dtGiangVienCuaMon;
@@ -128,9 +128,9 @@ namespace QuanLyBoMon
             this.Close();
         }
 
-        private void frmThemCanBoCoiThiLan2_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmThemCanBoCoiThiLan2TimKiem_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmThemLop.isFrmThemCanBoCoiThiLan2Closed = true;
+            frmTimKiemLop.isFrmThemCanBoCoiThiLan2Closed = true;
         }
     }
 }

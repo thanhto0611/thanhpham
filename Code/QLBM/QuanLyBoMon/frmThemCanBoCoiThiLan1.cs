@@ -18,6 +18,7 @@ namespace QuanLyBoMon
 
         public DataTable dtGiangVienCuaMon = new DataTable();
         public ChiTietMonDTO chiTietMonDTO = new ChiTietMonDTO();
+        public int maChiTietMon;
 
         public frmThemCanBoCoiThiLan1()
         {
@@ -28,26 +29,8 @@ namespace QuanLyBoMon
         {
             try
             {
-                dtGiangVienCuaMon.Columns.Add("MaGiangVien", typeof(int));
-                dtGiangVienCuaMon.Columns.Add("TenGiangVien", typeof(string));
-
-                chiTietMonDTO = ChiTietMonBUS.TimTheoMaChiTietMon(frmThemLop.gMaChiTietMon);
-
-                if (chiTietMonDTO.CanBoCoiThiLan1 != "")
-                {
-                    string[] groupGiangVien = chiTietMonDTO.CanBoCoiThiLan1.Split(',');
-
-                    for (int i = 0; i < groupGiangVien.Count(); i++)
-                    {
-                        GiangVienDTO giangVienDTO = GiangVienBUS.TimTheoMaGiangVien(Int32.Parse(groupGiangVien[i]));
-
-                        DataRow dr = dtGiangVienCuaMon.NewRow();
-                        dr[0] = giangVienDTO.MaGiangVien;
-                        dr[1] = giangVienDTO.TenGiangVien;
-
-                        dtGiangVienCuaMon.Rows.Add(dr);
-                    }
-                }
+                maChiTietMon = frmThemLop.gMaChiTietMon;
+                dtGiangVienCuaMon = GiangVienBUS.LayDanhSachCanBoCoiThiLan1CuaMon(maChiTietMon);
 
                 listGiangVienMon.DataSource = dtGiangVienCuaMon;
                 listGiangVienMon.DisplayMember = "TenGiangVien";
@@ -107,36 +90,12 @@ namespace QuanLyBoMon
                         listGiangVienMon.DisplayMember = "TenGiangVien";
                         listGiangVienMon.ValueMember = "MaGiangVien";
 
-                        CapNhatGiangVien();
+                        if (!GiangVienBUS.KiemTraCanBoCoiThiLan1TheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon))
+                        {
+                            GiangVienBUS.ThemCanBoCoiThiLan1Mon(maGiangVien, maChiTietMon);
+                        }
                     }
                 }
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void CapNhatGiangVien()
-        {
-            try
-            {
-                string giangVien = "";
-
-                foreach (DataRow row in dtGiangVienCuaMon.Rows)
-                {
-                    if (giangVien == "")
-                    {
-                        giangVien += row[0].ToString();
-                    }
-                    else
-                    {
-                        giangVien = giangVien + "," + row[0].ToString();
-                    }
-                }
-
-                chiTietMonDTO.CanBoCoiThiLan1 = giangVien;
-                ChiTietMonBUS.UpdateCanBoCoiThiLan1(chiTietMonDTO);
             }
             catch (System.Exception ex)
             {
@@ -150,13 +109,13 @@ namespace QuanLyBoMon
             {
                 if (listGiangVienMon.SelectedIndex >= 0)
                 {
+                    GiangVienBUS.XoaCanBoCoiThiLan1Mon(Int32.Parse(listGiangVienMon.SelectedValue.ToString()), maChiTietMon);
+
                     dtGiangVienCuaMon.Rows.Remove(dtGiangVienCuaMon.Rows[listGiangVienMon.SelectedIndex]);
 
                     listGiangVienMon.DataSource = dtGiangVienCuaMon;
                     listGiangVienMon.DisplayMember = "TenGiangVien";
                     listGiangVienMon.ValueMember = "MaGiangVien";
-
-                    CapNhatGiangVien();
                 }
             }
             catch (System.Exception ex)

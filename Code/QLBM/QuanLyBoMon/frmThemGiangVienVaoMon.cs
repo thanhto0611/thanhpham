@@ -17,7 +17,7 @@ namespace QuanLyBoMon
     {
         public DataTable dtGiangVienCuaMon = new DataTable();
         public ChiTietMonDTO chiTietMonDTO = new ChiTietMonDTO();
-        public int maChiTietMon;
+        public int maChiTietMon = 0;
 
         public frmThemGiangVienVaoMon()
         {
@@ -57,31 +57,6 @@ namespace QuanLyBoMon
                 maChiTietMon = frmThemLop.gMaChiTietMon;
                 dtGiangVienCuaMon = GiangVienBUS.LayDanhSachGiangVienCuaMon(maChiTietMon);
 
-
-
-
-
-                //dtGiangVienCuaMon.Columns.Add("MaGiangVien", typeof(int));
-                //dtGiangVienCuaMon.Columns.Add("TenGiangVien", typeof(string));
-
-                //chiTietMonDTO = ChiTietMonBUS.TimTheoMaChiTietMon(frmThemLop.gMaChiTietMon);
-
-                //if (chiTietMonDTO.GiangVien != "")
-                //{
-                //    string[] groupGiangVien = chiTietMonDTO.GiangVien.Split(',');
-
-                //    for (int i = 0; i < groupGiangVien.Count(); i++)
-                //    {
-                //        GiangVienDTO giangVienDTO = GiangVienBUS.TimTheoMaGiangVien(Int32.Parse(groupGiangVien[i]));
-
-                //        DataRow dr = dtGiangVienCuaMon.NewRow();
-                //        dr[0] = giangVienDTO.MaGiangVien;
-                //        dr[1] = giangVienDTO.TenGiangVien;
-
-                //        dtGiangVienCuaMon.Rows.Add(dr);
-                //    }
-                //}
-
                 listGiangVienMon.DataSource = dtGiangVienCuaMon;
                 listGiangVienMon.DisplayMember = "TenGiangVien";
                 listGiangVienMon.ValueMember = "MaGiangVien";
@@ -118,27 +93,6 @@ namespace QuanLyBoMon
                         {
                             GiangVienBUS.ThemGiangVienMon(maGiangVien, maChiTietMon);
                         }
-                    }
-                }
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void CapNhatGiangVien()
-        {
-            try
-            {
-                string giangVien = "";
-
-                foreach (DataRow row in dtGiangVienCuaMon.Rows)
-                {
-                    int maGiangVien = Int32.Parse(row["MaGiangVien"].ToString());
-                    if (GiangVienBUS.KiemTraGiangVienTheoMaGiangVienMaChiTietMon(maGiangVien, maChiTietMon))
-                    {
-                        GiangVienBUS.ThemGiangVienMon(maGiangVien, maChiTietMon);
                     }
                 }
             }

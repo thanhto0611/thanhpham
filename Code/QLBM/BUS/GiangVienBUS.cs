@@ -106,5 +106,10 @@ namespace BUS
         {
             GiangVienDAO.XoaCanBoCoiThiLan2Mon(maGiangVien, maChiTietMon);
         }
+
+        public static DataTable LayDanhSachMonCuaGiangVien(int maGiangVien)
+        {
+            return GiangVienDAO.LayDanhSachMonCuaGiangVien(maGiangVien);
+        }
     }
 }

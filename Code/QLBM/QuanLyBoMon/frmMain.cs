@@ -14,6 +14,7 @@ namespace QuanLyBoMon
         public static frmThemLop frmThemLop = null;
         public static frmTimKiemLop frmTimLop = null;
         public static frmQuanLyGiangVien frmQLGV = null;
+        public static frmThongKeLopCuaGiangVien frmTKLGV = null;
 
         public frmMain()
         {
@@ -65,6 +66,22 @@ namespace QuanLyBoMon
             else
             {
                 frmQLGV.BringToFront();
+            }
+        }
+
+        private void thôngKêLơpCuaGiangViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmTKLGV == null)
+            {
+                frmTKLGV = new frmThongKeLopCuaGiangVien();
+                frmTKLGV.MdiParent = this;
+                frmTKLGV.Dock = DockStyle.Fill;
+                frmTKLGV.WindowState = FormWindowState.Maximized;
+                frmTKLGV.Show();
+            }
+            else
+            {
+                frmTKLGV.BringToFront();
             }
         }
     }

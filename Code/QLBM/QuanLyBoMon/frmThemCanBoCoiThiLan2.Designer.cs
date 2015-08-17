@@ -87,9 +87,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(518, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 13);
+            this.label1.Size = new System.Drawing.Size(237, 13);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Giảng Viên Của Môn Học";
+            this.label1.Text = "Danh Sách Cán Bộ Coi Thi Lần 2 Của Môn Học:";
             // 
             // listGiangVien
             // 

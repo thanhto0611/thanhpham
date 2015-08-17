@@ -33,6 +33,8 @@
             this.thêmLơpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timLopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quanLyGiangVien = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngKêLơpCuaGiangViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Window = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
@@ -42,6 +44,7 @@
             this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quanToolStripMenuItem,
             this.quanLyGiangVien,
+            this.toolStripMenuItem1,
             this.Window});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.MdiWindowListItem = this.Window;
@@ -80,6 +83,21 @@
             this.quanLyGiangVien.Text = "Quản Lý Giảng Viên";
             this.quanLyGiangVien.Click += new System.EventHandler(this.quanLyGiangVien_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thôngKêLơpCuaGiangViênToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 20);
+            this.toolStripMenuItem1.Text = "Thống Kê";
+            // 
+            // thôngKêLơpCuaGiangViênToolStripMenuItem
+            // 
+            this.thôngKêLơpCuaGiangViênToolStripMenuItem.Name = "thôngKêLơpCuaGiangViênToolStripMenuItem";
+            this.thôngKêLơpCuaGiangViênToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.thôngKêLơpCuaGiangViênToolStripMenuItem.Text = "Thống Kê Lớp Của Giảng Viên";
+            this.thôngKêLơpCuaGiangViênToolStripMenuItem.Click += new System.EventHandler(this.thôngKêLơpCuaGiangViênToolStripMenuItem_Click);
+            // 
             // Window
             // 
             this.Window.Name = "Window";
@@ -112,6 +130,8 @@
         private System.Windows.Forms.ToolStripMenuItem timLopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Window;
         private System.Windows.Forms.ToolStripMenuItem quanLyGiangVien;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem thôngKêLơpCuaGiangViênToolStripMenuItem;
 
     }
 }

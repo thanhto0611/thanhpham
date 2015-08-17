@@ -78,7 +78,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1203, 172);
+            this.groupBox1.Size = new System.Drawing.Size(1203, 223);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -98,7 +98,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(657, 16);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(543, 153);
+            this.groupBox6.Size = new System.Drawing.Size(543, 204);
             this.groupBox6.TabIndex = 22;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Thông Tin Lớp";
@@ -214,7 +214,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox5.Location = new System.Drawing.Point(3, 16);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(654, 153);
+            this.groupBox5.Size = new System.Drawing.Size(654, 204);
             this.groupBox5.TabIndex = 21;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Thông Tin Tìm Kiếm";
@@ -343,7 +343,7 @@
             this.listLop.FormattingEnabled = true;
             this.listLop.Location = new System.Drawing.Point(19, 45);
             this.listLop.Name = "listLop";
-            this.listLop.Size = new System.Drawing.Size(257, 95);
+            this.listLop.Size = new System.Drawing.Size(257, 147);
             this.listLop.TabIndex = 2;
             this.listLop.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listLop_MouseClick);
             // 
@@ -361,9 +361,9 @@
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 172);
+            this.groupBox2.Location = new System.Drawing.Point(0, 223);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1203, 417);
+            this.groupBox2.Size = new System.Drawing.Size(1203, 366);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Visible = false;
@@ -374,7 +374,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 95);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1197, 319);
+            this.groupBox4.Size = new System.Drawing.Size(1197, 268);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách môn học của lớp:";
@@ -390,7 +390,7 @@
             this.dtgvChiTietMon.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgvChiTietMon.Location = new System.Drawing.Point(3, 16);
             this.dtgvChiTietMon.Name = "dtgvChiTietMon";
-            this.dtgvChiTietMon.Size = new System.Drawing.Size(1191, 300);
+            this.dtgvChiTietMon.Size = new System.Drawing.Size(1191, 249);
             this.dtgvChiTietMon.TabIndex = 0;
             this.dtgvChiTietMon.Visible = false;
             this.dtgvChiTietMon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvChiTietMon_CellClick);

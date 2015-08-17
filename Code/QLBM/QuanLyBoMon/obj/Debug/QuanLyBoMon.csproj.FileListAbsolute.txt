@@ -45,3 +45,4 @@ G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemCanBoCoi
 G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemCanBoCoiThiLan1TimKiem.resources
 G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemCanBoCoiThiLan2TimKiem.resources
 G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemGiangVienVaoMonTimKiem.resources
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThongKeLopCuaGiangVien.resources

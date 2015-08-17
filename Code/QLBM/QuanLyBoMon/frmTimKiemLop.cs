@@ -216,7 +216,7 @@ namespace QuanLyBoMon
                 foreach (DataRow dr in dtChiTietMon.Rows)
                 {
                     DataTable dtGiangVienMon = GiangVienBUS.LayDanhSachGiangVienCuaMon(Int32.Parse(dr["MaChiTietMon"].ToString()));
-                    if (dtChiTietMon.Rows.Count > 0)
+                    if (dtGiangVienMon.Rows.Count > 0)
                     {
                         string giangVien = "";
 

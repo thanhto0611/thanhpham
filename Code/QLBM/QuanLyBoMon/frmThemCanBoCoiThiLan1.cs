@@ -35,6 +35,8 @@ namespace QuanLyBoMon
                 listGiangVienMon.DataSource = dtGiangVienCuaMon;
                 listGiangVienMon.DisplayMember = "TenGiangVien";
                 listGiangVienMon.ValueMember = "MaGiangVien";
+
+                layDanhSachGiangVien();
             }
             catch (System.Exception ex)
             {

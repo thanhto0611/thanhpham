@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxTatCaNamHoc = new System.Windows.Forms.CheckBox();
+            this.cmbNamHoc = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnXoaGiangVien = new System.Windows.Forms.Button();
             this.btnCapNhatGiangVien = new System.Windows.Forms.Button();
             this.txtEmailUpdate = new System.Windows.Forms.TextBox();
@@ -44,9 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtgvDachSachLopCuaGiangVien = new System.Windows.Forms.DataGridView();
-            this.cbxTatCaNamHoc = new System.Windows.Forms.CheckBox();
-            this.cmbNamHoc = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDachSachLopCuaGiangVien)).BeginInit();
@@ -54,6 +55,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnXuatExcel);
             this.groupBox1.Controls.Add(this.cbxTatCaNamHoc);
             this.groupBox1.Controls.Add(this.cmbNamHoc);
             this.groupBox1.Controls.Add(this.label1);
@@ -77,6 +79,36 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Giảng Viên:";
+            // 
+            // cbxTatCaNamHoc
+            // 
+            this.cbxTatCaNamHoc.AutoSize = true;
+            this.cbxTatCaNamHoc.Checked = true;
+            this.cbxTatCaNamHoc.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxTatCaNamHoc.Location = new System.Drawing.Point(960, 44);
+            this.cbxTatCaNamHoc.Name = "cbxTatCaNamHoc";
+            this.cbxTatCaNamHoc.Size = new System.Drawing.Size(106, 17);
+            this.cbxTatCaNamHoc.TabIndex = 36;
+            this.cbxTatCaNamHoc.Text = "Tất Cả Năm Học";
+            this.cbxTatCaNamHoc.UseVisualStyleBackColor = true;
+            // 
+            // cmbNamHoc
+            // 
+            this.cmbNamHoc.Enabled = false;
+            this.cmbNamHoc.FormattingEnabled = true;
+            this.cmbNamHoc.Location = new System.Drawing.Point(1018, 19);
+            this.cmbNamHoc.Name = "cmbNamHoc";
+            this.cmbNamHoc.Size = new System.Drawing.Size(91, 21);
+            this.cmbNamHoc.TabIndex = 35;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(957, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Năm Học:";
             // 
             // btnXoaGiangVien
             // 
@@ -217,35 +249,14 @@
             this.dtgvDachSachLopCuaGiangVien.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgvDachSachLopCuaGiangVien_CellFormatting);
             this.dtgvDachSachLopCuaGiangVien.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dtgvDachSachLopCuaGiangVien_CellPainting);
             // 
-            // cbxTatCaNamHoc
+            // btnXuatExcel
             // 
-            this.cbxTatCaNamHoc.AutoSize = true;
-            this.cbxTatCaNamHoc.Checked = true;
-            this.cbxTatCaNamHoc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxTatCaNamHoc.Location = new System.Drawing.Point(960, 44);
-            this.cbxTatCaNamHoc.Name = "cbxTatCaNamHoc";
-            this.cbxTatCaNamHoc.Size = new System.Drawing.Size(106, 17);
-            this.cbxTatCaNamHoc.TabIndex = 36;
-            this.cbxTatCaNamHoc.Text = "Tất Cả Năm Học";
-            this.cbxTatCaNamHoc.UseVisualStyleBackColor = true;
-            // 
-            // cmbNamHoc
-            // 
-            this.cmbNamHoc.Enabled = false;
-            this.cmbNamHoc.FormattingEnabled = true;
-            this.cmbNamHoc.Location = new System.Drawing.Point(1018, 19);
-            this.cmbNamHoc.Name = "cmbNamHoc";
-            this.cmbNamHoc.Size = new System.Drawing.Size(91, 21);
-            this.cmbNamHoc.TabIndex = 35;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(957, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Năm Học:";
+            this.btnXuatExcel.Location = new System.Drawing.Point(991, 128);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(118, 73);
+            this.btnXuatExcel.TabIndex = 37;
+            this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
             // 
             // frmThongKeLopCuaGiangVien
             // 
@@ -289,6 +300,7 @@
         private System.Windows.Forms.CheckBox cbxTatCaNamHoc;
         private System.Windows.Forms.ComboBox cmbNamHoc;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnXuatExcel;
 
     }
 }

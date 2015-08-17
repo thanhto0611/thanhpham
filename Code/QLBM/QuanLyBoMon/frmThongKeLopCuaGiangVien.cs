@@ -206,6 +206,7 @@ namespace QuanLyBoMon
             try
             {
                 layDanhSachGiangVien();
+                //dtgvDachSachLopCuaGiangVien.AutoGenerateColumns = false;
             }
             catch (System.Exception ex)
             {
@@ -218,7 +219,7 @@ namespace QuanLyBoMon
             e.AdvancedBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
             if (e.RowIndex < 1 || e.ColumnIndex < 0)
                 return;
-            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex))
+            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex) && e.ColumnIndex == dtgvDachSachLopCuaGiangVien.Columns["TenLop"].Index)
             {
                 e.AdvancedBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
             }
@@ -232,7 +233,7 @@ namespace QuanLyBoMon
         {
             if (e.RowIndex == 0)
                 return;
-            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex))
+            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex) && e.ColumnIndex == dtgvDachSachLopCuaGiangVien.Columns["TenLop"].Index)
             {
                 e.Value = "";
                 e.FormattingApplied = true;

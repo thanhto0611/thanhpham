@@ -21,7 +21,7 @@ namespace QuanLyBoMon
         public static bool isFrmThemGiangVienClosed = false;
         public static bool isFrmThemCanBoCoiThiLan1Closed = false;
         public static bool isFrmThemCanBoCoiThiLan2Closed = false;
-        public static bool isFrmNamHocVaoChiTietMonClosed = false;
+        public static bool isFrmThemNamHocVaoChiTietMonClosed = false;
         public static bool isFirstTimeRenderDTGV = true;
 
         public static int gMaChiTietMon;
@@ -327,6 +327,8 @@ namespace QuanLyBoMon
 
                 dtgvChiTietMon.Columns["MaChiTietMon"].Visible = false;
                 dtgvChiTietMon.Columns["MaMon"].Visible = false;
+                dtgvChiTietMon.Columns["MaNamHoc"].Visible = false;
+
                 dtgvChiTietMon.Columns["TenMon"].ReadOnly = true;
                 dtgvChiTietMon.Columns["TenNamHoc"].ReadOnly = true;
                 dtgvChiTietMon.Columns["GiangVien"].ReadOnly = true;
@@ -354,7 +356,7 @@ namespace QuanLyBoMon
                     lopDTO.SoLuongSinhVien = Int32.Parse(txtSoLuongSinhVien.Text);
                     lopDTO.SoLuongNgoaiNganSach = Int32.Parse(txtSoLuongNgoaiNganSach.Text);
                     lopDTO.SoLuongTrongNganSach = Int32.Parse(txtSoLuongTrongNganSach.Text);
-                    lopDTO.MaNamHoc = (cmbNamHocCuaLop.SelectedItem as NamHocDTO).MaNamHoc;
+                    //lopDTO.MaNamHoc = (cmbNamHocCuaLop.SelectedItem as NamHocDTO).MaNamHoc;
 
                     LopBUS.UpdateRecord(lopDTO);
                     MessageBox.Show("Cập nhật thông tin lớp thành công");
@@ -525,7 +527,7 @@ namespace QuanLyBoMon
 
                 if (dtgvChiTietMon.Columns[e.ColumnIndex].Name == "TenNamHoc" && e.RowIndex >= 0)
                 {
-                    isFrmNamHocVaoChiTietMonClosed = false;
+                    isFrmThemNamHocVaoChiTietMonClosed = false;
                     gMaChiTietMon = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaChiTietMon"].Value.ToString());
                     if (dtgvChiTietMon.Rows[e.RowIndex].Cells["MaNamHoc"].Value.ToString() != "")
                         gMaNamHoc = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaNamHoc"].Value.ToString());
@@ -566,9 +568,9 @@ namespace QuanLyBoMon
                 LayDanhSachChiTietMon();
             }
 
-            if (isFrmNamHocVaoChiTietMonClosed)
+            if (isFrmThemNamHocVaoChiTietMonClosed)
             {
-                isFrmNamHocVaoChiTietMonClosed = false;
+                isFrmThemNamHocVaoChiTietMonClosed = false;
                 timer1.Stop();
                 LayDanhSachChiTietMon();
             }

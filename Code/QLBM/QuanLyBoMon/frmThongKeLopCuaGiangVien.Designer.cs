@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
             this.cbxTatCaNamHoc = new System.Windows.Forms.CheckBox();
             this.cmbNamHoc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtgvDachSachLopCuaGiangVien = new System.Windows.Forms.DataGridView();
-            this.btnXuatExcel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDachSachLopCuaGiangVien)).BeginInit();
@@ -80,26 +80,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Giảng Viên:";
             // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Enabled = false;
+            this.btnXuatExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatExcel.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnXuatExcel.Location = new System.Drawing.Point(991, 128);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(118, 73);
+            this.btnXuatExcel.TabIndex = 37;
+            this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
+            // 
             // cbxTatCaNamHoc
             // 
             this.cbxTatCaNamHoc.AutoSize = true;
-            this.cbxTatCaNamHoc.Checked = true;
-            this.cbxTatCaNamHoc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxTatCaNamHoc.Location = new System.Drawing.Point(960, 44);
             this.cbxTatCaNamHoc.Name = "cbxTatCaNamHoc";
             this.cbxTatCaNamHoc.Size = new System.Drawing.Size(106, 17);
             this.cbxTatCaNamHoc.TabIndex = 36;
             this.cbxTatCaNamHoc.Text = "Tất Cả Năm Học";
             this.cbxTatCaNamHoc.UseVisualStyleBackColor = true;
+            this.cbxTatCaNamHoc.CheckedChanged += new System.EventHandler(this.cbxTatCaNamHoc_CheckedChanged);
             // 
             // cmbNamHoc
             // 
-            this.cmbNamHoc.Enabled = false;
             this.cmbNamHoc.FormattingEnabled = true;
             this.cmbNamHoc.Location = new System.Drawing.Point(1018, 19);
             this.cmbNamHoc.Name = "cmbNamHoc";
             this.cmbNamHoc.Size = new System.Drawing.Size(91, 21);
             this.cmbNamHoc.TabIndex = 35;
+            this.cmbNamHoc.SelectedIndexChanged += new System.EventHandler(this.cmbNamHoc_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -248,15 +260,6 @@
             this.dtgvDachSachLopCuaGiangVien.TabIndex = 0;
             this.dtgvDachSachLopCuaGiangVien.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgvDachSachLopCuaGiangVien_CellFormatting);
             this.dtgvDachSachLopCuaGiangVien.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dtgvDachSachLopCuaGiangVien_CellPainting);
-            // 
-            // btnXuatExcel
-            // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(991, 128);
-            this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(118, 73);
-            this.btnXuatExcel.TabIndex = 37;
-            this.btnXuatExcel.Text = "Xuất Excel";
-            this.btnXuatExcel.UseVisualStyleBackColor = true;
             // 
             // frmThongKeLopCuaGiangVien
             // 

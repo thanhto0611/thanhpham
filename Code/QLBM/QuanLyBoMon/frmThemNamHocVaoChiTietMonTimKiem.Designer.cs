@@ -30,14 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.cmbNamHoc = new System.Windows.Forms.ComboBox();
-            this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 31);
+            this.label1.Location = new System.Drawing.Point(12, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 0;
@@ -46,29 +45,17 @@
             // cmbNamHoc
             // 
             this.cmbNamHoc.FormattingEnabled = true;
-            this.cmbNamHoc.Location = new System.Drawing.Point(83, 28);
+            this.cmbNamHoc.Location = new System.Drawing.Point(70, 28);
             this.cmbNamHoc.Name = "cmbNamHoc";
-            this.cmbNamHoc.Size = new System.Drawing.Size(121, 21);
+            this.cmbNamHoc.Size = new System.Drawing.Size(108, 21);
             this.cmbNamHoc.TabIndex = 1;
             this.cmbNamHoc.SelectedIndexChanged += new System.EventHandler(this.cmbNamHoc_SelectedIndexChanged);
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnCapNhat.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnCapNhat.Location = new System.Drawing.Point(25, 74);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(93, 64);
-            this.btnCapNhat.TabIndex = 2;
-            this.btnCapNhat.Text = "Cập Nhật";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
-            this.btnThoat.Location = new System.Drawing.Point(139, 74);
+            this.btnThoat.Location = new System.Drawing.Point(57, 67);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(101, 64);
             this.btnThoat.TabIndex = 3;
@@ -80,9 +67,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 160);
+            this.ClientSize = new System.Drawing.Size(216, 160);
             this.Controls.Add(this.btnThoat);
-            this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.cmbNamHoc);
             this.Controls.Add(this.label1);
             this.Name = "frmThemNamHocVaoChiTietMonTimKiem";
@@ -97,7 +83,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbNamHoc;
-        private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnThoat;
     }
 }

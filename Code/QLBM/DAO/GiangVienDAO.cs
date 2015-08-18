@@ -369,7 +369,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Select ctm.MaChiTietMon, l.MaLop, l.TenLop, m.TenMon, m.MaMon, nh.TenNamHoc, ctm.ThoiGianHoc, ctm.GioHoc, ctm.GiangDuong, ctm.GiangVien, ctm.NgayThiLan1, ctm.GioThiLan1, ctm.GiangDuongThiLan1, ctm.CanBoCoiThiLan1, ctm.SoBaiThiLan1, ctm.NgayThiLan2, ctm.GioThiLan2, ctm.GiangDuongThiLan2, ctm.CanBoCoiThiLan2, ctm.SoBaiThiLan2, ctm.GhiChu  from (((((CHITIETMON ctm inner join LOPMON lm on ctm.MaLopMon = lm.MaLopMon) inner join MON m on lm.MaMon = m.MaMon) inner join LOP l on lm.MaLop = l.Malop) inner join GIANGVIENMON gvm on ctm.MaChiTietMon = gvm.MaChiTietMon) inner join GIANGVIEN gv on gvm.MaGiangVien = gv.MaGiangVien) left join NAMHOC nh on ctm.MaNamHoc = nh.MaNamHoc where gv.MaGiangVien = ? order by l.TenLop, m.TenMon ASC";
+            string cmdText = "Select ctm.MaChiTietMon, l.MaLop, l.TenLop, m.TenMon, m.MaMon, nh.TenNamHoc, nh.MaNamHoc, ctm.ThoiGianHoc, ctm.GioHoc, ctm.GiangDuong, ctm.GiangVien, ctm.NgayThiLan1, ctm.GioThiLan1, ctm.GiangDuongThiLan1, ctm.CanBoCoiThiLan1, ctm.SoBaiThiLan1, ctm.NgayThiLan2, ctm.GioThiLan2, ctm.GiangDuongThiLan2, ctm.CanBoCoiThiLan2, ctm.SoBaiThiLan2, ctm.GhiChu  from (((((CHITIETMON ctm inner join LOPMON lm on ctm.MaLopMon = lm.MaLopMon) inner join MON m on lm.MaMon = m.MaMon) inner join LOP l on lm.MaLop = l.Malop) inner join GIANGVIENMON gvm on ctm.MaChiTietMon = gvm.MaChiTietMon) inner join GIANGVIEN gv on gvm.MaGiangVien = gv.MaGiangVien) left join NAMHOC nh on ctm.MaNamHoc = nh.MaNamHoc where gv.MaGiangVien = ? order by l.TenLop, m.TenMon ASC";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
             command.Parameters.Add("@MaGiangVien", OleDbType.Numeric);
@@ -380,5 +380,24 @@ namespace DAO
             connection.Close();
             return dataTable;
         }
+
+        public static DataTable LayDanhSachMonCuaGiangVien(int maGiangVien, int maNamHoc)
+        {
+            DataTable dataTable = new DataTable();
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select ctm.MaChiTietMon, l.MaLop, l.TenLop, m.TenMon, m.MaMon, nh.TenNamHoc, nh.MaNamHoc, ctm.ThoiGianHoc, ctm.GioHoc, ctm.GiangDuong, ctm.GiangVien, ctm.NgayThiLan1, ctm.GioThiLan1, ctm.GiangDuongThiLan1, ctm.CanBoCoiThiLan1, ctm.SoBaiThiLan1, ctm.NgayThiLan2, ctm.GioThiLan2, ctm.GiangDuongThiLan2, ctm.CanBoCoiThiLan2, ctm.SoBaiThiLan2, ctm.GhiChu  from (((((CHITIETMON ctm inner join LOPMON lm on ctm.MaLopMon = lm.MaLopMon) inner join MON m on lm.MaMon = m.MaMon) inner join LOP l on lm.MaLop = l.Malop) inner join GIANGVIENMON gvm on ctm.MaChiTietMon = gvm.MaChiTietMon) inner join GIANGVIEN gv on gvm.MaGiangVien = gv.MaGiangVien) left join NAMHOC nh on ctm.MaNamHoc = nh.MaNamHoc where gv.MaGiangVien = ? and nh.MaNamHoc = ? order by l.TenLop, m.TenMon ASC";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+
+            command.Parameters.Add("@MaGiangVien", OleDbType.Numeric);
+            command.Parameters.Add("@MaNamHoc", OleDbType.Numeric);
+            command.Parameters["@MaGiangVien"].Value = maGiangVien;
+            command.Parameters["@MaNamHoc"].Value = maNamHoc;
+
+            OleDbDataAdapter adpter = new OleDbDataAdapter(command);
+            adpter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
     }
 }

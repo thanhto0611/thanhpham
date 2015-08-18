@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=3.1.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EPPlus_3.1.3\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -60,6 +66,18 @@
     </Compile>
     <Compile Include="frmQuanLyGiangVien.Designer.cs">
       <DependentUpon>frmQuanLyGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyMonHoc.Designer.cs">
+      <DependentUpon>frmQuanLyMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyNamHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyNamHoc.Designer.cs">
+      <DependentUpon>frmQuanLyNamHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThemCanBoCoiThiLan1.cs">
       <SubType>Form</SubType>
@@ -115,6 +133,12 @@
     <Compile Include="frmThemNamHoc.Designer.cs">
       <DependentUpon>frmThemNamHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThemNamHocVaoChiTietMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemNamHocVaoChiTietMon.Designer.cs">
+      <DependentUpon>frmThemNamHocVaoChiTietMon.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemNamHocVaoChiTietMonTimKiem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +165,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyGiangVien.resx">
       <DependentUpon>frmQuanLyGiangVien.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyMonHoc.resx">
+      <DependentUpon>frmQuanLyMonHoc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyNamHoc.resx">
+      <DependentUpon>frmQuanLyNamHoc.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemCanBoCoiThiLan1.resx">
@@ -177,6 +209,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemNamHoc.resx">
       <DependentUpon>frmThemNamHoc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemNamHocVaoChiTietMon.resx">
+      <DependentUpon>frmThemNamHocVaoChiTietMon.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemNamHocVaoChiTietMonTimKiem.resx">
@@ -219,6 +255,16 @@
       <Project>{7B110F63-4C83-4773-B787-0A06E32F6ACD}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

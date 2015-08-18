@@ -51,6 +51,8 @@ namespace QuanLyBoMon
                     txtSoDienThoaiThem.Text = "";
                     txtDiaChiThem.Text = "";
                     txtEmailThem.Text = "";
+
+                    layDanhSachGiangVien();
                 }
             }
             catch (System.Exception ex)

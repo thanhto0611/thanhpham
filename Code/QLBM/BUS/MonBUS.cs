@@ -17,9 +17,19 @@ namespace BUS
             return MonDAO.GetTable();
         }
 
+        public static DataTable GetTable(string tenMon)
+        {
+            return MonDAO.GetTable(tenMon);
+        }
+
         public static IList GetList()
         {
             return MonDAO.GetList();
+        }
+
+        public static MonDTO GetRecord(int maMon)
+        {
+            return MonDAO.GetRecord(maMon);
         }
 
         public static void Insert(MonDTO monDTO)

@@ -17,9 +17,19 @@ namespace BUS
             return NamHocDAO.GetTable();
         }
 
+        public static DataTable GetTable(string namHoc)
+        {
+            return NamHocDAO.GetTable(namHoc);
+        }
+
         public static IList GetList()
         {
             return NamHocDAO.GetList();
+        }
+
+        public static NamHocDTO GetRecord(int maNamHoc)
+        {
+            return NamHocDAO.GetRecord(maNamHoc);
         }
 
         public static void Insert(NamHocDTO namHocDTO)

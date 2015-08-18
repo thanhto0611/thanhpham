@@ -92,6 +92,7 @@
             this.btnThemNamHoc.TabIndex = 14;
             this.btnThemNamHoc.Text = "Thêm Năm Học";
             this.btnThemNamHoc.UseVisualStyleBackColor = true;
+            this.btnThemNamHoc.Visible = false;
             this.btnThemNamHoc.Click += new System.EventHandler(this.btnThemNamHoc_Click);
             // 
             // cmbNamHoc
@@ -101,6 +102,7 @@
             this.cmbNamHoc.Name = "cmbNamHoc";
             this.cmbNamHoc.Size = new System.Drawing.Size(91, 21);
             this.cmbNamHoc.TabIndex = 13;
+            this.cmbNamHoc.Visible = false;
             // 
             // label6
             // 
@@ -110,6 +112,7 @@
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Năm học:";
+            this.label6.Visible = false;
             // 
             // btnThemLop
             // 

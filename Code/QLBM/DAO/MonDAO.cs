@@ -23,6 +23,17 @@ namespace DAO
             return dataTable;
         }
 
+        public static DataTable GetTable(string tenMon)
+        {
+            DataTable dataTable = new DataTable();
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select * from MON where TenMon like '%" + tenMon + "%'";
+            OleDbDataAdapter adpter = new OleDbDataAdapter(cmdText, connection);
+            adpter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
         public static IList GetList()
         {
             ArrayList arrList = new ArrayList();
@@ -46,6 +57,31 @@ namespace DAO
             connection.Close();
             return arrList;
         }
+
+        public static MonDTO GetRecord(int maMon)
+        {
+            ArrayList arrList = new ArrayList();
+
+            MonDTO mon = new MonDTO();
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select * from MON where MaMon = ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            command.Parameters.Add("@MaMon", OleDbType.Integer);
+            command.Parameters["@MaMon"].Value = maMon;
+            OleDbDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                mon.MaMon = (int)reader["MaMon"];
+                mon.TenMon = (string)reader["TenMon"];
+                arrList.Add(mon);
+            }
+            reader.Close();
+            connection.Close();
+            return mon;
+        }
+
         public static void UpdateTable(DataTable dataTable)
         {
             OleDbConnection connection = DataProvider.CreateConnection();

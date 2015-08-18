@@ -110,6 +110,7 @@
             this.cmbNamHocCuaLop.Name = "cmbNamHocCuaLop";
             this.cmbNamHocCuaLop.Size = new System.Drawing.Size(91, 21);
             this.cmbNamHocCuaLop.TabIndex = 29;
+            this.cmbNamHocCuaLop.Visible = false;
             // 
             // label7
             // 
@@ -119,6 +120,7 @@
             this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 28;
             this.label7.Text = "Năm Học:";
+            this.label7.Visible = false;
             // 
             // txtSoLuongTrongNganSach
             // 

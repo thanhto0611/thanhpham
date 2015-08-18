@@ -22,6 +22,17 @@ namespace DAO
             return dataTable;
         }
 
+        public static DataTable GetTable(string namHoc)
+        {
+            DataTable dataTable = new DataTable();
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select * from NAMHOC where TenNamHoc like '%" + namHoc + "%' order by TenNamHoc DESC";
+            OleDbDataAdapter adpter = new OleDbDataAdapter(cmdText, connection);
+            adpter.Fill(dataTable);
+            connection.Close();
+            return dataTable;
+        }
+
         public static IList GetList()
         {
             ArrayList arrList = new ArrayList();
@@ -45,6 +56,34 @@ namespace DAO
             connection.Close();
             return arrList;
         }
+
+
+        public static NamHocDTO GetRecord(int maNamHoc)
+        {
+            ArrayList arrList = new ArrayList();
+
+            NamHocDTO namHocDTO = null;
+
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Select * from NAMHOC where MaNamHoc = ? order by TenNamHoc DESC";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+            command.Parameters.Add("@MaNamHoc", OleDbType.Integer);
+            command.Parameters["@MaNamHoc"].Value = maNamHoc;
+            OleDbDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                namHocDTO = new NamHocDTO();
+
+                namHocDTO.MaNamHoc = (int)reader["MaNamHoc"];
+                namHocDTO.TenNamHoc = (string)reader["TenNamHoc"];
+                arrList.Add(namHocDTO);
+            }
+            reader.Close();
+            connection.Close();
+            return namHocDTO;
+        }
+
         public static void UpdateTable(DataTable dataTable)
         {
             OleDbConnection connection = DataProvider.CreateConnection();

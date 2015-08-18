@@ -29,7 +29,7 @@ namespace QuanLyBoMon
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmTimKiemLop.isFrmNamHocVaoChiTietMonClosed = true;
+            frmTimKiemLop.isFrmThemNamHocVaoChiTietMonClosed = true;
         }
 
         private void frmThemNamHocVaoChiTietMonTimKiem_Load(object sender, EventArgs e)
@@ -46,20 +46,6 @@ namespace QuanLyBoMon
                 cmbNamHoc.SelectedValue = maNamHoc;
 
                 isFirstLoadSuccess = true;
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btnCapNhat_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                maNamHoc = (cmbNamHoc.SelectedItem as NamHocDTO).MaNamHoc;
-                ChiTietMonBUS.CapNhatNamHoc(maChiTietMon, maNamHoc);
-                MessageBox.Show("");
             }
             catch (System.Exception ex)
             {

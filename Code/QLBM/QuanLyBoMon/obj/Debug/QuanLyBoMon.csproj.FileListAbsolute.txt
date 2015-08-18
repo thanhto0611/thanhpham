@@ -51,3 +51,15 @@ D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemCanBoCoi
 D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemGiangVienVaoMonTimKiem.resources
 D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThongKeLopCuaGiangVien.resources
 D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemNamHocVaoChiTietMonTimKiem.resources
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemNamHocVaoChiTietMonTimKiem.resources
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemNamHocVaoChiTietMon.resources
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\Interop.Microsoft.Office.Core.dll
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.csproj.ResolveComReference.cache
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\EPPlus.dll
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\Microsoft.Office.Interop.Excel.dll
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\office.dll
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\Microsoft.Vbe.Interop.dll
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\EPPlus.xml
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\Interop.Microsoft.Office.Core.dll
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmQuanLyMonHoc.resources
+G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmQuanLyNamHoc.resources

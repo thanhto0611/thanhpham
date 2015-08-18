@@ -24,8 +24,10 @@ namespace QuanLyBoMon
         public static bool isFrmThemGiangVienClosed = false;
         public static bool isFrmThemCanBoCoiThiLan1Closed = false;
         public static bool isFrmThemCanBoCoiThiLan2Closed = false;
+        public static bool isFrmThemNamHocVaoChiTietMonClosed = false;
 
         public static int gMaChiTietMon;
+        public static int gMaNamHoc;
 
         public LopDTO lopDTO = new LopDTO();
 
@@ -149,6 +151,13 @@ namespace QuanLyBoMon
                 timer1.Stop();
                 LayDanhSachChiTietMon();
             }
+
+            if (isFrmThemNamHocVaoChiTietMonClosed)
+            {
+                isFrmThemNamHocVaoChiTietMonClosed = false;
+                timer1.Stop();
+                LayDanhSachChiTietMon();
+            }
         }
 
         private void btnThemLop_Click(object sender, EventArgs e)
@@ -190,7 +199,7 @@ namespace QuanLyBoMon
                     else
                         lopDTO.SoLuongNgoaiNganSach = Int32.Parse(txtSoLuongNgoaiNganSach.Text);
 
-                    lopDTO.MaNamHoc = (cmbNamHoc.SelectedItem as NamHocDTO).MaNamHoc;
+                    //lopDTO.MaNamHoc = (cmbNamHoc.SelectedItem as NamHocDTO).MaNamHoc;
                     LopBUS.Insert(lopDTO);
 
                     foreach (DataGridViewRow row in dtgvDSMon.Rows)
@@ -290,21 +299,22 @@ namespace QuanLyBoMon
 
                 dtgvChiTietMon.DataSource = dtChiTietMon;
 
-                DataGridViewComboBoxColumn namHocCol = new DataGridViewComboBoxColumn();
-                namHocCol.Name = "CmbNamHoc";
-                namHocCol.HeaderText = "Năm Học";
-                namHocCol.ValueType = typeof(int);
-                dtgvChiTietMon.Columns.Insert(dtgvChiTietMon.Columns["TenMon"].Index + 1, namHocCol);
+                //DataGridViewComboBoxColumn namHocCol = new DataGridViewComboBoxColumn();
+                //namHocCol.Name = "CmbNamHoc";
+                //namHocCol.HeaderText = "Năm Học";
+                //namHocCol.ValueType = typeof(int);
+                //dtgvChiTietMon.Columns.Insert(dtgvChiTietMon.Columns["TenMon"].Index + 1, namHocCol);
 
-                IList listNamHoc = NamHocBUS.GetList();
+                //IList listNamHoc = NamHocBUS.GetList();
 
-                foreach (DataGridViewRow row in this.dtgvChiTietMon.Rows)
-                {
-                    ((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).DataSource = listNamHoc;
-                    row.Cells["CmbNamHoc"].Value = row.Cells["TenNamHoc"].Value;
-                }
+                //foreach (DataGridViewRow row in this.dtgvChiTietMon.Rows)
+                //{
+                //    ((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).DataSource = listNamHoc;
+                //    row.Cells["CmbNamHoc"].Value = row.Cells["TenNamHoc"].Value;
+                //}
 
                 dtgvChiTietMon.Columns["TenMon"].HeaderText = "Môn";
+                dtgvChiTietMon.Columns["TenNamHoc"].HeaderText = "Năm Học";
                 dtgvChiTietMon.Columns["ThoiGianHoc"].HeaderText = "Thời Gian Học";
                 dtgvChiTietMon.Columns["GioHoc"].HeaderText = "Giờ Học";
                 dtgvChiTietMon.Columns["GiangDuong"].HeaderText = "Giảng Đường";
@@ -340,7 +350,10 @@ namespace QuanLyBoMon
 
                 dtgvChiTietMon.Columns["MaChiTietMon"].Visible = false;
                 dtgvChiTietMon.Columns["MaMon"].Visible = false;
+                dtgvChiTietMon.Columns["MaNamHoc"].Visible = false;
+
                 dtgvChiTietMon.Columns["TenMon"].ReadOnly = true;
+                dtgvChiTietMon.Columns["TenNamHoc"].ReadOnly = true;
                 dtgvChiTietMon.Columns["GiangVien"].ReadOnly = true;
                 dtgvChiTietMon.Columns["CanBoCoiThiLan1"].ReadOnly = true;
                 dtgvChiTietMon.Columns["CanBoCoiThiLan2"].ReadOnly = true;
@@ -458,6 +471,20 @@ namespace QuanLyBoMon
                     gMaChiTietMon = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaChiTietMon"].Value.ToString());
 
                     frmThemCanBoCoiThiLan2 frm = new frmThemCanBoCoiThiLan2();
+                    frm.ShowDialog();
+                    timer1.Start();
+                }
+
+                if (dtgvChiTietMon.Columns[e.ColumnIndex].Name == "TenNamHoc" && e.RowIndex >= 0)
+                {
+                    isFrmThemNamHocVaoChiTietMonClosed = false;
+                    gMaChiTietMon = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaChiTietMon"].Value.ToString());
+                    if (dtgvChiTietMon.Rows[e.RowIndex].Cells["MaNamHoc"].Value.ToString() != "")
+                        gMaNamHoc = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaNamHoc"].Value.ToString());
+                    else
+                        gMaNamHoc = 0;
+
+                    frmThemNamHocVaoChiTietMon frm = new frmThemNamHocVaoChiTietMon();
                     frm.ShowDialog();
                     timer1.Start();
                 }

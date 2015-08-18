@@ -15,7 +15,7 @@ namespace DAO
         {
             DataTable dataTable = new DataTable();
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Select ctm.MaChiTietMon, m.TenMon, m.MaMon, ctm.ThoiGianHoc, ctm.GioHoc, ctm.GiangDuong, ctm.GiangVien, ctm.NgayThiLan1, ctm.GioThiLan1, ctm.GiangDuongThiLan1, ctm.CanBoCoiThiLan1, ctm.SoBaiThiLan1, ctm.NgayThiLan2, ctm.GioThiLan2, ctm.GiangDuongThiLan2, ctm.CanBoCoiThiLan2, ctm.SoBaiThiLan2, ctm.GhiChu  from (CHITIETMON ctm inner join LOPMON lm on ctm.MaLopMon = lm.MaLopMon) inner join MON m on lm.MaMon = m.MaMon where lm.MaLop = ? order by m.MaMon ASC";
+            string cmdText = "Select ctm.MaChiTietMon, m.TenMon, m.MaMon, nh.TenNamHoc, nh.MaNamHoc, ctm.ThoiGianHoc, ctm.GioHoc, ctm.GiangDuong, ctm.GiangVien, ctm.NgayThiLan1, ctm.GioThiLan1, ctm.GiangDuongThiLan1, ctm.CanBoCoiThiLan1, ctm.SoBaiThiLan1, ctm.NgayThiLan2, ctm.GioThiLan2, ctm.GiangDuongThiLan2, ctm.CanBoCoiThiLan2, ctm.SoBaiThiLan2, ctm.GhiChu  from ((CHITIETMON ctm inner join LOPMON lm on ctm.MaLopMon = lm.MaLopMon) inner join MON m on lm.MaMon = m.MaMon) left join NAMHOC nh on ctm.MaNamHoc = nh.MaNamHoc where lm.MaLop = ? order by m.MaMon ASC";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
             command.Parameters.Add("@MaLop", OleDbType.Numeric);
@@ -44,6 +44,7 @@ namespace DAO
 
                 chiTietMon.MaChiTietMon = (int)reader["MaChiTietMon"];
                 chiTietMon.MaLopMon = (int)reader["MaLopMon"];
+                chiTietMon.MaNamHoc = (int)reader["MaNamHoc"];
                 chiTietMon.ThoiGianHoc = (string)reader["ThoiGianHoc"];
                 chiTietMon.GioHoc = (string)reader["GioHoc"];
                 chiTietMon.GiangDuong = (string)reader["GiangDuong"];
@@ -83,6 +84,7 @@ namespace DAO
             {
                 chiTietMon.MaChiTietMon = (int)reader["MaChiTietMon"];
                 chiTietMon.MaLopMon = (int)reader["MaLopMon"];
+                chiTietMon.MaNamHoc = (int)reader["MaNamHoc"];
                 chiTietMon.ThoiGianHoc = (string)reader["ThoiGianHoc"];
                 chiTietMon.GioHoc = (string)reader["GioHoc"];
                 chiTietMon.GiangDuong = (string)reader["GiangDuong"];
@@ -118,9 +120,10 @@ namespace DAO
         public static void UpdateRecord(ChiTietMonDTO chiTietMonDTO)
         {
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Update CHITIETMON Set [ThoiGianHoc] = ?, [GioHoc] = ?, [GiangDuong] = ?, [NgayThiLan1] = ?, [GioThiLan1] = ?, [GiangDuongThiLan1] = ?, [SoBaiThiLan1] = ?, [NgayThiLan2] = ?, [GioThiLan2] = ?, [GiangDuongThiLan2] = ?, [SoBaiThiLan2] = ?, [GhiChu] = ? Where [MaChiTietMon] = ?";
+            string cmdText = "Update CHITIETMON Set [MaNamHoc] = ?, [ThoiGianHoc] = ?, [GioHoc] = ?, [GiangDuong] = ?, [NgayThiLan1] = ?, [GioThiLan1] = ?, [GiangDuongThiLan1] = ?, [SoBaiThiLan1] = ?, [NgayThiLan2] = ?, [GioThiLan2] = ?, [GiangDuongThiLan2] = ?, [SoBaiThiLan2] = ?, [GhiChu] = ? Where [MaChiTietMon] = ?";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
+            command.Parameters.Add("@MaNamHoc", OleDbType.Integer);
             command.Parameters.Add("@ThoiGianHoc", OleDbType.WChar);
             command.Parameters.Add("@GioHoc", OleDbType.WChar);
             command.Parameters.Add("@GiangDuong", OleDbType.WChar);
@@ -138,6 +141,7 @@ namespace DAO
             command.Parameters.Add("@GhiChu", OleDbType.WChar);
             command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
 
+            command.Parameters["@MaNamHoc"].Value = chiTietMonDTO.MaNamHoc;
             command.Parameters["@ThoiGianHoc"].Value = chiTietMonDTO.ThoiGianHoc;
             command.Parameters["@GioHoc"].Value = chiTietMonDTO.GioHoc;
             command.Parameters["@GiangDuong"].Value = chiTietMonDTO.GiangDuong;
@@ -207,13 +211,30 @@ namespace DAO
             connection.Close();
         }
 
+        public static void CapNhatNamHoc(int maChiTietMon, int maNamHoc)
+        {
+            OleDbConnection connection = DataProvider.CreateConnection();
+            string cmdText = "Update CHITIETMON Set [MaNamHoc] = ? Where [MaChiTietMon] = ?";
+            OleDbCommand command = new OleDbCommand(cmdText, connection);
+
+            command.Parameters.Add("@MaNamHoc", OleDbType.Numeric);
+            command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
+
+            command.Parameters["@MaNamHoc"].Value = maNamHoc;
+            command.Parameters["@MaChiTietMon"].Value = maChiTietMon;
+
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
         public static void Insert(ChiTietMonDTO chiTietMonDTO)
         {
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Insert into CHITIETMON(MaLopMon, ThoiGianHoc, GioHoc, GiangDuong, GiangVien, NgayThiLan1, GioThiLan1, GiangDuongThiLan1, CanBoCoiThiLan1, SoBaiThiLan1, NgayThiLan2, GioThiLan2, GiangDuongThiLan2, CanBoCoiThiLan2, SoBaiThiLan2, GhiChu) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            string cmdText = "Insert into CHITIETMON(MaLopMon, MaNamHoc, ThoiGianHoc, GioHoc, GiangDuong, GiangVien, NgayThiLan1, GioThiLan1, GiangDuongThiLan1, CanBoCoiThiLan1, SoBaiThiLan1, NgayThiLan2, GioThiLan2, GiangDuongThiLan2, CanBoCoiThiLan2, SoBaiThiLan2, GhiChu) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
             command.Parameters.Add("@MaLopMon", OleDbType.Numeric);
+            command.Parameters.Add("@MaNamHoc", OleDbType.Numeric);
             command.Parameters.Add("@ThoiGianHoc", OleDbType.WChar);
             command.Parameters.Add("@GioHoc", OleDbType.WChar);
             command.Parameters.Add("@GiangDuong", OleDbType.WChar);
@@ -232,6 +253,7 @@ namespace DAO
             command.Parameters.Add("@MaChiTietMon", OleDbType.Numeric);
 
             command.Parameters["@MaLopMon"].Value = chiTietMonDTO.MaLopMon;
+            command.Parameters["@MaNamHoc"].Value = chiTietMonDTO.MaNamHoc;
             command.Parameters["@ThoiGianHoc"].Value = chiTietMonDTO.ThoiGianHoc;
             command.Parameters["@GioHoc"].Value = chiTietMonDTO.GioHoc;
             command.Parameters["@GiangDuong"].Value = chiTietMonDTO.GiangDuong;

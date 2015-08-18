@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +21,11 @@ namespace QuanLyBoMon
         public static bool isFrmThemGiangVienClosed = false;
         public static bool isFrmThemCanBoCoiThiLan1Closed = false;
         public static bool isFrmThemCanBoCoiThiLan2Closed = false;
+        public static bool isFrmNamHocVaoChiTietMonClosed = false;
+        public static bool isFirstTimeRenderDTGV = true;
 
         public static int gMaChiTietMon;
+        public static int gMaNamHoc;
 
         public frmTimKiemLop()
         {
@@ -275,7 +279,19 @@ namespace QuanLyBoMon
 
                 dtgvChiTietMon.DataSource = dtChiTietMon;
 
+                //if (isFirstTimeRenderDTGV)
+                //{
+                //    DataGridViewComboBoxColumn namHocCol = new DataGridViewComboBoxColumn();
+                //    namHocCol.Name = "CmbNamHoc";
+                //    namHocCol.HeaderText = "CmbNamHoc";
+                //    namHocCol.ValueType = typeof(int);
+                //    dtgvChiTietMon.Columns.Insert(dtgvChiTietMon.Columns["TenMon"].Index + 1, namHocCol);
+
+                //    isFirstTimeRenderDTGV = false;
+                //}
+
                 dtgvChiTietMon.Columns["TenMon"].HeaderText = "Môn";
+                dtgvChiTietMon.Columns["TenNamHoc"].HeaderText = "Năm Học";
                 dtgvChiTietMon.Columns["ThoiGianHoc"].HeaderText = "Thời Gian Học";
                 dtgvChiTietMon.Columns["GioHoc"].HeaderText = "Giờ Học";
                 dtgvChiTietMon.Columns["GiangDuong"].HeaderText = "Giảng Đường";
@@ -312,6 +328,7 @@ namespace QuanLyBoMon
                 dtgvChiTietMon.Columns["MaChiTietMon"].Visible = false;
                 dtgvChiTietMon.Columns["MaMon"].Visible = false;
                 dtgvChiTietMon.Columns["TenMon"].ReadOnly = true;
+                dtgvChiTietMon.Columns["TenNamHoc"].ReadOnly = true;
                 dtgvChiTietMon.Columns["GiangVien"].ReadOnly = true;
                 dtgvChiTietMon.Columns["CanBoCoiThiLan1"].ReadOnly = true;
                 dtgvChiTietMon.Columns["CanBoCoiThiLan2"].ReadOnly = true;
@@ -505,6 +522,20 @@ namespace QuanLyBoMon
                     frm.ShowDialog();
                     timer1.Start();
                 }
+
+                if (dtgvChiTietMon.Columns[e.ColumnIndex].Name == "TenNamHoc" && e.RowIndex >= 0)
+                {
+                    isFrmNamHocVaoChiTietMonClosed = false;
+                    gMaChiTietMon = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaChiTietMon"].Value.ToString());
+                    if (dtgvChiTietMon.Rows[e.RowIndex].Cells["MaNamHoc"].Value.ToString() != "")
+                        gMaNamHoc = Int32.Parse(dtgvChiTietMon.Rows[e.RowIndex].Cells["MaNamHoc"].Value.ToString());
+                    else
+                        gMaNamHoc = 0;
+
+                    frmThemNamHocVaoChiTietMonTimKiem frm = new frmThemNamHocVaoChiTietMonTimKiem();
+                    frm.ShowDialog();
+                    timer1.Start();
+                }
             }
             catch (System.Exception ex)
             {
@@ -534,6 +565,45 @@ namespace QuanLyBoMon
                 timer1.Stop();
                 LayDanhSachChiTietMon();
             }
+
+            if (isFrmNamHocVaoChiTietMonClosed)
+            {
+                isFrmNamHocVaoChiTietMonClosed = false;
+                timer1.Stop();
+                LayDanhSachChiTietMon();
+            }
+        }
+
+        private void dtgvChiTietMon_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //try
+            //{
+            //    if (!isFirstTimeRenderDTGV)
+            //    {
+            //        IList listNamHoc = NamHocBUS.GetList();
+
+            //        foreach (DataGridViewRow row in dtgvChiTietMon.Rows)
+            //        {
+            //            ((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).DataSource = listNamHoc;
+            //            ((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).DisplayMember = "TenNamHoc";
+            //            ((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).ValueMember = "MaNamHoc";
+            //            if (row.Cells["MaNamHoc"].Value.ToString() != "")
+            //            {
+            //                for (int i = 0; i < ((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).Items.Count; i++)
+            //                {
+            //                    if (((NamHocDTO)(((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).Items[i])).MaNamHoc == Int32.Parse(row.Cells["MaNamHoc"].Value.ToString()))
+            //                    {
+            //                        ((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).Value = ((NamHocDTO)(((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).Items[i])).MaNamHoc;
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

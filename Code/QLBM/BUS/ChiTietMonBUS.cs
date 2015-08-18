@@ -52,6 +52,11 @@ namespace BUS
             ChiTietMonDAO.UpdateCanBoCoiThiLan2(chiTietMonDTO);
         }
 
+        public static void CapNhatNamHoc(int maChiTietMon, int maNamHoc)
+        {
+            ChiTietMonDAO.CapNhatNamHoc(maChiTietMon, maNamHoc);
+        }
+
         public static void Delete(int maChiTietMon)
         {
             ChiTietMonDAO.Delete(maChiTietMon);

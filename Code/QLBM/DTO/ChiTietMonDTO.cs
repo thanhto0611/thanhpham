@@ -10,6 +10,7 @@ namespace DTO
         #region Attributes
         private int _MaChiTietMon;
         private int _MaLopMon;
+        private int _MaNamHoc;
         private string _ThoiGianHoc;
         private string _GioHoc;
         private string _GiangDuong;
@@ -37,6 +38,11 @@ namespace DTO
         {
             get { return _MaLopMon; }
             set { _MaLopMon = value; }
+        }
+        public int MaNamHoc
+        {
+            get { return _MaNamHoc; }
+            set { _MaNamHoc = value; }
         }
         public string ThoiGianHoc
         {
@@ -120,6 +126,7 @@ namespace DTO
         {
             _MaChiTietMon = 0;
             _MaLopMon = 0;
+            _MaNamHoc = 0;
             _ThoiGianHoc = "";
             _GioHoc = "";
             _GiangDuong = "";

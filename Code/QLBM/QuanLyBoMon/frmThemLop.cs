@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -288,6 +289,20 @@ namespace QuanLyBoMon
                 }
 
                 dtgvChiTietMon.DataSource = dtChiTietMon;
+
+                DataGridViewComboBoxColumn namHocCol = new DataGridViewComboBoxColumn();
+                namHocCol.Name = "CmbNamHoc";
+                namHocCol.HeaderText = "Năm Học";
+                namHocCol.ValueType = typeof(int);
+                dtgvChiTietMon.Columns.Insert(dtgvChiTietMon.Columns["TenMon"].Index + 1, namHocCol);
+
+                IList listNamHoc = NamHocBUS.GetList();
+
+                foreach (DataGridViewRow row in this.dtgvChiTietMon.Rows)
+                {
+                    ((DataGridViewComboBoxCell)row.Cells["CmbNamHoc"]).DataSource = listNamHoc;
+                    row.Cells["CmbNamHoc"].Value = row.Cells["TenNamHoc"].Value;
+                }
 
                 dtgvChiTietMon.Columns["TenMon"].HeaderText = "Môn";
                 dtgvChiTietMon.Columns["ThoiGianHoc"].HeaderText = "Thời Gian Học";

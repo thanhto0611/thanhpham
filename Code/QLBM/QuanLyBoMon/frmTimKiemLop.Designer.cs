@@ -394,6 +394,7 @@
             this.dtgvChiTietMon.TabIndex = 0;
             this.dtgvChiTietMon.Visible = false;
             this.dtgvChiTietMon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvChiTietMon_CellClick);
+            this.dtgvChiTietMon.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtgvChiTietMon_DataBindingComplete);
             // 
             // groupBox3
             // 

@@ -15,6 +15,7 @@ namespace Presentation
     {
         //public ConfigDTO _cfgDto = new ConfigDTO();
         public bool _changed = false;
+        public bool _isSoapChanged = false;
 
         public frmConfig()
         {
@@ -28,6 +29,7 @@ namespace Presentation
             //Tich Luy Diem
             chbxTichLuyDiem.Checked = Main2._cfgDto.TichLuyDiem;
             cbUseAPISync.Checked = Main2._cfgDto.UseAPISycn;
+            txtSoapAddress.Text = Main2._cfgDto.SoapAddress;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -43,11 +45,18 @@ namespace Presentation
                 {
                     Main2._cfgDto.TichLuyDiem = chbxTichLuyDiem.Checked;
                     Main2._cfgDto.UseAPISycn = cbUseAPISync.Checked;
+                    Main2._cfgDto.SoapAddress = txtSoapAddress.Text;
 
                     ConfigBUS.SaveConfig(Main2._cfgDto);
 
                     MessageBox.Show("Save config thành công");
                     _changed = false;
+
+                    if (_isSoapChanged)
+                    {
+                        Main2.getSessionId();
+                        _isSoapChanged = false;
+                    }
                 }
             }
             catch (System.Exception ex)
@@ -101,6 +110,11 @@ namespace Presentation
         {
             _changed = true;
             Main2._cfgDto.UseAPISycn = cbUseAPISync.Checked;
+        }
+
+        private void txtSoapAddress_TextChanged(object sender, EventArgs e)
+        {
+            _isSoapChanged = true;
         }
     }
 }

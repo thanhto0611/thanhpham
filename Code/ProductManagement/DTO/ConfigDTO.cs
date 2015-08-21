@@ -9,6 +9,7 @@ namespace DTO
         #region Attributes
         private bool _TichLuyDiem;
         private bool _UseAPISycn;
+        private string _SoapAddress;
         #endregion
 
         #region Properties
@@ -34,6 +35,17 @@ namespace DTO
                 _UseAPISycn = value;
             }
         }
+        public string SoapAddress
+        {
+            get
+            {
+                return _SoapAddress;
+            }
+            set
+            {
+                _SoapAddress = value;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -41,6 +53,7 @@ namespace DTO
         {
             _TichLuyDiem = false;
             _UseAPISycn = false;
+            _SoapAddress = "";
         }
         #endregion
     }

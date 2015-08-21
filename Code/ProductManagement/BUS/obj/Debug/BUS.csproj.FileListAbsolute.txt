@@ -97,3 +97,12 @@ D:\GitCode\thanhpham\Code\ProductManagement\BUS\bin\Debug\DAO.pdb
 D:\GitCode\thanhpham\Code\ProductManagement\BUS\obj\Debug\ResolveAssemblyReference.cache
 D:\GitCode\thanhpham\Code\ProductManagement\BUS\obj\Debug\BUS.dll
 D:\GitCode\thanhpham\Code\ProductManagement\BUS\obj\Debug\BUS.pdb
+C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\BUS\bin\Debug\BUS.dll
+C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\BUS\bin\Debug\BUS.pdb
+C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\BUS\bin\Debug\DAO.dll
+C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\BUS\bin\Debug\DTO.dll
+C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\BUS\bin\Debug\DTO.pdb
+C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\BUS\bin\Debug\DAO.pdb
+C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\BUS\obj\Debug\BUS.dll
+C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\BUS\obj\Debug\BUS.pdb

@@ -64,6 +64,17 @@ namespace Presentation
             bool wasInventoryUpdated = Inventory.Update(Main2.apiUrl, Main2.sessionId, new object[] { myInventoryUpdate.sku, myInventoryUpdate });
             return wasInventoryUpdated;
         }
+
+        public static Inventory GetProductInventoryBySKU(string sku)
+        {
+            Inventory[] listIv = Inventory.List(Main2.apiUrl, Main2.sessionId, new object[] { sku });
+            
+            if (listIv.Length == 1)
+            {
+                return listIv[0];
+            }
+            return null;
+        }
     }
 
     /// <summary>

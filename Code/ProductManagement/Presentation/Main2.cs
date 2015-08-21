@@ -29,7 +29,8 @@ namespace Presentation
         public static frmFacebookMe frmFacebookMe = null;
         public static frmSyncAPI frmSyncAPI = null;
 
-        public static string apiUrl = "http://localhost/ella/api/xmlrpc";
+        //public static string apiUrl = "http://localhost/ella/api/xmlrpc";
+        public static string apiUrl;
         public static string apiUser = "ellaxmlrpc";
         public static string apiPass = "nguoicodoc";
         public static string sessionId = "";
@@ -94,23 +95,29 @@ namespace Presentation
 
         private void Main2_Load(object sender, EventArgs e)
         {
-            try
-            {
-                // login (make sure you have user and role assigned in magento admin)
-                sessionId = Connection.Login(apiUrl, apiUser, apiPass);
-
-                _cfgDto = ConfigBUS.GetConfig();
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show("Không thể kết nối tới web, sử dụng OFFLINE MODE");
-            }
+            getSessionId();
 
             // kiem tra dang nhap
             if (frmDangNhap.kiemTraDangNhap == false)
             {
                 frmDangNhap frm = new frmDangNhap();
                 frm.ShowDialog();
+            }
+        }
+
+        public static void getSessionId()
+        {
+            try
+            {
+                // login (make sure you have user and role assigned in magento admin)
+                _cfgDto = ConfigBUS.GetConfig();
+                apiUrl = _cfgDto.SoapAddress;
+
+                sessionId = Connection.Login(apiUrl, apiUser, apiPass);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Không thể kết nối tới web, sử dụng OFFLINE MODE");
             }
         }
 

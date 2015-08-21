@@ -21,6 +21,7 @@ namespace DAO
             {
                 cfgDto.TichLuyDiem = (bool)reader["TichLuyDiem"];
                 cfgDto.UseAPISycn = (bool)reader["UseAPISync"];
+                cfgDto.SoapAddress = (string)reader["SoapAddress"];
             }
 
             reader.Close();
@@ -31,14 +32,16 @@ namespace DAO
         public static void SaveConfig(ConfigDTO cfgDto)
         {
             OleDbConnection connection = DataProvider.CreateConnection();
-            string cmdText = "Update CONFIG Set TichLuyDiem = ?, UseAPISync = ? where ID=1";
+            string cmdText = "Update CONFIG Set TichLuyDiem = ?, UseAPISync = ?, SoapAddress = ? where ID=1";
             OleDbCommand command = new OleDbCommand(cmdText, connection);
 
             command.Parameters.Add("@TichLuyDiem", OleDbType.Boolean);
             command.Parameters.Add("@UseAPISycn", OleDbType.Boolean);
+            command.Parameters.Add("@SoapAddress", OleDbType.WChar);
 
             command.Parameters["@TichLuyDiem"].Value = cfgDto.TichLuyDiem;
             command.Parameters["@UseAPISycn"].Value = cfgDto.UseAPISycn;
+            command.Parameters["@SoapAddress"].Value = cfgDto.SoapAddress;
 
             int row = command.ExecuteNonQuery();
             connection.Close();

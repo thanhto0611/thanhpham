@@ -31,6 +31,8 @@
             this.chbxTichLuyDiem = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.cbUseAPISync = new System.Windows.Forms.CheckBox();
+            this.txtSoapAddress = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // chbxTichLuyDiem
@@ -65,11 +67,30 @@
             this.cbUseAPISync.UseVisualStyleBackColor = true;
             this.cbUseAPISync.CheckedChanged += new System.EventHandler(this.cbUseAPISync_CheckedChanged);
             // 
+            // txtSoapAddress
+            // 
+            this.txtSoapAddress.Location = new System.Drawing.Point(111, 77);
+            this.txtSoapAddress.Name = "txtSoapAddress";
+            this.txtSoapAddress.Size = new System.Drawing.Size(295, 20);
+            this.txtSoapAddress.TabIndex = 4;
+            this.txtSoapAddress.TextChanged += new System.EventHandler(this.txtSoapAddress_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "SOAP Address:";
+            // 
             // frmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 485);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtSoapAddress);
             this.Controls.Add(this.cbUseAPISync);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.chbxTichLuyDiem);
@@ -88,5 +109,7 @@
         private System.Windows.Forms.CheckBox chbxTichLuyDiem;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox cbUseAPISync;
+        private System.Windows.Forms.TextBox txtSoapAddress;
+        private System.Windows.Forms.Label label1;
     }
 }

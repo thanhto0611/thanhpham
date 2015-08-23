@@ -16,6 +16,8 @@ using System.Diagnostics;
 using OfficeOpenXml;
 using Microsoft.Office.Core;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Net.Mail;
+using System.Threading;
 
 namespace QuanLyBoMon
 {
@@ -25,6 +27,7 @@ namespace QuanLyBoMon
         public DataTable dtDanhSachLop = new DataTable();
 
         public bool isFormLoadCompleted = false;
+
 
         public frmThongKeLopCuaGiangVien()
         {
@@ -70,7 +73,8 @@ namespace QuanLyBoMon
                     txtDiaChiUpdate.Text = giangVienUpdateDTO.DiaChi;
                     txtEmailUpdate.Text = giangVienUpdateDTO.Email;
 
-                    layDanhSachMon();
+                    layDanhSachMon(giangVienUpdateDTO.MaGiangVien);
+                    formatData();
                 }
             }
             catch (System.Exception ex)
@@ -79,31 +83,20 @@ namespace QuanLyBoMon
             }
         }
 
-        private void layDanhSachMon()
+        private void layDanhSachMon(int maGiangVien)
         {
             try
             {
-                if (giangVienUpdateDTO.MaGiangVien > 0)
+                if (maGiangVien > 0)
                 {
                     if (cbxTatCaNamHoc.Checked)
                     {
-                        dtDanhSachLop = GiangVienBUS.LayDanhSachMonCuaGiangVien(giangVienUpdateDTO.MaGiangVien);
+                        dtDanhSachLop = GiangVienBUS.LayDanhSachMonCuaGiangVien(maGiangVien);
                     }
                     else
                     {
                         int maNamHoc = (cmbNamHoc.SelectedItem as NamHocDTO).MaNamHoc;
-                        dtDanhSachLop = GiangVienBUS.LayDanhSachMonCuaGiangVien(giangVienUpdateDTO.MaGiangVien, maNamHoc);
-                    }
-
-                    if (dtDanhSachLop.Rows.Count > 0)
-                    {
-                        groupBox2.Visible = true;
-                        btnXuatExcel.Enabled = true;
-                    }
-                    else
-                    {
-                        groupBox2.Visible = false;
-                        btnXuatExcel.Enabled = false;
+                        dtDanhSachLop = GiangVienBUS.LayDanhSachMonCuaGiangVien(maGiangVien, maNamHoc);
                     }
                         
 
@@ -167,59 +160,78 @@ namespace QuanLyBoMon
                         }
                     }
 
-                    dtgvDachSachLopCuaGiangVien.DataSource = dtDanhSachLop;
-
-                    dtgvDachSachLopCuaGiangVien.Columns["TenMon"].HeaderText = "Môn";
-                    dtgvDachSachLopCuaGiangVien.Columns["TenNamHoc"].HeaderText = "Năm Học";
-                    dtgvDachSachLopCuaGiangVien.Columns["TenLop"].HeaderText = "Lớp";
-                    dtgvDachSachLopCuaGiangVien.Columns["ThoiGianHoc"].HeaderText = "Thời Gian Học";
-                    dtgvDachSachLopCuaGiangVien.Columns["GioHoc"].HeaderText = "Giờ Học";
-                    dtgvDachSachLopCuaGiangVien.Columns["GiangDuong"].HeaderText = "Giảng Đường";
-                    dtgvDachSachLopCuaGiangVien.Columns["GiangVien"].HeaderText = "Giảng Viên";
-                    dtgvDachSachLopCuaGiangVien.Columns["NgayThiLan1"].HeaderText = "Ngày Thi Lần 1";
-                    dtgvDachSachLopCuaGiangVien.Columns["GioThiLan1"].HeaderText = "Giờ Thi Lần 1";
-                    dtgvDachSachLopCuaGiangVien.Columns["GiangDuongThiLan1"].HeaderText = "Giảng Đường Thi Lần 1";
-                    dtgvDachSachLopCuaGiangVien.Columns["CanBoCoiThiLan1"].HeaderText = "Cán Bộ Coi Thi Lần 1";
-                    dtgvDachSachLopCuaGiangVien.Columns["SoBaiThiLan1"].HeaderText = "Số Bài Thi Lần 1";
-                    dtgvDachSachLopCuaGiangVien.Columns["NgayThiLan2"].HeaderText = "Ngày Thi Lần 2";
-                    dtgvDachSachLopCuaGiangVien.Columns["GioThiLan2"].HeaderText = "Giờ Thi Lần 2";
-                    dtgvDachSachLopCuaGiangVien.Columns["GiangDuongThiLan2"].HeaderText = "Giảng Đường Thi Lần 2";
-                    dtgvDachSachLopCuaGiangVien.Columns["CanBoCoiThiLan2"].HeaderText = "Cán Bộ Coi Thi Lần 2";
-                    dtgvDachSachLopCuaGiangVien.Columns["SoBaiThiLan2"].HeaderText = "Số Bài Thi Lần 2";
-                    dtgvDachSachLopCuaGiangVien.Columns["GhiChu"].HeaderText = "Ghi Chú";
-
-                    dtgvDachSachLopCuaGiangVien.Columns["TenMon"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["TenLop"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["TenNamHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["ThoiGianHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["GioHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["GiangDuong"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["GiangVien"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["NgayThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["GioThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["GiangDuongThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["CanBoCoiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["SoBaiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["NgayThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["GioThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["GiangDuongThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["CanBoCoiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["SoBaiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dtgvDachSachLopCuaGiangVien.Columns["GhiChu"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
-                    dtgvDachSachLopCuaGiangVien.Columns["MaChiTietMon"].Visible = false;
-                    dtgvDachSachLopCuaGiangVien.Columns["MaNamHoc"].Visible = false;
-                    dtgvDachSachLopCuaGiangVien.Columns["MaMon"].Visible = false;
-                    dtgvDachSachLopCuaGiangVien.Columns["MaLop"].Visible = false;
+                    
                 }
                 else
                 {
-                    groupBox2.Visible = false;
+                    //groupBox2.Visible = false;
                 }
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void formatData()
+        {
+            dtgvDachSachLopCuaGiangVien.DataSource = dtDanhSachLop;
+
+            dtgvDachSachLopCuaGiangVien.Columns["TenMon"].HeaderText = "Môn";
+            dtgvDachSachLopCuaGiangVien.Columns["TenNamHoc"].HeaderText = "Năm Học";
+            dtgvDachSachLopCuaGiangVien.Columns["TenLop"].HeaderText = "Lớp";
+            dtgvDachSachLopCuaGiangVien.Columns["ThoiGianHoc"].HeaderText = "Thời Gian Học";
+            dtgvDachSachLopCuaGiangVien.Columns["GioHoc"].HeaderText = "Giờ Học";
+            dtgvDachSachLopCuaGiangVien.Columns["GiangDuong"].HeaderText = "Giảng Đường";
+            dtgvDachSachLopCuaGiangVien.Columns["GiangVien"].HeaderText = "Giảng Viên";
+            dtgvDachSachLopCuaGiangVien.Columns["NgayThiLan1"].HeaderText = "Ngày Thi Lần 1";
+            dtgvDachSachLopCuaGiangVien.Columns["GioThiLan1"].HeaderText = "Giờ Thi Lần 1";
+            dtgvDachSachLopCuaGiangVien.Columns["GiangDuongThiLan1"].HeaderText = "Giảng Đường Thi Lần 1";
+            dtgvDachSachLopCuaGiangVien.Columns["CanBoCoiThiLan1"].HeaderText = "Cán Bộ Coi Thi Lần 1";
+            dtgvDachSachLopCuaGiangVien.Columns["SoBaiThiLan1"].HeaderText = "Số Bài Thi Lần 1";
+            dtgvDachSachLopCuaGiangVien.Columns["NgayThiLan2"].HeaderText = "Ngày Thi Lần 2";
+            dtgvDachSachLopCuaGiangVien.Columns["GioThiLan2"].HeaderText = "Giờ Thi Lần 2";
+            dtgvDachSachLopCuaGiangVien.Columns["GiangDuongThiLan2"].HeaderText = "Giảng Đường Thi Lần 2";
+            dtgvDachSachLopCuaGiangVien.Columns["CanBoCoiThiLan2"].HeaderText = "Cán Bộ Coi Thi Lần 2";
+            dtgvDachSachLopCuaGiangVien.Columns["SoBaiThiLan2"].HeaderText = "Số Bài Thi Lần 2";
+            dtgvDachSachLopCuaGiangVien.Columns["GhiChu"].HeaderText = "Ghi Chú";
+
+            dtgvDachSachLopCuaGiangVien.Columns["TenMon"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["TenLop"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["TenNamHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["ThoiGianHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["GioHoc"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["GiangDuong"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["GiangVien"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["NgayThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["GioThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["GiangDuongThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["CanBoCoiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["SoBaiThiLan1"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["NgayThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["GioThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["GiangDuongThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["CanBoCoiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["SoBaiThiLan2"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgvDachSachLopCuaGiangVien.Columns["GhiChu"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            dtgvDachSachLopCuaGiangVien.Columns["MaChiTietMon"].Visible = false;
+            dtgvDachSachLopCuaGiangVien.Columns["MaNamHoc"].Visible = false;
+            dtgvDachSachLopCuaGiangVien.Columns["MaMon"].Visible = false;
+            dtgvDachSachLopCuaGiangVien.Columns["MaLop"].Visible = false;
+
+            if (dtDanhSachLop.Rows.Count > 0)
+            {
+                //groupBox2.Visible = true;
+                btnXuatExcel.Enabled = true;
+                btnSendEmail.Enabled = true;
+            }
+            else
+            {
+                //groupBox2.Visible = false;
+                btnXuatExcel.Enabled = false;
+                btnSendEmail.Enabled = false;
+                //MessageBox.Show("Không tìm thấy lớp cho giảng viên này");
             }
         }
 
@@ -252,6 +264,16 @@ namespace QuanLyBoMon
                 cmbNamHoc.ValueMember = "MaNamHoc";
 
                 isFormLoadCompleted = true;
+                if (cbxTatCaNamHoc.Checked)
+                {
+                    rtxtEmailContent.Text = "Kính gửi quý thầy cô lịch giảng dạy. Nếu có gì sai sót xin quý thầy cô phản ánh lại cho giáo vụ, để giáo vụ kiểm tra và chỉnh sửa kịp thời.\n\nXin cảm ơn quý thầy cô.";
+                    txtEmailSubject.Text = "LỊCH GIẢNG DẠY";
+                }
+                else
+                {
+                    rtxtEmailContent.Text = "Kính gửi quý thầy cô lịch giảng dạy năm học " + (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc  + ". Nếu có gì sai sót xin quý thầy cô phản ánh lại cho giáo vụ, để giáo vụ kiểm tra và chỉnh sửa kịp thời.\n\nXin cảm ơn quý thầy cô.";
+                    txtEmailSubject.Text = "LỊCH GIẢNG DẠY NĂM HỌC " + (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc;
+                }
                 //dtgvDachSachLopCuaGiangVien.AutoGenerateColumns = false;
             }
             catch (System.Exception ex)
@@ -289,9 +311,20 @@ namespace QuanLyBoMon
         private void cbxTatCaNamHoc_CheckedChanged(object sender, EventArgs e)
         {
             cmbNamHoc.Enabled = !cbxTatCaNamHoc.Checked;
+            if (cbxTatCaNamHoc.Checked)
+            {
+                rtxtEmailContent.Text = "Kính gửi quý thầy cô lịch giảng dạy. Nếu có gì sai sót xin quý thầy cô phản ánh lại cho giáo vụ, để giáo vụ kiểm tra và chỉnh sửa kịp thời.\n\nXin cảm ơn quý thầy cô.";
+                txtEmailSubject.Text = "LỊCH GIẢNG DẠY";
+            }
+            else
+            {
+                rtxtEmailContent.Text = "Kính gửi quý thầy cô lịch giảng dạy năm học " + (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc + ". Nếu có gì sai sót xin quý thầy cô phản ánh lại cho giáo vụ, để giáo vụ kiểm tra và chỉnh sửa kịp thời.\n\nXin cảm ơn quý thầy cô.";
+                txtEmailSubject.Text = "LỊCH GIẢNG DẠY NĂM HỌC " + (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc;
+            }
             try
             {
-                layDanhSachMon();
+                layDanhSachMon(giangVienUpdateDTO.MaGiangVien);
+                formatData();
             }
             catch (System.Exception ex)
             {
@@ -301,10 +334,24 @@ namespace QuanLyBoMon
 
         private void cmbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbxTatCaNamHoc.Checked)
+            {
+                rtxtEmailContent.Text = "Kính gửi quý thầy cô lịch giảng dạy. Nếu có gì sai sót xin quý thầy cô phản ánh lại cho giáo vụ, để giáo vụ kiểm tra và chỉnh sửa kịp thời.\n\nXin cảm ơn quý thầy cô.";
+                txtEmailSubject.Text = "LỊCH GIẢNG DẠY";
+            }
+            else
+            {
+                rtxtEmailContent.Text = "Kính gửi quý thầy cô lịch giảng dạy năm học " + (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc + ". Nếu có gì sai sót xin quý thầy cô phản ánh lại cho giáo vụ, để giáo vụ kiểm tra và chỉnh sửa kịp thời.\n\nXin cảm ơn quý thầy cô.";
+                txtEmailSubject.Text = "LỊCH GIẢNG DẠY NĂM HỌC " + (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc;
+            }
+
             try
             {
                 if (isFormLoadCompleted)
-                    layDanhSachMon();
+                {
+                    layDanhSachMon(giangVienUpdateDTO.MaGiangVien);
+                    formatData();
+                }
             }
             catch (System.Exception ex)
             {
@@ -316,11 +363,27 @@ namespace QuanLyBoMon
         {
             try
             {
-                string templateFileName = "ExportGiangVien.xlsx";
-                string templateFilePath = Path.Combine(Directory.GetCurrentDirectory(), templateFileName);
 
                 string exportFileName = "GiangVien_" + txtTenGiangVienUpdate.Text.Replace(@" ", "-").ToUpper() + "_LichGiangDay.xlsx";
                 string exportFilePath = Path.Combine(Directory.GetCurrentDirectory() + @"\LichGiangDay\", exportFileName);
+
+                xuatExcel(exportFilePath);
+                //MessageBox.Show("Xuất Excel Thành Công");
+                System.Diagnostics.Process.Start(exportFilePath);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void xuatExcel(string exportFilePath)
+        {
+            try
+            {
+                string templateFileName = "ExportGiangVien.xlsx";
+                string templateFilePath = Path.Combine(Directory.GetCurrentDirectory(), templateFileName);
+
                 if (File.Exists(exportFilePath))
                 {
                     File.Delete(exportFilePath);
@@ -350,6 +413,10 @@ namespace QuanLyBoMon
                     string checkImgPath = Directory.GetCurrentDirectory();
                     string imgPath = Directory.GetCurrentDirectory();
 
+                    if (oSheet.Cells[startRowIndex - 1, 1].Value.ToString() == row.Cells["TenLop"].Value.ToString())
+                    {
+                        oSheet.Cells[startRowIndex - 1, 1, startRowIndex, 1].Merge = true;
+                    }
                     oSheet.Cells[startRowIndex, 1].Value = row.Cells["TenLop"].Value.ToString();
                     oSheet.Cells[startRowIndex, 2].Value = row.Cells["TenMon"].Value.ToString();
                     oSheet.Cells[startRowIndex, 3].Value = row.Cells["ThoiGianHoc"].Value.ToString();
@@ -359,12 +426,18 @@ namespace QuanLyBoMon
                     oSheet.Cells[startRowIndex, 7].Value = row.Cells["GioThiLan1"].Value.ToString();
                     oSheet.Cells[startRowIndex, 8].Value = row.Cells["GiangDuongThiLan1"].Value.ToString();
                     oSheet.Cells[startRowIndex, 9].Value = row.Cells["CanBoCoiThiLan1"].Value.ToString();
-                    oSheet.Cells[startRowIndex, 10].Value = row.Cells["SoBaiThiLan1"].Value.ToString();
+                    if (row.Cells["SoBaiThiLan1"].Value.ToString() != "0")
+                    {
+                        oSheet.Cells[startRowIndex, 10].Value = row.Cells["SoBaiThiLan1"].Value.ToString();
+                    }
                     oSheet.Cells[startRowIndex, 11].Value = row.Cells["NgayThiLan2"].Value.ToString();
                     oSheet.Cells[startRowIndex, 12].Value = row.Cells["GioThiLan2"].Value.ToString();
                     oSheet.Cells[startRowIndex, 13].Value = row.Cells["GiangDuongThiLan2"].Value.ToString();
                     oSheet.Cells[startRowIndex, 14].Value = row.Cells["CanBoCoiThiLan2"].Value.ToString();
-                    oSheet.Cells[startRowIndex, 15].Value = row.Cells["SoBaiThiLan2"].Value.ToString();
+                    if (row.Cells["SoBaiThiLan2"].Value.ToString() != "0")
+                    {
+                        oSheet.Cells[startRowIndex, 10].Value = row.Cells["SoBaiThiLan2"].Value.ToString();
+                    }
                     oSheet.Cells[startRowIndex, 16].Value = row.Cells["GhiChu"].Value.ToString();
 
                     oSheet.Cells[startRowIndex, 1].Style.Border.Top.Style = ExcelBorderStyle.Thin;
@@ -436,12 +509,67 @@ namespace QuanLyBoMon
                 }
 
                 excelPkg.Save();
-                //MessageBox.Show("Xuất Excel Thành Công");
-                System.Diagnostics.Process.Start(exportFilePath);
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSendEmail_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn gửi email LỊCH GIẢNG DẠY cho giảng viên này không?",
+                        "Question",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button1);
+            if (result == DialogResult.Yes)
+            {
+                string your_id = txtFromEmail.Text;
+                string your_password = txtPassword.Text;
+                try
+                {
+                    SmtpClient client = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        Credentials = new System.Net.NetworkCredential(your_id, your_password),
+                        Timeout = 10000,
+                    };
+                    MailMessage mm = new MailMessage(your_id, txtEmailUpdate.Text, txtEmailSubject.Text, rtxtEmailContent.Text);
+
+                    string exportFileName = "GiangVien_" + txtTenGiangVienUpdate.Text.Replace(@" ", "-").ToUpper() + "_LichGiangDay.xlsx";
+                    string exportFilePath = Path.Combine(Directory.GetCurrentDirectory() + @"\LichGiangDay\", exportFileName);
+                    xuatExcel(exportFilePath);
+                    Attachment data = new Attachment(exportFilePath);
+                    mm.Attachments.Add(data);
+                    client.Send(mm);
+                    MessageBox.Show("Email đã được gửi thành công");
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show("Không gửi được email!");
+                }
+            }
+        }
+
+        private void btnSendEmailToAll_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn gửi email LỊCH GIẢNG DẠY cho tất cả giảng viên không?",
+                        "Question",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button1);
+            if (result == DialogResult.Yes)
+            {
+                DataTable gv = GiangVienBUS.GetTable();
+
+                foreach (DataRow dr in gv.Rows)
+                {
+                    
+                }
             }
         }
     }

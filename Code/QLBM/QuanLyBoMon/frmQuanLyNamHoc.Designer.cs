@@ -55,7 +55,7 @@
             this.btnXoaNamHoc.Name = "btnXoaNamHoc";
             this.btnXoaNamHoc.Size = new System.Drawing.Size(154, 73);
             this.btnXoaNamHoc.TabIndex = 20;
-            this.btnXoaNamHoc.Text = "Xóa Môn Học";
+            this.btnXoaNamHoc.Text = "Xóa Năm Học";
             this.btnXoaNamHoc.UseVisualStyleBackColor = true;
             this.btnXoaNamHoc.Click += new System.EventHandler(this.btnXoaNamHoc_Click);
             // 
@@ -83,7 +83,7 @@
             this.btnCapNhatNamHoc.Name = "btnCapNhatNamHoc";
             this.btnCapNhatNamHoc.Size = new System.Drawing.Size(215, 73);
             this.btnCapNhatNamHoc.TabIndex = 19;
-            this.btnCapNhatNamHoc.Text = "Cập Nhật Môn Học";
+            this.btnCapNhatNamHoc.Text = "Cập Nhật Năm Học";
             this.btnCapNhatNamHoc.UseVisualStyleBackColor = true;
             this.btnCapNhatNamHoc.Click += new System.EventHandler(this.btnCapNhatNamHoc_Click);
             // 
@@ -108,7 +108,7 @@
             this.btnThemNamHoc.Name = "btnThemNamHoc";
             this.btnThemNamHoc.Size = new System.Drawing.Size(161, 51);
             this.btnThemNamHoc.TabIndex = 8;
-            this.btnThemNamHoc.Text = "Thêm Môn Học";
+            this.btnThemNamHoc.Text = "Thêm Năm Học";
             this.btnThemNamHoc.UseVisualStyleBackColor = true;
             this.btnThemNamHoc.Click += new System.EventHandler(this.btnThemNamHoc_Click);
             // 

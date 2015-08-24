@@ -63,3 +63,14 @@ G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\EPPlus.xml
 G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\Interop.Microsoft.Office.Core.dll
 G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmQuanLyMonHoc.resources
 G:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmQuanLyNamHoc.resources
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.csproj.ResolveComReference.cache
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmQuanLyMonHoc.resources
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmQuanLyNamHoc.resources
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\obj\Debug\QuanLyBoMon.frmThemNamHocVaoChiTietMon.resources
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\EPPlus.dll
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\office.dll
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\EPPlus.xml
+D:\GitCode\thanhpham\Code\QLBM\QuanLyBoMon\bin\Debug\Interop.Microsoft.Office.Core.dll

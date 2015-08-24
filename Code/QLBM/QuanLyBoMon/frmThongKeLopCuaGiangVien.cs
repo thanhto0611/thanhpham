@@ -28,6 +28,14 @@ namespace QuanLyBoMon
 
         public bool isFormLoadCompleted = false;
 
+        private static object fileLock = new object();
+
+        public class EmailInfo
+        {
+            public string toEmailAddress;
+            public string filePath;
+        }
+
 
         public frmThongKeLopCuaGiangVien()
         {
@@ -321,14 +329,17 @@ namespace QuanLyBoMon
                 rtxtEmailContent.Text = "Kính gửi quý thầy cô lịch giảng dạy năm học " + (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc + ". Nếu có gì sai sót xin quý thầy cô phản ánh lại cho giáo vụ, để giáo vụ kiểm tra và chỉnh sửa kịp thời.\n\nXin cảm ơn quý thầy cô.";
                 txtEmailSubject.Text = "LỊCH GIẢNG DẠY NĂM HỌC " + (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc;
             }
-            try
+            if (giangVienUpdateDTO.MaGiangVien > 0)
             {
-                layDanhSachMon(giangVienUpdateDTO.MaGiangVien);
-                formatData();
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    layDanhSachMon(giangVienUpdateDTO.MaGiangVien);
+                    formatData();
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -529,23 +540,15 @@ namespace QuanLyBoMon
                 string your_password = txtPassword.Text;
                 try
                 {
-                    SmtpClient client = new SmtpClient
-                    {
-                        Host = "smtp.gmail.com",
-                        Port = 587,
-                        EnableSsl = true,
-                        DeliveryMethod = SmtpDeliveryMethod.Network,
-                        Credentials = new System.Net.NetworkCredential(your_id, your_password),
-                        Timeout = 10000,
-                    };
-                    MailMessage mm = new MailMessage(your_id, txtEmailUpdate.Text, txtEmailSubject.Text, rtxtEmailContent.Text);
-
                     string exportFileName = "GiangVien_" + txtTenGiangVienUpdate.Text.Replace(@" ", "-").ToUpper() + "_LichGiangDay.xlsx";
                     string exportFilePath = Path.Combine(Directory.GetCurrentDirectory() + @"\LichGiangDay\", exportFileName);
                     xuatExcel(exportFilePath);
-                    Attachment data = new Attachment(exportFilePath);
-                    mm.Attachments.Add(data);
-                    client.Send(mm);
+                    EmailInfo email = new EmailInfo();
+                    email.toEmailAddress = txtEmailUpdate.Text;
+                    email.filePath = exportFilePath;
+                    sendEmail(email);
+                    //ThreadPool.QueueUserWorkItem(sendEmail, email);
+                    //sendEmail(txtEmailUpdate.Text, exportFilePath);
                     MessageBox.Show("Email đã được gửi thành công");
                 }
                 catch (System.Exception ex)
@@ -555,9 +558,51 @@ namespace QuanLyBoMon
             }
         }
 
+        private void sendEmail(Object threadContext)
+        {
+            EmailInfo email = (EmailInfo)threadContext;
+            string your_id = txtFromEmail.Text;
+            string your_password = txtPassword.Text;
+            try
+            {
+                lock (fileLock)
+                {
+                    SmtpClient client = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        Credentials = new System.Net.NetworkCredential(your_id, your_password),
+                        Timeout = 10000,
+                    };
+                    MailMessage mm = new MailMessage(your_id, email.toEmailAddress, txtEmailSubject.Text, rtxtEmailContent.Text);
+                    Attachment data = new Attachment(email.filePath);
+                    mm.Attachments.Add(data);
+                    client.Send(mm);
+                }
+                System.Threading.Thread.Sleep(100);
+                
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Không gửi được email!");
+            }
+        }
+
         private void btnSendEmailToAll_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc muốn gửi email LỊCH GIẢNG DẠY cho tất cả giảng viên không?",
+            string notifyMessage;
+            if (cbxTatCaNamHoc.Checked)
+            {
+                notifyMessage = "Bạn có chắc muốn gửi email LỊCH GIẢNG DẠY cho tất cả giảng viên không?";
+            }
+            else
+            {
+                notifyMessage = "Bạn có chắc muốn gửi email LỊCH GIẢNG DẠY năm học " + (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc + " cho tất cả giảng viên không?";
+            }
+
+            DialogResult result = MessageBox.Show(notifyMessage,
                         "Question",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question,
@@ -568,8 +613,160 @@ namespace QuanLyBoMon
 
                 foreach (DataRow dr in gv.Rows)
                 {
-                    
+                    layDanhSachMon(Int32.Parse(dr["MaGiangVien"].ToString()));
+                    if (dtDanhSachLop.Rows.Count > 0)
+                    {
+                        string exportFileName = "GiangVien_" + dr["TenGiangVien"].ToString().Replace(@" ", "-").ToUpper() + "_LichGiangDay.xlsx";
+                        string exportFilePath = Path.Combine(Directory.GetCurrentDirectory() + @"\LichGiangDay\", exportFileName);
+                        xuatExcelAll(exportFilePath, dr["TenGiangVien"].ToString());
+                        EmailInfo email = new EmailInfo();
+                        email.toEmailAddress = dr["Email"].ToString();
+                        email.filePath = exportFilePath;
+                        ThreadPool.QueueUserWorkItem(sendEmail, email);
+                    }
                 }
+
+                MessageBox.Show("Đã gửi email LỊCH GIẢNG DẠY cho tất cả giảng viên");
+            }
+        }
+
+        private void xuatExcelAll(string exportFilePath, string tenGiangVien)
+        {
+            try
+            {
+                string templateFileName = "ExportGiangVien.xlsx";
+                string templateFilePath = Path.Combine(Directory.GetCurrentDirectory(), templateFileName);
+
+                if (File.Exists(exportFilePath))
+                {
+                    File.Delete(exportFilePath);
+                }
+                File.Copy(templateFilePath, exportFilePath);
+
+                FileInfo newFile = new FileInfo(exportFilePath);
+                ExcelPackage excelPkg = new ExcelPackage(newFile);
+                excelPkg.Workbook.Worksheets["Sheet1"].View.TabSelected = true;
+
+                ExcelWorksheet oSheet = excelPkg.Workbook.Worksheets["Sheet1"];
+
+                oSheet.Cells["F4"].Value = tenGiangVien;
+                if (cbxTatCaNamHoc.Checked)
+                {
+                    oSheet.Cells["N4"].Value = "Tất cả năm học";
+                }
+                else
+                {
+                    oSheet.Cells["N4"].Value = (cmbNamHoc.SelectedItem as NamHocDTO).TenNamHoc;
+                }
+
+                int startRowIndex = 7;
+
+                foreach (DataRow row in dtDanhSachLop.Rows)
+                {
+                    string checkImgPath = Directory.GetCurrentDirectory();
+                    string imgPath = Directory.GetCurrentDirectory();
+                    
+                    if (oSheet.Cells[startRowIndex - 1, 1].Value.ToString() == row["TenLop"].ToString())
+                    {
+                        oSheet.Cells[startRowIndex - 1, 1, startRowIndex, 1].Merge = true;
+                    }
+                    oSheet.Cells[startRowIndex, 1].Value = row["TenLop"].ToString();
+                    oSheet.Cells[startRowIndex, 2].Value = row["TenMon"].ToString();
+                    oSheet.Cells[startRowIndex, 3].Value = row["ThoiGianHoc"].ToString();
+                    oSheet.Cells[startRowIndex, 4].Value = row["GioHoc"].ToString();
+                    oSheet.Cells[startRowIndex, 5].Value = row["GiangDuong"].ToString();
+                    oSheet.Cells[startRowIndex, 6].Value = row["NgayThiLan1"].ToString();
+                    oSheet.Cells[startRowIndex, 7].Value = row["GioThiLan1"].ToString();
+                    oSheet.Cells[startRowIndex, 8].Value = row["GiangDuongThiLan1"].ToString();
+                    oSheet.Cells[startRowIndex, 9].Value = row["CanBoCoiThiLan1"].ToString();
+                    if (row["SoBaiThiLan1"].ToString() != "0")
+                    {
+                        oSheet.Cells[startRowIndex, 10].Value = row["SoBaiThiLan1"].ToString();
+                    }
+                    oSheet.Cells[startRowIndex, 11].Value = row["NgayThiLan2"].ToString();
+                    oSheet.Cells[startRowIndex, 12].Value = row["GioThiLan2"].ToString();
+                    oSheet.Cells[startRowIndex, 13].Value = row["GiangDuongThiLan2"].ToString();
+                    oSheet.Cells[startRowIndex, 14].Value = row["CanBoCoiThiLan2"].ToString();
+                    if (row["SoBaiThiLan2"].ToString() != "0")
+                    {
+                        oSheet.Cells[startRowIndex, 10].Value = row["SoBaiThiLan2"].ToString();
+                    }
+                    oSheet.Cells[startRowIndex, 16].Value = row["GhiChu"].ToString();
+
+                    oSheet.Cells[startRowIndex, 1].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 1].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 1].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 1].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 2].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 2].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 2].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 2].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 3].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 3].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 3].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 3].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 4].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 4].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 4].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 4].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 5].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 5].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 5].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 5].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 6].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 6].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 6].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 6].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 7].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 7].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 7].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 7].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 8].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 8].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 8].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 8].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 9].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 9].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 9].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 9].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 10].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 10].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 10].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 10].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 11].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 11].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 11].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 11].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 12].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 12].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 12].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 12].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 13].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 13].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 13].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 13].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 14].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 14].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 14].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 14].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 15].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 15].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 15].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 15].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 16].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 16].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 16].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    oSheet.Cells[startRowIndex, 16].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+
+                    startRowIndex++;
+                }
+
+                excelPkg.Save();
+                excelPkg.Dispose();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

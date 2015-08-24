@@ -165,5 +165,17 @@ namespace QuanLyBoMon
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void frmQuanLyGiangVien_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                layDanhSachGiangVien();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

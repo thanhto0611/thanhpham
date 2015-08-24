@@ -324,6 +324,7 @@
             this.ShowIcon = false;
             this.Text = "Quản Lý Giảng Viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmQuanLyGiangVien_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmQuanLyGiangVien_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

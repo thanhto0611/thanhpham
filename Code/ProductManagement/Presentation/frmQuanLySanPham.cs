@@ -216,17 +216,20 @@ namespace Presentation
 
                     spBus.Update(sp);
 
-                    Product myProduct = new Product();
-                    myProduct.sku = sp.MaSanPham;
-                    myProduct.price = sp.GiaLe.ToString() + ".0000";
-                    myProduct.gia_si = sp.GiaSi.ToString() + ".0000";
-                    bool wasProductUpdated = Helper.APIUpdateProduct(myProduct);
+                    if (Main2._cfgDto.UseAPISycn)
+                    {
+                        Product myProduct = new Product();
+                        myProduct.sku = sp.MaSanPham;
+                        myProduct.price = sp.GiaLe.ToString() + ".0000";
+                        myProduct.gia_si = sp.GiaSi.ToString() + ".0000";
+                        bool wasProductUpdated = Helper.APIUpdateProduct(myProduct);
 
-                    Inventory myInventoryUpdate = new Inventory();
-                    myInventoryUpdate.sku = sp.MaSanPham;
-                    myInventoryUpdate.qty = sp.SoLuong.ToString() + ".0000";
-                    myInventoryUpdate.is_in_stock = sp.TrangThai.ToString();
-                    bool wasInventorUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
+                        Inventory myInventoryUpdate = new Inventory();
+                        myInventoryUpdate.sku = sp.MaSanPham;
+                        myInventoryUpdate.qty = sp.SoLuong.ToString() + ".0000";
+                        myInventoryUpdate.is_in_stock = sp.TrangThai.ToString();
+                        bool wasInventorUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
+                    }
                 }
                 MessageBox.Show("Cập nhật thành công!", "Thông báo!");
                 TimKiem();

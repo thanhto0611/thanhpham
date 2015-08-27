@@ -118,6 +118,7 @@ namespace Presentation
             catch (System.Exception ex)
             {
                 MessageBox.Show("Không thể kết nối tới web, sử dụng OFFLINE MODE");
+                _cfgDto.UseAPISycn = false;
             }
         }
 

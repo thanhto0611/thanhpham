@@ -358,7 +358,7 @@ namespace QuanLyBoMon
 
             try
             {
-                if (isFormLoadCompleted)
+                if (isFormLoadCompleted && giangVienUpdateDTO.MaGiangVien > 0)
                 {
                     layDanhSachMon(giangVienUpdateDTO.MaGiangVien);
                     formatData();
@@ -546,9 +546,7 @@ namespace QuanLyBoMon
                     EmailInfo email = new EmailInfo();
                     email.toEmailAddress = txtEmailUpdate.Text;
                     email.filePath = exportFilePath;
-                    sendEmail(email);
-                    //ThreadPool.QueueUserWorkItem(sendEmail, email);
-                    //sendEmail(txtEmailUpdate.Text, exportFilePath);
+                    ThreadPool.QueueUserWorkItem(sendEmail, email);
                     MessageBox.Show("Email đã được gửi thành công");
                 }
                 catch (System.Exception ex)
@@ -565,24 +563,21 @@ namespace QuanLyBoMon
             string your_password = txtPassword.Text;
             try
             {
-                lock (fileLock)
+                SmtpClient client = new SmtpClient
                 {
-                    SmtpClient client = new SmtpClient
-                    {
-                        Host = "smtp.gmail.com",
-                        Port = 587,
-                        EnableSsl = true,
-                        DeliveryMethod = SmtpDeliveryMethod.Network,
-                        Credentials = new System.Net.NetworkCredential(your_id, your_password),
-                        Timeout = 10000,
-                    };
-                    MailMessage mm = new MailMessage(your_id, email.toEmailAddress, txtEmailSubject.Text, rtxtEmailContent.Text);
-                    Attachment data = new Attachment(email.filePath);
-                    mm.Attachments.Add(data);
-                    client.Send(mm);
-                }
-                System.Threading.Thread.Sleep(100);
-                
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    Credentials = new System.Net.NetworkCredential(your_id, your_password),
+                    Timeout = 10000,
+                };
+                MailMessage mm = new MailMessage(your_id, email.toEmailAddress, txtEmailSubject.Text, rtxtEmailContent.Text);
+                Attachment data = new Attachment(email.filePath);
+                mm.Attachments.Add(data);
+                client.Send(mm);
+                mm.Dispose();
+                data.Dispose();
             }
             catch (System.Exception ex)
             {
@@ -768,6 +763,11 @@ namespace QuanLyBoMon
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void frmThongKeLopCuaGiangVien_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmMain.frmTKLGV = null;
         }
     }
 }

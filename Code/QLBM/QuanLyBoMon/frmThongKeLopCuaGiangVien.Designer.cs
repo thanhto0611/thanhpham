@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnSendEmailToAll = new System.Windows.Forms.Button();
             this.rtxtEmailContent = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtEmailSubject = new System.Windows.Forms.TextBox();
@@ -57,7 +58,6 @@
             this.txtSoDienThoaiUpdate = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtgvDachSachLopCuaGiangVien = new System.Windows.Forms.DataGridView();
-            this.btnSendEmailToAll = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -95,6 +95,18 @@
             this.groupBox4.TabIndex = 40;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Gửi Email:";
+            // 
+            // btnSendEmailToAll
+            // 
+            this.btnSendEmailToAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendEmailToAll.ForeColor = System.Drawing.Color.Red;
+            this.btnSendEmailToAll.Location = new System.Drawing.Point(433, 144);
+            this.btnSendEmailToAll.Name = "btnSendEmailToAll";
+            this.btnSendEmailToAll.Size = new System.Drawing.Size(125, 73);
+            this.btnSendEmailToAll.TabIndex = 47;
+            this.btnSendEmailToAll.Text = "Gửi Email Cho Tất Cả Giảng Viên";
+            this.btnSendEmailToAll.UseVisualStyleBackColor = true;
+            this.btnSendEmailToAll.Click += new System.EventHandler(this.btnSendEmailToAll_Click);
             // 
             // rtxtEmailContent
             // 
@@ -139,7 +151,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(142, 20);
             this.txtPassword.TabIndex = 42;
-            this.txtPassword.Text = "Pnht!01188";
+            this.txtPassword.Text = "saobangvnsg610";
             // 
             // label3
             // 
@@ -156,7 +168,7 @@
             this.txtFromEmail.Name = "txtFromEmail";
             this.txtFromEmail.Size = new System.Drawing.Size(221, 20);
             this.txtFromEmail.TabIndex = 40;
-            this.txtFromEmail.Text = "thanh.pham611@gmail.com";
+            this.txtFromEmail.Text = "chinh.vu610@gmail.com";
             // 
             // label2
             // 
@@ -364,18 +376,6 @@
             this.dtgvDachSachLopCuaGiangVien.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgvDachSachLopCuaGiangVien_CellFormatting);
             this.dtgvDachSachLopCuaGiangVien.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dtgvDachSachLopCuaGiangVien_CellPainting);
             // 
-            // btnSendEmailToAll
-            // 
-            this.btnSendEmailToAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendEmailToAll.ForeColor = System.Drawing.Color.Red;
-            this.btnSendEmailToAll.Location = new System.Drawing.Point(433, 144);
-            this.btnSendEmailToAll.Name = "btnSendEmailToAll";
-            this.btnSendEmailToAll.Size = new System.Drawing.Size(125, 73);
-            this.btnSendEmailToAll.TabIndex = 47;
-            this.btnSendEmailToAll.Text = "Gửi Email Cho Tất Cả Giảng Viên";
-            this.btnSendEmailToAll.UseVisualStyleBackColor = true;
-            this.btnSendEmailToAll.Click += new System.EventHandler(this.btnSendEmailToAll_Click);
-            // 
             // frmThongKeLopCuaGiangVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,9 +386,11 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmThongKeLopCuaGiangVien";
+            this.ShowIcon = false;
             this.Text = "Thống Kê Lớp Theo Giảng Viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmThongKeLopCuaGiangVien_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmThongKeLopCuaGiangVien_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

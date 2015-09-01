@@ -15,7 +15,7 @@ namespace Presentation
 {
     public partial class frmSyncAPI : Form
     {
-        string apiUrl = "http://localhost/ella/api/xmlrpc";
+        string apiUrl = Main2._cfgDto.SoapAddress;
         string apiUser = "ellaxmlrpc";
         string apiPass = "nguoicodoc";
         string sessionId = Main2.sessionId;
@@ -26,28 +26,11 @@ namespace Presentation
         {
             InitializeComponent();
 
-            resultTable.Columns.Add("Mã SP", typeof(string));
-            resultTable.Columns.Add("Giá Sỉ", typeof(string));
-            resultTable.Columns.Add("Giá Lẻ", typeof(string));
-            resultTable.Columns.Add("Số Lượng", typeof(string));
-            resultTable.Columns.Add("Còn/Hết Hàng", typeof(string));
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // login (make sure you have user and role assigned in magento admin)
-                sessionId = Connection.Login(apiUrl, apiUser, apiPass);
-
-                //string sessionId = Connection.Login(apiUrl, new object[] { apiUser, apiPass });
-                MessageBox.Show("Authenticated with Session ID " + sessionId);
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
-                return;
-            }
+            resultTable.Columns.Add("MaSP", typeof(string));
+            resultTable.Columns.Add("GiaSi", typeof(string));
+            resultTable.Columns.Add("GiaLe", typeof(string));
+            resultTable.Columns.Add("SoLuong", typeof(string));
+            resultTable.Columns.Add("ConHetHang", typeof(string));
         }
 
         private void btnGetProductList_Click(object sender, EventArgs e)
@@ -58,48 +41,23 @@ namespace Presentation
                 // list all products
                 XmlRpcStruct filterOn = new XmlRpcStruct();
                 XmlRpcStruct filterParams = new XmlRpcStruct();
-                //filterParams.Add("like", "dc001%");
-                //filterOn.Add("sku", filterParams);
-                //Product[] myProducts = Product.List(apiUrl, sessionId, new object[] { filterOn });
-                Product[] myProducts = Product.List(apiUrl, sessionId);
-                string[] listSKU = new string[myProducts.Length];
-                List<Product> listProduct = new List<Product>();
+                filterParams.Add("like", "dc%");
+                filterOn.Add("sku", filterParams);
+                Product[] myProducts = Product.List(apiUrl, sessionId, new object[] { filterOn });
+                //Product[] myProducts = Product.List(apiUrl, sessionId);
 
-                for (int i = 0; i < myProducts.Length; i++)
-                {
-                    listProduct.Add(myProducts[i]);
-                    listSKU[i] = myProducts[i].sku;
-                }
-                //foreach (Product product in myProducts)
-                //{
-                //    listProduct.Add(product);
-
-
-                //    listSKU.Add(product.sku);
-
-
-                //}
-
-                Inventory[] listIv = Inventory.List(Main2.apiUrl, Main2.sessionId, new object[] { listSKU });
-
-                foreach (Inventory iv in listIv)
+                foreach (Product p in myProducts)
                 {
                     DataRow dr = resultTable.NewRow();
-                    for (int j = 0; j < listProduct.Count; j++)
-                    {
-                        if (listProduct[j].sku == iv.sku)
-                        {
-                            dr[0] = listProduct[j].sku;
-                            dr[1] = listProduct[j].gia_si;
-                            dr[2] = listProduct[j].price;
-                            dr[3] = iv.qty;
-                            dr[4] = iv.is_in_stock;
-                        }
-                    }
-                    
+
+                    dr[0] = p.sku;
+                    dr[1] = p.gia_si;
+                    dr[2] = p.price;
+                    dr[3] = p.qty;
+                    dr[4] = p.is_in_stock;
+
                     resultTable.Rows.Add(dr);
                 }
-
 
                 dataGridView1.DataSource = resultTable;
             }
@@ -195,6 +153,12 @@ namespace Presentation
         {
             // Cancel the asynchronous operation. 
             this.backgroundWorker1.CancelAsync();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataRow[] drs = resultTable.Select("MaSP = 'DC999'");
+            MessageBox.Show(drs[0][3].ToString());
         }
     }
 }

@@ -99,6 +99,8 @@ namespace Ez.Newsletter.MagentoApi
         private string _weight;
         private string _price;
         private string _gia_si;
+        private string _qty;
+        private string _is_in_stock;
         #endregion
 
         #region Private Properties
@@ -360,7 +362,17 @@ namespace Ez.Newsletter.MagentoApi
         {
             get { return _gia_si; }
             set { _gia_si = value; }
-        } 
+        }
+        public string qty
+        {
+            get { return _qty; }
+            set { _qty = value; }
+        }
+        public string is_in_stock
+        {
+            get { return _is_in_stock; }
+            set { _is_in_stock = value; }
+        }
         #endregion
 
         #region Constructor

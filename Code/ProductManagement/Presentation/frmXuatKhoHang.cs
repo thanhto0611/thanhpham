@@ -22,10 +22,10 @@ namespace Presentation
 
             resultTable.Columns.Add("store", typeof(string));
             resultTable.Columns.Add("sku", typeof(string));
-            //resultTable.Columns.Add("qty", typeof(string));
-            //resultTable.Columns.Add("is_in_stock", typeof(string));
-            resultTable.Columns.Add("gia_si", typeof(string));
-            resultTable.Columns.Add("price", typeof(string));
+            resultTable.Columns.Add("qty", typeof(string));
+            resultTable.Columns.Add("is_in_stock", typeof(string));
+            //resultTable.Columns.Add("gia_si", typeof(string));
+            //resultTable.Columns.Add("price", typeof(string));
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -71,31 +71,35 @@ namespace Presentation
                 foreach (DataRow row in dt.Rows)
                 {
                     sku = row.ItemArray.GetValue(0).ToString();
-                    qty = row.ItemArray.GetValue(1).ToString() + ".0000";
-                    is_in_stock = row.ItemArray.GetValue(2).ToString();
-                    gia_si = row.ItemArray.GetValue(3).ToString() + ".0000";
-                    price = row.ItemArray.GetValue(4).ToString() + ".0000";
+                    if (sku.Contains("KT") || sku.Contains("BT"))
+                    {
+                        qty = row.ItemArray.GetValue(1).ToString() + ".0000";
+                        is_in_stock = row.ItemArray.GetValue(2).ToString();
+                        gia_si = row.ItemArray.GetValue(3).ToString() + ".0000";
+                        price = row.ItemArray.GetValue(4).ToString() + ".0000";
 
-                    //if (Int32.Parse(row.ItemArray.GetValue(1).ToString()) <= 0)
-                    //{
-                    //    is_in_stock = "0";
-                    //}
-                    //else
-                    //{
-                    //    is_in_stock = "1";
-                    //}
+                        if (Int32.Parse(row.ItemArray.GetValue(1).ToString()) <= 0)
+                        {
+                            is_in_stock = "0";
+                        }
+                        else
+                        {
+                            is_in_stock = "1";
+                        }
 
-                    DataRow dr = resultTable.NewRow();
-                    dr[0] = store;
-                    dr[1] = sku;
-                    //dr[2] = qty;
-                    //dr[3] = is_in_stock;
-                    //dr[4] = gia_si;
-                    //dr[5] = price;
-                    dr[2] = gia_si;
-                    dr[3] = price;
+                        DataRow dr = resultTable.NewRow();
+                        dr[0] = store;
+                        dr[1] = sku;
+                        dr[2] = qty;
+                        dr[3] = is_in_stock;
+                        //dr[4] = gia_si;
+                        //dr[5] = price;
+                        //dr[2] = gia_si;
+                        //dr[3] = price;
 
-                    resultTable.Rows.Add(dr);
+                        resultTable.Rows.Add(dr);
+                    }
+                    
                 }
 
                 StringBuilder sb = new StringBuilder();

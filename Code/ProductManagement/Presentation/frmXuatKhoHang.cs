@@ -24,8 +24,8 @@ namespace Presentation
             resultTable.Columns.Add("sku", typeof(string));
             resultTable.Columns.Add("qty", typeof(string));
             resultTable.Columns.Add("is_in_stock", typeof(string));
-            //resultTable.Columns.Add("gia_si", typeof(string));
-            //resultTable.Columns.Add("price", typeof(string));
+            resultTable.Columns.Add("gia_si", typeof(string));
+            resultTable.Columns.Add("price", typeof(string));
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace Presentation
                 foreach (DataRow row in dt.Rows)
                 {
                     sku = row.ItemArray.GetValue(0).ToString();
-                    if (sku.Contains("KT") || sku.Contains("BT"))
+                    if (sku.Contains("KT") || sku.Contains("BT") || sku.Contains("DC") || sku.Contains("N") || sku.Contains("CA") || sku.Contains("X") || sku.Contains("VT"))
                     {
                         qty = row.ItemArray.GetValue(1).ToString() + ".0000";
                         is_in_stock = row.ItemArray.GetValue(2).ToString();
@@ -92,8 +92,8 @@ namespace Presentation
                         dr[1] = sku;
                         dr[2] = qty;
                         dr[3] = is_in_stock;
-                        //dr[4] = gia_si;
-                        //dr[5] = price;
+                        dr[4] = gia_si;
+                        dr[5] = price;
                         //dr[2] = gia_si;
                         //dr[3] = price;
 

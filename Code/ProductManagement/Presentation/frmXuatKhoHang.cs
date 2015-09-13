@@ -71,7 +71,7 @@ namespace Presentation
                 foreach (DataRow row in dt.Rows)
                 {
                     sku = row.ItemArray.GetValue(0).ToString();
-                    if (sku.Contains("KT") || sku.Contains("BT") || sku.Contains("DC") || sku.Contains("N") || sku.Contains("CA") || sku.Contains("X") || sku.Contains("VT"))
+                    if (sku.Contains("KT") || sku.Contains("BT") || sku.Contains("DC") || sku.Contains("N") || sku.Contains("CA") || sku.Contains("X") || sku.Contains("VT") || sku.Contains("BA"))
                     {
                         qty = row.ItemArray.GetValue(1).ToString() + ".0000";
                         is_in_stock = row.ItemArray.GetValue(2).ToString();

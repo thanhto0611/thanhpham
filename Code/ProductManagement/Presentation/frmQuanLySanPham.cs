@@ -21,9 +21,17 @@ namespace Presentation
         private int _rowHeight = 160;
         private int _colWidth = 160;
 
+        DataTable syncProducts = new DataTable();
+
         public frmQuanLySanPham()
         {
             InitializeComponent();
+
+            syncProducts.Columns.Add("sku", typeof(string));
+            syncProducts.Columns.Add("soluong", typeof(int));
+            syncProducts.Columns.Add("trangthai", typeof(int));
+            syncProducts.Columns.Add("giale", typeof(long));
+            syncProducts.Columns.Add("giasi", typeof(int));
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -39,6 +47,8 @@ namespace Presentation
 
             cmbTrangThai.Text = "Tất cả trạng thái";
             cmbDanhMuc.Text = "Tất Cả Danh Mục";
+
+            timerSync.Start();
         }
 
         private void btnThemDanhMuc_Click(object sender, EventArgs e)
@@ -195,6 +205,7 @@ namespace Presentation
                 SanPhamBUS spBus = new SanPhamBUS();
                 foreach (DataGridViewRow row in this.dtgvSanPham.Rows)
                 {
+                    DataRow syncRow = syncProducts.NewRow();
                     SanPhamDTO sp = SanPhamBUS.LaySanPham(row.Cells["MaSanPham"].Value.ToString());
                     sp.MaSanPham = row.Cells["MaSanPham"].Value.ToString();
                     sp.MauSac = row.Cells["MauSac"].Value.ToString();
@@ -217,20 +228,27 @@ namespace Presentation
 
                     spBus.Update(sp);
 
-                    if (Main2._cfgDto.UseAPISycn)
-                    {
-                        Product myProduct = new Product();
-                        myProduct.sku = sp.MaSanPham;
-                        myProduct.price = sp.GiaLe.ToString() + ".0000";
-                        myProduct.gia_si = sp.GiaSi.ToString() + ".0000";
-                        bool wasProductUpdated = Helper.APIUpdateProduct(myProduct);
+                    syncRow[0] = sp.MaSanPham;
+                    syncRow[1] = sp.SoLuong;
+                    syncRow[2] = sp.TrangThai;
+                    syncRow[3] = sp.GiaLe;
+                    syncRow[4] = sp.GiaSi;
+                    syncProducts.Rows.Add(syncRow);
 
-                        Inventory myInventoryUpdate = new Inventory();
-                        myInventoryUpdate.sku = sp.MaSanPham;
-                        myInventoryUpdate.qty = sp.SoLuong.ToString() + ".0000";
-                        myInventoryUpdate.is_in_stock = sp.TrangThai.ToString();
-                        bool wasInventorUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
-                    }
+                    //if (Main2._cfgDto.UseAPISycn)
+                    //{
+                    //    Product myProduct = new Product();
+                    //    myProduct.sku = sp.MaSanPham;
+                    //    myProduct.price = sp.GiaLe.ToString() + ".0000";
+                    //    myProduct.gia_si = sp.GiaSi.ToString() + ".0000";
+                    //    bool wasProductUpdated = Helper.APIUpdateProduct(myProduct);
+
+                    //    Inventory myInventoryUpdate = new Inventory();
+                    //    myInventoryUpdate.sku = sp.MaSanPham;
+                    //    myInventoryUpdate.qty = sp.SoLuong.ToString() + ".0000";
+                    //    myInventoryUpdate.is_in_stock = sp.TrangThai.ToString();
+                    //    bool wasInventorUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
+                    //}
                 }
                 MessageBox.Show("Cập nhật thành công!", "Thông báo!");
                 TimKiem();
@@ -319,6 +337,59 @@ namespace Presentation
         private void frmQuanLySanPham_FormClosed(object sender, FormClosedEventArgs e)
         {
             Main2.frmQLSP = null;
+        }
+
+        private void timerSync_Tick(object sender, EventArgs e)
+        {
+            if (Main2._cfgDto.UseAPISycn)
+            {
+                if (syncProducts.Rows.Count > 0 && !backgroundWorker1.IsBusy && !backgroundWorker2.IsBusy)
+                {
+                    DataRow dr = syncProducts.Rows[0];
+
+                    Inventory myInventoryUpdate = new Inventory();
+                    myInventoryUpdate.sku = dr[0].ToString();
+                    myInventoryUpdate.qty = dr[1].ToString() + ".0000";
+                    myInventoryUpdate.is_in_stock = dr[2].ToString();
+
+                    Product myProduct = new Product();
+                    myProduct.sku = dr[0].ToString();
+                    myProduct.price = dr[3].ToString() + ".0000";
+                    myProduct.gia_si = dr[4].ToString() + ".0000";
+                    syncProducts.Rows.Remove(dr);
+                    backgroundWorker1.RunWorkerAsync(myInventoryUpdate);
+                    backgroundWorker2.RunWorkerAsync(myProduct);
+                }
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            System.ComponentModel.BackgroundWorker worker;
+            worker = (System.ComponentModel.BackgroundWorker)sender;
+
+            // Get the Words object and call the main method.
+            Inventory myInventoryUpdate = (Inventory)e.Argument;
+            Helper.APIUpdateInventor(myInventoryUpdate);
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            System.ComponentModel.BackgroundWorker worker;
+            worker = (System.ComponentModel.BackgroundWorker)sender;
+
+            // Get the Words object and call the main method.
+            Product myProduct = (Product)e.Argument;
+            Helper.APIUpdateProduct(myProduct);
+        }
+
+        private void frmQuanLySanPham_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (syncProducts.Rows.Count > 0)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Đang thực hiện đồng bộ với web. Vui lòng không đóng phần mềm", "Cảnh báo");
+            }
         }
     }
 }

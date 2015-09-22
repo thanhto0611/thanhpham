@@ -39,6 +39,7 @@ namespace Presentation
         public static DataTable dt = new DataTable();
         DataTable dtTimKiem = new DataTable();
         public static DataTable dtWeb = new DataTable();
+        DataTable syncProducts = new DataTable();
 
         public class inventor
         {
@@ -53,6 +54,10 @@ namespace Presentation
         public frmQuanLyDonHang()
         {
             InitializeComponent();
+
+            syncProducts.Columns.Add("sku", typeof(string));
+            syncProducts.Columns.Add("soluong", typeof(int));
+            syncProducts.Columns.Add("trangthai", typeof(int));
         }
 
         private void cbxMaDonHang_TimKiem_CheckedChanged(object sender, EventArgs e)
@@ -460,6 +465,7 @@ namespace Presentation
                             dt.Rows.Remove(dt.Rows[e.RowIndex]);
                             if (dhDto.TrangThai == 2 || dhDto.TrangThai == 5)
                             {
+                                DataRow syncRow = syncProducts.NewRow();
                                 string maSp = ctdhDto.MaSanPham;
                                 int sl = ctdhDto.SoLuong;
                                 SanPhamDTO spDto = SanPhamBUS.LaySanPham(maSp);
@@ -470,7 +476,13 @@ namespace Presentation
                                 }
                                 SanPhamBUS spBus = new SanPhamBUS();
                                 spBus.CapNhatKhoHang(maSp, sl + spDto.SoLuong, trangThai);
-                                startThread(maSp, sl + spDto.SoLuong, trangThai);
+
+                                syncRow[0] = maSp;
+                                syncRow[1] = sl + spDto.SoLuong;
+                                syncRow[2] = trangThai;
+                                syncProducts.Rows.Add(syncRow);
+
+                                //startThread(maSp, sl + spDto.SoLuong, trangThai);
                             }
 
                             if (dhDto.MaDonHang != 0)
@@ -988,6 +1000,8 @@ namespace Presentation
                     ctdhDto.GiaBan = Int32.Parse(row.Cells["GiaBan"].Value.ToString().Replace(@",", ""));
                     ctdhBus.Insert(ctdhDto);
 
+                    DataRow syncRow = syncProducts.NewRow();
+
                     if (cbmTrangThai_Them.Text == "Hoàn tất")
                     {
                         int newSl = ctdhDto.SoLuong;
@@ -1003,7 +1017,13 @@ namespace Presentation
                         }
                         SanPhamBUS spBus = new SanPhamBUS();
                         spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
-                        startThread(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
+
+                        syncRow[0] = ctdhDto.MaSanPham;
+                        syncRow[1] = oldSl - newSl;
+                        syncRow[2] = trangthai;
+                        syncProducts.Rows.Add(syncRow);
+
+                        //startThread(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
                     }
                 }
 
@@ -1090,6 +1110,8 @@ namespace Presentation
                 {
                     foreach (DataGridViewRow row in this.dtgvDanhSachSanPham.Rows)
                     {
+                        DataRow syncRow = syncProducts.NewRow();
+
                         ChiTietDonHangDTO ctdhDto = new ChiTietDonHangDTO();
                         ctdhDto.MaDonHang = dhDto.MaDonHang;
                         ctdhDto.MaSanPham = row.Cells["MaSanPham"].Value.ToString();
@@ -1121,7 +1143,13 @@ namespace Presentation
                         }
                         SanPhamBUS spBus = new SanPhamBUS();
                         spBus.CapNhatKhoHang(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
-                        startThread(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
+
+                        syncRow[0] = ctdhDto.MaSanPham;
+                        syncRow[1] = oldSl - newSl;
+                        syncRow[2] = trangthai;
+                        syncProducts.Rows.Add(syncRow);
+
+                        //startThread(ctdhDto.MaSanPham, oldSl - newSl, trangthai);
                     }
                 }
 
@@ -1129,6 +1157,8 @@ namespace Presentation
                 {
                     foreach (DataGridViewRow row in this.dtgvDanhSachSanPham.Rows)
                     {
+                        DataRow syncRow = syncProducts.NewRow();
+
                         ChiTietDonHangDTO ctdhDto = new ChiTietDonHangDTO();
                         ChiTietDonHangDTO ctdhDtoOld = ctdhBus.KiemTraTonTai(_maDH, row.Cells["MaSanPham"].Value.ToString());
                         ctdhDto.MaDonHang = dhDto.MaDonHang;
@@ -1150,7 +1180,13 @@ namespace Presentation
                             }
                             SanPhamBUS spBus = new SanPhamBUS();
                             spBus.CapNhatKhoHang(maSp, sl + spDtoOld.SoLuong, trangThai);
-                            startThread(maSp, sl + spDtoOld.SoLuong, trangThai);
+
+                            syncRow[0] = maSp;
+                            syncRow[1] = sl + spDtoOld.SoLuong;
+                            syncRow[2] = trangThai;
+                            syncProducts.Rows.Add(syncRow);
+
+                            //startThread(maSp, sl + spDtoOld.SoLuong, trangThai);
                         }
                         else
                         {
@@ -1163,6 +1199,8 @@ namespace Presentation
                 {
                     foreach (DataGridViewRow row in this.dtgvDanhSachSanPham.Rows)
                     {
+                        DataRow syncRow = syncProducts.NewRow();
+
                         ChiTietDonHangDTO ctdhDto = new ChiTietDonHangDTO();
                         ChiTietDonHangDTO ctdhDtoOld = ctdhBus.KiemTraTonTai(_maDH, row.Cells["MaSanPham"].Value.ToString());
                         ctdhDto.MaDonHang = dhDto.MaDonHang;
@@ -1192,7 +1230,13 @@ namespace Presentation
                             }
 
                             spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
-                            startThread(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
+
+                            syncRow[0] = maSp;
+                            syncRow[1] = spDtoOld.SoLuong - diffSoLuong;
+                            syncRow[2] = trangThai;
+                            syncProducts.Rows.Add(syncRow);
+
+                            //startThread(maSp, spDtoOld.SoLuong - diffSoLuong, trangThai);
                         }
                         else
                         {
@@ -1208,7 +1252,13 @@ namespace Presentation
                             }
 
                             spBus.CapNhatKhoHang(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
-                            startThread(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
+
+                            syncRow[0] = maSp;
+                            syncRow[1] = spDtoOld.SoLuong - ctdhDto.SoLuong;
+                            syncRow[2] = trangThai;
+                            syncProducts.Rows.Add(syncRow);
+
+                            //startThread(maSp, spDtoOld.SoLuong - ctdhDto.SoLuong, trangThai);
                         }
                     }
                 }
@@ -1316,6 +1366,7 @@ namespace Presentation
                         {
                             foreach (DataRow dr in dtCtdh.Rows)
                             {
+                                DataRow syncRow = syncProducts.NewRow();
                                 string maSp = dr.ItemArray.GetValue(1).ToString();
                                 int sl = Int32.Parse(dr.ItemArray.GetValue(2).ToString());
                                 SanPhamDTO spDtoOld = SanPhamBUS.LaySanPham(maSp);
@@ -1325,7 +1376,13 @@ namespace Presentation
                                     trangThai = 1;
                                 }
                                 spBus.CapNhatKhoHang(maSp, sl + spDtoOld.SoLuong, trangThai);
-                                startThread(maSp, sl + spDtoOld.SoLuong, trangThai);
+
+                                syncRow[0] = maSp;
+                                syncRow[1] = sl + spDtoOld.SoLuong;
+                                syncRow[2] = trangThai;
+                                syncProducts.Rows.Add(syncRow);
+
+                                //startThread(maSp, sl + spDtoOld.SoLuong, trangThai);
                             }
                         }
                         dhBus.Update(dhDto_TimKiem);
@@ -1347,6 +1404,7 @@ namespace Presentation
 
                             foreach (DataRow dr in dtCtdh.Rows)
                             {
+                                DataRow syncRow = syncProducts.NewRow();
                                 string maSp = dr.ItemArray.GetValue(1).ToString();
                                 int sl = Int32.Parse(dr.ItemArray.GetValue(2).ToString());
                                 int trangthai = 1;
@@ -1358,7 +1416,13 @@ namespace Presentation
                                     trangthai = 0;
                                 }
                                 spBus.CapNhatKhoHang(maSp, slTonKho - sl, trangthai);
-                                startThread(maSp, slTonKho - sl, trangthai);
+
+                                syncRow[0] = maSp;
+                                syncRow[1] = slTonKho - sl;
+                                syncRow[2] = trangthai;
+                                syncProducts.Rows.Add(syncRow);
+
+                                //startThread(maSp, slTonKho - sl, trangthai);
                             }
                         }
                         dhBus.Update(dhDto_TimKiem);
@@ -1434,6 +1498,8 @@ namespace Presentation
 
             // Set up the ToolTip text for the Button and Checkbox.
             toolTip1.SetToolTip(this.chbxSuDungDTL, "Điểm tích lũy chỉ sử dụng được sau khi đơn hàng được lưu");
+
+            timerSync.Start();
         }
 
         private void txtMaDonHang_TimKiem_TextChanged(object sender, EventArgs e)
@@ -1787,6 +1853,12 @@ namespace Presentation
                     e.Cancel = true;
                 }
             }
+
+            if (syncProducts.Rows.Count > 0)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Đang thực hiện đồng bộ với web. Vui lòng không đóng phần mềm", "Cảnh báo");
+            }
         }
 
         private void btnNhapDonHang_Click(object sender, EventArgs e)
@@ -1996,6 +2068,37 @@ namespace Presentation
                 iv.trangthai = trangthai;
 
                 ThreadPool.QueueUserWorkItem(updateWebInventor, iv);
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            System.ComponentModel.BackgroundWorker worker;
+            worker = (System.ComponentModel.BackgroundWorker)sender;
+
+            // Get the Words object and call the main method.
+            inventor iv = (inventor)e.Argument;
+            Inventory myInventoryUpdate = new Inventory();
+            myInventoryUpdate.sku = iv.masp;
+            myInventoryUpdate.qty = iv.soluong.ToString() + ".0000";
+            myInventoryUpdate.is_in_stock = iv.trangthai.ToString();
+            bool wasUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
+        }
+
+        private void timerSync_Tick(object sender, EventArgs e)
+        {
+            if (Main2._cfgDto.UseAPISycn)
+            {
+                if (syncProducts.Rows.Count > 0 && !backgroundWorker1.IsBusy)
+                {
+                    DataRow dr = syncProducts.Rows[0];
+                    inventor iv = new inventor();
+                    iv.masp = dr[0].ToString();
+                    iv.soluong = Int32.Parse(dr[1].ToString());
+                    iv.trangthai = Int32.Parse(dr[2].ToString());
+                    syncProducts.Rows.Remove(dr);
+                    backgroundWorker1.RunWorkerAsync(iv);
+                }
             }
         }
     }

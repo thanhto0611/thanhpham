@@ -108,6 +108,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.timerSync = new System.Windows.Forms.Timer(this.components);
             this.tabDonHang.SuspendLayout();
             this.tabThemDonHang.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -132,7 +134,7 @@
             this.tabDonHang.Location = new System.Drawing.Point(0, 0);
             this.tabDonHang.Name = "tabDonHang";
             this.tabDonHang.SelectedIndex = 0;
-            this.tabDonHang.Size = new System.Drawing.Size(1355, 742);
+            this.tabDonHang.Size = new System.Drawing.Size(1355, 741);
             this.tabDonHang.TabIndex = 0;
             // 
             // tabThemDonHang
@@ -143,7 +145,7 @@
             this.tabThemDonHang.Location = new System.Drawing.Point(4, 22);
             this.tabThemDonHang.Name = "tabThemDonHang";
             this.tabThemDonHang.Padding = new System.Windows.Forms.Padding(3);
-            this.tabThemDonHang.Size = new System.Drawing.Size(1347, 716);
+            this.tabThemDonHang.Size = new System.Drawing.Size(1347, 715);
             this.tabThemDonHang.TabIndex = 1;
             this.tabThemDonHang.Text = "Thêm Đơn Hàng";
             this.tabThemDonHang.UseVisualStyleBackColor = true;
@@ -155,7 +157,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(535, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(809, 710);
+            this.groupBox6.Size = new System.Drawing.Size(809, 709);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Thông tin đơn hàng";
@@ -166,7 +168,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 91);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(803, 616);
+            this.groupBox5.Size = new System.Drawing.Size(803, 615);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Danh sách sản phẩm của đơn hàng:";
@@ -181,7 +183,7 @@
             this.dtgvDanhSachSanPham.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgvDanhSachSanPham.Location = new System.Drawing.Point(3, 16);
             this.dtgvDanhSachSanPham.Name = "dtgvDanhSachSanPham";
-            this.dtgvDanhSachSanPham.Size = new System.Drawing.Size(797, 597);
+            this.dtgvDanhSachSanPham.Size = new System.Drawing.Size(797, 596);
             this.dtgvDanhSachSanPham.TabIndex = 0;
             this.dtgvDanhSachSanPham.Visible = false;
             this.dtgvDanhSachSanPham.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDanhSachSanPham_CellValueChanged);
@@ -354,7 +356,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(532, 710);
+            this.groupBox3.Size = new System.Drawing.Size(532, 709);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             // 
@@ -376,7 +378,7 @@
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(3, 404);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(526, 303);
+            this.groupBox8.Size = new System.Drawing.Size(526, 302);
             this.groupBox8.TabIndex = 23;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Số lượng và Tổng tiền:";
@@ -785,7 +787,7 @@
             this.tabTimDonHang.Location = new System.Drawing.Point(4, 22);
             this.tabTimDonHang.Name = "tabTimDonHang";
             this.tabTimDonHang.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTimDonHang.Size = new System.Drawing.Size(1347, 716);
+            this.tabTimDonHang.Size = new System.Drawing.Size(1347, 715);
             this.tabTimDonHang.TabIndex = 0;
             this.tabTimDonHang.Text = "Tìm Kiếm Đơn Hàng";
             this.tabTimDonHang.UseVisualStyleBackColor = true;
@@ -796,7 +798,7 @@
             this.gbketqua.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbketqua.Location = new System.Drawing.Point(3, 82);
             this.gbketqua.Name = "gbketqua";
-            this.gbketqua.Size = new System.Drawing.Size(1341, 631);
+            this.gbketqua.Size = new System.Drawing.Size(1341, 630);
             this.gbketqua.TabIndex = 4;
             this.gbketqua.TabStop = false;
             this.gbketqua.Text = "Danh Sách Đơn Hàng:";
@@ -810,7 +812,7 @@
             this.dtgvTimKiemDonHang.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgvTimKiemDonHang.Location = new System.Drawing.Point(3, 16);
             this.dtgvTimKiemDonHang.Name = "dtgvTimKiemDonHang";
-            this.dtgvTimKiemDonHang.Size = new System.Drawing.Size(1335, 612);
+            this.dtgvTimKiemDonHang.Size = new System.Drawing.Size(1335, 611);
             this.dtgvTimKiemDonHang.TabIndex = 0;
             this.dtgvTimKiemDonHang.Sorted += new System.EventHandler(this.dtgvTimKiemDonHang_Sorted);
             this.dtgvTimKiemDonHang.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvTimKiemDonHang_CellMouseLeave);
@@ -1012,11 +1014,19 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // timerSync
+            // 
+            this.timerSync.Tick += new System.EventHandler(this.timerSync_Tick);
+            // 
             // frmQuanLyDonHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1355, 742);
+            this.ClientSize = new System.Drawing.Size(1355, 741);
             this.Controls.Add(this.tabDonHang);
             this.Name = "frmQuanLyDonHang";
             this.ShowIcon = false;
@@ -1128,5 +1138,7 @@
         private System.Windows.Forms.ComboBox cmbSoLuongHienThi;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Timer timerSync;
     }
 }

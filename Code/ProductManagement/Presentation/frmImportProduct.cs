@@ -212,12 +212,14 @@ namespace Presentation
 
                 for (int i = 0; i < imageFiles.Length; i++)
                 {
-                    imagesAddedName[indexImageAdded] = imageFiles[i].Name.Substring(0, 5);
+                    
 
                     string[] splitName = imageFiles[i].Name.Split('-');
                     string transName = imageFiles[i].Name;
                     transName = transName.Replace('(', '_');
                     transName = transName.Replace(')','_');
+
+                    imagesAddedName[indexImageAdded] = imageFiles[i].Name.Substring(0, splitName[0].Length);
 
 
                     if (checkImageExist(splitName[0]) == true)
@@ -781,9 +783,25 @@ namespace Presentation
                         {
                             //string[] splitGiaSi = splitPrice[1].Split(')');
                             //price = price + splitPrice[0] + "000.0000";
-                            string[] splitGiaSi = splitName[2].Split('.');
-                            price = price + splitName[1] + "000.0000";
-                            gia_si = gia_si + splitGiaSi[0] + "000.0000";
+
+                            if (cbxIncludeQty.Checked)
+                            {
+                                string[] splitSoluong = splitName[3].Split('.');
+                                price = price + splitName[1] + "000.0000";
+                                gia_si = gia_si + splitName[2] + "000.0000";
+                                qty = splitSoluong[0] + ".0000";
+                            }
+                            else
+                            {
+                                string[] splitGiaSi = splitName[2].Split('.');
+                                price = price + splitName[1] + "000.0000";
+                                gia_si = gia_si + splitGiaSi[0] + "000.0000";
+
+                                if (txtManualQty.Text != "")
+                                {
+                                    qty = Int32.Parse(txtManualQty.Text) + ".0000";
+                                }
+                            }
                         }
 
                         product_name += splitName[0].ToUpper();

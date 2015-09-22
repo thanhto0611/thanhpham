@@ -28,6 +28,7 @@ namespace Presentation
         public static frmSyncToWeb frmSyncToWeb = null;
         public static frmFacebookMe frmFacebookMe = null;
         public static frmSyncAPI frmSyncAPI = null;
+        public static frmConvertImageFileName frmConvertImageFileName = null;
 
         //public static string apiUrl = "http://localhost/ella/api/xmlrpc";
         public static string apiUrl;
@@ -295,6 +296,22 @@ namespace Presentation
             else
             {
                 frmSyncAPI.BringToFront();
+            }
+        }
+
+        private void convertImageFileNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmConvertImageFileName == null)
+            {
+                frmConvertImageFileName = new frmConvertImageFileName();
+                frmConvertImageFileName.MdiParent = this;
+                frmConvertImageFileName.Dock = DockStyle.Fill;
+                frmConvertImageFileName.WindowState = FormWindowState.Maximized;
+                frmConvertImageFileName.Show();
+            }
+            else
+            {
+                frmConvertImageFileName.BringToFront();
             }
         }
     }

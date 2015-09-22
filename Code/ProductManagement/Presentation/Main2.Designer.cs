@@ -41,13 +41,14 @@
             this.facebookToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.syncToWEBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cronJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.syncAPI = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.FindAndJoinGroups = new System.Windows.Forms.ToolStripMenuItem();
             this.PostToGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.PostImageToFanpage = new System.Windows.Forms.ToolStripMenuItem();
             this.updateStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Window = new System.Windows.Forms.ToolStripMenuItem();
-            this.syncAPI = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertImageFileNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,7 +115,8 @@
             this.facebookToolsToolStripMenuItem,
             this.syncToWEBToolStripMenuItem,
             this.cronJobToolStripMenuItem,
-            this.syncAPI});
+            this.syncAPI,
+            this.convertImageFileNameToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -161,6 +163,13 @@
             this.cronJobToolStripMenuItem.Text = "Cron Job";
             this.cronJobToolStripMenuItem.Click += new System.EventHandler(this.cronJobToolStripMenuItem_Click);
             // 
+            // syncAPI
+            // 
+            this.syncAPI.Name = "syncAPI";
+            this.syncAPI.Size = new System.Drawing.Size(227, 22);
+            this.syncAPI.Text = "SyncAPI";
+            this.syncAPI.Click += new System.EventHandler(this.syncAPI_Click);
+            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -205,12 +214,12 @@
             this.Window.Size = new System.Drawing.Size(108, 20);
             this.Window.Text = "Cửa Sổ Đang Mở";
             // 
-            // syncAPI
+            // convertImageFileNameToolStripMenuItem
             // 
-            this.syncAPI.Name = "syncAPI";
-            this.syncAPI.Size = new System.Drawing.Size(227, 22);
-            this.syncAPI.Text = "SyncAPI";
-            this.syncAPI.Click += new System.EventHandler(this.syncAPI_Click);
+            this.convertImageFileNameToolStripMenuItem.Name = "convertImageFileNameToolStripMenuItem";
+            this.convertImageFileNameToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.convertImageFileNameToolStripMenuItem.Text = "Convert Image FileName";
+            this.convertImageFileNameToolStripMenuItem.Click += new System.EventHandler(this.convertImageFileNameToolStripMenuItem_Click);
             // 
             // Main2
             // 
@@ -253,5 +262,6 @@
         private System.Windows.Forms.ToolStripMenuItem syncToWEBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cronJobToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem syncAPI;
+        private System.Windows.Forms.ToolStripMenuItem convertImageFileNameToolStripMenuItem;
     }
 }

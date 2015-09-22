@@ -92,6 +92,12 @@
     <Compile Include="frmConfig.Designer.cs">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConvertImageFileName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConvertImageFileName.Designer.cs">
+      <DependentUpon>frmConvertImageFileName.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCronJob.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +380,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmConfig.resx">
       <DependentUpon>frmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConvertImageFileName.resx">
+      <DependentUpon>frmConvertImageFileName.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCronJob.resx">
       <DependentUpon>frmCronJob.cs</DependentUpon>

@@ -45,6 +45,9 @@
             this.btnBrowseCVSFolder = new System.Windows.Forms.Button();
             this.folderBrowserCVS = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxIncludeQty = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtManualQty = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -148,6 +151,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtManualQty);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.cbxIncludeQty);
             this.groupBox1.Controls.Add(this.txtCVSFolder);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnBrowseCVSFolder);
@@ -210,6 +216,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Import  Data";
             // 
+            // cbxIncludeQty
+            // 
+            this.cbxIncludeQty.AutoSize = true;
+            this.cbxIncludeQty.Location = new System.Drawing.Point(386, 80);
+            this.cbxIncludeQty.Name = "cbxIncludeQty";
+            this.cbxIncludeQty.Size = new System.Drawing.Size(145, 17);
+            this.cbxIncludeQty.TabIndex = 33;
+            this.cbxIncludeQty.Text = "Qty Included In FileName";
+            this.cbxIncludeQty.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(383, 122);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Manual Qty:";
+            // 
+            // txtManualQty
+            // 
+            this.txtManualQty.Location = new System.Drawing.Point(453, 116);
+            this.txtManualQty.Name = "txtManualQty";
+            this.txtManualQty.Size = new System.Drawing.Size(100, 20);
+            this.txtManualQty.TabIndex = 35;
+            // 
             // frmImportProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +281,9 @@
         private System.Windows.Forms.Button btnBrowseCVSFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserCVS;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox cbxIncludeQty;
+        private System.Windows.Forms.TextBox txtManualQty;
+        private System.Windows.Forms.Label label5;
 
     }
 }

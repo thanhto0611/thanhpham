@@ -38,6 +38,7 @@ namespace Presentation
             cmbDanhMuc.ValueMember = "MaDanhMuc";
 
             cmbTrangThai.Text = "Tất cả trạng thái";
+            cmbDanhMuc.Text = "Tất Cả Danh Mục";
         }
 
         private void btnThemDanhMuc_Click(object sender, EventArgs e)

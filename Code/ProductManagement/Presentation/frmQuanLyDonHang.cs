@@ -1854,10 +1854,10 @@ namespace Presentation
                 }
             }
 
-            if (syncProducts.Rows.Count > 0)
+            if (syncProducts.Rows.Count > 0 || bgw1.IsBusy)
             {
                 e.Cancel = true;
-                MessageBox.Show("Đang thực hiện đồng bộ với web. Vui lòng không đóng phần mềm", "Cảnh báo");
+                MessageBox.Show("Đang đồng bộ kho hàng với web. Vui lòng không đóng phần mềm", "Cảnh báo");
             }
         }
 
@@ -2085,11 +2085,48 @@ namespace Presentation
             bool wasUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
         }
 
+        private void bgw2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            System.ComponentModel.BackgroundWorker worker;
+            worker = (System.ComponentModel.BackgroundWorker)sender;
+
+            // Get the Words object and call the main method.
+            inventor iv = (inventor)e.Argument;
+            Inventory myInventoryUpdate = new Inventory();
+            myInventoryUpdate.sku = iv.masp;
+            myInventoryUpdate.qty = iv.soluong.ToString() + ".0000";
+            myInventoryUpdate.is_in_stock = iv.trangthai.ToString();
+            bool wasUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
+        }
+
+        private void bgw3_DoWork(object sender, DoWorkEventArgs e)
+        {
+            System.ComponentModel.BackgroundWorker worker;
+            worker = (System.ComponentModel.BackgroundWorker)sender;
+
+            // Get the Words object and call the main method.
+            inventor iv = (inventor)e.Argument;
+            Inventory myInventoryUpdate = new Inventory();
+            myInventoryUpdate.sku = iv.masp;
+            myInventoryUpdate.qty = iv.soluong.ToString() + ".0000";
+            myInventoryUpdate.is_in_stock = iv.trangthai.ToString();
+            bool wasUpdated = Helper.APIUpdateInventor(myInventoryUpdate);
+        }
+
         private void timerSync_Tick(object sender, EventArgs e)
         {
             if (Main2._cfgDto.UseAPISycn)
             {
-                if (syncProducts.Rows.Count > 0 && !backgroundWorker1.IsBusy)
+                if (syncProducts.Rows.Count > 0 || bgw1.IsBusy || bgw2.IsBusy || bgw3.IsBusy)
+                {
+                    lbSyncing.Visible = true;
+                }
+                else
+                {
+                    lbSyncing.Visible = false;
+                }
+
+                if (syncProducts.Rows.Count > 0 && !bgw1.IsBusy)
                 {
                     DataRow dr = syncProducts.Rows[0];
                     inventor iv = new inventor();
@@ -2097,7 +2134,29 @@ namespace Presentation
                     iv.soluong = Int32.Parse(dr[1].ToString());
                     iv.trangthai = Int32.Parse(dr[2].ToString());
                     syncProducts.Rows.Remove(dr);
-                    backgroundWorker1.RunWorkerAsync(iv);
+                    bgw1.RunWorkerAsync(iv);
+                }
+
+                if (syncProducts.Rows.Count > 0 && !bgw2.IsBusy)
+                {
+                    DataRow dr = syncProducts.Rows[0];
+                    inventor iv = new inventor();
+                    iv.masp = dr[0].ToString();
+                    iv.soluong = Int32.Parse(dr[1].ToString());
+                    iv.trangthai = Int32.Parse(dr[2].ToString());
+                    syncProducts.Rows.Remove(dr);
+                    bgw2.RunWorkerAsync(iv);
+                }
+
+                if (syncProducts.Rows.Count > 0 && !bgw3.IsBusy)
+                {
+                    DataRow dr = syncProducts.Rows[0];
+                    inventor iv = new inventor();
+                    iv.masp = dr[0].ToString();
+                    iv.soluong = Int32.Parse(dr[1].ToString());
+                    iv.trangthai = Int32.Parse(dr[2].ToString());
+                    syncProducts.Rows.Remove(dr);
+                    bgw3.RunWorkerAsync(iv);
                 }
             }
         }

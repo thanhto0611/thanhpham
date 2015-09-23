@@ -825,3 +825,4 @@ C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\Presentation\bin\Debug\D
 C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\Presentation\bin\Debug\Interop.Microsoft.Office.Core.dll
 C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\Presentation\bin\Debug\Interop.VBIDE.dll
 G:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmConvertImageFileName.resources
+D:\GitCode\thanhpham\Code\ProductManagement\Presentation\obj\Debug\Presentation.frmConvertImageFileName.resources

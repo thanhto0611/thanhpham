@@ -108,8 +108,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.bgw1 = new System.ComponentModel.BackgroundWorker();
             this.timerSync = new System.Windows.Forms.Timer(this.components);
+            this.lbSyncing = new System.Windows.Forms.Label();
+            this.bgw2 = new System.ComponentModel.BackgroundWorker();
+            this.bgw3 = new System.ComponentModel.BackgroundWorker();
             this.tabDonHang.SuspendLayout();
             this.tabThemDonHang.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -152,6 +155,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.lbSyncing);
             this.groupBox6.Controls.Add(this.groupBox5);
             this.groupBox6.Controls.Add(this.groupBox4);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1014,13 +1018,33 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // backgroundWorker1
+            // bgw1
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.bgw1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // timerSync
             // 
             this.timerSync.Tick += new System.EventHandler(this.timerSync_Tick);
+            // 
+            // lbSyncing
+            // 
+            this.lbSyncing.AutoSize = true;
+            this.lbSyncing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbSyncing.ForeColor = System.Drawing.Color.Red;
+            this.lbSyncing.Location = new System.Drawing.Point(189, 5);
+            this.lbSyncing.Name = "lbSyncing";
+            this.lbSyncing.Size = new System.Drawing.Size(527, 20);
+            this.lbSyncing.TabIndex = 3;
+            this.lbSyncing.Text = "Đang đồng bộ kho hàng với web. Vui lòng không đóng phần mềm";
+            this.lbSyncing.Visible = false;
+            // 
+            // bgw2
+            // 
+            this.bgw2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw2_DoWork);
+            // 
+            // bgw3
+            // 
+            this.bgw3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw3_DoWork);
             // 
             // frmQuanLyDonHang
             // 
@@ -1038,6 +1062,7 @@
             this.tabDonHang.ResumeLayout(false);
             this.tabThemDonHang.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachSanPham)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -1138,7 +1163,10 @@
         private System.Windows.Forms.ComboBox cmbSoLuongHienThi;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker bgw1;
         private System.Windows.Forms.Timer timerSync;
+        private System.Windows.Forms.Label lbSyncing;
+        private System.ComponentModel.BackgroundWorker bgw2;
+        private System.ComponentModel.BackgroundWorker bgw3;
     }
 }

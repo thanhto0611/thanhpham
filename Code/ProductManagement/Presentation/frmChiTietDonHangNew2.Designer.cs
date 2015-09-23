@@ -32,6 +32,7 @@
             this.tabDonHang = new System.Windows.Forms.TabControl();
             this.tabThemDonHang = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lbSyncing = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dtgvDanhSachSanPham = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -69,8 +70,10 @@
             this.txtMaKH_Them = new System.Windows.Forms.TextBox();
             this.txtTenKH_Them = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.bgw1 = new System.ComponentModel.BackgroundWorker();
             this.timerSync = new System.Windows.Forms.Timer(this.components);
+            this.bgw2 = new System.ComponentModel.BackgroundWorker();
+            this.bgw3 = new System.ComponentModel.BackgroundWorker();
             this.tabDonHang.SuspendLayout();
             this.tabThemDonHang.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -107,6 +110,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.lbSyncing);
             this.groupBox6.Controls.Add(this.groupBox5);
             this.groupBox6.Controls.Add(this.groupBox4);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -116,6 +120,18 @@
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Thông tin đơn hàng";
+            // 
+            // lbSyncing
+            // 
+            this.lbSyncing.AutoSize = true;
+            this.lbSyncing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbSyncing.ForeColor = System.Drawing.Color.Red;
+            this.lbSyncing.Location = new System.Drawing.Point(182, 5);
+            this.lbSyncing.Name = "lbSyncing";
+            this.lbSyncing.Size = new System.Drawing.Size(527, 20);
+            this.lbSyncing.TabIndex = 4;
+            this.lbSyncing.Text = "Đang đồng bộ kho hàng với web. Vui lòng không đóng phần mềm";
+            this.lbSyncing.Visible = false;
             // 
             // groupBox5
             // 
@@ -523,13 +539,21 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Tên Khách Hàng";
             // 
-            // backgroundWorker1
+            // bgw1
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.bgw1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // timerSync
             // 
             this.timerSync.Tick += new System.EventHandler(this.timerSync_Tick);
+            // 
+            // bgw2
+            // 
+            this.bgw2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            // 
+            // bgw3
+            // 
+            this.bgw3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker3_DoWork);
             // 
             // frmChiTietDonHangNew2
             // 
@@ -546,6 +570,7 @@
             this.tabDonHang.ResumeLayout(false);
             this.tabThemDonHang.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachSanPham)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -601,7 +626,10 @@
         private System.Windows.Forms.Label lbMaDonHang;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExport;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker bgw1;
         private System.Windows.Forms.Timer timerSync;
+        private System.Windows.Forms.Label lbSyncing;
+        private System.ComponentModel.BackgroundWorker bgw2;
+        private System.ComponentModel.BackgroundWorker bgw3;
     }
 }

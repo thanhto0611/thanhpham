@@ -343,7 +343,16 @@ namespace Presentation
         {
             if (Main2._cfgDto.UseAPISycn)
             {
-                if (syncProducts.Rows.Count > 0 && !backgroundWorker1.IsBusy && !backgroundWorker2.IsBusy)
+                if (syncProducts.Rows.Count > 0 || bgw1.IsBusy || bgw2.IsBusy)
+                {
+                    lbSyncing.Visible = true;
+                }
+                else
+                {
+                    lbSyncing.Visible = false;
+                }
+
+                if (syncProducts.Rows.Count > 0 && !bgw1.IsBusy && !bgw2.IsBusy)
                 {
                     DataRow dr = syncProducts.Rows[0];
 
@@ -357,8 +366,8 @@ namespace Presentation
                     myProduct.price = dr[3].ToString() + ".0000";
                     myProduct.gia_si = dr[4].ToString() + ".0000";
                     syncProducts.Rows.Remove(dr);
-                    backgroundWorker1.RunWorkerAsync(myInventoryUpdate);
-                    backgroundWorker2.RunWorkerAsync(myProduct);
+                    bgw1.RunWorkerAsync(myInventoryUpdate);
+                    bgw2.RunWorkerAsync(myProduct);
                 }
             }
         }
@@ -388,7 +397,7 @@ namespace Presentation
             if (syncProducts.Rows.Count > 0)
             {
                 e.Cancel = true;
-                MessageBox.Show("Đang thực hiện đồng bộ với web. Vui lòng không đóng phần mềm", "Cảnh báo");
+                MessageBox.Show("Đang đồng bộ kho hàng với web. Vui lòng không đóng phần mềm", "Cảnh báo");
             }
         }
     }

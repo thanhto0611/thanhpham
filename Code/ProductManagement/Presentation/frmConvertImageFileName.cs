@@ -144,5 +144,21 @@ namespace Presentation
                 return;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string[] productList = System.IO.File.ReadAllLines(textBox3.Text);
+            foreach (string product in productList)
+            {
+                string rootFolderPath = textBox2.Text;
+                string filesToDelete = product + "*";
+                string[] fileList = System.IO.Directory.GetFiles(rootFolderPath, filesToDelete, System.IO.SearchOption.AllDirectories);
+                foreach (string file in fileList)
+                {
+                    System.IO.File.Delete(file);
+                }
+            }
+            MessageBox.Show("Done");
+        }
     }
 }

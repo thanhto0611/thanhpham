@@ -120,6 +120,14 @@ namespace Presentation
             btnColumn.Text = "Xóa";
             btnColumn.UseColumnTextForButtonValue = true;
             dtgvDanhSachSanPham.Columns.Add(btnColumn);
+
+            DataGridViewCheckBoxColumn cbxColumn = new DataGridViewCheckBoxColumn();
+            cbxColumn.Name = "CbxIsChanged";
+            cbxColumn.HeaderText = "";
+            cbxColumn.ValueType = typeof(bool);
+            //btnColumn.UseColumnTextForButtonValue = true;
+            dtgvDanhSachSanPham.Columns.Add(cbxColumn);
+
             dtgvDanhSachSanPham.Visible = true;
             formatData();
             lbMaDonHang.Text = maDH.ToString();

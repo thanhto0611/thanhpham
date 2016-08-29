@@ -89,3 +89,10 @@ G:\GitCode\thanhpham\Code\ProductManagement\DAO\bin\Debug\DTO.pdb
 G:\GitCode\thanhpham\Code\ProductManagement\DAO\obj\Debug\ResolveAssemblyReference.cache
 G:\GitCode\thanhpham\Code\ProductManagement\DAO\obj\Debug\DAO.dll
 G:\GitCode\thanhpham\Code\ProductManagement\DAO\obj\Debug\DAO.pdb
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DAO\bin\Debug\DAO.dll
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DAO\bin\Debug\DAO.pdb
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DAO\bin\Debug\DTO.dll
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DAO\bin\Debug\DTO.pdb
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DAO\obj\Debug\DAO.dll
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DAO\obj\Debug\DAO.pdb

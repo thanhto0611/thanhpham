@@ -280,6 +280,10 @@ namespace Presentation
                     {
                         sp.MaDanhMuc = dmBUS.LayMaDanhMuc(@"Khăn Quàng Cổ").MaDanhMuc;
                     }
+                    if (sp.MaSanPham.Substring(0, 2) == "PK")
+                    {
+                        sp.MaDanhMuc = dmBUS.LayMaDanhMuc(@"Phụ Kiện Trang Trí").MaDanhMuc;
+                    }
                     if (spBus.KiemTraTonTai(sp.MaSanPham) == true)
                     {
                         spBus.Update(sp);

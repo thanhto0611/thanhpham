@@ -43,3 +43,8 @@ C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\DTO\obj\Debug\DTO.dll
 C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\DTO\bin\Debug\DTO.dll
 C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\DTO\bin\Debug\DTO.pdb
 C:\Users\thanhpham.HARVEYNASH\Desktop\ProductManagement\DTO\obj\Debug\DTO.pdb
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DTO\bin\Debug\DTO.dll
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DTO\bin\Debug\DTO.pdb
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DTO\obj\Debug\DTO.dll
+D:\Private\GitCode\thanhpham\Code\ProductManagement\DTO\obj\Debug\DTO.pdb

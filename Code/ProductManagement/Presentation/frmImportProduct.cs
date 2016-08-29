@@ -361,6 +361,21 @@ namespace Presentation
                             description = description + " />";
                             drs[0]["description"] = description;
                         }
+                        if (imageFiles[i].Name.Substring(0, 2).ToUpper() == "PK")
+                        {
+                            description = drs[0]["description"].ToString();
+                            description = description + "\n";
+                            description = description + "</br>";
+                            description = description + "\n";
+                            description = description + "<img src=\"";
+                            description = description + "http://www.thoitrangella.com/media/catalog/product/p/k/" + transName.ToLower() + "\"";
+                            description = description + " width=\"";
+                            description = description + "400\"";
+                            description = description + " height=\"";
+                            description = description + "auto\"";
+                            description = description + " />";
+                            drs[0]["description"] = description;
+                        }
                         if (imageFiles[i].Name.Substring(0, 1).ToUpper() == "N")
                         {
                             description = drs[0]["description"].ToString();
@@ -684,6 +699,33 @@ namespace Presentation
                             description = description + " />";
 
                             short_description = short_description + "CÀI ÁO " + splitName[0].ToUpper();
+                        }
+                        if (imageFiles[i].Name.Substring(0, 2).ToUpper() == "PK")
+                        {
+                            attribute_set = "Phụ kiện trang trí";
+                            category_ids = "115,131,113";
+
+                            description = description + "<h1><font color=\"";
+                            description = description + "blue\"";
+                            description = description + ">PHỤ KIỆN TRANG TRÍ</font></h1>";
+                            description = description + "\n";
+                            description = description + "<h1><font size=\"";
+                            description = description + "7\"";
+                            description = description + " color=\"";
+                            description = description + "red\"";
+                            description = description + ">" + splitName[0].ToUpper() + "</font></h1>";
+                            description = description + "\n";
+                            description = description + "</br>";
+                            description = description + "\n";
+                            description = description + "<img src=\"";
+                            description = description + "http://www.thoitrangella.com/media/catalog/product/p/k/" + transName.ToLower() + "\"";
+                            description = description + " width=\"";
+                            description = description + "400\"";
+                            description = description + " height=\"";
+                            description = description + "auto\"";
+                            description = description + " />";
+
+                            short_description = short_description + "PHỤ KIỆN TRANG TRÍ " + splitName[0].ToUpper();
                         }
                         if (imageFiles[i].Name.Substring(0, 1).ToUpper() == "N")
                         {

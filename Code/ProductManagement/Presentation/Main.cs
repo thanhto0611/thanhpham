@@ -114,8 +114,8 @@ namespace Presentation
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-          frmThongKeTL frmThongKe = new frmThongKeTL();
-          frmThongKe.ShowDialog();
+          //frmThongKeTL frmThongKe = new frmThongKeTL();
+          //frmThongKe.ShowDialog();
         }
 
         private void logOutToolStripButton_Click(object sender, EventArgs e)
